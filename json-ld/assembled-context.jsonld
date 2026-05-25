@@ -1,0 +1,93 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@vocab": "https://schema.org/",
+    "assembled": "https://api.assembledhq.com/v0/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "Person": {
+      "@id": "assembled:Person",
+      "@context": {
+        "id": { "@id": "assembled:Person/id", "@type": "xsd:string" },
+        "email": { "@id": "schema:email" },
+        "name": { "@id": "schema:name" },
+        "first_name": { "@id": "schema:givenName" },
+        "last_name": { "@id": "schema:familyName" },
+        "role_id": { "@id": "assembled:Person/role" },
+        "channels": { "@id": "assembled:Person/channels", "@container": "@set" },
+        "team_ids": { "@id": "assembled:Person/teams", "@container": "@set" },
+        "skill_ids": { "@id": "assembled:Person/skills", "@container": "@set" },
+        "site_id": { "@id": "assembled:Person/site" },
+        "active": { "@id": "assembled:Person/active", "@type": "xsd:boolean" }
+      }
+    },
+
+    "Activity": {
+      "@id": "assembled:Activity",
+      "@context": {
+        "id": { "@id": "assembled:Activity/id", "@type": "xsd:string" },
+        "agent_id": { "@id": "assembled:Activity/agent" },
+        "activity_type_id": { "@id": "assembled:Activity/type" },
+        "start_time": { "@id": "schema:startTime", "@type": "xsd:dateTime" },
+        "end_time": { "@id": "schema:endTime", "@type": "xsd:dateTime" },
+        "queue_ids": { "@id": "assembled:Activity/queues", "@container": "@set" },
+        "site_id": { "@id": "assembled:Activity/site" }
+      }
+    },
+
+    "AgentState": {
+      "@id": "assembled:AgentState",
+      "@context": {
+        "id": { "@id": "assembled:AgentState/id", "@type": "xsd:string" },
+        "agent_id": { "@id": "assembled:AgentState/agent" },
+        "state": { "@id": "assembled:AgentState/state" },
+        "sub_state": { "@id": "assembled:AgentState/subState" },
+        "start_time": { "@id": "schema:startTime", "@type": "xsd:dateTime" },
+        "end_time": { "@id": "schema:endTime", "@type": "xsd:dateTime" },
+        "source": { "@id": "assembled:AgentState/source" }
+      }
+    },
+
+    "Forecast": {
+      "@id": "assembled:Forecast",
+      "@context": {
+        "id": { "@id": "assembled:Forecast/id", "@type": "xsd:string" },
+        "queue_id": { "@id": "assembled:Forecast/queue" },
+        "channel": { "@id": "assembled:Forecast/channel" },
+        "interval_minutes": { "@id": "assembled:Forecast/intervalMinutes", "@type": "xsd:integer" },
+        "volume": { "@id": "assembled:Forecast/volume", "@type": "xsd:double" },
+        "aht_seconds": { "@id": "assembled:Forecast/ahtSeconds", "@type": "xsd:double" },
+        "required_agents": { "@id": "assembled:Forecast/requiredAgents", "@type": "xsd:double" }
+      }
+    },
+
+    "Conversation": {
+      "@id": "assembled:Conversation",
+      "@context": {
+        "external_id": { "@id": "assembled:Conversation/externalId" },
+        "channel": { "@id": "assembled:Conversation/channel" },
+        "queue_id": { "@id": "assembled:Conversation/queue" },
+        "assigned_agent_id": { "@id": "assembled:Conversation/assignedAgent" },
+        "customer_id": { "@id": "assembled:Conversation/customer" },
+        "started_at": { "@id": "schema:startTime", "@type": "xsd:dateTime" },
+        "ended_at": { "@id": "schema:endTime", "@type": "xsd:dateTime" },
+        "handle_time_seconds": { "@id": "assembled:Conversation/handleTimeSeconds", "@type": "xsd:double" },
+        "csat_score": { "@id": "assembled:Conversation/csatScore", "@type": "xsd:double" }
+      }
+    },
+
+    "AssistResponse": {
+      "@id": "assembled:AssistResponse",
+      "@context": {
+        "id": { "@id": "assembled:AssistResponse/id" },
+        "conversation_id": { "@id": "assembled:AssistResponse/conversation" },
+        "channel": { "@id": "assembled:AssistResponse/channel" },
+        "body": { "@id": "schema:text" },
+        "confidence": { "@id": "assembled:AssistResponse/confidence", "@type": "xsd:double" },
+        "model": { "@id": "assembled:AssistResponse/model" },
+        "cited_article_ids": { "@id": "assembled:AssistResponse/citedArticles", "@container": "@set" }
+      }
+    }
+  }
+}

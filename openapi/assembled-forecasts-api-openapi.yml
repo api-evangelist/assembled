@@ -1,0 +1,305 @@
+openapi: 3.1.0
+info:
+  title: Assembled Forecasts API
+  description: |
+    Retrieve Assembled's ML-generated forecasts, forecast totals, manual
+    adjustments, and detected outliers, and compare predicted to realised
+    volume.
+
+    Forecasts drive AI-powered schedule generation and staffing
+    recommendations across human and AI agents. The
+    forecasted_vs_actuals endpoint is the canonical place to measure
+    accuracy and detect drift.
+  version: '2026-05-24'
+  contact:
+    name: Assembled Support
+    url: https://support.assembled.com
+servers:
+  - url: https://api.assembledhq.com
+    description: Production Server
+security:
+  - BasicAuth: []
+tags:
+  - name: Forecasts
+  - name: Forecast Totals
+  - name: Forecast Adjustments
+  - name: Forecast Outliers
+  - name: Forecasts Vs Actuals
+paths:
+  /v0/forecasts:
+    get:
+      summary: Assembled List Forecasts
+      operationId: listForecasts
+      tags: [Forecasts]
+      parameters:
+        - in: query
+          name: start_time
+          required: true
+          schema: { type: string, format: date-time }
+        - in: query
+          name: end_time
+          required: true
+          schema: { type: string, format: date-time }
+        - in: query
+          name: queue_ids
+          schema: { type: string }
+        - in: query
+          name: channel
+          schema: { type: string }
+      responses:
+        '200':
+          description: Forecasts
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  forecasts:
+                    type: array
+                    items: { $ref: '#/components/schemas/Forecast' }
+  /v0/forecasts/totals:
+    get:
+      summary: Assembled List Forecast Totals
+      operationId: listForecastTotals
+      tags: [Forecast Totals]
+      parameters:
+        - in: query
+          name: start_time
+          required: true
+          schema: { type: string, format: date-time }
+        - in: query
+          name: end_time
+          required: true
+          schema: { type: string, format: date-time }
+      responses:
+        '200':
+          description: Forecast totals
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  totals:
+                    type: array
+                    items: { $ref: '#/components/schemas/ForecastTotal' }
+    post:
+      summary: Assembled Create Forecast Totals
+      operationId: createForecastTotals
+      tags: [Forecast Totals]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                totals:
+                  type: array
+                  items: { $ref: '#/components/schemas/ForecastTotalInput' }
+      responses:
+        '201':
+          description: Created
+  /v0/forecasts/totals/{id}:
+    get:
+      summary: Assembled Get Forecast Total
+      operationId: getForecastTotal
+      tags: [Forecast Totals]
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Forecast total
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ForecastTotal' }
+    delete:
+      summary: Assembled Delete Forecast Total
+      operationId: deleteForecastTotal
+      tags: [Forecast Totals]
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '204':
+          description: Deleted
+  /v0/forecasts/adjustments:
+    get:
+      summary: Assembled List Forecast Adjustments
+      operationId: listForecastAdjustments
+      tags: [Forecast Adjustments]
+      responses:
+        '200':
+          description: Adjustments
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  adjustments:
+                    type: array
+                    items: { $ref: '#/components/schemas/ForecastAdjustment' }
+  /v0/forecasts/adjustments/bulk:
+    post:
+      summary: Assembled Bulk Create Forecast Adjustments
+      operationId: bulkCreateForecastAdjustments
+      tags: [Forecast Adjustments]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                adjustments:
+                  type: array
+                  items: { $ref: '#/components/schemas/ForecastAdjustment' }
+      responses:
+        '201':
+          description: Created
+  /v0/forecasts/adjustments/{id}:
+    delete:
+      summary: Assembled Delete Forecast Adjustment
+      operationId: deleteForecastAdjustment
+      tags: [Forecast Adjustments]
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '204':
+          description: Deleted
+  /v0/forecasts/outliers:
+    get:
+      summary: Assembled List Forecast Outliers
+      operationId: listForecastOutliers
+      tags: [Forecast Outliers]
+      responses:
+        '200':
+          description: Outliers
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  outliers:
+                    type: array
+                    items: { $ref: '#/components/schemas/ForecastOutlier' }
+  /v0/forecasts/outliers/bulk:
+    post:
+      summary: Assembled Bulk Create Forecast Outliers
+      operationId: bulkCreateForecastOutliers
+      tags: [Forecast Outliers]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                outliers:
+                  type: array
+                  items: { $ref: '#/components/schemas/ForecastOutlier' }
+      responses:
+        '201':
+          description: Created
+  /v0/forecasts/outliers/{id}:
+    delete:
+      summary: Assembled Delete Forecast Outlier
+      operationId: deleteForecastOutlier
+      tags: [Forecast Outliers]
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '204':
+          description: Deleted
+  /v0/forecasted_vs_actuals:
+    get:
+      summary: Assembled Get Forecasted Vs Actuals
+      operationId: getForecastedVsActuals
+      tags: [Forecasts Vs Actuals]
+      parameters:
+        - in: query
+          name: start_time
+          required: true
+          schema: { type: string, format: date-time }
+        - in: query
+          name: end_time
+          required: true
+          schema: { type: string, format: date-time }
+        - in: query
+          name: queue_ids
+          schema: { type: string }
+      responses:
+        '200':
+          description: Forecast accuracy series
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  intervals:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        start_time: { type: string, format: date-time }
+                        forecasted: { type: number }
+                        actual: { type: number }
+                        delta: { type: number }
+components:
+  securitySchemes:
+    BasicAuth: { type: http, scheme: basic }
+  schemas:
+    Forecast:
+      type: object
+      properties:
+        id: { type: string }
+        queue_id: { type: string }
+        channel: { type: string }
+        start_time: { type: string, format: date-time }
+        end_time: { type: string, format: date-time }
+        interval_minutes: { type: integer, example: 30 }
+        volume: { type: number }
+        aht_seconds: { type: number }
+        required_agents: { type: number }
+    ForecastTotal:
+      type: object
+      properties:
+        id: { type: string }
+        queue_id: { type: string }
+        start_time: { type: string, format: date-time }
+        end_time: { type: string, format: date-time }
+        total_volume: { type: number }
+    ForecastTotalInput:
+      type: object
+      properties:
+        queue_id: { type: string }
+        start_time: { type: string, format: date-time }
+        end_time: { type: string, format: date-time }
+        total_volume: { type: number }
+    ForecastAdjustment:
+      type: object
+      properties:
+        id: { type: string }
+        queue_id: { type: string }
+        start_time: { type: string, format: date-time }
+        end_time: { type: string, format: date-time }
+        adjustment_factor: { type: number, description: Multiplier applied to baseline forecast }
+        reason: { type: string }
+    ForecastOutlier:
+      type: object
+      properties:
+        id: { type: string }
+        queue_id: { type: string }
+        start_time: { type: string, format: date-time }
+        end_time: { type: string, format: date-time }
+        reason: { type: string }

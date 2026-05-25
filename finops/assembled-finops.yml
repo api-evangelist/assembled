@@ -1,0 +1,101 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Assembled
+providerId: assembled
+created: '2026-05-24'
+modified: '2026-05-24'
+reconciled: true
+tags:
+  - FinOps
+  - Cost Management
+  - FOCUS
+  - Customer Support
+  - AI Agents
+description: FOCUS-aligned FinOps definition for Assembled. Combines per-agent subscription metering for Workforce
+  Management and AI Copilot with per-conversation metering for AI Agents, plus a Vendor Management add-on charge.
+sources:
+  - https://www.assembled.com/pricing
+  - https://www.assembled.com/products/ai-agents
+  - https://www.assembled.com/products/ai-copilot
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Assembled
+serviceCategory: Customer Support and Workforce Management
+billingModel:
+  pricingCategory: Mixed
+  billingFrequency: Monthly
+  billingCurrency: USD
+  chargeCategories:
+    - Usage
+    - Subscription
+    - Adjustment
+    - Credit
+  primaryUnit: agent
+  secondaryUnits:
+    - conversation
+    - vendor_seat
+focusColumns:
+  ServiceName: Assembled Platform
+  ServiceCategory: Customer Support and Workforce Management
+  ProviderName: Assembled
+  PublisherName: Assembled
+  InvoiceIssuerName: Assembled
+  PricingCategory: Mixed
+  PricingUnit: agent
+  BillingCurrency: USD
+meters:
+  - name: wfm_agents
+    unit: agent
+    aggregation: max
+    dimensions:
+      - tier
+      - site
+      - team
+  - name: copilot_agents
+    unit: agent
+    aggregation: max
+    dimensions:
+      - tier
+      - team
+  - name: ai_conversations
+    unit: conversation
+    aggregation: sum
+    dimensions:
+      - channel
+      - resolved_by
+      - queue
+  - name: vendor_management_orgs
+    unit: organization
+    aggregation: max
+    dimensions:
+      - vendor
+discountModels:
+  - name: Annual commit
+    discount: Contact sales for multi-year and annual prepay discounts.
+  - name: Volume
+    discount: Custom enterprise pricing for high agent counts and AI conversation volume.
+unitEconomics:
+  - name: Cost per agent (WFM Core)
+    metric: subscription_cost / wfm_agents
+    target: $25/agent/month
+  - name: Cost per AI conversation
+    metric: ai_agent_spend / ai_conversations
+    target: $0.65/conversation
+  - name: Cost per agent (AI Copilot)
+    metric: copilot_spend / copilot_agents
+    target: $35/agent/month
+governance:
+  recommendedCapabilities:
+    - Cost Allocation by team/site/queue
+    - Anomaly Management on AI conversation volume
+    - Forecasting for seasonal staffing surges
+    - Budget management per support org and per BPO vendor
+notes:
+  - WFM Pro and Enterprise pricing is not publicly listed and requires sales engagement.
+  - AI Voice pricing is not publicly listed and requires sales engagement.
+  - The Vendor Management add-on is priced separately from the core subscription.

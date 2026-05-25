@@ -1,0 +1,43 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Assembled Filters API — Queues
+  description: 'Assembled Filters API — Queues. CRUD for the Queues organizational filter.'
+  tags: [Assembled, Queues]
+  created: '2026-05-24'
+  modified: '2026-05-24'
+binds:
+  - namespace: env
+    keys:
+      ASSEMBLED_API_KEY: ASSEMBLED_API_KEY
+capability:
+  consumes:
+    - type: http
+      namespace: filters-queues
+      baseUri: https://api.assembledhq.com
+      description: Assembled Queues capability.
+      resources:
+        - name: v0-queues
+          path: /v0/queues
+          operations:
+            - { name: listqueues, method: GET, description: Assembled List Queues, outputRawFormat: json, outputParameters: [{ name: result, type: object, value: $. }] }
+            - { name: createqueue, method: POST, description: Assembled Create Queue, outputRawFormat: json, outputParameters: [{ name: result, type: object, value: $. }] }
+            - { name: deletequeues, method: DELETE, description: Assembled Delete Queues, outputRawFormat: json, outputParameters: [{ name: result, type: object, value: $. }] }
+        - name: v0-queues-id
+          path: /v0/queues/{id}
+          operations:
+            - { name: updatequeue, method: PUT, description: Assembled Update Queue, outputRawFormat: json, outputParameters: [{ name: result, type: object, value: $. }] }
+      authentication:
+        type: basic
+        username: '{{env.ASSEMBLED_API_KEY}}'
+        password: ''
+  exposes:
+    - type: mcp
+      namespace: filters-queues-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Assembled Queues.
+      tools:
+        - { name: assembled-list-queues, description: Assembled List Queues, hints: { readOnly: true, destructive: false, idempotent: true }, call: filters-queues.listqueues, outputParameters: [{ type: object, mapping: $. }] }
+        - { name: assembled-create-queue, description: Assembled Create Queue, hints: { readOnly: false, destructive: false, idempotent: false }, call: filters-queues.createqueue, outputParameters: [{ type: object, mapping: $. }] }
+        - { name: assembled-update-queue, description: Assembled Update Queue, hints: { readOnly: false, destructive: false, idempotent: true }, call: filters-queues.updatequeue, outputParameters: [{ type: object, mapping: $. }] }
+        - { name: assembled-delete-queues, description: Assembled Delete Queues, hints: { readOnly: false, destructive: true, idempotent: true }, call: filters-queues.deletequeues, outputParameters: [{ type: object, mapping: $. }] }

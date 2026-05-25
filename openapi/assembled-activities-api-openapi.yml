@@ -1,0 +1,248 @@
+openapi: 3.1.0
+info:
+  title: Assembled Activities API
+  description: |
+    Activities are the scheduled shifts, breaks, time-off blocks, training
+    sessions, and meetings that make up an agent's calendar in Assembled.
+
+    The Activities API supports single and bulk activity creation, listing
+    with rich filters, soft-delete semantics, and CRUD for activity types
+    (the colour-coded categories shown on schedules). The event_changes
+    endpoint surfaces an audit trail of schedule modifications.
+  version: '2026-05-24'
+  contact:
+    name: Assembled Support
+    url: https://support.assembled.com
+servers:
+  - url: https://api.assembledhq.com
+    description: Production Server
+security:
+  - BasicAuth: []
+tags:
+  - name: Activities
+    description: Scheduled activities on an agent's calendar
+  - name: Activity Types
+    description: Types/categories of activity
+  - name: Event Changes
+    description: Audit trail of schedule modifications
+paths:
+  /v0/activities:
+    get:
+      summary: Assembled List Activities
+      description: List activities for a time window, optionally filtered by agent, queue, site, or type.
+      operationId: listActivities
+      tags: [Activities]
+      parameters:
+        - $ref: '#/components/parameters/ApiVersionHeader'
+        - in: query
+          name: start_time
+          required: true
+          schema: { type: string, format: date-time }
+        - in: query
+          name: end_time
+          required: true
+          schema: { type: string, format: date-time }
+        - in: query
+          name: agent_ids
+          schema: { type: string }
+        - in: query
+          name: queue_ids
+          schema: { type: string }
+        - in: query
+          name: activity_type_id
+          schema: { type: string }
+      responses:
+        '200':
+          description: Activities list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  activities:
+                    type: array
+                    items: { $ref: '#/components/schemas/Activity' }
+    post:
+      summary: Assembled Create Activity
+      description: Create a single activity.
+      operationId: createActivity
+      tags: [Activities]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/ActivityInput' }
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Activity' }
+    delete:
+      summary: Assembled Delete Activities
+      description: Soft-delete one or more activities by ID.
+      operationId: deleteActivities
+      tags: [Activities]
+      parameters:
+        - in: query
+          name: ids
+          required: true
+          schema: { type: string, description: Comma-separated list of activity IDs }
+      responses:
+        '204':
+          description: Deleted
+  /v0/activities/bulk:
+    post:
+      summary: Assembled Bulk Create Activities
+      description: Create many activities in a single request.
+      operationId: bulkCreateActivities
+      tags: [Activities]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                activities:
+                  type: array
+                  items: { $ref: '#/components/schemas/ActivityInput' }
+      responses:
+        '201':
+          description: Created
+  /v0/activity_types:
+    get:
+      summary: Assembled List Activity Types
+      description: List activity types defined in your organization.
+      operationId: listActivityTypes
+      tags: [Activity Types]
+      responses:
+        '200':
+          description: Activity types
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  activity_types:
+                    type: array
+                    items: { $ref: '#/components/schemas/ActivityType' }
+    post:
+      summary: Assembled Create Activity Type
+      description: Define a new activity type (name and colour).
+      operationId: createActivityType
+      tags: [Activity Types]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/ActivityTypeInput' }
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ActivityType' }
+  /v0/activity_types/{id}:
+    delete:
+      summary: Assembled Delete Activity Type
+      description: Delete an activity type.
+      operationId: deleteActivityType
+      tags: [Activity Types]
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '204':
+          description: Deleted
+  /v0/event_changes:
+    get:
+      summary: Assembled List Event Changes
+      description: Retrieve the audit trail of schedule modifications across activities.
+      operationId: listEventChanges
+      tags: [Event Changes]
+      parameters:
+        - in: query
+          name: start_time
+          required: true
+          schema: { type: string, format: date-time }
+        - in: query
+          name: end_time
+          required: true
+          schema: { type: string, format: date-time }
+      responses:
+        '200':
+          description: Event changes
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  event_changes:
+                    type: array
+                    items: { $ref: '#/components/schemas/EventChange' }
+components:
+  securitySchemes:
+    BasicAuth: { type: http, scheme: basic }
+  parameters:
+    ApiVersionHeader:
+      in: header
+      name: API-Version
+      required: false
+      schema: { type: string }
+  schemas:
+    Activity:
+      type: object
+      properties:
+        id: { type: string }
+        agent_id: { type: string }
+        activity_type_id: { type: string }
+        start_time: { type: string, format: date-time }
+        end_time: { type: string, format: date-time }
+        queue_ids:
+          type: array
+          items: { type: string }
+        site_id: { type: string, nullable: true }
+        notes: { type: string }
+        external_id: { type: string }
+        created_at: { type: string, format: date-time }
+        updated_at: { type: string, format: date-time }
+    ActivityInput:
+      type: object
+      required: [agent_id, activity_type_id, start_time, end_time]
+      properties:
+        agent_id: { type: string }
+        activity_type_id: { type: string }
+        start_time: { type: string, format: date-time }
+        end_time: { type: string, format: date-time }
+        queue_ids:
+          type: array
+          items: { type: string }
+        site_id: { type: string }
+        notes: { type: string }
+        external_id: { type: string }
+    ActivityType:
+      type: object
+      properties:
+        id: { type: string }
+        name: { type: string }
+        color: { type: string, example: '#3b82f6' }
+        category: { type: string, example: shift }
+    ActivityTypeInput:
+      type: object
+      required: [name]
+      properties:
+        name: { type: string }
+        color: { type: string }
+        category: { type: string }
+    EventChange:
+      type: object
+      properties:
+        id: { type: string }
+        event_id: { type: string }
+        change_type: { type: string, enum: [create, update, delete] }
+        changed_by: { type: string }
+        changed_at: { type: string, format: date-time }
+        diff: { type: object }

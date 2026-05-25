@@ -1,0 +1,34 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Assembled QA API — Scores
+  description: 'Assembled QA API — Scores. Bulk-upload conversation QA scores from external QM tools.'
+  tags: [Assembled, Quality Assurance]
+  created: '2026-05-24'
+  modified: '2026-05-24'
+binds:
+  - namespace: env
+    keys:
+      ASSEMBLED_API_KEY: ASSEMBLED_API_KEY
+capability:
+  consumes:
+    - type: http
+      namespace: qa-scores
+      baseUri: https://api.assembledhq.com
+      description: Assembled QA Scores capability.
+      resources:
+        - name: v0-qa-scores-bulk
+          path: /v0/qa_scores/bulk
+          operations:
+            - { name: bulkuploadqascores, method: POST, description: Assembled Bulk Upload QA Scores, outputRawFormat: json, outputParameters: [{ name: result, type: object, value: $. }] }
+      authentication:
+        type: basic
+        username: '{{env.ASSEMBLED_API_KEY}}'
+        password: ''
+  exposes:
+    - type: mcp
+      namespace: qa-scores-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Assembled QA.
+      tools:
+        - { name: assembled-bulk-upload-qa-scores, description: Assembled Bulk Upload QA Scores, hints: { readOnly: false, destructive: false, idempotent: false }, call: qa-scores.bulkuploadqascores, outputParameters: [{ type: object, mapping: $. }] }

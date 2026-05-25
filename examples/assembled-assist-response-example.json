@@ -1,0 +1,14 @@
+{
+  "id": "asr_01HZ8V2QF5N3JKQ7Z2X4F8H1RP",
+  "conversation_id": "cnv_01HZ8V25YGZJC9YJM4WP9R1KE3",
+  "channel": "chat",
+  "body": "Happy to help! I see the charge you're asking about was a $4.99 storage upgrade on May 18. Would you like me to walk you through downgrading or issuing a refund?",
+  "confidence": 0.92,
+  "model": "assembled-ai-agent-v3",
+  "cited_article_ids": ["art_billing_storage_upgrade", "art_refund_policy_us"],
+  "metadata": {
+    "language": "en-US",
+    "tone": "warm-empathetic"
+  },
+  "created_at": "2026-05-24T14:32:11Z"
+}

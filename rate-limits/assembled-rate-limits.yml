@@ -1,0 +1,47 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Assembled
+providerId: assembled
+created: '2026-05-24'
+modified: '2026-05-24'
+reconciled: true
+tags:
+  - Customer Support
+  - Rate Limiting
+  - Quotas
+description: Documented rate limits for the Assembled REST API. Default is 300 requests per minute (5 requests per
+  second) with bursts of up to 20 requests. Contact support for higher thresholds.
+sources:
+  - https://docs.assembled.com/
+algorithm: token-bucket
+responseCodes:
+  throttled: 429
+  quotaExceeded: 429
+headers:
+  retryAfter: retry-after
+limits:
+  - tier: Default
+    scope: per-api-key
+    rpm: 300
+    rps: 5
+    burst: 20
+  - tier: Custom
+    scope: per-api-key
+    rpm: contact-support
+    rps: contact-support
+    burst: contact-support
+quotas:
+  - name: Bulk activity create
+    limit: 'Up to 1000 activities per request'
+    scope: per-request
+  - name: Bulk agent state ingest
+    limit: 'Recommended max 500 state records per request'
+    scope: per-request
+  - name: Bulk conversation upsert
+    limit: 'Recommended max 500 conversations per request'
+    scope: per-request
+notes:
+  - Limit applies to all v0 endpoints unless otherwise documented.
+  - 429 responses honour the standard retry-after header.
+  - Date-based API versioning is requested via the API-Version header; throttling is the same across versions.

@@ -1,0 +1,16 @@
+{
+  "intervals": [
+    {
+      "start_time": "2026-05-24T00:00:00Z",
+      "forecasted": 1820.5,
+      "actual": 1788.0,
+      "delta": -32.5
+    },
+    {
+      "start_time": "2026-05-24T00:30:00Z",
+      "forecasted": 1742.0,
+      "actual": 1801.0,
+      "delta": 59.0
+    }
+  ]
+}

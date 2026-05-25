@@ -1,0 +1,77 @@
+extends: [[spectral:oas, all]]
+documentationUrl: https://github.com/api-evangelist/assembled
+functions: []
+rules:
+  assembled-info-contact-required:
+    description: All Assembled OpenAPI specs must declare a support contact.
+    given: $.info
+    severity: error
+    then:
+      field: contact
+      function: truthy
+  assembled-operation-summary-title-case:
+    description: Operation summaries must start with "Assembled " and use Title Case.
+    given: $.paths.*[get,post,put,patch,delete].summary
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: '^Assembled [A-Z][A-Za-z0-9 ()\\-]+$'
+  assembled-operation-id-camel-case:
+    description: operationId must be camelCase (no underscores, no hyphens).
+    given: $.paths.*[get,post,put,patch,delete].operationId
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: '^[a-z][a-zA-Z0-9]*$'
+  assembled-path-snake-case:
+    description: Path segments must use lower snake_case (per Assembled API style).
+    given: $.paths
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: '^(/v0)(/[a-z0-9_]+|/\\{[a-zA-Z]+\\})+/?$'
+      field: '@key'
+  assembled-server-versioned-base:
+    description: Servers should target the documented production base URL.
+    given: $.servers[*].url
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: '^https://api\\.assembledhq\\.com.*'
+  assembled-basic-auth-required:
+    description: Each spec must declare HTTP Basic Auth.
+    given: $.components.securitySchemes
+    severity: error
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          additionalProperties:
+            type: object
+            properties:
+              type: { const: http }
+              scheme: { const: basic }
+  assembled-tag-defined:
+    description: Operations must declare at least one tag.
+    given: $.paths.*[get,post,put,patch,delete].tags
+    severity: error
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: array
+          minItems: 1
+  assembled-error-response-defined:
+    description: Operations that can be rate-limited (all v0) should document a 429 response.
+    given: $.paths.*[get,post,put,patch,delete].responses
+    severity: hint
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object

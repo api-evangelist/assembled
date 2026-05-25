@@ -1,0 +1,143 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Assembled
+providerId: assembled
+created: '2026-05-24'
+modified: '2026-05-24'
+reconciled: true
+tags:
+  - Customer Support
+  - Workforce Management
+  - AI Agents
+  - AI Copilot
+description: 'Reconciled commercial plans for Assembled, covering Workforce Management tiers (Core, Pro, Enterprise),
+  AI Agents per-conversation pricing, AI Copilot per-agent pricing, and the Vendor Management add-on. Public starting
+  prices; tier-specific WFM and AI Voice pricing requires sales engagement.'
+sources:
+  - https://www.assembled.com/pricing
+  - https://www.assembled.com/products/workforce-management
+  - https://www.assembled.com/products/ai-agents
+  - https://www.assembled.com/products/ai-copilot
+plans:
+  - id: assembled-wfm-core
+    name: Workforce Management — Core
+    type: subscription
+    description: Entry tier with basic scheduling, time tracking, real-time adherence, and historical reporting.
+    entries:
+      - label: Per agent
+        name: agent
+        type: subscription
+        metric: agent
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '25.00'
+        userMultiplied: true
+    elements:
+      - name: Basic scheduling and time tracking
+      - name: Real-time adherence
+      - name: Historical reporting
+  - id: assembled-wfm-pro
+    name: Workforce Management — Pro
+    type: subscription
+    description: Adds AI-powered scheduling, ML forecasting, and automated time-off and shift swaps.
+    entries:
+      - label: Per agent
+        name: agent
+        type: subscription
+        metric: agent
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: contact-sales
+        userMultiplied: true
+    elements:
+      - name: Everything in Core
+      - name: AI-powered scheduling
+      - name: ML forecasting
+      - name: Automated time off and shift swaps
+  - id: assembled-wfm-enterprise
+    name: Workforce Management — Enterprise
+    type: subscription
+    description: Full feature set with custom API integrations, white-glove onboarding, and dedicated account management.
+    entries:
+      - label: Per agent
+        name: agent
+        type: subscription
+        metric: agent
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: contact-sales
+        userMultiplied: true
+    elements:
+      - name: Everything in Pro
+      - name: Custom API integrations
+      - name: White glove onboarding
+      - name: Dedicated account manager
+  - id: assembled-ai-agents
+    name: AI Agents
+    type: usage-based
+    description: Autonomous multichannel resolution priced per AI-handled conversation.
+    entries:
+      - label: Per AI conversation
+        name: ai_conversation
+        type: metered
+        metric: conversation
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '0.65'
+        userMultiplied: false
+    elements:
+      - name: Multichannel resolution (chat, email, SMS, voice)
+      - name: Agentic workflows
+      - name: Smart handoffs and escalation rules
+      - name: Custom style guides
+      - name: Built-in QA tools
+  - id: assembled-ai-copilot
+    name: AI Copilot
+    type: subscription
+    description: Real-time AI assistance for human agents — reply drafting, translation, summarisation, tone modifiers.
+    entries:
+      - label: Per agent
+        name: agent
+        type: subscription
+        metric: agent
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '35.00'
+        userMultiplied: true
+    elements:
+      - name: Reply drafting
+      - name: Real-time translation
+      - name: Summarisation
+      - name: Agent guidance
+      - name: Tone modifiers
+  - id: assembled-vendor-management
+    name: Vendor Management (Add-on)
+    type: subscription
+    description: Add-on for support orgs running BPO vendors alongside in-house teams.
+    entries:
+      - label: Add-on
+        name: vendor_addon
+        type: subscription
+        metric: organization
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: contact-sales
+        userMultiplied: false
+    elements:
+      - name: Capacity planning
+      - name: Scheduling integration
+      - name: Coverage heatmaps
+      - name: Billing reports

@@ -1,0 +1,134 @@
+openapi: 3.1.0
+info:
+  title: Assembled Time Off API
+  description: |
+    Programmatically create, list, and cancel time-off requests and pull a
+    stream of time-off updates for downstream HRIS or payroll
+    synchronisation.
+
+    Underpins the automated time-off and shift-swap workflows offered in
+    Assembled's Pro and Enterprise plans.
+  version: '2026-05-24'
+  contact:
+    name: Assembled Support
+    url: https://support.assembled.com
+servers:
+  - url: https://api.assembledhq.com
+    description: Production Server
+security:
+  - BasicAuth: []
+tags:
+  - name: Time Off
+paths:
+  /v0/time_off:
+    post:
+      summary: Assembled Create Time Off
+      operationId: createTimeOff
+      tags: [Time Off]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/TimeOffInput' }
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/TimeOffRequest' }
+  /v0/time_off/requests:
+    get:
+      summary: Assembled List Time Off Requests
+      operationId: listTimeOffRequests
+      tags: [Time Off]
+      parameters:
+        - in: query
+          name: status
+          schema: { type: string, enum: [pending, approved, denied, cancelled] }
+        - in: query
+          name: agent_id
+          schema: { type: string }
+        - in: query
+          name: start_time
+          schema: { type: string, format: date-time }
+        - in: query
+          name: end_time
+          schema: { type: string, format: date-time }
+      responses:
+        '200':
+          description: Time off requests
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  requests:
+                    type: array
+                    items: { $ref: '#/components/schemas/TimeOffRequest' }
+  /v0/time_off/{id}/cancel:
+    post:
+      summary: Assembled Cancel Time Off Request
+      operationId: cancelTimeOffRequest
+      tags: [Time Off]
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Cancelled
+  /v0/time_off/updates:
+    get:
+      summary: Assembled List Time Off Updates
+      operationId: listTimeOffUpdates
+      tags: [Time Off]
+      parameters:
+        - in: query
+          name: since
+          required: true
+          schema: { type: string, format: date-time }
+      responses:
+        '200':
+          description: Time off update stream
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  updates:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        request_id: { type: string }
+                        change_type: { type: string }
+                        updated_at: { type: string, format: date-time }
+components:
+  securitySchemes:
+    BasicAuth: { type: http, scheme: basic }
+  schemas:
+    TimeOffRequest:
+      type: object
+      properties:
+        id: { type: string }
+        agent_id: { type: string }
+        type: { type: string, example: pto }
+        status: { type: string, enum: [pending, approved, denied, cancelled] }
+        start_time: { type: string, format: date-time }
+        end_time: { type: string, format: date-time }
+        all_day: { type: boolean }
+        notes: { type: string }
+        approver_id: { type: string, nullable: true }
+        created_at: { type: string, format: date-time }
+        updated_at: { type: string, format: date-time }
+    TimeOffInput:
+      type: object
+      required: [agent_id, start_time, end_time]
+      properties:
+        agent_id: { type: string }
+        type: { type: string }
+        start_time: { type: string, format: date-time }
+        end_time: { type: string, format: date-time }
+        all_day: { type: boolean }
+        notes: { type: string }

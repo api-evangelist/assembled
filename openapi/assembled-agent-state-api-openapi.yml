@@ -1,0 +1,218 @@
+openapi: 3.1.0
+info:
+  title: Assembled Agent State API
+  description: |
+    Real-time agent state used for adherence reporting, live dashboards, and
+    dynamic routing.
+
+    Stream agent states from upstream telephony and CRM systems into
+    Assembled, retrieve current and historical state, look at a condensed
+    non-overlapping timeline, edit historical state, and associate platform
+    identifiers (Zendesk, Salesforce, Five9, etc.) to Assembled person IDs.
+  version: '2026-05-24'
+  contact:
+    name: Assembled Support
+    url: https://support.assembled.com
+servers:
+  - url: https://api.assembledhq.com
+    description: Production Server
+security:
+  - BasicAuth: []
+tags:
+  - name: Agent State
+    description: Real-time and historical agent state
+  - name: Agent Associations
+    description: Map platform IDs to Assembled people
+paths:
+  /v0/agents/state:
+    get:
+      summary: Assembled Get Agent States
+      description: Retrieve agent state records for a time range, optionally filtered by agent.
+      operationId: getAgentStates
+      tags: [Agent State]
+      parameters:
+        - $ref: '#/components/parameters/ApiVersionHeader'
+        - in: query
+          name: start_time
+          required: true
+          schema: { type: string, format: date-time }
+        - in: query
+          name: end_time
+          required: true
+          schema: { type: string, format: date-time }
+        - in: query
+          name: agent_ids
+          description: Comma-separated list of Assembled agent IDs.
+          schema: { type: string }
+      responses:
+        '200':
+          description: Agent states
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  states:
+                    type: array
+                    items: { $ref: '#/components/schemas/AgentState' }
+    post:
+      deprecated: true
+      summary: Assembled Update Agent State (Deprecated)
+      description: Deprecated single-state update endpoint. Use /v0/agents/state/bulk instead.
+      operationId: postAgentState
+      tags: [Agent State]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/AgentStateInput' }
+      responses:
+        '200':
+          description: Updated
+  /v0/agents/state/bulk:
+    post:
+      summary: Assembled Bulk Update Agent States
+      description: Submit a batch of agent state records ingested from upstream telephony or CRM platforms.
+      operationId: bulkUpdateAgentStates
+      tags: [Agent State]
+      parameters:
+        - $ref: '#/components/parameters/ApiVersionHeader'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                states:
+                  type: array
+                  items: { $ref: '#/components/schemas/AgentStateInput' }
+      responses:
+        '202':
+          description: Accepted for processing
+  /v0/agents/state/condensed_timeline:
+    get:
+      summary: Assembled Get Condensed Agent State Timeline
+      description: Returns a non-overlapping timeline of agent state changes — useful for adherence and shrinkage reports.
+      operationId: getCondensedTimeline
+      tags: [Agent State]
+      parameters:
+        - $ref: '#/components/parameters/ApiVersionHeader'
+        - in: query
+          name: start_time
+          required: true
+          schema: { type: string, format: date-time }
+        - in: query
+          name: end_time
+          required: true
+          schema: { type: string, format: date-time }
+        - in: query
+          name: agent_ids
+          schema: { type: string }
+      responses:
+        '200':
+          description: Condensed timeline
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  timeline:
+                    type: array
+                    items: { $ref: '#/components/schemas/AgentState' }
+  /v0/agents/state/edit:
+    post:
+      summary: Assembled Edit Agent State
+      description: Insert, update, or delete agent state records.
+      operationId: editAgentState
+      tags: [Agent State]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                inserts:
+                  type: array
+                  items: { $ref: '#/components/schemas/AgentStateInput' }
+                updates:
+                  type: array
+                  items: { $ref: '#/components/schemas/AgentStateInput' }
+                deletes:
+                  type: array
+                  items: { type: string, description: State record IDs to delete }
+      responses:
+        '200':
+          description: Edit applied
+  /v0/agents/state/edit/history:
+    get:
+      summary: Assembled Get Agent State Edit History
+      description: Audit trail of edits made to agent state records.
+      operationId: getEditHistory
+      tags: [Agent State]
+      parameters:
+        - $ref: '#/components/parameters/ApiVersionHeader'
+        - in: query
+          name: start_time
+          schema: { type: string, format: date-time }
+        - in: query
+          name: end_time
+          schema: { type: string, format: date-time }
+      responses:
+        '200':
+          description: Edit history
+  /v0/agents/associations:
+    post:
+      summary: Assembled Create Agent Associations
+      description: Associate platform identifiers (Zendesk, Salesforce, Five9, Intercom, etc.) to Assembled agent IDs.
+      operationId: createAgentAssociations
+      tags: [Agent Associations]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                associations:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      agent_id: { type: string }
+                      platform: { type: string, example: zendesk }
+                      platform_id: { type: string }
+      responses:
+        '201':
+          description: Associations created
+components:
+  securitySchemes:
+    BasicAuth: { type: http, scheme: basic }
+  parameters:
+    ApiVersionHeader:
+      in: header
+      name: API-Version
+      required: false
+      schema: { type: string }
+  schemas:
+    AgentState:
+      type: object
+      properties:
+        id: { type: string }
+        agent_id: { type: string }
+        state: { type: string, example: available }
+        sub_state: { type: string, nullable: true, example: chat }
+        start_time: { type: string, format: date-time }
+        end_time: { type: string, format: date-time, nullable: true }
+        source: { type: string, example: zendesk }
+    AgentStateInput:
+      type: object
+      required: [agent_id, state, start_time]
+      properties:
+        agent_id: { type: string }
+        state: { type: string }
+        sub_state: { type: string }
+        start_time: { type: string, format: date-time }
+        end_time: { type: string, format: date-time }
+        source: { type: string }

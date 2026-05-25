@@ -1,0 +1,43 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Assembled Filters API — Skills
+  description: 'Assembled Filters API — Skills. CRUD for the Skills organizational filter.'
+  tags: [Assembled, Skills]
+  created: '2026-05-24'
+  modified: '2026-05-24'
+binds:
+  - namespace: env
+    keys:
+      ASSEMBLED_API_KEY: ASSEMBLED_API_KEY
+capability:
+  consumes:
+    - type: http
+      namespace: filters-skills
+      baseUri: https://api.assembledhq.com
+      description: Assembled Skills capability.
+      resources:
+        - name: v0-skills
+          path: /v0/skills
+          operations:
+            - { name: listskills, method: GET, description: Assembled List Skills, outputRawFormat: json, outputParameters: [{ name: result, type: object, value: $. }] }
+            - { name: createskill, method: POST, description: Assembled Create Skill, outputRawFormat: json, outputParameters: [{ name: result, type: object, value: $. }] }
+            - { name: deleteskills, method: DELETE, description: Assembled Delete Skills, outputRawFormat: json, outputParameters: [{ name: result, type: object, value: $. }] }
+        - name: v0-skills-id
+          path: /v0/skills/{id}
+          operations:
+            - { name: updateskill, method: PUT, description: Assembled Update Skill, outputRawFormat: json, outputParameters: [{ name: result, type: object, value: $. }] }
+      authentication:
+        type: basic
+        username: '{{env.ASSEMBLED_API_KEY}}'
+        password: ''
+  exposes:
+    - type: mcp
+      namespace: filters-skills-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Assembled Skills.
+      tools:
+        - { name: assembled-list-skills, description: Assembled List Skills, hints: { readOnly: true, destructive: false, idempotent: true }, call: filters-skills.listskills, outputParameters: [{ type: object, mapping: $. }] }
+        - { name: assembled-create-skill, description: Assembled Create Skill, hints: { readOnly: false, destructive: false, idempotent: false }, call: filters-skills.createskill, outputParameters: [{ type: object, mapping: $. }] }
+        - { name: assembled-update-skill, description: Assembled Update Skill, hints: { readOnly: false, destructive: false, idempotent: true }, call: filters-skills.updateskill, outputParameters: [{ type: object, mapping: $. }] }
+        - { name: assembled-delete-skills, description: Assembled Delete Skills, hints: { readOnly: false, destructive: true, idempotent: true }, call: filters-skills.deleteskills, outputParameters: [{ type: object, mapping: $. }] }

@@ -1,0 +1,39 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Assembled Reports API — Reports
+  description: 'Assembled Reports API — Reports. Async generation of adherence, ticket stats, and handle time reports.'
+  tags: [Assembled, Reports, Analytics]
+  created: '2026-05-24'
+  modified: '2026-05-24'
+binds:
+  - namespace: env
+    keys:
+      ASSEMBLED_API_KEY: ASSEMBLED_API_KEY
+capability:
+  consumes:
+    - type: http
+      namespace: reports-reports
+      baseUri: https://api.assembledhq.com
+      description: Assembled Reports capability.
+      resources:
+        - name: v0-reports-reportType
+          path: /v0/reports/{reportType}
+          operations:
+            - { name: startreport, method: POST, description: Assembled Start Report, outputRawFormat: json, outputParameters: [{ name: result, type: object, value: $. }] }
+        - name: v0-reports-reportID
+          path: /v0/reports/{reportID}
+          operations:
+            - { name: getreport, method: GET, description: Assembled Get Report, outputRawFormat: json, outputParameters: [{ name: result, type: object, value: $. }] }
+      authentication:
+        type: basic
+        username: '{{env.ASSEMBLED_API_KEY}}'
+        password: ''
+  exposes:
+    - type: mcp
+      namespace: reports-reports-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Assembled Reports.
+      tools:
+        - { name: assembled-start-report, description: Assembled Start Report, hints: { readOnly: false, destructive: false, idempotent: false }, call: reports-reports.startreport, outputParameters: [{ type: object, mapping: $. }] }
+        - { name: assembled-get-report, description: Assembled Get Report, hints: { readOnly: true, destructive: false, idempotent: true }, call: reports-reports.getreport, outputParameters: [{ type: object, mapping: $. }] }

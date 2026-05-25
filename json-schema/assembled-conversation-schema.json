@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/assembled/refs/heads/main/json-schema/assembled-conversation-schema.json",
+  "title": "AssembledConversation",
+  "description": "A customer support conversation ingested into Assembled across phone, email, chat, SMS, social, or back-office channels.",
+  "type": "object",
+  "required": ["external_id", "channel", "started_at"],
+  "properties": {
+    "external_id": { "type": "string", "description": "Stable ID from the source platform." },
+    "platform": { "type": "string", "examples": ["zendesk", "salesforce", "intercom", "kustomer"] },
+    "channel": { "type": "string", "enum": ["phone", "email", "chat", "sms", "social", "back_office"] },
+    "queue_id": { "type": "string" },
+    "assigned_agent_id": { "type": "string" },
+    "customer_id": { "type": "string" },
+    "subject": { "type": "string" },
+    "status": { "type": "string" },
+    "started_at": { "type": "string", "format": "date-time" },
+    "ended_at": { "type": "string", "format": "date-time" },
+    "handle_time_seconds": { "type": "number", "minimum": 0 },
+    "wait_time_seconds": { "type": "number", "minimum": 0 },
+    "first_response_time_seconds": { "type": "number", "minimum": 0 },
+    "resolved": { "type": "boolean" },
+    "csat_score": { "type": ["number", "null"], "minimum": 1, "maximum": 5 },
+    "metadata": { "type": "object", "additionalProperties": true }
+  },
+  "additionalProperties": false
+}

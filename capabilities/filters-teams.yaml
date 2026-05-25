@@ -1,0 +1,43 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Assembled Filters API — Teams
+  description: 'Assembled Filters API — Teams. CRUD for the Teams organizational filter.'
+  tags: [Assembled, Teams]
+  created: '2026-05-24'
+  modified: '2026-05-24'
+binds:
+  - namespace: env
+    keys:
+      ASSEMBLED_API_KEY: ASSEMBLED_API_KEY
+capability:
+  consumes:
+    - type: http
+      namespace: filters-teams
+      baseUri: https://api.assembledhq.com
+      description: Assembled Teams capability.
+      resources:
+        - name: v0-teams
+          path: /v0/teams
+          operations:
+            - { name: listteams, method: GET, description: Assembled List Teams, outputRawFormat: json, outputParameters: [{ name: result, type: object, value: $. }] }
+            - { name: createteam, method: POST, description: Assembled Create Team, outputRawFormat: json, outputParameters: [{ name: result, type: object, value: $. }] }
+            - { name: deleteteams, method: DELETE, description: Assembled Delete Teams, outputRawFormat: json, outputParameters: [{ name: result, type: object, value: $. }] }
+        - name: v0-teams-id
+          path: /v0/teams/{id}
+          operations:
+            - { name: updateteam, method: PUT, description: Assembled Update Team, outputRawFormat: json, outputParameters: [{ name: result, type: object, value: $. }] }
+      authentication:
+        type: basic
+        username: '{{env.ASSEMBLED_API_KEY}}'
+        password: ''
+  exposes:
+    - type: mcp
+      namespace: filters-teams-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Assembled Teams.
+      tools:
+        - { name: assembled-list-teams, description: Assembled List Teams, hints: { readOnly: true, destructive: false, idempotent: true }, call: filters-teams.listteams, outputParameters: [{ type: object, mapping: $. }] }
+        - { name: assembled-create-team, description: Assembled Create Team, hints: { readOnly: false, destructive: false, idempotent: false }, call: filters-teams.createteam, outputParameters: [{ type: object, mapping: $. }] }
+        - { name: assembled-update-team, description: Assembled Update Team, hints: { readOnly: false, destructive: false, idempotent: true }, call: filters-teams.updateteam, outputParameters: [{ type: object, mapping: $. }] }
+        - { name: assembled-delete-teams, description: Assembled Delete Teams, hints: { readOnly: false, destructive: true, idempotent: true }, call: filters-teams.deleteteams, outputParameters: [{ type: object, mapping: $. }] }

@@ -1,0 +1,44 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Assembled Assist API — Responses
+  description: 'Assembled Assist API — Responses. AI Agent responses and handoff payloads.'
+  tags: [Assembled, Assist, AI Agents]
+  created: '2026-05-24'
+  modified: '2026-05-24'
+binds:
+  - namespace: env
+    keys:
+      ASSEMBLED_API_KEY: ASSEMBLED_API_KEY
+capability:
+  consumes:
+    - type: http
+      namespace: assist-responses
+      baseUri: https://api.assembledhq.com
+      description: Assembled Assist Responses capability.
+      resources:
+        - name: v0-assist-responses
+          path: /v0/assist/responses
+          operations:
+            - { name: submitassistresponse, method: POST, description: Assembled Submit Assist Response, outputRawFormat: json, outputParameters: [{ name: result, type: object, value: $. }] }
+        - name: v0-assist-responses-handoff
+          path: /v0/assist/responses/handoff
+          operations:
+            - { name: getassistresponsehandoff, method: GET, description: Assembled Get Assist Response Handoff, outputRawFormat: json, outputParameters: [{ name: result, type: object, value: $. }] }
+        - name: v0-assist-replies
+          path: /v0/assist/replies
+          operations:
+            - { name: submitassistreply, method: POST, description: Assembled Submit Assist Reply Beta, outputRawFormat: json, outputParameters: [{ name: result, type: object, value: $. }] }
+      authentication:
+        type: basic
+        username: '{{env.ASSEMBLED_API_KEY}}'
+        password: ''
+  exposes:
+    - type: mcp
+      namespace: assist-responses-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Assembled Assist Responses.
+      tools:
+        - { name: assembled-submit-assist-response, description: Assembled Submit Assist Response, hints: { readOnly: false, destructive: false, idempotent: false }, call: assist-responses.submitassistresponse, outputParameters: [{ type: object, mapping: $. }] }
+        - { name: assembled-get-assist-response-handoff, description: Assembled Get Assist Response Handoff, hints: { readOnly: true, destructive: false, idempotent: true }, call: assist-responses.getassistresponsehandoff, outputParameters: [{ type: object, mapping: $. }] }
+        - { name: assembled-submit-assist-reply, description: Assembled Submit Assist Reply Beta, hints: { readOnly: false, destructive: false, idempotent: false }, call: assist-responses.submitassistreply, outputParameters: [{ type: object, mapping: $. }] }

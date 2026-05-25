@@ -1,0 +1,99 @@
+openapi: 3.1.0
+info:
+  title: Assembled Conversations API
+  description: |
+    Bulk-ingest and bulk-update customer conversation records — phone,
+    email, chat, SMS, social, and back-office — so they can be associated
+    with agents, queues, and channels for reporting, QA, and analytics.
+
+    Used by customers running on non-Zendesk/Salesforce stacks or merging
+    multiple CRMs into a unified support view.
+  version: '2026-05-24'
+  contact:
+    name: Assembled Support
+    url: https://support.assembled.com
+servers:
+  - url: https://api.assembledhq.com
+    description: Production Server
+security:
+  - BasicAuth: []
+tags:
+  - name: Conversations
+paths:
+  /v0/conversations/bulk:
+    post:
+      summary: Assembled Bulk Upsert Conversations
+      description: Create or overwrite conversation records in bulk.
+      operationId: bulkUpsertConversations
+      tags: [Conversations]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                conversations:
+                  type: array
+                  items: { $ref: '#/components/schemas/ConversationInput' }
+      responses:
+        '202':
+          description: Accepted
+    patch:
+      summary: Assembled Bulk Update Conversations
+      description: Update existing conversations with partial fields, identified by external_id.
+      operationId: bulkUpdateConversations
+      tags: [Conversations]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                conversations:
+                  type: array
+                  items: { $ref: '#/components/schemas/ConversationUpdate' }
+      responses:
+        '202':
+          description: Accepted
+components:
+  securitySchemes:
+    BasicAuth: { type: http, scheme: basic }
+  schemas:
+    ConversationInput:
+      type: object
+      required: [external_id, channel, started_at]
+      properties:
+        external_id: { type: string, description: Stable identifier from the source platform }
+        platform: { type: string, example: zendesk }
+        channel: { type: string, enum: [phone, email, chat, sms, social, back_office] }
+        queue_id: { type: string }
+        assigned_agent_id: { type: string }
+        customer_id: { type: string }
+        subject: { type: string }
+        status: { type: string }
+        started_at: { type: string, format: date-time }
+        ended_at: { type: string, format: date-time }
+        handle_time_seconds: { type: number }
+        wait_time_seconds: { type: number }
+        first_response_time_seconds: { type: number }
+        resolved: { type: boolean }
+        csat_score: { type: number, nullable: true }
+        metadata:
+          type: object
+          additionalProperties: true
+    ConversationUpdate:
+      type: object
+      required: [external_id]
+      properties:
+        external_id: { type: string }
+        assigned_agent_id: { type: string }
+        status: { type: string }
+        ended_at: { type: string, format: date-time }
+        handle_time_seconds: { type: number }
+        resolved: { type: boolean }
+        csat_score: { type: number }
+        metadata:
+          type: object
+          additionalProperties: true

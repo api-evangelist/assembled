@@ -1,0 +1,139 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Assembled People API — People
+  description: 'Assembled People API — People. 4 operations. Lead operation: Assembled List People.
+    Self-contained Naftiko capability covering one Assembled business surface.'
+  tags:
+    - Assembled
+    - People
+  created: '2026-05-24'
+  modified: '2026-05-24'
+binds:
+  - namespace: env
+    keys:
+      ASSEMBLED_API_KEY: ASSEMBLED_API_KEY
+capability:
+  consumes:
+    - type: http
+      namespace: people-people
+      baseUri: https://api.assembledhq.com
+      description: Assembled People API — People business capability. Self-contained, no shared references.
+      resources:
+        - name: v0-people
+          path: /v0/people
+          operations:
+            - name: listpeople
+              method: GET
+              description: Assembled List People
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+            - name: createpeople
+              method: POST
+              description: Assembled Create People
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: v0-people-id
+          path: /v0/people/{id}
+          operations:
+            - name: getperson
+              method: GET
+              description: Assembled Get Person
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+            - name: updateperson
+              method: PATCH
+              description: Assembled Update Person
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+      authentication:
+        type: basic
+        username: '{{env.ASSEMBLED_API_KEY}}'
+        password: ''
+  exposes:
+    - type: rest
+      namespace: people-people-rest
+      port: 8080
+      description: REST adapter for Assembled People API — People.
+      resources:
+        - path: /v1/v0/people
+          name: v0-people
+          description: REST surface for v0-people.
+          operations:
+            - method: GET
+              name: listpeople
+              description: Assembled List People
+              call: people-people.listpeople
+              outputParameters:
+                - type: object
+                  mapping: $.
+            - method: POST
+              name: createpeople
+              description: Assembled Create People
+              call: people-people.createpeople
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/v0/people/{id}
+          name: v0-people-id
+          description: REST surface for v0-people-id.
+          operations:
+            - method: GET
+              name: getperson
+              description: Assembled Get Person
+              call: people-people.getperson
+              outputParameters:
+                - type: object
+                  mapping: $.
+            - method: PATCH
+              name: updateperson
+              description: Assembled Update Person
+              call: people-people.updateperson
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: people-people-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Assembled People API — People.
+      tools:
+        - name: assembled-list-people
+          description: Assembled List People
+          hints: { readOnly: true, destructive: false, idempotent: true }
+          call: people-people.listpeople
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: assembled-create-people
+          description: Assembled Create People
+          hints: { readOnly: false, destructive: false, idempotent: false }
+          call: people-people.createpeople
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: assembled-get-person
+          description: Assembled Get Person
+          hints: { readOnly: true, destructive: false, idempotent: true }
+          call: people-people.getperson
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: assembled-update-person
+          description: Assembled Update Person
+          hints: { readOnly: false, destructive: false, idempotent: true }
+          call: people-people.updateperson
+          outputParameters:
+            - type: object
+              mapping: $.

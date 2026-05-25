@@ -1,0 +1,91 @@
+vocabulary: Assembled
+vocabularyId: assembled
+provider: Assembled
+created: '2026-05-24'
+modified: '2026-05-24'
+description: >-
+  Operational and capability vocabulary for the Assembled support operations
+  platform. Captures the canonical entities (people, queues, sites, teams,
+  skills, activities, agent states, forecasts, requirements, time off,
+  conversations, QA scores, AI Assist resources) and the cross-cutting
+  dimensions (channels, tiers, AI vs. human, vendor segmentation) used to
+  describe workforce management and AI agent workflows.
+tags:
+  - Customer Support
+  - Workforce Management
+  - AI Agents
+  - AI Copilot
+dimensions:
+  - name: Channel
+    description: Communication channel a conversation flows through.
+    values: [phone, email, chat, sms, social, back_office]
+  - name: Actor
+    description: Who handled an interaction.
+    values: [human, ai, mixed]
+  - name: Tier
+    description: Commercial plan tier within Workforce Management.
+    values: [core, pro, enterprise]
+  - name: VendorSegment
+    description: Workforce segment.
+    values: [in_house, bpo, ai_agent]
+  - name: ActivityCategory
+    description: Family of scheduled activity.
+    values: [shift, break, meeting, training, time_off, project]
+  - name: AgentStatePrimary
+    description: Top-level agent state.
+    values: [available, occupied, after_call_work, on_break, in_meeting, training, time_off, offline]
+concepts:
+  - name: Person
+    description: An individual agent that can be scheduled and routed to.
+    aliases: [Agent, Employee]
+  - name: Queue
+    description: A routing destination representing a case type or channel-segment combination.
+  - name: Site
+    description: A physical or virtual location an agent belongs to. Carries timezone.
+  - name: Team
+    description: An organisational grouping of people. Used for filtering and reporting.
+  - name: Skill
+    description: A routing-relevant capability such as language or product expertise.
+  - name: Activity
+    description: A scheduled block of time on an agent's calendar.
+  - name: AgentState
+    description: A real-time or historical record of what an agent is doing.
+  - name: Forecast
+    description: An ML-generated prediction of contact volume and required agents per interval.
+  - name: Requirement
+    description: An expressed staffing need (count, occupancy, etc.) for a slice of the org and a time interval.
+  - name: TimeOffRequest
+    description: A request for time away from work that affects schedules and adherence.
+  - name: Conversation
+    description: A customer support interaction ingested from a CRM or telephony platform.
+  - name: AssistResponse
+    description: An AI-generated response produced by an Assembled AI Agent for a conversation.
+  - name: AssistArticle
+    description: A knowledge article that AI Agents draw from to resolve conversations.
+  - name: QAScore
+    description: A normalised quality score for a conversation, typically sourced from an external QM tool.
+metrics:
+  - name: AHT
+    full: Average Handle Time
+    unit: seconds
+  - name: FRT
+    full: First Response Time
+    unit: seconds
+  - name: SLA
+    full: Service Level Agreement attainment
+    unit: percent
+  - name: CSAT
+    full: Customer Satisfaction
+    unit: score
+  - name: Adherence
+    full: Schedule adherence
+    unit: percent
+  - name: Occupancy
+    full: Agent occupancy
+    unit: percent
+  - name: ForecastAccuracy
+    full: Forecast accuracy vs. actuals
+    unit: percent
+  - name: Containment
+    full: AI containment rate
+    unit: percent

@@ -1,0 +1,36 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Assembled Conversations API — Conversations
+  description: 'Assembled Conversations API — Conversations. Bulk upsert and update conversation records across channels.'
+  tags: [Assembled, Conversations]
+  created: '2026-05-24'
+  modified: '2026-05-24'
+binds:
+  - namespace: env
+    keys:
+      ASSEMBLED_API_KEY: ASSEMBLED_API_KEY
+capability:
+  consumes:
+    - type: http
+      namespace: conversations-conversations
+      baseUri: https://api.assembledhq.com
+      description: Assembled Conversations capability.
+      resources:
+        - name: v0-conversations-bulk
+          path: /v0/conversations/bulk
+          operations:
+            - { name: bulkupsertconversations, method: POST, description: Assembled Bulk Upsert Conversations, outputRawFormat: json, outputParameters: [{ name: result, type: object, value: $. }] }
+            - { name: bulkupdateconversations, method: PATCH, description: Assembled Bulk Update Conversations, outputRawFormat: json, outputParameters: [{ name: result, type: object, value: $. }] }
+      authentication:
+        type: basic
+        username: '{{env.ASSEMBLED_API_KEY}}'
+        password: ''
+  exposes:
+    - type: mcp
+      namespace: conversations-conversations-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Assembled Conversations.
+      tools:
+        - { name: assembled-bulk-upsert-conversations, description: Assembled Bulk Upsert Conversations, hints: { readOnly: false, destructive: false, idempotent: true }, call: conversations-conversations.bulkupsertconversations, outputParameters: [{ type: object, mapping: $. }] }
+        - { name: assembled-bulk-update-conversations, description: Assembled Bulk Update Conversations, hints: { readOnly: false, destructive: false, idempotent: true }, call: conversations-conversations.bulkupdateconversations, outputParameters: [{ type: object, mapping: $. }] }

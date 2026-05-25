@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/assembled/refs/heads/main/json-schema/assembled-person-schema.json",
+  "title": "AssembledPerson",
+  "description": "An Assembled person (agent) — the canonical representation of a schedulable individual in the Assembled workforce.",
+  "type": "object",
+  "required": ["id", "email", "name"],
+  "properties": {
+    "id": { "type": "string", "description": "Assembled person ID." },
+    "email": { "type": "string", "format": "email" },
+    "name": { "type": "string" },
+    "first_name": { "type": "string" },
+    "last_name": { "type": "string" },
+    "role_id": { "type": ["string", "null"] },
+    "channels": {
+      "type": "array",
+      "items": { "type": "string", "enum": ["phone", "email", "chat", "sms", "social", "back_office"] }
+    },
+    "team_ids": { "type": "array", "items": { "type": "string" } },
+    "site_id": { "type": ["string", "null"] },
+    "skill_ids": { "type": "array", "items": { "type": "string" } },
+    "queue_ids": { "type": "array", "items": { "type": "string" } },
+    "active": { "type": "boolean", "default": true },
+    "platform_ids": {
+      "type": "object",
+      "description": "Associated identifiers from upstream platforms keyed by platform name.",
+      "additionalProperties": { "type": "string" }
+    },
+    "created_at": { "type": "string", "format": "date-time" },
+    "updated_at": { "type": "string", "format": "date-time" }
+  },
+  "additionalProperties": false
+}

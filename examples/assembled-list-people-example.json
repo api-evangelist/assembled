@@ -1,0 +1,25 @@
+{
+  "people": [
+    {
+      "id": "agt_01HZ5W3K7Q2R8B7Y8Q3M4N6P9R",
+      "email": "jordan.lee@example.com",
+      "name": "Jordan Lee",
+      "first_name": "Jordan",
+      "last_name": "Lee",
+      "role_id": "rol_agent",
+      "channels": ["chat", "email"],
+      "team_ids": ["tm_billing_emea"],
+      "site_id": "ste_london",
+      "skill_ids": ["skl_es", "skl_billing"],
+      "queue_ids": ["q_billing_chat", "q_billing_email"],
+      "active": true,
+      "platform_ids": {
+        "zendesk": "1234567",
+        "salesforce": "0051x000003DLqAAAW"
+      },
+      "created_at": "2025-08-12T10:14:00Z",
+      "updated_at": "2026-04-30T18:02:11Z"
+    }
+  ],
+  "next_offset": null
+}
