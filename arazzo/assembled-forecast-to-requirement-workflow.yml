@@ -1,0 +1,102 @@
+arazzo: 1.0.1
+info:
+  title: Assembled Turn a Forecast into a Staffing Requirement
+  summary: Read the volume forecast for a window, resolve a requirement type, then create a staffing requirement.
+  description: >-
+    Bridges the Forecasts and Requirements APIs to translate predicted demand
+    into a concrete staffing target. The workflow lists the volume forecast for a
+    queue and window, lists requirement types to resolve the family of need (for
+    example headcount), and creates a staffing requirement expressing how many
+    agents are needed across the interval. Every step spells out its request
+    inline so the flow can be read and executed without opening the underlying
+    OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: forecastsApi
+  url: ../openapi/assembled-forecasts-api-openapi.yml
+  type: openapi
+- name: requirementsApi
+  url: ../openapi/assembled-requirements-api-openapi.yml
+  type: openapi
+workflows:
+- workflowId: forecast-to-requirement
+  summary: Read a forecast, resolve a requirement type, and create a staffing requirement.
+  description: >-
+    Lists forecasts for a queue window, resolves a requirement type, and creates
+    a staffing requirement for the window with the supplied required count.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - queueId
+    - startTime
+    - endTime
+    - requiredCount
+    properties:
+      apiKey:
+        type: string
+        description: Assembled API key (sk_live_...) used as the HTTP Basic Auth username.
+      queueId:
+        type: string
+        description: Queue ID the forecast and requirement apply to.
+      startTime:
+        type: string
+        description: Window start (ISO 8601 date-time).
+      endTime:
+        type: string
+        description: Window end (ISO 8601 date-time).
+      requirementTypeId:
+        type: string
+        description: Requirement type ID; if omitted the first available type is used.
+      requiredCount:
+        type: number
+        description: Number of agents required across the interval.
+  steps:
+  - stepId: readForecast
+    description: >-
+      List the volume forecast for the queue across the window to ground the
+      staffing requirement in predicted demand.
+    operationId: listForecasts
+    parameters:
+    - name: start_time
+      in: query
+      value: $inputs.startTime
+    - name: end_time
+      in: query
+      value: $inputs.endTime
+    - name: queue_ids
+      in: query
+      value: $inputs.queueId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      forecasts: $response.body#/forecasts
+  - stepId: resolveRequirementType
+    description: >-
+      List requirement types to resolve the family of need applied to the new
+      requirement.
+    operationId: listRequirementTypes
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      firstRequirementTypeId: $response.body#/requirement_types/0/id
+  - stepId: createRequirement
+    description: >-
+      Create a staffing requirement for the queue and window expressing how many
+      agents are needed across the interval.
+    operationId: createRequirement
+    requestBody:
+      contentType: application/json
+      payload:
+        requirement_type_id: $inputs.requirementTypeId
+        queue_id: $inputs.queueId
+        start_time: $inputs.startTime
+        end_time: $inputs.endTime
+        required_count: $inputs.requiredCount
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      requirementId: $response.body#/id
+  outputs:
+    forecasts: $steps.readForecast.outputs.forecasts
+    requirementId: $steps.createRequirement.outputs.requirementId

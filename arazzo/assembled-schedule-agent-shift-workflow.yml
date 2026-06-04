@@ -1,0 +1,98 @@
+arazzo: 1.0.1
+info:
+  title: Assembled Schedule an Agent Shift
+  summary: Resolve an activity type, create a scheduled activity, then list it back on the calendar.
+  description: >-
+    Builds a shift onto an agent's calendar. The workflow lists the activity
+    types defined in the organization so the correct colour-coded category can
+    be applied, creates a single activity (shift, break, training, or meeting)
+    for the agent within a time window, and then lists activities for that window
+    to confirm the new entry appears. Every step spells out its request inline so
+    the flow can be read and executed without opening the underlying OpenAPI
+    description.
+  version: 1.0.0
+sourceDescriptions:
+- name: activitiesApi
+  url: ../openapi/assembled-activities-api-openapi.yml
+  type: openapi
+workflows:
+- workflowId: schedule-agent-shift
+  summary: Create a scheduled activity for an agent and confirm it on the calendar.
+  description: >-
+    Lists activity types, creates a single activity for the agent within the
+    given window, and lists activities for that window to verify the entry.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - agentId
+    - startTime
+    - endTime
+    properties:
+      apiKey:
+        type: string
+        description: Assembled API key (sk_live_...) used as the HTTP Basic Auth username.
+      agentId:
+        type: string
+        description: Assembled agent ID the shift is scheduled for.
+      activityTypeId:
+        type: string
+        description: Activity type ID to apply; if omitted the first available type is used.
+      startTime:
+        type: string
+        description: Shift start time (ISO 8601 date-time).
+      endTime:
+        type: string
+        description: Shift end time (ISO 8601 date-time).
+      notes:
+        type: string
+        description: Optional notes attached to the activity.
+  steps:
+  - stepId: listActivityTypes
+    description: >-
+      List the activity types defined in the organization so a valid colour
+      category can be applied to the new activity.
+    operationId: listActivityTypes
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      firstActivityTypeId: $response.body#/activity_types/0/id
+  - stepId: createActivity
+    description: >-
+      Create a single activity for the agent within the supplied window, using
+      the resolved activity type.
+    operationId: createActivity
+    requestBody:
+      contentType: application/json
+      payload:
+        agent_id: $inputs.agentId
+        activity_type_id: $inputs.activityTypeId
+        start_time: $inputs.startTime
+        end_time: $inputs.endTime
+        notes: $inputs.notes
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      activityId: $response.body#/id
+  - stepId: confirmActivity
+    description: >-
+      List activities for the agent across the scheduled window to confirm the
+      new activity is present on the calendar.
+    operationId: listActivities
+    parameters:
+    - name: start_time
+      in: query
+      value: $inputs.startTime
+    - name: end_time
+      in: query
+      value: $inputs.endTime
+    - name: agent_ids
+      in: query
+      value: $inputs.agentId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      activities: $response.body#/activities
+  outputs:
+    activityId: $steps.createActivity.outputs.activityId
+    activities: $steps.confirmActivity.outputs.activities

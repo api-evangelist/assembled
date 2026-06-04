@@ -1,0 +1,80 @@
+arazzo: 1.0.1
+info:
+  title: Assembled Review an Agent's Working Hours
+  summary: List the working-hours rules for an agent, then fetch the first rule in full.
+  description: >-
+    Inspects the scheduling constraints that bound when an agent may be
+    scheduled. The workflow lists the working-hours rules for a given agent, then
+    branches: when at least one rule exists it retrieves that rule in full to
+    expose its weekly pattern, timezone, and effective dates, and when none exist
+    it ends cleanly. Every step spells out its request inline so the flow can be
+    read and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: schedulingRulesApi
+  url: ../openapi/assembled-scheduling-rules-api-openapi.yml
+  type: openapi
+workflows:
+- workflowId: review-working-hours
+  summary: List an agent's working-hours rules and fetch the first in detail.
+  description: >-
+    Lists working-hours rules for the agent and retrieves the first rule's full
+    definition, or ends when the agent has no rules.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - agentId
+    properties:
+      apiKey:
+        type: string
+        description: Assembled API key (sk_live_...) used as the HTTP Basic Auth username.
+      agentId:
+        type: string
+        description: Assembled agent ID whose working-hours rules are reviewed.
+  steps:
+  - stepId: listRules
+    description: >-
+      List the working-hours rules constraining when the agent may be scheduled,
+      returning the first rule id.
+    operationId: listWorkingHours
+    parameters:
+    - name: agent_id
+      in: query
+      value: $inputs.agentId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      ruleId: $response.body#/working_hours/0/id
+    onSuccess:
+    - name: hasRule
+      type: goto
+      stepId: getRule
+      criteria:
+      - context: $response.body
+        condition: $.working_hours.length > 0
+        type: jsonpath
+    - name: noRule
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.working_hours.length == 0
+        type: jsonpath
+  - stepId: getRule
+    description: >-
+      Retrieve the first working-hours rule in full to expose its weekly
+      pattern, timezone, and effective dates.
+    operationId: getWorkingHoursRule
+    parameters:
+    - name: id
+      in: path
+      value: $steps.listRules.outputs.ruleId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      timezone: $response.body#/timezone
+      weeklyPattern: $response.body#/weekly_pattern
+      effectiveFrom: $response.body#/effective_from
+  outputs:
+    ruleId: $steps.listRules.outputs.ruleId
+    weeklyPattern: $steps.getRule.outputs.weeklyPattern

@@ -1,0 +1,83 @@
+arazzo: 1.0.1
+info:
+  title: Assembled Review and Cancel a Time Off Request
+  summary: List pending time-off requests and cancel the first one, branching on whether any exist.
+  description: >-
+    Automates time-off triage. The workflow lists time-off requests filtered by
+    status (for example pending) for an agent, then branches: when at least one
+    request exists it cancels the first matching request, and when none exist it
+    ends cleanly without action. Every step spells out its request inline so the
+    flow can be read and executed without opening the underlying OpenAPI
+    description.
+  version: 1.0.0
+sourceDescriptions:
+- name: timeOffApi
+  url: ../openapi/assembled-time-off-api-openapi.yml
+  type: openapi
+workflows:
+- workflowId: cancel-time-off
+  summary: Find a time-off request by status and cancel it when one is present.
+  description: >-
+    Lists time-off requests for an agent in a given status and cancels the first
+    match, or ends without action when the list is empty.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - status
+    properties:
+      apiKey:
+        type: string
+        description: Assembled API key (sk_live_...) used as the HTTP Basic Auth username.
+      status:
+        type: string
+        description: Status to filter requests by (pending, approved, denied, cancelled).
+      agentId:
+        type: string
+        description: Optional Assembled agent ID to scope the request list.
+  steps:
+  - stepId: findRequests
+    description: >-
+      List time-off requests for the agent in the supplied status, returning the
+      first matching request id.
+    operationId: listTimeOffRequests
+    parameters:
+    - name: status
+      in: query
+      value: $inputs.status
+    - name: agent_id
+      in: query
+      value: $inputs.agentId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      requestId: $response.body#/requests/0/id
+    onSuccess:
+    - name: hasRequest
+      type: goto
+      stepId: cancelRequest
+      criteria:
+      - context: $response.body
+        condition: $.requests.length > 0
+        type: jsonpath
+    - name: noRequest
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.requests.length == 0
+        type: jsonpath
+  - stepId: cancelRequest
+    description: >-
+      Cancel the first matching time-off request found in the prior step.
+    operationId: cancelTimeOffRequest
+    parameters:
+    - name: id
+      in: path
+      value: $steps.findRequests.outputs.requestId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      cancelledRequestId: $steps.findRequests.outputs.requestId
+  outputs:
+    requestId: $steps.findRequests.outputs.requestId
+    cancelledRequestId: $steps.cancelRequest.outputs.cancelledRequestId

@@ -1,0 +1,80 @@
+arazzo: 1.0.1
+info:
+  title: Assembled Audit Schedule Changes
+  summary: List the activities scheduled in a window, then pull the audit trail of changes to them.
+  description: >-
+    Surfaces what changed on the schedule and why. The workflow lists the
+    activities scheduled across a window for context, then retrieves the
+    event-changes audit trail for the same window so create, update, and delete
+    modifications can be reviewed against the current calendar. Every step spells
+    out its request inline so the flow can be read and executed without opening
+    the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: activitiesApi
+  url: ../openapi/assembled-activities-api-openapi.yml
+  type: openapi
+workflows:
+- workflowId: audit-schedule-changes
+  summary: List activities in a window and retrieve the change audit trail.
+  description: >-
+    Lists activities for the window to establish context, then pulls the
+    event-changes audit trail for the same window.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - startTime
+    - endTime
+    properties:
+      apiKey:
+        type: string
+        description: Assembled API key (sk_live_...) used as the HTTP Basic Auth username.
+      startTime:
+        type: string
+        description: Window start (ISO 8601 date-time).
+      endTime:
+        type: string
+        description: Window end (ISO 8601 date-time).
+      agentIds:
+        type: string
+        description: Optional comma-separated agent IDs to scope the activity list.
+  steps:
+  - stepId: listActivities
+    description: >-
+      List the activities scheduled across the window to establish the current
+      calendar context before reviewing changes.
+    operationId: listActivities
+    parameters:
+    - name: start_time
+      in: query
+      value: $inputs.startTime
+    - name: end_time
+      in: query
+      value: $inputs.endTime
+    - name: agent_ids
+      in: query
+      value: $inputs.agentIds
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      activities: $response.body#/activities
+  - stepId: listChanges
+    description: >-
+      Retrieve the event-changes audit trail for the same window so create,
+      update, and delete modifications can be reviewed.
+    operationId: listEventChanges
+    parameters:
+    - name: start_time
+      in: query
+      value: $inputs.startTime
+    - name: end_time
+      in: query
+      value: $inputs.endTime
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      eventChanges: $response.body#/event_changes
+  outputs:
+    activities: $steps.listActivities.outputs.activities
+    eventChanges: $steps.listChanges.outputs.eventChanges

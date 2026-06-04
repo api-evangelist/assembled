@@ -1,0 +1,112 @@
+arazzo: 1.0.1
+info:
+  title: Assembled Provision a Queue and Staff It
+  summary: Create a routing queue, pick an active agent, then schedule an activity routed to that queue.
+  description: >-
+    Stands up a new routing queue and staffs it in one pass across the Filters,
+    People, and Activities APIs. The workflow creates a queue mapped to a
+    channel, lists active people to choose an agent to staff, resolves an
+    activity type, and creates an activity for the agent routed to the new queue.
+    Every step spells out its request inline so the flow can be read and executed
+    without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: filtersApi
+  url: ../openapi/assembled-filters-api-openapi.yml
+  type: openapi
+- name: peopleApi
+  url: ../openapi/assembled-people-api-openapi.yml
+  type: openapi
+- name: activitiesApi
+  url: ../openapi/assembled-activities-api-openapi.yml
+  type: openapi
+workflows:
+- workflowId: provision-queue-and-staff
+  summary: Create a queue, select an active agent, and schedule a shift routed to it.
+  description: >-
+    Creates a channel-mapped queue, lists active people to pick an agent,
+    resolves an activity type, and creates an activity routed to the new queue.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - queueName
+    - startTime
+    - endTime
+    properties:
+      apiKey:
+        type: string
+        description: Assembled API key (sk_live_...) used as the HTTP Basic Auth username.
+      queueName:
+        type: string
+        description: Name of the new queue.
+      channel:
+        type: string
+        description: Channel the queue maps to (phone, email, chat, sms, social, back_office).
+      activityTypeId:
+        type: string
+        description: Activity type ID to apply; if omitted the first available type is used.
+      startTime:
+        type: string
+        description: Shift start time (ISO 8601 date-time).
+      endTime:
+        type: string
+        description: Shift end time (ISO 8601 date-time).
+  steps:
+  - stepId: createQueue
+    description: >-
+      Create a new routing queue mapped to the supplied channel.
+    operationId: createQueue
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.queueName
+        channel: $inputs.channel
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      queueId: $response.body#/id
+  - stepId: pickAgent
+    description: >-
+      List active people in the workforce and select the first as the agent to
+      staff on the new queue.
+    operationId: listPeople
+    parameters:
+    - name: active
+      in: query
+      value: true
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      agentId: $response.body#/people/0/id
+  - stepId: resolveActivityType
+    description: >-
+      List activity types so a valid colour category can be applied to the
+      staffing activity.
+    operationId: listActivityTypes
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      firstActivityTypeId: $response.body#/activity_types/0/id
+  - stepId: staffQueue
+    description: >-
+      Create an activity for the selected agent within the window, routed to the
+      newly created queue.
+    operationId: createActivity
+    requestBody:
+      contentType: application/json
+      payload:
+        agent_id: $steps.pickAgent.outputs.agentId
+        activity_type_id: $inputs.activityTypeId
+        start_time: $inputs.startTime
+        end_time: $inputs.endTime
+        queue_ids:
+        - $steps.createQueue.outputs.queueId
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      activityId: $response.body#/id
+  outputs:
+    queueId: $steps.createQueue.outputs.queueId
+    agentId: $steps.pickAgent.outputs.agentId
+    activityId: $steps.staffQueue.outputs.activityId

@@ -1,0 +1,93 @@
+arazzo: 1.0.1
+info:
+  title: Assembled Provision a New Agent
+  summary: Resolve an available role, create a new agent, then read back the created record.
+  description: >-
+    Onboards a new support agent into the Assembled workforce. The workflow
+    first lists the roles available in the organization so a valid role can be
+    chosen, creates the person with their email, name, channels, and role, and
+    finally retrieves the freshly created person to confirm the assignment. Every
+    step spells out its request inline so the flow can be read and executed
+    without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: peopleApi
+  url: ../openapi/assembled-people-api-openapi.yml
+  type: openapi
+workflows:
+- workflowId: provision-agent
+  summary: Create a new agent with a valid role and verify the created record.
+  description: >-
+    Lists roles, creates a single person from the supplied attributes, then
+    reads the created person record back to confirm the role and active state.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - email
+    - name
+    properties:
+      apiKey:
+        type: string
+        description: Assembled API key (sk_live_...) used as the HTTP Basic Auth username.
+      email:
+        type: string
+        description: Email address for the new agent.
+      name:
+        type: string
+        description: Display name for the new agent.
+      roleId:
+        type: string
+        description: Role ID to assign; if omitted the first available role is used.
+      channels:
+        type: array
+        items:
+          type: string
+        description: Channels the agent can be routed to (phone, email, chat, sms, social, back_office).
+  steps:
+  - stepId: listRoles
+    description: >-
+      List all roles available in the organization so a valid role can be
+      assigned to the new agent.
+    operationId: listRoles
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      firstRoleId: $response.body#/roles/0/id
+      roles: $response.body#/roles
+  - stepId: createAgent
+    description: >-
+      Create a single new agent with the supplied email, name, channels, and
+      role. Falls back to the first available role when none is supplied.
+    operationId: createPeople
+    requestBody:
+      contentType: application/json
+      payload:
+        people:
+        - email: $inputs.email
+          name: $inputs.name
+          role_id: $inputs.roleId
+          channels: $inputs.channels
+          active: true
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      newAgentId: $response.body#/people/0/id
+  - stepId: verifyAgent
+    description: >-
+      Retrieve the newly created agent to confirm the role assignment and that
+      the account is active.
+    operationId: getPerson
+    parameters:
+    - name: id
+      in: path
+      value: $steps.createAgent.outputs.newAgentId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      verifiedAgentId: $response.body#/id
+      verifiedActive: $response.body#/active
+      verifiedRoleId: $response.body#/role_id
+  outputs:
+    newAgentId: $steps.createAgent.outputs.newAgentId
+    verifiedRoleId: $steps.verifyAgent.outputs.verifiedRoleId

@@ -1,0 +1,104 @@
+arazzo: 1.0.1
+info:
+  title: Assembled Generate and Retrieve a Report
+  summary: Start an async report job, then fetch the result, branching on completion status.
+  description: >-
+    Drives Assembled's asynchronous report pipeline. The workflow kicks off
+    generation of a structured report (adherence, ticket statistics, or handle
+    time) for a window and set of filters, then retrieves the report by ID and
+    branches on its status: when the report is complete it ends with the rows,
+    and when it is still pending or running it surfaces the in-progress status
+    for the caller to poll again. Every step spells out its request inline so the
+    flow can be read and executed without opening the underlying OpenAPI
+    description.
+  version: 1.0.0
+sourceDescriptions:
+- name: reportsApi
+  url: ../openapi/assembled-reports-api-openapi.yml
+  type: openapi
+workflows:
+- workflowId: generate-report
+  summary: Start a report job and fetch the result, branching on its status.
+  description: >-
+    Starts a report for the window and filters, retrieves it by ID, and branches
+    on whether the report is complete or still in progress.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - reportType
+    - startTime
+    - endTime
+    properties:
+      apiKey:
+        type: string
+        description: Assembled API key (sk_live_...) used as the HTTP Basic Auth username.
+      reportType:
+        type: string
+        description: Type of report to generate (adherence, ticket_stats, handle_time).
+      startTime:
+        type: string
+        description: Report window start (ISO 8601 date-time).
+      endTime:
+        type: string
+        description: Report window end (ISO 8601 date-time).
+      queueIds:
+        type: array
+        items:
+          type: string
+        description: Optional queue IDs to scope the report.
+      granularity:
+        type: string
+        description: Aggregation granularity (interval, day, week, month).
+  steps:
+  - stepId: startReport
+    description: >-
+      Kick off generation of the structured report for the supplied window and
+      queue filters.
+    operationId: startReport
+    parameters:
+    - name: reportType
+      in: path
+      value: $inputs.reportType
+    requestBody:
+      contentType: application/json
+      payload:
+        start_time: $inputs.startTime
+        end_time: $inputs.endTime
+        queue_ids: $inputs.queueIds
+        granularity: $inputs.granularity
+    successCriteria:
+    - condition: $statusCode == 202
+    outputs:
+      reportId: $response.body#/reportID
+  - stepId: fetchReport
+    description: >-
+      Retrieve the report by ID. Branches on whether the report is complete or
+      still pending/running so the caller knows whether to poll again.
+    operationId: getReport
+    parameters:
+    - name: reportID
+      in: path
+      value: $steps.startReport.outputs.reportId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      status: $response.body#/status
+      rows: $response.body#/rows
+    onSuccess:
+    - name: reportComplete
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.status == "complete"
+        type: jsonpath
+    - name: reportPending
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.status != "complete"
+        type: jsonpath
+  outputs:
+    reportId: $steps.startReport.outputs.reportId
+    status: $steps.fetchReport.outputs.status
+    rows: $steps.fetchReport.outputs.rows

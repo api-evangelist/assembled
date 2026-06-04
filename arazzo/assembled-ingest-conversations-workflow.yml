@@ -1,0 +1,70 @@
+arazzo: 1.0.1
+info:
+  title: Assembled Ingest and Enrich Conversations
+  summary: Bulk-upsert customer conversation records, then bulk-update them with enriched fields.
+  description: >-
+    Loads customer conversation history from a non-native CRM stack into
+    Assembled in two passes. The workflow first bulk-upserts conversation records
+    keyed by external_id so they can be associated with agents, queues, and
+    channels, then issues a bulk update to enrich those same conversations with
+    resolution, handle-time, and CSAT fields as they become available. Every step
+    spells out its request inline so the flow can be read and executed without
+    opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: conversationsApi
+  url: ../openapi/assembled-conversations-api-openapi.yml
+  type: openapi
+workflows:
+- workflowId: ingest-conversations
+  summary: Bulk-upsert conversations, then bulk-update them with enriched fields.
+  description: >-
+    Upserts a batch of conversation records, then applies a partial bulk update
+    to enrich the same records identified by external_id.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - conversations
+    - updates
+    properties:
+      apiKey:
+        type: string
+        description: Assembled API key (sk_live_...) used as the HTTP Basic Auth username.
+      conversations:
+        type: array
+        items:
+          type: object
+        description: Conversation records to upsert (external_id, channel, started_at, plus optional fields).
+      updates:
+        type: array
+        items:
+          type: object
+        description: Partial conversation updates keyed by external_id (status, resolved, handle_time_seconds, csat_score).
+  steps:
+  - stepId: upsertConversations
+    description: >-
+      Bulk-upsert the conversation records so they can be associated with
+      agents, queues, and channels.
+    operationId: bulkUpsertConversations
+    requestBody:
+      contentType: application/json
+      payload:
+        conversations: $inputs.conversations
+    successCriteria:
+    - condition: $statusCode == 202
+  - stepId: enrichConversations
+    description: >-
+      Apply a partial bulk update to enrich the same conversations, identified
+      by external_id, with resolution, handle-time, and CSAT fields.
+    operationId: bulkUpdateConversations
+    requestBody:
+      contentType: application/json
+      payload:
+        conversations: $inputs.updates
+    successCriteria:
+    - condition: $statusCode == 202
+    outputs:
+      statusCode: $statusCode
+  outputs:
+    enrichStatus: $steps.enrichConversations.outputs.statusCode

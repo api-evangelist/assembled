@@ -1,0 +1,94 @@
+arazzo: 1.0.1
+info:
+  title: Assembled Create and Read a Forecast Total
+  summary: Create a forecast total for a queue window, list totals to find it, then fetch it in full.
+  description: >-
+    Manages manual forecast totals end to end. The workflow creates a forecast
+    total for a queue and window, lists the totals for that window to locate the
+    newly created entry, and retrieves it in full to confirm the recorded volume.
+    Every step spells out its request inline so the flow can be read and executed
+    without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: forecastsApi
+  url: ../openapi/assembled-forecasts-api-openapi.yml
+  type: openapi
+workflows:
+- workflowId: manage-forecast-total
+  summary: Create a forecast total, locate it in the list, and fetch it in detail.
+  description: >-
+    Creates a forecast total, lists totals for the window to find the entry, and
+    retrieves the first total in full.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - queueId
+    - startTime
+    - endTime
+    - totalVolume
+    properties:
+      apiKey:
+        type: string
+        description: Assembled API key (sk_live_...) used as the HTTP Basic Auth username.
+      queueId:
+        type: string
+        description: Queue ID the forecast total applies to.
+      startTime:
+        type: string
+        description: Window start (ISO 8601 date-time).
+      endTime:
+        type: string
+        description: Window end (ISO 8601 date-time).
+      totalVolume:
+        type: number
+        description: Total predicted volume for the window.
+  steps:
+  - stepId: createTotal
+    description: >-
+      Create a forecast total for the queue across the supplied window with the
+      given total volume.
+    operationId: createForecastTotals
+    requestBody:
+      contentType: application/json
+      payload:
+        totals:
+        - queue_id: $inputs.queueId
+          start_time: $inputs.startTime
+          end_time: $inputs.endTime
+          total_volume: $inputs.totalVolume
+    successCriteria:
+    - condition: $statusCode == 201
+  - stepId: listTotals
+    description: >-
+      List forecast totals for the window to locate the newly created total and
+      capture its id.
+    operationId: listForecastTotals
+    parameters:
+    - name: start_time
+      in: query
+      value: $inputs.startTime
+    - name: end_time
+      in: query
+      value: $inputs.endTime
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      totalId: $response.body#/totals/0/id
+  - stepId: getTotal
+    description: >-
+      Retrieve the located forecast total in full to confirm the recorded
+      volume and window.
+    operationId: getForecastTotal
+    parameters:
+    - name: id
+      in: path
+      value: $steps.listTotals.outputs.totalId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      totalVolume: $response.body#/total_volume
+      totalQueueId: $response.body#/queue_id
+  outputs:
+    totalId: $steps.listTotals.outputs.totalId
+    totalVolume: $steps.getTotal.outputs.totalVolume

@@ -1,0 +1,109 @@
+arazzo: 1.0.1
+info:
+  title: Assembled Request Time Off for an Agent
+  summary: Confirm the agent exists, create a time-off request, then verify it in the request list.
+  description: >-
+    Submits a time-off request for a verified agent. The workflow first reads the
+    person record to confirm the agent exists in the workforce, creates a
+    time-off request for the supplied window, and then lists that agent's
+    time-off requests to confirm the new entry was recorded. Every step spells
+    out its request inline so the flow can be read and executed without opening
+    the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: peopleApi
+  url: ../openapi/assembled-people-api-openapi.yml
+  type: openapi
+- name: timeOffApi
+  url: ../openapi/assembled-time-off-api-openapi.yml
+  type: openapi
+workflows:
+- workflowId: request-time-off
+  summary: Verify an agent, create a time-off request, and confirm it was recorded.
+  description: >-
+    Reads the agent record, creates a time-off request for the window, and lists
+    the agent's requests to verify the new request is present.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - agentId
+    - startTime
+    - endTime
+    properties:
+      apiKey:
+        type: string
+        description: Assembled API key (sk_live_...) used as the HTTP Basic Auth username.
+      agentId:
+        type: string
+        description: Assembled agent ID requesting time off.
+      type:
+        type: string
+        description: Type of time off (for example pto).
+      startTime:
+        type: string
+        description: Time-off start (ISO 8601 date-time).
+      endTime:
+        type: string
+        description: Time-off end (ISO 8601 date-time).
+      allDay:
+        type: boolean
+        description: Whether the time off spans full days.
+      notes:
+        type: string
+        description: Optional notes for the request.
+  steps:
+  - stepId: verifyAgent
+    description: >-
+      Read the agent record to confirm the person exists before submitting a
+      time-off request on their behalf.
+    operationId: getPerson
+    parameters:
+    - name: id
+      in: path
+      value: $inputs.agentId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      confirmedAgentId: $response.body#/id
+  - stepId: createRequest
+    description: >-
+      Create a time-off request for the verified agent across the supplied
+      window.
+    operationId: createTimeOff
+    requestBody:
+      contentType: application/json
+      payload:
+        agent_id: $inputs.agentId
+        type: $inputs.type
+        start_time: $inputs.startTime
+        end_time: $inputs.endTime
+        all_day: $inputs.allDay
+        notes: $inputs.notes
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      requestId: $response.body#/id
+      requestStatus: $response.body#/status
+  - stepId: confirmRequest
+    description: >-
+      List the agent's time-off requests to confirm the newly created request
+      was recorded.
+    operationId: listTimeOffRequests
+    parameters:
+    - name: agent_id
+      in: query
+      value: $inputs.agentId
+    - name: start_time
+      in: query
+      value: $inputs.startTime
+    - name: end_time
+      in: query
+      value: $inputs.endTime
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      requests: $response.body#/requests
+  outputs:
+    requestId: $steps.createRequest.outputs.requestId
+    requestStatus: $steps.createRequest.outputs.requestStatus

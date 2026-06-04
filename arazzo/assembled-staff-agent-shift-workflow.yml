@@ -1,0 +1,90 @@
+arazzo: 1.0.1
+info:
+  title: Assembled Staff a Shift for a Workforce Agent
+  summary: Pick an active agent from the workforce, then schedule a shift activity for them.
+  description: >-
+    Connects the People and Activities APIs to staff a shift end to end. The
+    workflow lists active people to choose a target agent, resolves an activity
+    type for the shift category, and creates the activity for that agent within
+    the supplied window. Every step spells out its request inline so the flow can
+    be read and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: peopleApi
+  url: ../openapi/assembled-people-api-openapi.yml
+  type: openapi
+- name: activitiesApi
+  url: ../openapi/assembled-activities-api-openapi.yml
+  type: openapi
+workflows:
+- workflowId: staff-agent-shift
+  summary: Select an active agent and create a shift activity for them.
+  description: >-
+    Lists active people, resolves an activity type, and creates a single shift
+    activity for the chosen agent across the supplied window.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - startTime
+    - endTime
+    properties:
+      apiKey:
+        type: string
+        description: Assembled API key (sk_live_...) used as the HTTP Basic Auth username.
+      activityTypeId:
+        type: string
+        description: Activity type ID to apply; if omitted the first available type is used.
+      startTime:
+        type: string
+        description: Shift start time (ISO 8601 date-time).
+      endTime:
+        type: string
+        description: Shift end time (ISO 8601 date-time).
+      notes:
+        type: string
+        description: Optional notes attached to the activity.
+  steps:
+  - stepId: listActiveAgents
+    description: >-
+      List active people in the workforce and select the first as the agent to
+      be staffed for the shift.
+    operationId: listPeople
+    parameters:
+    - name: active
+      in: query
+      value: true
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      agentId: $response.body#/people/0/id
+  - stepId: resolveActivityType
+    description: >-
+      List activity types so a valid colour category can be applied to the
+      shift activity.
+    operationId: listActivityTypes
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      firstActivityTypeId: $response.body#/activity_types/0/id
+  - stepId: createShift
+    description: >-
+      Create a shift activity for the selected agent within the supplied window,
+      using the resolved activity type.
+    operationId: createActivity
+    requestBody:
+      contentType: application/json
+      payload:
+        agent_id: $steps.listActiveAgents.outputs.agentId
+        activity_type_id: $inputs.activityTypeId
+        start_time: $inputs.startTime
+        end_time: $inputs.endTime
+        notes: $inputs.notes
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      activityId: $response.body#/id
+      activityAgentId: $response.body#/agent_id
+  outputs:
+    agentId: $steps.listActiveAgents.outputs.agentId
+    activityId: $steps.createShift.outputs.activityId

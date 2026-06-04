@@ -1,0 +1,85 @@
+arazzo: 1.0.1
+info:
+  title: Assembled Associate Platform IDs to an Agent
+  summary: Confirm an agent exists, map upstream platform identifiers to them, then read back the linked record.
+  description: >-
+    Wires an Assembled agent to their identities in upstream platforms so state
+    and conversation ingestion can resolve them. The workflow reads the person
+    record to confirm the agent exists, creates associations mapping platform
+    identifiers (Zendesk, Salesforce, Five9, Intercom, etc.) to the Assembled
+    agent ID, and reads the person back to confirm the platform_ids are linked.
+    Every step spells out its request inline so the flow can be read and executed
+    without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: peopleApi
+  url: ../openapi/assembled-people-api-openapi.yml
+  type: openapi
+- name: agentStateApi
+  url: ../openapi/assembled-agent-state-api-openapi.yml
+  type: openapi
+workflows:
+- workflowId: associate-agent-platforms
+  summary: Verify an agent, create platform associations, and confirm the linked record.
+  description: >-
+    Reads the agent record, maps upstream platform identifiers to the agent,
+    and reads the person back to confirm the associated platform_ids.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - agentId
+    - associations
+    properties:
+      apiKey:
+        type: string
+        description: Assembled API key (sk_live_...) used as the HTTP Basic Auth username.
+      agentId:
+        type: string
+        description: Assembled agent ID to associate platform identifiers with.
+      associations:
+        type: array
+        items:
+          type: object
+        description: Association records (agent_id, platform, platform_id).
+  steps:
+  - stepId: verifyAgent
+    description: >-
+      Read the agent record to confirm the person exists before mapping platform
+      identifiers to their ID.
+    operationId: getPerson
+    parameters:
+    - name: id
+      in: path
+      value: $inputs.agentId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      confirmedAgentId: $response.body#/id
+  - stepId: createAssociations
+    description: >-
+      Create associations mapping upstream platform identifiers to the Assembled
+      agent ID.
+    operationId: createAgentAssociations
+    requestBody:
+      contentType: application/json
+      payload:
+        associations: $inputs.associations
+    successCriteria:
+    - condition: $statusCode == 201
+  - stepId: confirmLinkedRecord
+    description: >-
+      Read the person back to confirm the platform_ids are now linked to the
+      agent.
+    operationId: getPerson
+    parameters:
+    - name: id
+      in: path
+      value: $inputs.agentId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      platformIds: $response.body#/platform_ids
+  outputs:
+    confirmedAgentId: $steps.verifyAgent.outputs.confirmedAgentId
+    platformIds: $steps.confirmLinkedRecord.outputs.platformIds

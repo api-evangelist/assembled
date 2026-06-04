@@ -1,0 +1,99 @@
+arazzo: 1.0.1
+info:
+  title: Assembled Stream and Verify Agent State
+  summary: Confirm an agent exists, push a batch of state records, then read back the condensed timeline.
+  description: >-
+    Ingests real-time agent state and verifies it landed. The workflow first
+    reads the person record to confirm the agent exists, submits a batch of
+    agent-state records ingested from upstream telephony or CRM platforms, and
+    then retrieves the condensed non-overlapping timeline for the window to
+    confirm the states were applied for adherence reporting. Every step spells
+    out its request inline so the flow can be read and executed without opening
+    the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: peopleApi
+  url: ../openapi/assembled-people-api-openapi.yml
+  type: openapi
+- name: agentStateApi
+  url: ../openapi/assembled-agent-state-api-openapi.yml
+  type: openapi
+workflows:
+- workflowId: stream-agent-state
+  summary: Verify an agent, bulk-push state records, and read the condensed timeline.
+  description: >-
+    Reads the agent record, submits a batch of state records, and retrieves the
+    condensed timeline for the window to confirm ingestion.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - agentId
+    - states
+    - startTime
+    - endTime
+    properties:
+      apiKey:
+        type: string
+        description: Assembled API key (sk_live_...) used as the HTTP Basic Auth username.
+      agentId:
+        type: string
+        description: Assembled agent ID whose state is being streamed.
+      states:
+        type: array
+        items:
+          type: object
+        description: Array of agent-state records (agent_id, state, start_time, end_time, source).
+      startTime:
+        type: string
+        description: Window start for the condensed timeline read (ISO 8601 date-time).
+      endTime:
+        type: string
+        description: Window end for the condensed timeline read (ISO 8601 date-time).
+  steps:
+  - stepId: verifyAgent
+    description: >-
+      Read the agent record to confirm the person exists before streaming state
+      records against their ID.
+    operationId: getPerson
+    parameters:
+    - name: id
+      in: path
+      value: $inputs.agentId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      confirmedAgentId: $response.body#/id
+  - stepId: pushStates
+    description: >-
+      Submit a batch of agent-state records ingested from upstream telephony or
+      CRM platforms.
+    operationId: bulkUpdateAgentStates
+    requestBody:
+      contentType: application/json
+      payload:
+        states: $inputs.states
+    successCriteria:
+    - condition: $statusCode == 202
+  - stepId: readTimeline
+    description: >-
+      Retrieve the condensed non-overlapping timeline for the agent across the
+      window to confirm the streamed states were applied.
+    operationId: getCondensedTimeline
+    parameters:
+    - name: start_time
+      in: query
+      value: $inputs.startTime
+    - name: end_time
+      in: query
+      value: $inputs.endTime
+    - name: agent_ids
+      in: query
+      value: $inputs.agentId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      timeline: $response.body#/timeline
+  outputs:
+    confirmedAgentId: $steps.verifyAgent.outputs.confirmedAgentId
+    timeline: $steps.readTimeline.outputs.timeline

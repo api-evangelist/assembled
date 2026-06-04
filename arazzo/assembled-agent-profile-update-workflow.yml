@@ -1,0 +1,87 @@
+arazzo: 1.0.1
+info:
+  title: Assembled Update an Agent Profile
+  summary: Find an agent in the workforce, read their full profile, then patch their attributes.
+  description: >-
+    A core people-management pattern for Assembled. The workflow lists people
+    filtered to active agents, selects the first match as the target agent,
+    retrieves that person's full record to confirm the current state, and then
+    partially updates their attributes (role, channels, skills, teams, site, or
+    active status). Every step spells out its request inline so the flow can be
+    read and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: peopleApi
+  url: ../openapi/assembled-people-api-openapi.yml
+  type: openapi
+workflows:
+- workflowId: update-agent-profile
+  summary: Locate an active agent and patch their profile attributes.
+  description: >-
+    Lists active people, picks the first agent, reads the full person record,
+    and applies a partial update with the supplied attribute changes.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - updates
+    properties:
+      apiKey:
+        type: string
+        description: Assembled API key (sk_live_...) used as the HTTP Basic Auth username.
+      active:
+        type: boolean
+        description: Filter people to only active (true) or inactive (false) agents.
+      updates:
+        type: object
+        description: Partial attributes to write to the agent (name, role_id, channels, skills, teams, site, active).
+  steps:
+  - stepId: listAgents
+    description: >-
+      List people in the workforce, filtered by active status, returning the
+      first page so a target agent can be selected.
+    operationId: listPeople
+    parameters:
+    - name: active
+      in: query
+      value: $inputs.active
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      agentId: $response.body#/people/0/id
+      people: $response.body#/people
+  - stepId: getAgent
+    description: >-
+      Retrieve the full person record for the selected agent to confirm current
+      role, channels, skills, and team assignments before editing.
+    operationId: getPerson
+    parameters:
+    - name: id
+      in: path
+      value: $steps.listAgents.outputs.agentId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      agentEmail: $response.body#/email
+      currentRoleId: $response.body#/role_id
+  - stepId: updateAgent
+    description: >-
+      Partially update the agent with the supplied attributes. Only the fields
+      provided in updates are changed; all other attributes are left intact.
+    operationId: updatePerson
+    parameters:
+    - name: id
+      in: path
+      value: $steps.listAgents.outputs.agentId
+    requestBody:
+      contentType: application/json
+      payload: $inputs.updates
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      updatedAgentId: $response.body#/id
+      updatedActive: $response.body#/active
+  outputs:
+    agentId: $steps.listAgents.outputs.agentId
+    updatedAgentId: $steps.updateAgent.outputs.updatedAgentId
+    updatedActive: $steps.updateAgent.outputs.updatedActive
