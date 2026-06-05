@@ -1,29 +1,21 @@
 aid: assembled
 name: Assembled
 description: >-
-  Assembled is a San Francisco-headquartered support operations platform that
-  unifies workforce management (WFM), AI agents, and AI Copilot for modern
-  customer support teams. Founded in 2020 by former Stripe operations
-  engineers, Assembled lets support leaders plan, schedule, and orchestrate a
-  hybrid workforce of in-house agents, BPO vendors, and AI agents from a
-  single system. The platform delivers ML-based volume forecasting, automated
-  schedule generation, real-time adherence, time-off and shift-swap
-  automation, vendor capacity planning, multichannel routing, and structured
-  reporting across phone, email, chat, SMS, social, and back-office channels.
-  Its AI surface includes autonomous AI Agents that resolve customer
-  conversations end-to-end across chat, email, SMS, and voice, plus AI
-  Copilot, which drafts replies, translates in real time, and surfaces
-  knowledge for human agents. The Assembled REST API (api.assembledhq.com/v0)
-  exposes people, queues, sites, teams, skills, activities, agent states,
-  forecasts, time-off requests, requirements, working hours, QA scores,
-  structured reports, and the Assist endpoints for AI chat responses and
-  knowledge articles. Assembled is used by Stripe, Etsy, Robinhood, Webflow,
-  Canva, Duolingo, Autodesk, HubSpot, Intercom, and Ramp, and integrates with
-  Zendesk, Salesforce Service Cloud, Intercom, Kustomer, Gladly, Gorgias,
-  Dixa, ServiceNow, Five9, Genesys Cloud, Talkdesk, Amazon Connect, NiCE,
-  UJET, Zoom Contact Center, Slack, Okta, Workday, HiBob, Google Calendar,
-  Shopify, Notion, Confluence, Guru, SharePoint, Fivetran, and quality tools
-  like Klaus, Rippit (MaestroQA), evaluagent, and Observe.AI.
+  Assembled is a San Francisco-headquartered support operations platform that unifies workforce management (WFM), AI
+  agents, and AI Copilot for modern customer support teams. Founded in 2020 by former Stripe operations engineers,
+  Assembled lets support leaders plan, schedule, and orchestrate a hybrid workforce of in-house agents, BPO vendors, and
+  AI agents from a single system. The platform delivers ML-based volume forecasting, automated schedule generation,
+  real-time adherence, time-off and shift-swap automation, vendor capacity planning, multichannel routing, and
+  structured reporting across phone, email, chat, SMS, social, and back-office channels. Its AI surface includes
+  autonomous AI Agents that resolve customer conversations end-to-end across chat, email, SMS, and voice, plus AI
+  Copilot, which drafts replies, translates in real time, and surfaces knowledge for human agents. The Assembled REST
+  API (api.assembledhq.com/v0) exposes people, queues, sites, teams, skills, activities, agent states, forecasts,
+  time-off requests, requirements, working hours, QA scores, structured reports, and the Assist endpoints for AI chat
+  responses and knowledge articles. Assembled is used by Stripe, Etsy, Robinhood, Webflow, Canva, Duolingo, Autodesk,
+  HubSpot, Intercom, and Ramp, and integrates with Zendesk, Salesforce Service Cloud, Intercom, Kustomer, Gladly,
+  Gorgias, Dixa, ServiceNow, Five9, Genesys Cloud, Talkdesk, Amazon Connect, NiCE, UJET, Zoom Contact Center, Slack,
+  Okta, Workday, HiBob, Google Calendar, Shopify, Notion, Confluence, Guru, SharePoint, Fivetran, and quality tools like
+  Klaus, Rippit (MaestroQA), evaluagent, and Observe.AI.
 url: https://raw.githubusercontent.com/api-evangelist/assembled/refs/heads/main/apis.yml
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 type: Index
@@ -63,17 +55,11 @@ apis:
         type: OpenAPI
       - url: json-schema/assembled-person-schema.json
         type: JSONSchema
-      - type: NaftikoCapability
-        url: capabilities/people-people.yaml
-      - type: NaftikoCapability
-        url: capabilities/people-roles.yaml
     description: >-
-      Manage agents (people) in the Assembled workforce. List, retrieve,
-      create, and update agents along with their roles, channels, skills, and
-      team assignments. The People API is the entry point for syncing agents
-      between Assembled and upstream HRIS, identity, and CRM systems and is
-      the canonical reference for who can be scheduled or routed to in
-      Assembled.
+      Manage agents (people) in the Assembled workforce. List, retrieve, create, and update agents along with their
+      roles, channels, skills, and team assignments. The People API is the entry point for syncing agents between
+      Assembled and upstream HRIS, identity, and CRM systems and is the canonical reference for who can be scheduled or
+      routed to in Assembled.
   - aid: assembled:assembled-agent-state-api
     name: Assembled Agent State API
     tags:
@@ -87,15 +73,11 @@ apis:
         type: Documentation
       - url: openapi/assembled-agent-state-api-openapi.yml
         type: OpenAPI
-      - type: NaftikoCapability
-        url: capabilities/agent-state-state.yaml
     description: >-
-      Read and write real-time agent state used to drive adherence reporting,
-      live dashboards, and dynamic routing. Supports bulk state ingestion from
-      upstream telephony and CRM platforms, a condensed non-overlapping
-      timeline view, edit history, and platform-ID associations that link
-      Assembled people to identities in Zendesk, Salesforce, Five9, and other
-      integrated systems.
+      Read and write real-time agent state used to drive adherence reporting, live dashboards, and dynamic routing.
+      Supports bulk state ingestion from upstream telephony and CRM platforms, a condensed non-overlapping timeline
+      view, edit history, and platform-ID associations that link Assembled people to identities in Zendesk, Salesforce,
+      Five9, and other integrated systems.
   - aid: assembled:assembled-activities-api
     name: Assembled Activities API
     tags:
@@ -111,16 +93,10 @@ apis:
         type: OpenAPI
       - url: json-schema/assembled-activity-schema.json
         type: JSONSchema
-      - type: NaftikoCapability
-        url: capabilities/activities-activities.yaml
-      - type: NaftikoCapability
-        url: capabilities/activities-activity-types.yaml
     description: >-
-      Create, list, and delete activities — the scheduled shifts, breaks, time
-      off, training, and meetings that make up an agent's calendar. Includes
-      bulk creation, soft-delete semantics, and management of activity types
-      with their color coding. Companion event_changes endpoint surfaces the
-      audit trail for schedule modifications.
+      Create, list, and delete activities — the scheduled shifts, breaks, time off, training, and meetings that make up
+      an agent's calendar. Includes bulk creation, soft-delete semantics, and management of activity types with their
+      color coding. Companion event_changes endpoint surfaces the audit trail for schedule modifications.
   - aid: assembled:assembled-filters-api
     name: Assembled Filters API
     tags:
@@ -135,21 +111,11 @@ apis:
         type: Documentation
       - url: openapi/assembled-filters-api-openapi.yml
         type: OpenAPI
-      - type: NaftikoCapability
-        url: capabilities/filters-queues.yaml
-      - type: NaftikoCapability
-        url: capabilities/filters-sites.yaml
-      - type: NaftikoCapability
-        url: capabilities/filters-teams.yaml
-      - type: NaftikoCapability
-        url: capabilities/filters-skills.yaml
     description: >-
-      Manage the four organizational filter dimensions used throughout
-      Assembled — Queues, Sites, Teams, and Skills. Each filter is fully
-      CRUD-capable and is referenced by people, activities, forecasts,
-      requirements, and reports. Queues map to channels and case types, Sites
-      represent physical or virtual locations, Teams group people, and Skills
-      describe routing-relevant capabilities.
+      Manage the four organizational filter dimensions used throughout Assembled — Queues, Sites, Teams, and Skills.
+      Each filter is fully CRUD-capable and is referenced by people, activities, forecasts, requirements, and reports.
+      Queues map to channels and case types, Sites represent physical or virtual locations, Teams group people, and
+      Skills describe routing-relevant capabilities.
   - aid: assembled:assembled-forecasts-api
     name: Assembled Forecasts API
     tags:
@@ -163,18 +129,10 @@ apis:
         type: Documentation
       - url: openapi/assembled-forecasts-api-openapi.yml
         type: OpenAPI
-      - type: NaftikoCapability
-        url: capabilities/forecasts-forecasts.yaml
-      - type: NaftikoCapability
-        url: capabilities/forecasts-adjustments.yaml
-      - type: NaftikoCapability
-        url: capabilities/forecasts-outliers.yaml
     description: >-
-      Retrieve Assembled's ML-generated forecasts, forecast totals, manual
-      adjustments, and detected outliers. The forecasted-vs-actuals endpoint
-      compares predicted to realised volume so support leaders can tune
-      models, identify drift, and validate >90% forecast accuracy claims.
-      Forecasts drive AI-powered schedule generation and staffing
+      Retrieve Assembled's ML-generated forecasts, forecast totals, manual adjustments, and detected outliers. The
+      forecasted-vs-actuals endpoint compares predicted to realised volume so support leaders can tune models, identify
+      drift, and validate >90% forecast accuracy claims. Forecasts drive AI-powered schedule generation and staffing
       recommendations across human and AI agents.
   - aid: assembled:assembled-time-off-api
     name: Assembled Time Off API
@@ -188,13 +146,10 @@ apis:
         type: Documentation
       - url: openapi/assembled-time-off-api-openapi.yml
         type: OpenAPI
-      - type: NaftikoCapability
-        url: capabilities/time-off-requests.yaml
     description: >-
-      Programmatically create, list, and cancel time-off requests, and pull a
-      stream of time-off updates for downstream HRIS or payroll
-      synchronisation. The endpoint underpins the automated time-off and
-      shift-swap workflows offered in Assembled's Pro and Enterprise plans.
+      Programmatically create, list, and cancel time-off requests, and pull a stream of time-off updates for downstream
+      HRIS or payroll synchronisation. The endpoint underpins the automated time-off and shift-swap workflows offered in
+      Assembled's Pro and Enterprise plans.
   - aid: assembled:assembled-requirements-api
     name: Assembled Requirements API
     tags:
@@ -207,14 +162,10 @@ apis:
         type: Documentation
       - url: openapi/assembled-requirements-api-openapi.yml
         type: OpenAPI
-      - type: NaftikoCapability
-        url: capabilities/requirements-requirements.yaml
     description: >-
-      Create and list staffing requirements that express how many agents are
-      needed by queue, site, team, or skill across time intervals.
-      Requirement types describe the family of need (for example, headcount
-      vs. occupancy targets). Requirements feed AI scheduling and real-time
-      staffing recommendations.
+      Create and list staffing requirements that express how many agents are needed by queue, site, team, or skill
+      across time intervals. Requirement types describe the family of need (for example, headcount vs. occupancy
+      targets). Requirements feed AI scheduling and real-time staffing recommendations.
   - aid: assembled:assembled-scheduling-rules-api
     name: Assembled Scheduling Rules API
     tags:
@@ -227,13 +178,10 @@ apis:
         type: Documentation
       - url: openapi/assembled-scheduling-rules-api-openapi.yml
         type: OpenAPI
-      - type: NaftikoCapability
-        url: capabilities/scheduling-rules-working-hours.yaml
     description: >-
-      Retrieve the working-hours rules that constrain when each agent may be
-      scheduled. Working hours are the structured replacement for the
-      now-deprecated shift_patterns endpoints and are honoured by Assembled's
-      AI-powered schedule generation engine.
+      Retrieve the working-hours rules that constrain when each agent may be scheduled. Working hours are the structured
+      replacement for the now-deprecated shift_patterns endpoints and are honoured by Assembled's AI-powered schedule
+      generation engine.
   - aid: assembled:assembled-conversations-api
     name: Assembled Conversations API
     tags:
@@ -248,14 +196,10 @@ apis:
         type: OpenAPI
       - url: json-schema/assembled-conversation-schema.json
         type: JSONSchema
-      - type: NaftikoCapability
-        url: capabilities/conversations-conversations.yaml
     description: >-
-      Bulk-ingest and bulk-update customer conversation records — phone,
-      email, chat, SMS, social, and back-office — so they can be associated
-      with agents, queues, and channels for reporting, QA, and analytics.
-      Used by customers running on non-Zendesk/Salesforce stacks or merging
-      multiple CRMs into a unified support view.
+      Bulk-ingest and bulk-update customer conversation records — phone, email, chat, SMS, social, and back-office — so
+      they can be associated with agents, queues, and channels for reporting, QA, and analytics. Used by customers
+      running on non-Zendesk/Salesforce stacks or merging multiple CRMs into a unified support view.
   - aid: assembled:assembled-reports-api
     name: Assembled Reports API
     tags:
@@ -269,14 +213,10 @@ apis:
         type: Documentation
       - url: openapi/assembled-reports-api-openapi.yml
         type: OpenAPI
-      - type: NaftikoCapability
-        url: capabilities/reports-reports.yaml
     description: >-
-      Asynchronously generate and retrieve structured reports including
-      adherence, ticket statistics, and handle times. Reports are kicked off
-      with a POST /v0/reports/:reportType call and polled via
-      GET /v0/reports/:reportID for results, enabling automated weekly and
-      monthly KPI exports into BI tools.
+      Asynchronously generate and retrieve structured reports including adherence, ticket statistics, and handle times.
+      Reports are kicked off with a POST /v0/reports/:reportType call and polled via GET /v0/reports/:reportID for
+      results, enabling automated weekly and monthly KPI exports into BI tools.
   - aid: assembled:assembled-qa-api
     name: Assembled QA API
     tags:
@@ -289,13 +229,10 @@ apis:
         type: Documentation
       - url: openapi/assembled-qa-api-openapi.yml
         type: OpenAPI
-      - type: NaftikoCapability
-        url: capabilities/qa-scores.yaml
     description: >-
-      Upload QA scores in bulk so external quality-management tools such as
-      Klaus, Rippit (MaestroQA), evaluagent, and Observe.AI can feed
-      conversation scores back into Assembled for adherence-vs-quality
-      analysis and coaching workflows.
+      Upload QA scores in bulk so external quality-management tools such as Klaus, Rippit (MaestroQA), evaluagent, and
+      Observe.AI can feed conversation scores back into Assembled for adherence-vs-quality analysis and coaching
+      workflows.
   - aid: assembled:assembled-assist-api
     name: Assembled Assist API
     tags:
@@ -311,67 +248,61 @@ apis:
         type: OpenAPI
       - url: json-schema/assembled-assist-response-schema.json
         type: JSONSchema
-      - type: NaftikoCapability
-        url: capabilities/assist-responses.yaml
-      - type: NaftikoCapability
-        url: capabilities/assist-articles.yaml
-      - type: NaftikoCapability
-        url: capabilities/assist-conversations.yaml
     description: >-
-      The AI surface of Assembled. Submit chat responses generated by AI
-      Agents, manage the knowledge articles AI Agents draw from, retrieve
-      conversation histories and handoff payloads, and (beta) post AI replies.
-      Powers autonomous resolution across chat, email, SMS, and voice plus
-      smart handoffs to human agents.
+      The AI surface of Assembled. Submit chat responses generated by AI Agents, manage the knowledge articles AI Agents
+      draw from, retrieve conversation histories and handoff payloads, and (beta) post AI replies. Powers autonomous
+      resolution across chat, email, SMS, and voice plus smart handoffs to human agents.
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/assembled/overview
   - type: ArazzoWorkflows
     url: arazzo/
     workflows:
-    - url: arazzo/assembled-agent-profile-update-workflow.yml
-      name: Assembled Update an Agent Profile
-      summary: Find an agent in the workforce, read their full profile, then patch their attributes.
-    - url: arazzo/assembled-associate-agent-platforms-workflow.yml
-      name: Assembled Associate Platform IDs to an Agent
-      summary: Confirm an agent exists, map upstream platform identifiers to them, then read back the linked record.
-    - url: arazzo/assembled-audit-schedule-changes-workflow.yml
-      name: Assembled Audit Schedule Changes
-      summary: List the activities scheduled in a window, then pull the audit trail of changes to them.
-    - url: arazzo/assembled-cancel-time-off-workflow.yml
-      name: Assembled Review and Cancel a Time Off Request
-      summary: List pending time-off requests and cancel the first one, branching on whether any exist.
-    - url: arazzo/assembled-forecast-to-requirement-workflow.yml
-      name: Assembled Turn a Forecast into a Staffing Requirement
-      summary: Read the volume forecast for a window, resolve a requirement type, then create a staffing requirement.
-    - url: arazzo/assembled-generate-report-workflow.yml
-      name: Assembled Generate and Retrieve a Report
-      summary: Start an async report job, then fetch the result, branching on completion status.
-    - url: arazzo/assembled-ingest-conversations-workflow.yml
-      name: Assembled Ingest and Enrich Conversations
-      summary: Bulk-upsert customer conversation records, then bulk-update them with enriched fields.
-    - url: arazzo/assembled-manage-forecast-total-workflow.yml
-      name: Assembled Create and Read a Forecast Total
-      summary: Create a forecast total for a queue window, list totals to find it, then fetch it in full.
-    - url: arazzo/assembled-provision-agent-workflow.yml
-      name: Assembled Provision a New Agent
-      summary: Resolve an available role, create a new agent, then read back the created record.
-    - url: arazzo/assembled-provision-queue-and-staff-workflow.yml
-      name: Assembled Provision a Queue and Staff It
-      summary: Create a routing queue, pick an active agent, then schedule an activity routed to that queue.
-    - url: arazzo/assembled-request-time-off-workflow.yml
-      name: Assembled Request Time Off for an Agent
-      summary: Confirm the agent exists, create a time-off request, then verify it in the request list.
-    - url: arazzo/assembled-review-working-hours-workflow.yml
-      name: Assembled Review an Agent's Working Hours
-      summary: List the working-hours rules for an agent, then fetch the first rule in full.
-    - url: arazzo/assembled-schedule-agent-shift-workflow.yml
-      name: Assembled Schedule an Agent Shift
-      summary: Resolve an activity type, create a scheduled activity, then list it back on the calendar.
-    - url: arazzo/assembled-staff-agent-shift-workflow.yml
-      name: Assembled Staff a Shift for a Workforce Agent
-      summary: Pick an active agent from the workforce, then schedule a shift activity for them.
-    - url: arazzo/assembled-stream-agent-state-workflow.yml
-      name: Assembled Stream and Verify Agent State
-      summary: Confirm an agent exists, push a batch of state records, then read back the condensed timeline.
+      - url: arazzo/assembled-agent-profile-update-workflow.yml
+        name: Assembled Update an Agent Profile
+        summary: Find an agent in the workforce, read their full profile, then patch their attributes.
+      - url: arazzo/assembled-associate-agent-platforms-workflow.yml
+        name: Assembled Associate Platform IDs to an Agent
+        summary: Confirm an agent exists, map upstream platform identifiers to them, then read back the linked record.
+      - url: arazzo/assembled-audit-schedule-changes-workflow.yml
+        name: Assembled Audit Schedule Changes
+        summary: List the activities scheduled in a window, then pull the audit trail of changes to them.
+      - url: arazzo/assembled-cancel-time-off-workflow.yml
+        name: Assembled Review and Cancel a Time Off Request
+        summary: List pending time-off requests and cancel the first one, branching on whether any exist.
+      - url: arazzo/assembled-forecast-to-requirement-workflow.yml
+        name: Assembled Turn a Forecast into a Staffing Requirement
+        summary: Read the volume forecast for a window, resolve a requirement type, then create a staffing requirement.
+      - url: arazzo/assembled-generate-report-workflow.yml
+        name: Assembled Generate and Retrieve a Report
+        summary: Start an async report job, then fetch the result, branching on completion status.
+      - url: arazzo/assembled-ingest-conversations-workflow.yml
+        name: Assembled Ingest and Enrich Conversations
+        summary: Bulk-upsert customer conversation records, then bulk-update them with enriched fields.
+      - url: arazzo/assembled-manage-forecast-total-workflow.yml
+        name: Assembled Create and Read a Forecast Total
+        summary: Create a forecast total for a queue window, list totals to find it, then fetch it in full.
+      - url: arazzo/assembled-provision-agent-workflow.yml
+        name: Assembled Provision a New Agent
+        summary: Resolve an available role, create a new agent, then read back the created record.
+      - url: arazzo/assembled-provision-queue-and-staff-workflow.yml
+        name: Assembled Provision a Queue and Staff It
+        summary: Create a routing queue, pick an active agent, then schedule an activity routed to that queue.
+      - url: arazzo/assembled-request-time-off-workflow.yml
+        name: Assembled Request Time Off for an Agent
+        summary: Confirm the agent exists, create a time-off request, then verify it in the request list.
+      - url: arazzo/assembled-review-working-hours-workflow.yml
+        name: Assembled Review an Agent's Working Hours
+        summary: List the working-hours rules for an agent, then fetch the first rule in full.
+      - url: arazzo/assembled-schedule-agent-shift-workflow.yml
+        name: Assembled Schedule an Agent Shift
+        summary: Resolve an activity type, create a scheduled activity, then list it back on the calendar.
+      - url: arazzo/assembled-staff-agent-shift-workflow.yml
+        name: Assembled Staff a Shift for a Workforce Agent
+        summary: Pick an active agent from the workforce, then schedule a shift activity for them.
+      - url: arazzo/assembled-stream-agent-state-workflow.yml
+        name: Assembled Stream and Verify Agent State
+        summary: Confirm an agent exists, push a batch of state records, then read back the condensed timeline.
   - type: Website
     url: https://www.assembled.com
   - type: Portal
@@ -470,10 +401,11 @@ common:
       - Date-based API versioning via the API-Version request header
       - Default rate limit of 300 requests per minute (5 req/s) with bursts up to 20
       - Bulk operations supported across most write endpoints, plus soft-delete semantics
-      - Native integrations across CCaaS (Five9, Genesys Cloud, Talkdesk, Amazon Connect, NiCE, UJET, Zoom),
+      - >-
+        Native integrations across CCaaS (Five9, Genesys Cloud, Talkdesk, Amazon Connect, NiCE, UJET, Zoom),
         CRM/helpdesk (Zendesk, Salesforce, Intercom, Kustomer, Gladly, Gorgias, Dixa, ServiceNow), HRIS (Workday,
-        HiBob), knowledge bases (Notion, Confluence, Guru, SharePoint, Google Drive), Fivetran data pipeline,
-        Slack, Okta, Google Calendar, and Shopify
+        HiBob), knowledge bases (Notion, Confluence, Guru, SharePoint, Google Drive), Fivetran data pipeline, Slack,
+        Okta, Google Calendar, and Shopify
       - Official iOS and Android SDKs for embedding the Assembled chat widget into mobile applications
       - SOC 2, GDPR, and HIPAA compliance with enterprise-grade security and policy guardrails
       - Scheduling 4.5+ billion events per year for ~100,000 agents across 50+ countries (2025)
