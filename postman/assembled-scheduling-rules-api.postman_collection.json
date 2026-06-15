@@ -1,0 +1,250 @@
+{
+  "info": {
+    "_postman_id": "877940a3-4e5e-41c5-9b55-c92eb569f6e3",
+    "name": "Assembled Scheduling Rules API",
+    "description": "Retrieve the working-hours rules that constrain when each agent may be\nscheduled.\n\nWorking hours are the structured replacement for the now-deprecated\nshift_patterns endpoints and are honoured by Assembled's AI-powered\nschedule generation engine.\n\n\nContact Support:\n Name: Assembled Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:05:43.000Z",
+    "updatedAt": "2026-06-05T15:05:43.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-877940a3-4e5e-41c5-9b55-c92eb569f6e3"
+  },
+  "item": [
+    {
+      "name": "v0",
+      "item": [
+        {
+          "name": "scheduling_rules",
+          "item": [
+            {
+              "name": "working_hours",
+              "item": [
+                {
+                  "name": "{id}",
+                  "item": [
+                    {
+                      "name": "Assembled Get Working Hours Rule",
+                      "id": "046dbc72-2ed9-499c-a337-8bd4e4aeaf9f",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v0/scheduling_rules/working_hours/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v0",
+                            "scheduling_rules",
+                            "working_hours",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "c380f287-52a9-4f8c-bee8-ee8d5dcc9a8c",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "43a75a25-7e7f-48d9-94e1-348e08923763",
+                          "name": "Working hours rule",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v0/scheduling_rules/working_hours/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v0",
+                                "scheduling_rules",
+                                "working_hours",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"agent_id\": \"<string>\",\n  \"timezone\": \"<string>\",\n  \"weekly_pattern\": [\n    {\n      \"day_of_week\": \"sunday\",\n      \"start_time\": \"<string>\",\n      \"end_time\": \"<string>\"\n    },\n    {\n      \"day_of_week\": \"tuesday\",\n      \"start_time\": \"<string>\",\n      \"end_time\": \"<string>\"\n    }\n  ],\n  \"effective_from\": \"<date>\",\n  \"effective_to\": \"<date>\"\n}",
+                          "createdAt": "2026-06-05T15:05:43.000Z",
+                          "updatedAt": "2026-06-05T15:05:43.000Z",
+                          "uid": "35240-43a75a25-7e7f-48d9-94e1-348e08923763"
+                        }
+                      ],
+                      "createdAt": "2026-06-05T15:05:43.000Z",
+                      "updatedAt": "2026-06-05T15:05:43.000Z",
+                      "uid": "35240-046dbc72-2ed9-499c-a337-8bd4e4aeaf9f"
+                    }
+                  ],
+                  "id": "824928eb-0359-474d-8f2b-6c9b80e5c99e",
+                  "createdAt": "2026-06-05T15:05:43.000Z",
+                  "updatedAt": "2026-06-05T15:05:43.000Z",
+                  "uid": "35240-824928eb-0359-474d-8f2b-6c9b80e5c99e"
+                },
+                {
+                  "name": "Assembled List Working Hours",
+                  "id": "bb747493-b5d3-49d5-943b-57374b157ea3",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v0/scheduling_rules/working_hours?agent_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v0",
+                        "scheduling_rules",
+                        "working_hours"
+                      ],
+                      "query": [
+                        {
+                          "key": "agent_id",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "117bb7f2-3cbd-4308-bcce-b6b5a949e547",
+                      "name": "Working hours rules",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v0/scheduling_rules/working_hours?agent_id=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v0",
+                            "scheduling_rules",
+                            "working_hours"
+                          ],
+                          "query": [
+                            {
+                              "key": "agent_id",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"working_hours\": [\n    {\n      \"id\": \"<string>\",\n      \"agent_id\": \"<string>\",\n      \"timezone\": \"<string>\",\n      \"weekly_pattern\": [\n        {\n          \"day_of_week\": \"sunday\",\n          \"start_time\": \"<string>\",\n          \"end_time\": \"<string>\"\n        },\n        {\n          \"day_of_week\": \"sunday\",\n          \"start_time\": \"<string>\",\n          \"end_time\": \"<string>\"\n        }\n      ],\n      \"effective_from\": \"<date>\",\n      \"effective_to\": \"<date>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"agent_id\": \"<string>\",\n      \"timezone\": \"<string>\",\n      \"weekly_pattern\": [\n        {\n          \"day_of_week\": \"monday\",\n          \"start_time\": \"<string>\",\n          \"end_time\": \"<string>\"\n        },\n        {\n          \"day_of_week\": \"wednesday\",\n          \"start_time\": \"<string>\",\n          \"end_time\": \"<string>\"\n        }\n      ],\n      \"effective_from\": \"<date>\",\n      \"effective_to\": \"<date>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T15:05:43.000Z",
+                      "updatedAt": "2026-06-05T15:05:43.000Z",
+                      "uid": "35240-117bb7f2-3cbd-4308-bcce-b6b5a949e547"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:05:43.000Z",
+                  "updatedAt": "2026-06-05T15:05:43.000Z",
+                  "uid": "35240-bb747493-b5d3-49d5-943b-57374b157ea3"
+                }
+              ],
+              "id": "9efac643-9014-450e-b3aa-075553fd0212",
+              "createdAt": "2026-06-05T15:05:43.000Z",
+              "updatedAt": "2026-06-05T15:05:43.000Z",
+              "uid": "35240-9efac643-9014-450e-b3aa-075553fd0212"
+            }
+          ],
+          "id": "ae4a58ff-9fe8-4acb-a4ed-fde340acbbf5",
+          "createdAt": "2026-06-05T15:05:43.000Z",
+          "updatedAt": "2026-06-05T15:05:43.000Z",
+          "uid": "35240-ae4a58ff-9fe8-4acb-a4ed-fde340acbbf5"
+        }
+      ],
+      "id": "7a02a447-e52d-4f1c-a483-3af085e1b912",
+      "createdAt": "2026-06-05T15:05:43.000Z",
+      "updatedAt": "2026-06-05T15:05:43.000Z",
+      "uid": "35240-7a02a447-e52d-4f1c-a483-3af085e1b912"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.assembledhq.com"
+    }
+  ]
+}

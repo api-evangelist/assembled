@@ -1,0 +1,197 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Assembled Agent State API",
+    "version": "2026-05-24"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Agent State",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Assembled Get Agent States",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.assembledhq.com/v0/agents/state",
+            "headers": [
+              {
+                "name": "API-Version",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "start_time",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_time",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "agent_ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of Assembled agent IDs."
+              }
+            ]
+          },
+          "docs": "Retrieve agent state records for a time range, optionally filtered by agent."
+        },
+        {
+          "info": {
+            "name": "Assembled Update Agent State (Deprecated)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.assembledhq.com/v0/agents/state",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Deprecated single-state update endpoint. Use /v0/agents/state/bulk instead."
+        },
+        {
+          "info": {
+            "name": "Assembled Bulk Update Agent States",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.assembledhq.com/v0/agents/state/bulk",
+            "headers": [
+              {
+                "name": "API-Version",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit a batch of agent state records ingested from upstream telephony or CRM platforms."
+        },
+        {
+          "info": {
+            "name": "Assembled Get Condensed Agent State Timeline",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.assembledhq.com/v0/agents/state/condensed_timeline",
+            "headers": [
+              {
+                "name": "API-Version",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "start_time",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_time",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "agent_ids",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a non-overlapping timeline of agent state changes — useful for adherence and shrinkage reports."
+        },
+        {
+          "info": {
+            "name": "Assembled Edit Agent State",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.assembledhq.com/v0/agents/state/edit",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Insert, update, or delete agent state records."
+        },
+        {
+          "info": {
+            "name": "Assembled Get Agent State Edit History",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.assembledhq.com/v0/agents/state/edit/history",
+            "headers": [
+              {
+                "name": "API-Version",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "start_time",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_time",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Audit trail of edits made to agent state records."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Agent Associations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Assembled Create Agent Associations",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.assembledhq.com/v0/agents/associations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Associate platform identifiers (Zendesk, Salesforce, Five9, Intercom, etc.) to Assembled agent IDs."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,279 @@
+{
+  "info": {
+    "_postman_id": "939ea0a1-1016-4d68-83ca-66bf5df1a2f1",
+    "name": "Assembled Reports API",
+    "description": "Asynchronously generate and retrieve structured reports including\nadherence, ticket statistics, and handle times.\n\nReports are kicked off with a POST /v0/reports/:reportType call and\npolled via GET /v0/reports/:reportID for results, enabling automated\nweekly and monthly KPI exports into BI tools.\n\n\nContact Support:\n Name: Assembled Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:05:45.000Z",
+    "updatedAt": "2026-06-05T15:05:46.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-939ea0a1-1016-4d68-83ca-66bf5df1a2f1"
+  },
+  "item": [
+    {
+      "name": "v0",
+      "item": [
+        {
+          "name": "reports",
+          "item": [
+            {
+              "name": "{reportType}",
+              "item": [
+                {
+                  "name": "Assembled Start Report",
+                  "id": "c45695ef-b93f-4c40-97e6-3c192e523474",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"start_time\": \"<dateTime>\",\n  \"end_time\": \"<dateTime>\",\n  \"queue_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"team_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"site_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"agent_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"granularity\": \"day\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v0/reports/:reportType",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v0",
+                        "reports",
+                        ":reportType"
+                      ],
+                      "variable": [
+                        {
+                          "id": "537d2624-0a2e-45eb-9319-5febc047ea6e",
+                          "key": "reportType",
+                          "value": "handle_time",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Kick off generation of a structured report."
+                  },
+                  "response": [
+                    {
+                      "id": "ef5f0110-c4b0-4ad1-8337-5e825ea59502",
+                      "name": "Report job accepted",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"start_time\": \"<dateTime>\",\n  \"end_time\": \"<dateTime>\",\n  \"queue_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"team_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"site_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"agent_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"granularity\": \"day\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v0/reports/:reportType",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v0",
+                            "reports",
+                            ":reportType"
+                          ],
+                          "variable": [
+                            {
+                              "key": "reportType"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Accepted",
+                      "code": 202,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"reportID\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:05:46.000Z",
+                      "updatedAt": "2026-06-05T15:05:46.000Z",
+                      "uid": "35240-ef5f0110-c4b0-4ad1-8337-5e825ea59502"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:05:46.000Z",
+                  "updatedAt": "2026-06-05T15:05:46.000Z",
+                  "uid": "35240-c45695ef-b93f-4c40-97e6-3c192e523474"
+                }
+              ],
+              "id": "d0dc9024-0989-4495-a5ad-5b56fd65964b",
+              "createdAt": "2026-06-05T15:05:46.000Z",
+              "updatedAt": "2026-06-05T15:05:46.000Z",
+              "uid": "35240-d0dc9024-0989-4495-a5ad-5b56fd65964b"
+            },
+            {
+              "name": "{reportID}",
+              "item": [
+                {
+                  "name": "Assembled Get Report",
+                  "id": "1b68b8f8-725a-4265-9073-27cda69957ca",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v0/reports/:reportID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v0",
+                        "reports",
+                        ":reportID"
+                      ],
+                      "variable": [
+                        {
+                          "id": "4abbb8d0-862b-4ece-b8a1-1f4060a710e4",
+                          "key": "reportID",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Retrieve a generated report by ID. Poll until status is `complete`."
+                  },
+                  "response": [
+                    {
+                      "id": "95dcc4bb-7e77-49b6-a86a-551b42ef6f37",
+                      "name": "Report result",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v0/reports/:reportID",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v0",
+                            "reports",
+                            ":reportID"
+                          ],
+                          "variable": [
+                            {
+                              "key": "reportID"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"reportID\": \"<string>\",\n  \"status\": \"pending\",\n  \"reportType\": \"<string>\",\n  \"generated_at\": \"<dateTime>\",\n  \"rows\": [\n    {\n      \"dolor210\": -15385447\n    },\n    {\n      \"officia_\": -61551195\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T15:05:46.000Z",
+                      "updatedAt": "2026-06-05T15:05:46.000Z",
+                      "uid": "35240-95dcc4bb-7e77-49b6-a86a-551b42ef6f37"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:05:46.000Z",
+                  "updatedAt": "2026-06-05T15:05:46.000Z",
+                  "uid": "35240-1b68b8f8-725a-4265-9073-27cda69957ca"
+                }
+              ],
+              "id": "36938cff-06cf-4b45-92f7-e023ccaa00a5",
+              "createdAt": "2026-06-05T15:05:46.000Z",
+              "updatedAt": "2026-06-05T15:05:46.000Z",
+              "uid": "35240-36938cff-06cf-4b45-92f7-e023ccaa00a5"
+            }
+          ],
+          "id": "5bd51417-0714-41b7-853d-a415fdeede9f",
+          "createdAt": "2026-06-05T15:05:46.000Z",
+          "updatedAt": "2026-06-05T15:05:46.000Z",
+          "uid": "35240-5bd51417-0714-41b7-853d-a415fdeede9f"
+        }
+      ],
+      "id": "cd998c3d-6954-4aba-ad49-7dbf0e27a216",
+      "createdAt": "2026-06-05T15:05:46.000Z",
+      "updatedAt": "2026-06-05T15:05:46.000Z",
+      "uid": "35240-cd998c3d-6954-4aba-ad49-7dbf0e27a216"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.assembledhq.com"
+    }
+  ]
+}

@@ -1,0 +1,235 @@
+{
+  "item": [
+    {
+      "id": "42ebc7db-67a7-43cf-abad-ac34aafb311a",
+      "name": "Conversations",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "392eba94-423a-473c-816d-e3450d7f1335",
+          "name": "Assembled Bulk Upsert Conversations",
+          "request": {
+            "name": "Assembled Bulk Upsert Conversations",
+            "description": {
+              "content": "Create or overwrite conversation records in bulk.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v0",
+                "conversations",
+                "bulk"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"conversations\": [\n    {\n      \"external_id\": \"<string>\",\n      \"channel\": \"<string>\",\n      \"started_at\": \"<dateTime>\",\n      \"platform\": \"<string>\",\n      \"queue_id\": \"<string>\",\n      \"assigned_agent_id\": \"<string>\",\n      \"customer_id\": \"<string>\",\n      \"subject\": \"<string>\",\n      \"status\": \"<string>\",\n      \"ended_at\": \"<dateTime>\",\n      \"handle_time_seconds\": \"<number>\",\n      \"wait_time_seconds\": \"<number>\",\n      \"first_response_time_seconds\": \"<number>\",\n      \"resolved\": \"<boolean>\",\n      \"csat_score\": \"<number>\",\n      \"metadata\": {\n        \"key_0\": 8155\n      }\n    },\n    {\n      \"external_id\": \"<string>\",\n      \"channel\": \"<string>\",\n      \"started_at\": \"<dateTime>\",\n      \"platform\": \"<string>\",\n      \"queue_id\": \"<string>\",\n      \"assigned_agent_id\": \"<string>\",\n      \"customer_id\": \"<string>\",\n      \"subject\": \"<string>\",\n      \"status\": \"<string>\",\n      \"ended_at\": \"<dateTime>\",\n      \"handle_time_seconds\": \"<number>\",\n      \"wait_time_seconds\": \"<number>\",\n      \"first_response_time_seconds\": \"<number>\",\n      \"resolved\": \"<boolean>\",\n      \"csat_score\": \"<number>\",\n      \"metadata\": {\n        \"key_0\": \"string\"\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6daf21ad-74b5-4d7b-9468-80acf5eabbc8",
+              "name": "Accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v0",
+                    "conversations",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"conversations\": [\n    {\n      \"external_id\": \"string\",\n      \"channel\": \"sms\",\n      \"started_at\": \"1985-03-20T00:01:46.462Z\",\n      \"platform\": \"zendesk\",\n      \"queue_id\": \"string\",\n      \"assigned_agent_id\": \"string\",\n      \"customer_id\": \"string\",\n      \"subject\": \"string\",\n      \"status\": \"string\",\n      \"ended_at\": \"1993-07-29T18:58:15.080Z\",\n      \"handle_time_seconds\": 5002.378705176083,\n      \"wait_time_seconds\": 369.0073470007793,\n      \"first_response_time_seconds\": 1793.70594117653,\n      \"resolved\": false,\n      \"csat_score\": 2965.6445897571316,\n      \"metadata\": {\n        \"key_0\": 4899\n      }\n    },\n    {\n      \"external_id\": \"string\",\n      \"channel\": \"chat\",\n      \"started_at\": \"2006-04-02T16:01:39.145Z\",\n      \"platform\": \"zendesk\",\n      \"queue_id\": \"string\",\n      \"assigned_agent_id\": \"string\",\n      \"customer_id\": \"string\",\n      \"subject\": \"string\",\n      \"status\": \"string\",\n      \"ended_at\": \"1981-06-28T07:03:09.289Z\",\n      \"handle_time_seconds\": 2733.271094464801,\n      \"wait_time_seconds\": 361.3022952282252,\n      \"first_response_time_seconds\": 749.8826114508994,\n      \"resolved\": true,\n      \"csat_score\": 7060.023847473555,\n      \"metadata\": {\n        \"key_0\": \"string\",\n        \"key_1\": true,\n        \"key_2\": 8182\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5b791c78-325e-406e-b661-6dd28093e2f2",
+          "name": "Assembled Bulk Update Conversations",
+          "request": {
+            "name": "Assembled Bulk Update Conversations",
+            "description": {
+              "content": "Update existing conversations with partial fields, identified by external_id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v0",
+                "conversations",
+                "bulk"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"conversations\": [\n    {\n      \"external_id\": \"<string>\",\n      \"assigned_agent_id\": \"<string>\",\n      \"status\": \"<string>\",\n      \"ended_at\": \"<dateTime>\",\n      \"handle_time_seconds\": \"<number>\",\n      \"resolved\": \"<boolean>\",\n      \"csat_score\": \"<number>\",\n      \"metadata\": {\n        \"key_0\": false\n      }\n    },\n    {\n      \"external_id\": \"<string>\",\n      \"assigned_agent_id\": \"<string>\",\n      \"status\": \"<string>\",\n      \"ended_at\": \"<dateTime>\",\n      \"handle_time_seconds\": \"<number>\",\n      \"resolved\": \"<boolean>\",\n      \"csat_score\": \"<number>\",\n      \"metadata\": {\n        \"key_0\": true\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "21980a63-1339-402c-97f2-7199d90d1397",
+              "name": "Accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v0",
+                    "conversations",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"conversations\": [\n    {\n      \"external_id\": \"string\",\n      \"assigned_agent_id\": \"string\",\n      \"status\": \"string\",\n      \"ended_at\": \"2024-10-25T06:59:07.814Z\",\n      \"handle_time_seconds\": 8096.296328724207,\n      \"resolved\": true,\n      \"csat_score\": 7354.626804653979,\n      \"metadata\": {\n        \"key_0\": false,\n        \"key_1\": 9125,\n        \"key_2\": 1967.3062501199988\n      }\n    },\n    {\n      \"external_id\": \"string\",\n      \"assigned_agent_id\": \"string\",\n      \"status\": \"string\",\n      \"ended_at\": \"2007-05-21T13:26:29.532Z\",\n      \"handle_time_seconds\": 56.99008350622093,\n      \"resolved\": true,\n      \"csat_score\": 4648.252804642417,\n      \"metadata\": {\n        \"key_0\": \"string\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.assembledhq.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "86c4765d-20e4-423f-bbf7-24d0978efac6",
+    "name": "Assembled Conversations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Bulk-ingest and bulk-update customer conversation records — phone,\nemail, chat, SMS, social, and back-office — so they can be associated\nwith agents, queues, and channels for reporting, QA, and analytics.\n\nUsed by customers running on non-Zendesk/Salesforce stacks or merging\nmultiple CRMs into a unified support view.\n\n\nContact Support:\n Name: Assembled Support",
+      "type": "text/plain"
+    }
+  }
+}

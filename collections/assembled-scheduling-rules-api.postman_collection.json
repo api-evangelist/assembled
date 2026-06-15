@@ -1,0 +1,232 @@
+{
+  "item": [
+    {
+      "id": "02031c2d-e7c2-4950-854f-0162a2c492d8",
+      "name": "Working Hours",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "299fd7f1-acdd-4bd7-ab29-9058c2d2388c",
+          "name": "Assembled List Working Hours",
+          "request": {
+            "name": "Assembled List Working Hours",
+            "description": {},
+            "url": {
+              "path": [
+                "v0",
+                "scheduling_rules",
+                "working_hours"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "agent_id",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "381622e1-b24e-4ae3-9fe2-ea4a22718a5f",
+              "name": "Working hours rules",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v0",
+                    "scheduling_rules",
+                    "working_hours"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "agent_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"working_hours\": [\n    {\n      \"id\": \"string\",\n      \"agent_id\": \"string\",\n      \"timezone\": \"string\",\n      \"weekly_pattern\": [\n        {\n          \"day_of_week\": \"monday\",\n          \"start_time\": \"09:00\",\n          \"end_time\": \"17:00\"\n        },\n        {\n          \"day_of_week\": \"sunday\",\n          \"start_time\": \"09:00\",\n          \"end_time\": \"17:00\"\n        }\n      ],\n      \"effective_from\": \"1957-06-06\",\n      \"effective_to\": \"1989-07-18\"\n    },\n    {\n      \"id\": \"string\",\n      \"agent_id\": \"string\",\n      \"timezone\": \"string\",\n      \"weekly_pattern\": [\n        {\n          \"day_of_week\": \"monday\",\n          \"start_time\": \"09:00\",\n          \"end_time\": \"17:00\"\n        },\n        {\n          \"day_of_week\": \"saturday\",\n          \"start_time\": \"09:00\",\n          \"end_time\": \"17:00\"\n        }\n      ],\n      \"effective_from\": \"1997-04-21\",\n      \"effective_to\": \"1999-11-29\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f5387575-2b4c-4fec-8ff0-16226ab22eac",
+          "name": "Assembled Get Working Hours Rule",
+          "request": {
+            "name": "Assembled Get Working Hours Rule",
+            "description": {},
+            "url": {
+              "path": [
+                "v0",
+                "scheduling_rules",
+                "working_hours",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9cb48b54-129b-4cc4-9789-f1eabf642941",
+              "name": "Working hours rule",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v0",
+                    "scheduling_rules",
+                    "working_hours",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"agent_id\": \"string\",\n  \"timezone\": \"string\",\n  \"weekly_pattern\": [\n    {\n      \"day_of_week\": \"sunday\",\n      \"start_time\": \"09:00\",\n      \"end_time\": \"17:00\"\n    },\n    {\n      \"day_of_week\": \"saturday\",\n      \"start_time\": \"09:00\",\n      \"end_time\": \"17:00\"\n    }\n  ],\n  \"effective_from\": \"2014-05-24\",\n  \"effective_to\": \"1968-10-27\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.assembledhq.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5ffd89d2-046d-4b2f-8ad4-0b9df7e607c9",
+    "name": "Assembled Scheduling Rules API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Retrieve the working-hours rules that constrain when each agent may be\nscheduled.\n\nWorking hours are the structured replacement for the now-deprecated\nshift_patterns endpoints and are honoured by Assembled's AI-powered\nschedule generation engine.\n\n\nContact Support:\n Name: Assembled Support",
+      "type": "text/plain"
+    }
+  }
+}

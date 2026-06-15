@@ -1,0 +1,262 @@
+{
+  "item": [
+    {
+      "id": "550b0135-f5f9-4e3f-94c5-771c9356bd87",
+      "name": "Reports",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e252eb9c-3acc-44fc-901e-b88046528046",
+          "name": "Assembled Start Report",
+          "request": {
+            "name": "Assembled Start Report",
+            "description": {
+              "content": "Kick off generation of a structured report.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v0",
+                "reports",
+                ":reportType"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "reportType",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"start_time\": \"<dateTime>\",\n  \"end_time\": \"<dateTime>\",\n  \"queue_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"team_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"site_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"agent_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"granularity\": \"day\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8bbfc4f6-7c28-438a-bf41-06558cc58cde",
+              "name": "Report job accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v0",
+                    "reports",
+                    ":reportType"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reportType",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"start_time\": \"<dateTime>\",\n  \"end_time\": \"<dateTime>\",\n  \"queue_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"team_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"site_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"agent_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"granularity\": \"day\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"reportID\": \"string\",\n  \"status\": \"pending\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cd5b6d41-f8a8-46ce-ad87-65888eae46df",
+          "name": "Assembled Get Report",
+          "request": {
+            "name": "Assembled Get Report",
+            "description": {
+              "content": "Retrieve a generated report by ID. Poll until status is `complete`.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v0",
+                "reports",
+                ":reportID"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "reportID",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3104adcf-714e-479b-9b15-6511b8832384",
+              "name": "Report result",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v0",
+                    "reports",
+                    ":reportID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reportID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"reportID\": \"string\",\n  \"status\": \"pending\",\n  \"reportType\": \"string\",\n  \"generated_at\": \"1975-10-19T13:31:38.610Z\",\n  \"rows\": [\n    {\n      \"key_0\": true,\n      \"key_1\": true,\n      \"key_2\": 2187\n    },\n    {\n      \"key_0\": 5888,\n      \"key_1\": 6463.417405895666\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.assembledhq.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e95df9da-cc86-444a-8d74-99cfefd459e8",
+    "name": "Assembled Reports API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Asynchronously generate and retrieve structured reports including\nadherence, ticket statistics, and handle times.\n\nReports are kicked off with a POST /v0/reports/:reportType call and\npolled via GET /v0/reports/:reportID for results, enabling automated\nweekly and monthly KPI exports into BI tools.\n\n\nContact Support:\n Name: Assembled Support",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,470 @@
+{
+  "info": {
+    "_postman_id": "24cebde0-8bdd-4f9d-9f3c-130ece3350fd",
+    "name": "Assembled Time Off API",
+    "description": "Programmatically create, list, and cancel time-off requests and pull a\nstream of time-off updates for downstream HRIS or payroll\nsynchronisation.\n\nUnderpins the automated time-off and shift-swap workflows offered in\nAssembled's Pro and Enterprise plans.\n\n\nContact Support:\n Name: Assembled Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:05:39.000Z",
+    "updatedAt": "2026-06-05T15:05:39.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-24cebde0-8bdd-4f9d-9f3c-130ece3350fd"
+  },
+  "item": [
+    {
+      "name": "v0",
+      "item": [
+        {
+          "name": "time_off",
+          "item": [
+            {
+              "name": "requests",
+              "item": [
+                {
+                  "name": "Assembled List Time Off Requests",
+                  "id": "44b23fff-25bb-4cef-8a23-115cf86f3894",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v0/time_off/requests?status=denied&agent_id=<string>&start_time=<dateTime>&end_time=<dateTime>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v0",
+                        "time_off",
+                        "requests"
+                      ],
+                      "query": [
+                        {
+                          "key": "status",
+                          "value": "denied"
+                        },
+                        {
+                          "key": "agent_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "start_time",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "key": "end_time",
+                          "value": "<dateTime>"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "a4f1d47e-951d-49bf-8f9f-40078c53c00b",
+                      "name": "Time off requests",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v0/time_off/requests?status=denied&agent_id=<string>&start_time=<dateTime>&end_time=<dateTime>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v0",
+                            "time_off",
+                            "requests"
+                          ],
+                          "query": [
+                            {
+                              "key": "status",
+                              "value": "denied"
+                            },
+                            {
+                              "key": "agent_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "start_time",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_time",
+                              "value": "<dateTime>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"requests\": [\n    {\n      \"id\": \"<string>\",\n      \"agent_id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"status\": \"denied\",\n      \"start_time\": \"<dateTime>\",\n      \"end_time\": \"<dateTime>\",\n      \"all_day\": \"<boolean>\",\n      \"notes\": \"<string>\",\n      \"approver_id\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"agent_id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"status\": \"cancelled\",\n      \"start_time\": \"<dateTime>\",\n      \"end_time\": \"<dateTime>\",\n      \"all_day\": \"<boolean>\",\n      \"notes\": \"<string>\",\n      \"approver_id\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T15:05:40.000Z",
+                      "updatedAt": "2026-06-05T15:05:40.000Z",
+                      "uid": "35240-a4f1d47e-951d-49bf-8f9f-40078c53c00b"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:05:40.000Z",
+                  "updatedAt": "2026-06-05T15:05:40.000Z",
+                  "uid": "35240-44b23fff-25bb-4cef-8a23-115cf86f3894"
+                }
+              ],
+              "id": "b2bf2027-21f5-43a9-8683-7e62574fb8ff",
+              "createdAt": "2026-06-05T15:05:40.000Z",
+              "updatedAt": "2026-06-05T15:05:40.000Z",
+              "uid": "35240-b2bf2027-21f5-43a9-8683-7e62574fb8ff"
+            },
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "cancel",
+                  "item": [
+                    {
+                      "name": "Assembled Cancel Time Off Request",
+                      "id": "90fd1130-e7f7-4b29-9fe4-15233fb678ef",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v0/time_off/:id/cancel",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v0",
+                            "time_off",
+                            ":id",
+                            "cancel"
+                          ],
+                          "variable": [
+                            {
+                              "id": "d3a361d8-d6d8-4785-8925-edb43899bf51",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "a618de37-0a30-4789-bc50-6fb101ea3ee5",
+                          "name": "Cancelled",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v0/time_off/:id/cancel",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v0",
+                                "time_off",
+                                ":id",
+                                "cancel"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T15:05:40.000Z",
+                          "updatedAt": "2026-06-05T15:05:40.000Z",
+                          "uid": "35240-a618de37-0a30-4789-bc50-6fb101ea3ee5"
+                        }
+                      ],
+                      "createdAt": "2026-06-05T15:05:40.000Z",
+                      "updatedAt": "2026-06-05T15:05:40.000Z",
+                      "uid": "35240-90fd1130-e7f7-4b29-9fe4-15233fb678ef"
+                    }
+                  ],
+                  "id": "0568b8a9-53b7-4dca-bbdf-cd3e1f438040",
+                  "createdAt": "2026-06-05T15:05:40.000Z",
+                  "updatedAt": "2026-06-05T15:05:40.000Z",
+                  "uid": "35240-0568b8a9-53b7-4dca-bbdf-cd3e1f438040"
+                }
+              ],
+              "id": "11b1deb0-c0e4-4261-bc3a-98fb68adda5a",
+              "createdAt": "2026-06-05T15:05:40.000Z",
+              "updatedAt": "2026-06-05T15:05:40.000Z",
+              "uid": "35240-11b1deb0-c0e4-4261-bc3a-98fb68adda5a"
+            },
+            {
+              "name": "updates",
+              "item": [
+                {
+                  "name": "Assembled List Time Off Updates",
+                  "id": "86182635-d6e7-4cc5-9e49-3abd36a78a87",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v0/time_off/updates?since=<dateTime>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v0",
+                        "time_off",
+                        "updates"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "since",
+                          "value": "<dateTime>"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "17f47b03-e032-4342-ba27-f7df03bb3951",
+                      "name": "Time off update stream",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v0/time_off/updates?since=<dateTime>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v0",
+                            "time_off",
+                            "updates"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "since",
+                              "value": "<dateTime>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"updates\": [\n    {\n      \"request_id\": \"<string>\",\n      \"change_type\": \"<string>\",\n      \"updated_at\": \"<dateTime>\"\n    },\n    {\n      \"request_id\": \"<string>\",\n      \"change_type\": \"<string>\",\n      \"updated_at\": \"<dateTime>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T15:05:40.000Z",
+                      "updatedAt": "2026-06-05T15:05:40.000Z",
+                      "uid": "35240-17f47b03-e032-4342-ba27-f7df03bb3951"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:05:40.000Z",
+                  "updatedAt": "2026-06-05T15:05:40.000Z",
+                  "uid": "35240-86182635-d6e7-4cc5-9e49-3abd36a78a87"
+                }
+              ],
+              "id": "8c3fa284-6ee6-4b95-aef2-62a934f0417f",
+              "createdAt": "2026-06-05T15:05:40.000Z",
+              "updatedAt": "2026-06-05T15:05:40.000Z",
+              "uid": "35240-8c3fa284-6ee6-4b95-aef2-62a934f0417f"
+            },
+            {
+              "name": "Assembled Create Time Off",
+              "id": "a9d45e05-4ba5-4309-8d01-00526f140902",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"agent_id\": \"<string>\",\n  \"start_time\": \"<dateTime>\",\n  \"end_time\": \"<dateTime>\",\n  \"type\": \"<string>\",\n  \"all_day\": \"<boolean>\",\n  \"notes\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/v0/time_off",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v0",
+                    "time_off"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "8af8014b-3e57-440c-93e6-d774b60fb62d",
+                  "name": "Created",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"agent_id\": \"<string>\",\n  \"start_time\": \"<dateTime>\",\n  \"end_time\": \"<dateTime>\",\n  \"type\": \"<string>\",\n  \"all_day\": \"<boolean>\",\n  \"notes\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v0/time_off",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v0",
+                        "time_off"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"agent_id\": \"<string>\",\n  \"type\": \"<string>\",\n  \"status\": \"denied\",\n  \"start_time\": \"<dateTime>\",\n  \"end_time\": \"<dateTime>\",\n  \"all_day\": \"<boolean>\",\n  \"notes\": \"<string>\",\n  \"approver_id\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-06-05T15:05:40.000Z",
+                  "updatedAt": "2026-06-05T15:05:40.000Z",
+                  "uid": "35240-8af8014b-3e57-440c-93e6-d774b60fb62d"
+                }
+              ],
+              "createdAt": "2026-06-05T15:05:40.000Z",
+              "updatedAt": "2026-06-05T15:05:40.000Z",
+              "uid": "35240-a9d45e05-4ba5-4309-8d01-00526f140902"
+            }
+          ],
+          "id": "c2f09042-bb9e-431f-8156-efac5682932f",
+          "createdAt": "2026-06-05T15:05:40.000Z",
+          "updatedAt": "2026-06-05T15:05:40.000Z",
+          "uid": "35240-c2f09042-bb9e-431f-8156-efac5682932f"
+        }
+      ],
+      "id": "e8c29809-943e-4250-b334-0971c226b735",
+      "createdAt": "2026-06-05T15:05:40.000Z",
+      "updatedAt": "2026-06-05T15:05:40.000Z",
+      "uid": "35240-e8c29809-943e-4250-b334-0971c226b735"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.assembledhq.com"
+    }
+  ]
+}

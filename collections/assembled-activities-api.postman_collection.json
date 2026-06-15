@@ -1,0 +1,857 @@
+{
+  "item": [
+    {
+      "id": "669b28aa-6cb0-4c81-ba41-ba4a5508bc1f",
+      "name": "Activities",
+      "description": {
+        "content": "Scheduled activities on an agent's calendar",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a000643b-5566-4b19-881d-aac6d4815810",
+          "name": "Assembled List Activities",
+          "request": {
+            "name": "Assembled List Activities",
+            "description": {
+              "content": "List activities for a time window, optionally filtered by agent, queue, site, or type.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v0",
+                "activities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start_time",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "end_time",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "agent_ids",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "queue_ids",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "activity_type_id",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "API-Version",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7fef5feb-494e-43dc-8221-a9d15b5b109b",
+              "name": "Activities list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v0",
+                    "activities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_time",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_time",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "agent_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "queue_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "activity_type_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "API-Version",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"activities\": [\n    {\n      \"id\": \"string\",\n      \"agent_id\": \"string\",\n      \"activity_type_id\": \"string\",\n      \"start_time\": \"2019-05-20T07:23:56.862Z\",\n      \"end_time\": \"1982-11-11T22:16:35.308Z\",\n      \"queue_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"site_id\": \"string\",\n      \"notes\": \"string\",\n      \"external_id\": \"string\",\n      \"created_at\": \"1985-04-15T17:32:53.319Z\",\n      \"updated_at\": \"1977-08-16T02:07:24.577Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"agent_id\": \"string\",\n      \"activity_type_id\": \"string\",\n      \"start_time\": \"2012-09-09T21:10:53.111Z\",\n      \"end_time\": \"1948-05-28T23:58:10.032Z\",\n      \"queue_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"site_id\": \"string\",\n      \"notes\": \"string\",\n      \"external_id\": \"string\",\n      \"created_at\": \"1988-07-23T13:35:41.375Z\",\n      \"updated_at\": \"1975-02-09T11:34:12.967Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fe3f7673-99e7-4461-b7f4-aafd268b2cd7",
+          "name": "Assembled Create Activity",
+          "request": {
+            "name": "Assembled Create Activity",
+            "description": {
+              "content": "Create a single activity.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v0",
+                "activities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"agent_id\": \"<string>\",\n  \"activity_type_id\": \"<string>\",\n  \"start_time\": \"<dateTime>\",\n  \"end_time\": \"<dateTime>\",\n  \"queue_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"site_id\": \"<string>\",\n  \"notes\": \"<string>\",\n  \"external_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cccbc9ae-018a-4e8b-afaa-461814189052",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v0",
+                    "activities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"agent_id\": \"<string>\",\n  \"activity_type_id\": \"<string>\",\n  \"start_time\": \"<dateTime>\",\n  \"end_time\": \"<dateTime>\",\n  \"queue_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"site_id\": \"<string>\",\n  \"notes\": \"<string>\",\n  \"external_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"agent_id\": \"string\",\n  \"activity_type_id\": \"string\",\n  \"start_time\": \"2008-04-21T04:31:38.986Z\",\n  \"end_time\": \"1979-06-26T15:55:40.299Z\",\n  \"queue_ids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"site_id\": \"string\",\n  \"notes\": \"string\",\n  \"external_id\": \"string\",\n  \"created_at\": \"2000-06-11T15:34:05.925Z\",\n  \"updated_at\": \"1986-05-11T03:41:19.947Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b5ec688e-b37f-49a5-a936-98e6d19a7a4d",
+          "name": "Assembled Delete Activities",
+          "request": {
+            "name": "Assembled Delete Activities",
+            "description": {
+              "content": "Soft-delete one or more activities by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v0",
+                "activities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9f7b92b0-14ca-4ffc-92f0-c4f93f66aadc",
+              "name": "Deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v0",
+                    "activities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b8778d72-2ca3-4b60-b03b-de21dfeb445b",
+          "name": "Assembled Bulk Create Activities",
+          "request": {
+            "name": "Assembled Bulk Create Activities",
+            "description": {
+              "content": "Create many activities in a single request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v0",
+                "activities",
+                "bulk"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"activities\": [\n    {\n      \"agent_id\": \"<string>\",\n      \"activity_type_id\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"end_time\": \"<dateTime>\",\n      \"queue_ids\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"site_id\": \"<string>\",\n      \"notes\": \"<string>\",\n      \"external_id\": \"<string>\"\n    },\n    {\n      \"agent_id\": \"<string>\",\n      \"activity_type_id\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"end_time\": \"<dateTime>\",\n      \"queue_ids\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"site_id\": \"<string>\",\n      \"notes\": \"<string>\",\n      \"external_id\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cfc521e5-ac76-426c-ba1c-12ceb37ddd59",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v0",
+                    "activities",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"activities\": [\n    {\n      \"agent_id\": \"string\",\n      \"activity_type_id\": \"string\",\n      \"start_time\": \"1997-04-16T09:31:41.902Z\",\n      \"end_time\": \"1971-09-15T00:33:02.740Z\",\n      \"queue_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"site_id\": \"string\",\n      \"notes\": \"string\",\n      \"external_id\": \"string\"\n    },\n    {\n      \"agent_id\": \"string\",\n      \"activity_type_id\": \"string\",\n      \"start_time\": \"1979-12-02T17:08:58.894Z\",\n      \"end_time\": \"2007-08-28T22:25:15.397Z\",\n      \"queue_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"site_id\": \"string\",\n      \"notes\": \"string\",\n      \"external_id\": \"string\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "f5913353-ade7-41a7-b089-09049641a5c0",
+      "name": "Activity Types",
+      "description": {
+        "content": "Types/categories of activity",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d70352d5-0c31-417b-92e0-d9e839a24fcf",
+          "name": "Assembled List Activity Types",
+          "request": {
+            "name": "Assembled List Activity Types",
+            "description": {
+              "content": "List activity types defined in your organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v0",
+                "activity_types"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0140682a-3c49-45f8-b860-4d3f785cab58",
+              "name": "Activity types",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v0",
+                    "activity_types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"activity_types\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"color\": \"#3b82f6\",\n      \"category\": \"shift\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"color\": \"#3b82f6\",\n      \"category\": \"shift\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9a5888fd-b62a-4dc9-bfa3-c4ecba445c6d",
+          "name": "Assembled Create Activity Type",
+          "request": {
+            "name": "Assembled Create Activity Type",
+            "description": {
+              "content": "Define a new activity type (name and colour).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v0",
+                "activity_types"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"color\": \"<string>\",\n  \"category\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "df57aca6-d859-4f54-b870-50f42b234c06",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v0",
+                    "activity_types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"color\": \"<string>\",\n  \"category\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"color\": \"#3b82f6\",\n  \"category\": \"shift\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ffa8a5c4-4550-42a2-967c-6e669dba0c12",
+          "name": "Assembled Delete Activity Type",
+          "request": {
+            "name": "Assembled Delete Activity Type",
+            "description": {
+              "content": "Delete an activity type.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v0",
+                "activity_types",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a4b2289f-3578-49f8-ac9a-d471acfd4250",
+              "name": "Deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v0",
+                    "activity_types",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "c36c654d-cf79-4e26-8fdb-8b58bcbef737",
+      "name": "Event Changes",
+      "description": {
+        "content": "Audit trail of schedule modifications",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c4378afa-01f3-407a-ab72-71073904e97b",
+          "name": "Assembled List Event Changes",
+          "request": {
+            "name": "Assembled List Event Changes",
+            "description": {
+              "content": "Retrieve the audit trail of schedule modifications across activities.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v0",
+                "event_changes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start_time",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "end_time",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2dbab67e-af04-4010-8235-dc71ee5e59a2",
+              "name": "Event changes",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v0",
+                    "event_changes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_time",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_time",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"event_changes\": [\n    {\n      \"id\": \"string\",\n      \"event_id\": \"string\",\n      \"change_type\": \"create\",\n      \"changed_by\": \"string\",\n      \"changed_at\": \"1991-12-07T04:09:26.686Z\",\n      \"diff\": {}\n    },\n    {\n      \"id\": \"string\",\n      \"event_id\": \"string\",\n      \"change_type\": \"delete\",\n      \"changed_by\": \"string\",\n      \"changed_at\": \"2025-12-11T12:05:14.248Z\",\n      \"diff\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.assembledhq.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "cbb6864a-f685-42dc-8ae2-83acd9fbae2f",
+    "name": "Assembled Activities API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Activities are the scheduled shifts, breaks, time-off blocks, training\nsessions, and meetings that make up an agent's calendar in Assembled.\n\nThe Activities API supports single and bulk activity creation, listing\nwith rich filters, soft-delete semantics, and CRUD for activity types\n(the colour-coded categories shown on schedules). The event_changes\nendpoint surfaces an audit trail of schedule modifications.\n\n\nContact Support:\n Name: Assembled Support",
+      "type": "text/plain"
+    }
+  }
+}

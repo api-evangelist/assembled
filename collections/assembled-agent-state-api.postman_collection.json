@@ -1,0 +1,815 @@
+{
+  "item": [
+    {
+      "id": "01cfc6da-b976-4199-9371-f6985ee42799",
+      "name": "Agent State",
+      "description": {
+        "content": "Real-time and historical agent state",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "20315181-1b87-4c56-a2c2-80ec8218b724",
+          "name": "Assembled Get Agent States",
+          "request": {
+            "name": "Assembled Get Agent States",
+            "description": {
+              "content": "Retrieve agent state records for a time range, optionally filtered by agent.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v0",
+                "agents",
+                "state"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start_time",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "end_time",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "agent_ids",
+                  "value": "<string>",
+                  "description": "Comma-separated list of Assembled agent IDs."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "API-Version",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c984341a-d179-43a5-b8e9-5df578841f0d",
+              "name": "Agent states",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v0",
+                    "agents",
+                    "state"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_time",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_time",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "agent_ids",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "API-Version",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"states\": [\n    {\n      \"id\": \"string\",\n      \"agent_id\": \"string\",\n      \"state\": \"available\",\n      \"sub_state\": \"chat\",\n      \"start_time\": \"2001-04-05T08:07:03.896Z\",\n      \"end_time\": \"2010-09-07T11:17:10.786Z\",\n      \"source\": \"zendesk\"\n    },\n    {\n      \"id\": \"string\",\n      \"agent_id\": \"string\",\n      \"state\": \"available\",\n      \"sub_state\": \"chat\",\n      \"start_time\": \"1972-10-22T22:58:40.521Z\",\n      \"end_time\": \"1972-10-17T13:43:43.099Z\",\n      \"source\": \"zendesk\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "169d7316-096d-442b-a8bc-323028ddb7b2",
+          "name": "Assembled Update Agent State (Deprecated)",
+          "request": {
+            "name": "Assembled Update Agent State (Deprecated)",
+            "description": {
+              "content": "Deprecated single-state update endpoint. Use /v0/agents/state/bulk instead.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v0",
+                "agents",
+                "state"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"agent_id\": \"<string>\",\n  \"state\": \"<string>\",\n  \"start_time\": \"<dateTime>\",\n  \"sub_state\": \"<string>\",\n  \"end_time\": \"<dateTime>\",\n  \"source\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dccc60e1-e60b-4988-a456-f54b12ec28e2",
+              "name": "Updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v0",
+                    "agents",
+                    "state"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"agent_id\": \"<string>\",\n  \"state\": \"<string>\",\n  \"start_time\": \"<dateTime>\",\n  \"sub_state\": \"<string>\",\n  \"end_time\": \"<dateTime>\",\n  \"source\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7e2a7b1d-2be4-405d-a0cf-26335ffc9f2e",
+          "name": "Assembled Bulk Update Agent States",
+          "request": {
+            "name": "Assembled Bulk Update Agent States",
+            "description": {
+              "content": "Submit a batch of agent state records ingested from upstream telephony or CRM platforms.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v0",
+                "agents",
+                "state",
+                "bulk"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "API-Version",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"states\": [\n    {\n      \"agent_id\": \"<string>\",\n      \"state\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"sub_state\": \"<string>\",\n      \"end_time\": \"<dateTime>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"agent_id\": \"<string>\",\n      \"state\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"sub_state\": \"<string>\",\n      \"end_time\": \"<dateTime>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cc0e57a5-c942-4b65-b8f5-0711104eb863",
+              "name": "Accepted for processing",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v0",
+                    "agents",
+                    "state",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "API-Version",
+                    "value": "<string>",
+                    "description": ""
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"states\": [\n    {\n      \"agent_id\": \"string\",\n      \"state\": \"string\",\n      \"start_time\": \"1987-03-02T17:24:38.229Z\",\n      \"sub_state\": \"string\",\n      \"end_time\": \"1992-10-30T17:16:48.516Z\",\n      \"source\": \"string\"\n    },\n    {\n      \"agent_id\": \"string\",\n      \"state\": \"string\",\n      \"start_time\": \"1982-05-31T19:27:47.850Z\",\n      \"sub_state\": \"string\",\n      \"end_time\": \"1993-08-16T10:12:29.969Z\",\n      \"source\": \"string\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "49b01478-4dd2-4e11-9cc2-4f9c7753f735",
+          "name": "Assembled Get Condensed Agent State Timeline",
+          "request": {
+            "name": "Assembled Get Condensed Agent State Timeline",
+            "description": {
+              "content": "Returns a non-overlapping timeline of agent state changes — useful for adherence and shrinkage reports.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v0",
+                "agents",
+                "state",
+                "condensed_timeline"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start_time",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "end_time",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "agent_ids",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "API-Version",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "545c6ce0-3708-40cb-8e9a-49a06a6e9d7c",
+              "name": "Condensed timeline",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v0",
+                    "agents",
+                    "state",
+                    "condensed_timeline"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_time",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_time",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "agent_ids",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "API-Version",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timeline\": [\n    {\n      \"id\": \"string\",\n      \"agent_id\": \"string\",\n      \"state\": \"available\",\n      \"sub_state\": \"chat\",\n      \"start_time\": \"1987-07-22T01:27:24.564Z\",\n      \"end_time\": \"2011-05-07T08:29:14.416Z\",\n      \"source\": \"zendesk\"\n    },\n    {\n      \"id\": \"string\",\n      \"agent_id\": \"string\",\n      \"state\": \"available\",\n      \"sub_state\": \"chat\",\n      \"start_time\": \"2005-06-04T22:15:37.200Z\",\n      \"end_time\": \"2011-08-22T03:17:07.811Z\",\n      \"source\": \"zendesk\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "af93684f-b6e4-471f-93a3-ad1a4c0b4ca9",
+          "name": "Assembled Edit Agent State",
+          "request": {
+            "name": "Assembled Edit Agent State",
+            "description": {
+              "content": "Insert, update, or delete agent state records.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v0",
+                "agents",
+                "state",
+                "edit"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inserts\": [\n    {\n      \"agent_id\": \"<string>\",\n      \"state\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"sub_state\": \"<string>\",\n      \"end_time\": \"<dateTime>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"agent_id\": \"<string>\",\n      \"state\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"sub_state\": \"<string>\",\n      \"end_time\": \"<dateTime>\",\n      \"source\": \"<string>\"\n    }\n  ],\n  \"updates\": [\n    {\n      \"agent_id\": \"<string>\",\n      \"state\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"sub_state\": \"<string>\",\n      \"end_time\": \"<dateTime>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"agent_id\": \"<string>\",\n      \"state\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"sub_state\": \"<string>\",\n      \"end_time\": \"<dateTime>\",\n      \"source\": \"<string>\"\n    }\n  ],\n  \"deletes\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "716b4eac-92f6-4581-9e5f-4313c31a6510",
+              "name": "Edit applied",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v0",
+                    "agents",
+                    "state",
+                    "edit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"inserts\": [\n    {\n      \"agent_id\": \"string\",\n      \"state\": \"string\",\n      \"start_time\": \"1982-01-22T02:55:08.352Z\",\n      \"sub_state\": \"string\",\n      \"end_time\": \"1953-11-22T01:25:19.336Z\",\n      \"source\": \"string\"\n    },\n    {\n      \"agent_id\": \"string\",\n      \"state\": \"string\",\n      \"start_time\": \"2007-10-05T06:59:06.183Z\",\n      \"sub_state\": \"string\",\n      \"end_time\": \"2022-08-11T20:49:39.636Z\",\n      \"source\": \"string\"\n    }\n  ],\n  \"updates\": [\n    {\n      \"agent_id\": \"string\",\n      \"state\": \"string\",\n      \"start_time\": \"1948-07-21T09:24:23.573Z\",\n      \"sub_state\": \"string\",\n      \"end_time\": \"1948-07-02T01:59:55.925Z\",\n      \"source\": \"string\"\n    },\n    {\n      \"agent_id\": \"string\",\n      \"state\": \"string\",\n      \"start_time\": \"1979-07-12T16:32:17.984Z\",\n      \"sub_state\": \"string\",\n      \"end_time\": \"1970-03-30T20:32:38.277Z\",\n      \"source\": \"string\"\n    }\n  ],\n  \"deletes\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ffb0e922-1ef7-4cea-80a1-b2d89949a6ce",
+          "name": "Assembled Get Agent State Edit History",
+          "request": {
+            "name": "Assembled Get Agent State Edit History",
+            "description": {
+              "content": "Audit trail of edits made to agent state records.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v0",
+                "agents",
+                "state",
+                "edit",
+                "history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start_time",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_time",
+                  "value": "<dateTime>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "API-Version",
+                "value": "<string>",
+                "description": ""
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6fc678a5-2f14-471d-bd29-b29b0253631f",
+              "name": "Edit history",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v0",
+                    "agents",
+                    "state",
+                    "edit",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_time",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_time",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "API-Version",
+                    "value": "<string>",
+                    "description": ""
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "09ccc41e-92a8-4b97-b15f-2916971bc17e",
+      "name": "Agent Associations",
+      "description": {
+        "content": "Map platform IDs to Assembled people",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e57b77e4-c306-48ca-8ae2-a97c7370e8f6",
+          "name": "Assembled Create Agent Associations",
+          "request": {
+            "name": "Assembled Create Agent Associations",
+            "description": {
+              "content": "Associate platform identifiers (Zendesk, Salesforce, Five9, Intercom, etc.) to Assembled agent IDs.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v0",
+                "agents",
+                "associations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"associations\": [\n    {\n      \"agent_id\": \"<string>\",\n      \"platform\": \"<string>\",\n      \"platform_id\": \"<string>\"\n    },\n    {\n      \"agent_id\": \"<string>\",\n      \"platform\": \"<string>\",\n      \"platform_id\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dccdb7c0-cd4a-4f0b-8161-0eb81d9e8bbf",
+              "name": "Associations created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v0",
+                    "agents",
+                    "associations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"associations\": [\n    {\n      \"agent_id\": \"<string>\",\n      \"platform\": \"zendesk\",\n      \"platform_id\": \"<string>\"\n    },\n    {\n      \"agent_id\": \"<string>\",\n      \"platform\": \"zendesk\",\n      \"platform_id\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.assembledhq.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "bc557bea-2893-4859-add0-e3b848f13def",
+    "name": "Assembled Agent State API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Real-time agent state used for adherence reporting, live dashboards, and\ndynamic routing.\n\nStream agent states from upstream telephony and CRM systems into\nAssembled, retrieve current and historical state, look at a condensed\nnon-overlapping timeline, edit historical state, and associate platform\nidentifiers (Zendesk, Salesforce, Five9, etc.) to Assembled person IDs.\n\n\nContact Support:\n Name: Assembled Support",
+      "type": "text/plain"
+    }
+  }
+}

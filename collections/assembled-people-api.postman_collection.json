@@ -1,0 +1,1058 @@
+{
+  "item": [
+    {
+      "id": "281422b4-69f6-4d7a-b9e9-b87a1e36a959",
+      "name": "People",
+      "description": {
+        "content": "Agents managed inside Assembled",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0d2b6107-d786-4ec2-aecf-aa1b41fc5852",
+          "name": "Assembled List People",
+          "request": {
+            "name": "Assembled List People",
+            "description": {
+              "content": "List all people (agents) in the Assembled workforce, optionally filtered by team, site, queue, or active status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v0",
+                "people"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0"
+                },
+                {
+                  "disabled": false,
+                  "key": "active",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Date-based API version override (e.g. 2026-05-01). Defaults to your organization's pinned version.",
+                "key": "API-Version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1f3add3f-523f-453a-9255-c29a0f657a84",
+              "name": "A page of people",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v0",
+                    "people"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "active",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Date-based API version override (e.g. 2026-05-01). Defaults to your organization's pinned version.",
+                    "key": "API-Version",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"people\": [\n    {\n      \"id\": \"string\",\n      \"email\": \"MCdwnGrhC7EGU@qYtYjtp.zr\",\n      \"name\": \"string\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"role_id\": \"string\",\n      \"channels\": [\n        \"phone\",\n        \"social\"\n      ],\n      \"team_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"site_id\": \"string\",\n      \"skill_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"queue_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"active\": true,\n      \"platform_ids\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"created_at\": \"1997-07-29T01:05:29.175Z\",\n      \"updated_at\": \"1980-07-22T00:26:01.007Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"email\": \"CrIjMqXKpIhz0@DJSWYWgkvawPxKNttycQl.li\",\n      \"name\": \"string\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"role_id\": \"string\",\n      \"channels\": [\n        \"social\",\n        \"social\"\n      ],\n      \"team_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"site_id\": \"string\",\n      \"skill_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"queue_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"active\": false,\n      \"platform_ids\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\",\n        \"key_3\": \"string\",\n        \"key_4\": \"string\"\n      },\n      \"created_at\": \"1998-11-13T13:07:28.370Z\",\n      \"updated_at\": \"1975-01-28T20:25:29.608Z\"\n    }\n  ],\n  \"next_offset\": 9591\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4282e96b-64d7-4594-a7c8-6ae7a754dad8",
+              "name": "Missing or invalid API key",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v0",
+                    "people"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "active",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Date-based API version override (e.g. 2026-05-01). Defaults to your organization's pinned version.",
+                    "key": "API-Version",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"message\": \"string\",\n  \"request_id\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5a83c66b-fd36-46ce-8fac-ddbfccfff7e2",
+              "name": "Too many requests — 300 req/min default",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v0",
+                    "people"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "active",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Date-based API version override (e.g. 2026-05-01). Defaults to your organization's pinned version.",
+                    "key": "API-Version",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"message\": \"string\",\n  \"request_id\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ed84590a-97ed-409d-9308-dd73715fbe67",
+          "name": "Assembled Create People",
+          "request": {
+            "name": "Assembled Create People",
+            "description": {
+              "content": "Create one or more people. Accepts a single person or a bulk array.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v0",
+                "people"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Date-based API version override (e.g. 2026-05-01). Defaults to your organization's pinned version.",
+                "key": "API-Version",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"people\": [\n    {\n      \"email\": \"<email>\",\n      \"name\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"last_name\": \"<string>\",\n      \"role_id\": \"<string>\",\n      \"channels\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"team_ids\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"site_id\": \"<string>\",\n      \"skill_ids\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"active\": true\n    },\n    {\n      \"email\": \"<email>\",\n      \"name\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"last_name\": \"<string>\",\n      \"role_id\": \"<string>\",\n      \"channels\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"team_ids\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"site_id\": \"<string>\",\n      \"skill_ids\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"active\": true\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e6314d97-2529-4e17-8e23-2365508d23e7",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v0",
+                    "people"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Date-based API version override (e.g. 2026-05-01). Defaults to your organization's pinned version.",
+                    "key": "API-Version",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"people\": [\n    {\n      \"email\": \"upYVwz3lR@pe.dxo\",\n      \"name\": \"string\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"role_id\": \"string\",\n      \"channels\": [\n        \"string\",\n        \"string\"\n      ],\n      \"team_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"site_id\": \"string\",\n      \"skill_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"active\": true\n    },\n    {\n      \"email\": \"mdTBHjru@UF.vokl\",\n      \"name\": \"string\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"role_id\": \"string\",\n      \"channels\": [\n        \"string\",\n        \"string\"\n      ],\n      \"team_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"site_id\": \"string\",\n      \"skill_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"active\": true\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"people\": [\n    {\n      \"id\": \"string\",\n      \"email\": \"1SjwYIq-zlWrN@UNdOhdmHgwTjlUQrrhJ.gqd\",\n      \"name\": \"string\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"role_id\": \"string\",\n      \"channels\": [\n        \"sms\",\n        \"social\"\n      ],\n      \"team_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"site_id\": \"string\",\n      \"skill_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"queue_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"active\": false,\n      \"platform_ids\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\",\n        \"key_3\": \"string\"\n      },\n      \"created_at\": \"2015-04-17T06:57:35.832Z\",\n      \"updated_at\": \"2003-08-07T02:03:49.319Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"email\": \"swg-RttkZt@EdznOoXiSVngcsDzpOckuNyPUDya.jzy\",\n      \"name\": \"string\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"role_id\": \"string\",\n      \"channels\": [\n        \"back_office\",\n        \"sms\"\n      ],\n      \"team_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"site_id\": \"string\",\n      \"skill_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"queue_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"active\": false,\n      \"platform_ids\": {\n        \"key_0\": \"string\"\n      },\n      \"created_at\": \"2016-03-31T06:47:48.745Z\",\n      \"updated_at\": \"2019-07-25T02:23:33.447Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "872d5339-6bb2-43e6-bca8-a6dd7378e48c",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v0",
+                    "people"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Date-based API version override (e.g. 2026-05-01). Defaults to your organization's pinned version.",
+                    "key": "API-Version",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"people\": [\n    {\n      \"email\": \"upYVwz3lR@pe.dxo\",\n      \"name\": \"string\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"role_id\": \"string\",\n      \"channels\": [\n        \"string\",\n        \"string\"\n      ],\n      \"team_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"site_id\": \"string\",\n      \"skill_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"active\": true\n    },\n    {\n      \"email\": \"mdTBHjru@UF.vokl\",\n      \"name\": \"string\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"role_id\": \"string\",\n      \"channels\": [\n        \"string\",\n        \"string\"\n      ],\n      \"team_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"site_id\": \"string\",\n      \"skill_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"active\": true\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"message\": \"string\",\n  \"request_id\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bee6091f-9ede-4152-8434-a968e7f5c97a",
+              "name": "Missing or invalid API key",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v0",
+                    "people"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Date-based API version override (e.g. 2026-05-01). Defaults to your organization's pinned version.",
+                    "key": "API-Version",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"people\": [\n    {\n      \"email\": \"upYVwz3lR@pe.dxo\",\n      \"name\": \"string\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"role_id\": \"string\",\n      \"channels\": [\n        \"string\",\n        \"string\"\n      ],\n      \"team_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"site_id\": \"string\",\n      \"skill_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"active\": true\n    },\n    {\n      \"email\": \"mdTBHjru@UF.vokl\",\n      \"name\": \"string\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"role_id\": \"string\",\n      \"channels\": [\n        \"string\",\n        \"string\"\n      ],\n      \"team_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"site_id\": \"string\",\n      \"skill_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"active\": true\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"message\": \"string\",\n  \"request_id\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7e3f6ff6-8cfa-4489-9a7a-0f8c8888053a",
+          "name": "Assembled Get Person",
+          "request": {
+            "name": "Assembled Get Person",
+            "description": {
+              "content": "Retrieve a specific person by Assembled person ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v0",
+                "people",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Assembled person ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Date-based API version override (e.g. 2026-05-01). Defaults to your organization's pinned version.",
+                "key": "API-Version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7e55df1c-510f-4343-be91-463ab7900606",
+              "name": "A person",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v0",
+                    "people",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Assembled person ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Date-based API version override (e.g. 2026-05-01). Defaults to your organization's pinned version.",
+                    "key": "API-Version",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"email\": \"LFBj8e@rWIBsQFeZQX.bp\",\n  \"name\": \"string\",\n  \"first_name\": \"string\",\n  \"last_name\": \"string\",\n  \"role_id\": \"string\",\n  \"channels\": [\n    \"back_office\",\n    \"sms\"\n  ],\n  \"team_ids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"site_id\": \"string\",\n  \"skill_ids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"queue_ids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"active\": true,\n  \"platform_ids\": {\n    \"key_0\": \"string\"\n  },\n  \"created_at\": \"1998-11-02T06:48:33.492Z\",\n  \"updated_at\": \"1993-11-05T01:21:18.905Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2a95728a-32aa-4881-bc6c-c61d7d231c3b",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v0",
+                    "people",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Assembled person ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Date-based API version override (e.g. 2026-05-01). Defaults to your organization's pinned version.",
+                    "key": "API-Version",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"message\": \"string\",\n  \"request_id\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "096f41ce-52ea-467f-9bf3-829f9c963701",
+          "name": "Assembled Update Person",
+          "request": {
+            "name": "Assembled Update Person",
+            "description": {
+              "content": "Partially update a person's attributes (name, email, role, channels, skills, teams, sites).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v0",
+                "people",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Assembled person ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Date-based API version override (e.g. 2026-05-01). Defaults to your organization's pinned version.",
+                "key": "API-Version",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"role_id\": \"<string>\",\n  \"channels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"team_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"site_id\": \"<string>\",\n  \"skill_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"active\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fef24885-360f-489d-a34b-8508ec9a4de7",
+              "name": "Updated person",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v0",
+                    "people",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Assembled person ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Date-based API version override (e.g. 2026-05-01). Defaults to your organization's pinned version.",
+                    "key": "API-Version",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"role_id\": \"<string>\",\n  \"channels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"team_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"site_id\": \"<string>\",\n  \"skill_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"active\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"email\": \"LFBj8e@rWIBsQFeZQX.bp\",\n  \"name\": \"string\",\n  \"first_name\": \"string\",\n  \"last_name\": \"string\",\n  \"role_id\": \"string\",\n  \"channels\": [\n    \"back_office\",\n    \"sms\"\n  ],\n  \"team_ids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"site_id\": \"string\",\n  \"skill_ids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"queue_ids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"active\": true,\n  \"platform_ids\": {\n    \"key_0\": \"string\"\n  },\n  \"created_at\": \"1998-11-02T06:48:33.492Z\",\n  \"updated_at\": \"1993-11-05T01:21:18.905Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e4d93989-e99e-4b55-a14d-09ea25ee5098",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v0",
+                    "people",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Assembled person ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Date-based API version override (e.g. 2026-05-01). Defaults to your organization's pinned version.",
+                    "key": "API-Version",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"role_id\": \"<string>\",\n  \"channels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"team_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"site_id\": \"<string>\",\n  \"skill_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"active\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"message\": \"string\",\n  \"request_id\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "59533744-6ff4-4e6b-97bf-9029c662650e",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v0",
+                    "people",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Assembled person ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Date-based API version override (e.g. 2026-05-01). Defaults to your organization's pinned version.",
+                    "key": "API-Version",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"role_id\": \"<string>\",\n  \"channels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"team_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"site_id\": \"<string>\",\n  \"skill_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"active\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"message\": \"string\",\n  \"request_id\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "3b2dfee0-8db2-4034-9853-9d6a04c3b2e0",
+      "name": "Roles",
+      "description": {
+        "content": "Available roles that can be assigned to people",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b94f80b9-c72f-4e6c-8b75-951f4da5c13c",
+          "name": "Assembled List Roles",
+          "request": {
+            "name": "Assembled List Roles",
+            "description": {
+              "content": "List all roles available in your Assembled organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v0",
+                "roles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Date-based API version override (e.g. 2026-05-01). Defaults to your organization's pinned version.",
+                "key": "API-Version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b2815743-9537-4a1d-a26c-d1ed780d1e36",
+              "name": "Roles list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v0",
+                    "roles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Date-based API version override (e.g. 2026-05-01). Defaults to your organization's pinned version.",
+                    "key": "API-Version",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"roles\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"permissions\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"permissions\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.assembledhq.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d279192c-a4cb-4642-9b6c-7c66df1a8764",
+    "name": "Assembled People API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Manage the people (agents) that make up the Assembled workforce.\n\nThe People API lets you list, retrieve, create, and update agents along\nwith their roles, channels, skills, and team assignments. The endpoint is\nthe canonical reference for who can be scheduled, routed to, or coached\ninside Assembled. Use the Roles endpoint to discover available roles.\n\n\nContact Support:\n Name: Assembled Support",
+      "type": "text/plain"
+    }
+  }
+}

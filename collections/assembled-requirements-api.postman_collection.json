@@ -1,0 +1,339 @@
+{
+  "item": [
+    {
+      "id": "d8848eb9-28ce-4874-80a8-68582068c73f",
+      "name": "Requirements",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6f86156b-ef3a-4780-a07c-2b9cca94287b",
+          "name": "Assembled List Requirements",
+          "request": {
+            "name": "Assembled List Requirements",
+            "description": {},
+            "url": {
+              "path": [
+                "v0",
+                "requirements"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start_time",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "end_time",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "queue_ids",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3a104f3f-9cec-4b4e-a0a2-f8d4890f9470",
+              "name": "Requirements",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v0",
+                    "requirements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_time",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_time",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "queue_ids",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requirements\": [\n    {\n      \"id\": \"string\",\n      \"requirement_type_id\": \"string\",\n      \"queue_id\": \"string\",\n      \"site_id\": \"string\",\n      \"team_id\": \"string\",\n      \"skill_id\": \"string\",\n      \"start_time\": \"1983-07-25T10:14:42.921Z\",\n      \"end_time\": \"1979-03-31T15:04:21.721Z\",\n      \"required_count\": 5500.135531979323\n    },\n    {\n      \"id\": \"string\",\n      \"requirement_type_id\": \"string\",\n      \"queue_id\": \"string\",\n      \"site_id\": \"string\",\n      \"team_id\": \"string\",\n      \"skill_id\": \"string\",\n      \"start_time\": \"1998-02-13T14:39:21.972Z\",\n      \"end_time\": \"2025-11-14T11:00:33.649Z\",\n      \"required_count\": 3501.6134378019515\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1ef68004-5033-44f6-a698-b52303e5b7b6",
+          "name": "Assembled Create Requirement",
+          "request": {
+            "name": "Assembled Create Requirement",
+            "description": {},
+            "url": {
+              "path": [
+                "v0",
+                "requirements"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"requirement_type_id\": \"<string>\",\n  \"start_time\": \"<dateTime>\",\n  \"end_time\": \"<dateTime>\",\n  \"required_count\": \"<number>\",\n  \"queue_id\": \"<string>\",\n  \"site_id\": \"<string>\",\n  \"team_id\": \"<string>\",\n  \"skill_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e67829e4-b26a-409f-9db9-563fa344ccea",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v0",
+                    "requirements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requirement_type_id\": \"<string>\",\n  \"start_time\": \"<dateTime>\",\n  \"end_time\": \"<dateTime>\",\n  \"required_count\": \"<number>\",\n  \"queue_id\": \"<string>\",\n  \"site_id\": \"<string>\",\n  \"team_id\": \"<string>\",\n  \"skill_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"requirement_type_id\": \"string\",\n  \"queue_id\": \"string\",\n  \"site_id\": \"string\",\n  \"team_id\": \"string\",\n  \"skill_id\": \"string\",\n  \"start_time\": \"2006-02-05T00:24:37.288Z\",\n  \"end_time\": \"1950-03-30T17:26:02.824Z\",\n  \"required_count\": 1337.640229752296\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "9f6f0fe7-8e9a-4c91-bf12-aa74dfe521ce",
+      "name": "Requirement Types",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "751e9d08-7b98-4b9a-af86-1f3683b69ccf",
+          "name": "Assembled List Requirement Types",
+          "request": {
+            "name": "Assembled List Requirement Types",
+            "description": {},
+            "url": {
+              "path": [
+                "v0",
+                "requirement_types"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "403730f6-3214-4276-9070-0106504a8aa3",
+              "name": "Requirement types",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v0",
+                    "requirement_types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requirement_types\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.assembledhq.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "15a9fd7f-ec58-4f5c-80ea-cd29518dad6e",
+    "name": "Assembled Requirements API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Create and list staffing requirements that express how many agents are\nneeded by queue, site, team, or skill across time intervals.\n\nRequirement types describe the family of need (for example, headcount\nvs. occupancy targets). Requirements feed AI scheduling and real-time\nstaffing recommendations.\n\n\nContact Support:\n Name: Assembled Support",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "item": [
+    {
+      "id": "8eeae380-5e22-4897-9eba-63c88839c8f9",
+      "name": "Quality Assurance",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "72cee725-6541-4c4b-8a28-144f8aed8aeb",
+          "name": "Assembled Bulk Upload QA Scores",
+          "request": {
+            "name": "Assembled Bulk Upload QA Scores",
+            "description": {
+              "content": "Submit a batch of QA scores from an external QM tool.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v0",
+                "qa_scores",
+                "bulk"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"qa_scores\": [\n    {\n      \"agent_id\": \"<string>\",\n      \"score\": \"<number>\",\n      \"source\": \"<string>\",\n      \"scored_at\": \"<dateTime>\",\n      \"conversation_external_id\": \"<string>\",\n      \"max_score\": 100,\n      \"rubric\": \"<string>\",\n      \"notes\": \"<string>\",\n      \"reviewer\": \"<string>\"\n    },\n    {\n      \"agent_id\": \"<string>\",\n      \"score\": \"<number>\",\n      \"source\": \"<string>\",\n      \"scored_at\": \"<dateTime>\",\n      \"conversation_external_id\": \"<string>\",\n      \"max_score\": 100,\n      \"rubric\": \"<string>\",\n      \"notes\": \"<string>\",\n      \"reviewer\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "198083dc-87ae-4a89-9274-a558e19bad15",
+              "name": "Accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v0",
+                    "qa_scores",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"qa_scores\": [\n    {\n      \"agent_id\": \"string\",\n      \"score\": 1404.4248578166041,\n      \"source\": \"klaus\",\n      \"scored_at\": \"2003-02-10T19:42:54.505Z\",\n      \"conversation_external_id\": \"string\",\n      \"max_score\": 100,\n      \"rubric\": \"string\",\n      \"notes\": \"string\",\n      \"reviewer\": \"string\"\n    },\n    {\n      \"agent_id\": \"string\",\n      \"score\": 6782.631067400674,\n      \"source\": \"klaus\",\n      \"scored_at\": \"2006-06-15T06:25:48.615Z\",\n      \"conversation_external_id\": \"string\",\n      \"max_score\": 100,\n      \"rubric\": \"string\",\n      \"notes\": \"string\",\n      \"reviewer\": \"string\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.assembledhq.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b1d9fce5-a3db-4703-8ecf-4eaddb42f3fc",
+    "name": "Assembled QA API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Upload QA scores in bulk so external quality-management tools such as\nKlaus, Rippit (MaestroQA), evaluagent, and Observe.AI can feed\nconversation scores back into Assembled for adherence-vs-quality\nanalysis and coaching workflows.\n\n\nContact Support:\n Name: Assembled Support",
+      "type": "text/plain"
+    }
+  }
+}

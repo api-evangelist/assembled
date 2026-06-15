@@ -1,0 +1,821 @@
+{
+  "info": {
+    "_postman_id": "bb03f36a-6d8a-4dcb-924b-1f457443b292",
+    "name": "Assembled Agent State API",
+    "description": "Real-time agent state used for adherence reporting, live dashboards, and\ndynamic routing.\n\nStream agent states from upstream telephony and CRM systems into\nAssembled, retrieve current and historical state, look at a condensed\nnon-overlapping timeline, edit historical state, and associate platform\nidentifiers (Zendesk, Salesforce, Five9, etc.) to Assembled person IDs.\n\n\nContact Support:\n Name: Assembled Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:05:33.000Z",
+    "updatedAt": "2026-06-05T15:05:34.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-bb03f36a-6d8a-4dcb-924b-1f457443b292"
+  },
+  "item": [
+    {
+      "name": "v0",
+      "item": [
+        {
+          "name": "agents",
+          "item": [
+            {
+              "name": "state",
+              "item": [
+                {
+                  "name": "bulk",
+                  "item": [
+                    {
+                      "name": "Assembled Bulk Update Agent States",
+                      "id": "1567e64a-abc3-45e3-b639-d2fd2c25bdf8",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "API-Version",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"states\": [\n    {\n      \"agent_id\": \"<string>\",\n      \"state\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"sub_state\": \"<string>\",\n      \"end_time\": \"<dateTime>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"agent_id\": \"<string>\",\n      \"state\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"sub_state\": \"<string>\",\n      \"end_time\": \"<dateTime>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v0/agents/state/bulk",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v0",
+                            "agents",
+                            "state",
+                            "bulk"
+                          ]
+                        },
+                        "description": "Submit a batch of agent state records ingested from upstream telephony or CRM platforms."
+                      },
+                      "response": [
+                        {
+                          "id": "1e057161-b62f-486a-a2df-bf2b33eaf516",
+                          "name": "Accepted for processing",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "API-Version",
+                                "value": "<string>"
+                              },
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"states\": [\n    {\n      \"agent_id\": \"<string>\",\n      \"state\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"sub_state\": \"<string>\",\n      \"end_time\": \"<dateTime>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"agent_id\": \"<string>\",\n      \"state\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"sub_state\": \"<string>\",\n      \"end_time\": \"<dateTime>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v0/agents/state/bulk",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v0",
+                                "agents",
+                                "state",
+                                "bulk"
+                              ]
+                            }
+                          },
+                          "status": "Accepted",
+                          "code": 202,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T15:05:34.000Z",
+                          "updatedAt": "2026-06-05T15:05:34.000Z",
+                          "uid": "35240-1e057161-b62f-486a-a2df-bf2b33eaf516"
+                        }
+                      ],
+                      "createdAt": "2026-06-05T15:05:34.000Z",
+                      "updatedAt": "2026-06-05T15:05:34.000Z",
+                      "uid": "35240-1567e64a-abc3-45e3-b639-d2fd2c25bdf8"
+                    }
+                  ],
+                  "id": "e42eed47-0711-41c2-929e-f0397eebf947",
+                  "createdAt": "2026-06-05T15:05:34.000Z",
+                  "updatedAt": "2026-06-05T15:05:34.000Z",
+                  "uid": "35240-e42eed47-0711-41c2-929e-f0397eebf947"
+                },
+                {
+                  "name": "condensed_timeline",
+                  "item": [
+                    {
+                      "name": "Assembled Get Condensed Agent State Timeline",
+                      "id": "60910400-12cd-4f0a-add5-2020ccd16150",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "API-Version",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v0/agents/state/condensed_timeline?start_time=<dateTime>&end_time=<dateTime>&agent_ids=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v0",
+                            "agents",
+                            "state",
+                            "condensed_timeline"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "start_time",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "end_time",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "agent_ids",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "description": "Returns a non-overlapping timeline of agent state changes \u2014 useful for adherence and shrinkage reports."
+                      },
+                      "response": [
+                        {
+                          "id": "043f0a39-492c-4869-b5dd-47610a295833",
+                          "name": "Condensed timeline",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "API-Version",
+                                "value": "<string>"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v0/agents/state/condensed_timeline?start_time=<dateTime>&end_time=<dateTime>&agent_ids=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v0",
+                                "agents",
+                                "state",
+                                "condensed_timeline"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "start_time",
+                                  "value": "<dateTime>"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "end_time",
+                                  "value": "<dateTime>"
+                                },
+                                {
+                                  "key": "agent_ids",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"timeline\": [\n    {\n      \"id\": \"<string>\",\n      \"agent_id\": \"<string>\",\n      \"state\": \"<string>\",\n      \"sub_state\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"end_time\": \"<dateTime>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"agent_id\": \"<string>\",\n      \"state\": \"<string>\",\n      \"sub_state\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"end_time\": \"<dateTime>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-06-05T15:05:34.000Z",
+                          "updatedAt": "2026-06-05T15:05:34.000Z",
+                          "uid": "35240-043f0a39-492c-4869-b5dd-47610a295833"
+                        }
+                      ],
+                      "createdAt": "2026-06-05T15:05:34.000Z",
+                      "updatedAt": "2026-06-05T15:05:34.000Z",
+                      "uid": "35240-60910400-12cd-4f0a-add5-2020ccd16150"
+                    }
+                  ],
+                  "id": "d83591dc-5f2d-4b68-8201-5fe2999e1f14",
+                  "createdAt": "2026-06-05T15:05:34.000Z",
+                  "updatedAt": "2026-06-05T15:05:34.000Z",
+                  "uid": "35240-d83591dc-5f2d-4b68-8201-5fe2999e1f14"
+                },
+                {
+                  "name": "edit",
+                  "item": [
+                    {
+                      "name": "history",
+                      "item": [
+                        {
+                          "name": "Assembled Get Agent State Edit History",
+                          "id": "ee01b6c9-bd66-4e5a-841d-00bb84ce50cb",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "API-Version",
+                                "value": "<string>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v0/agents/state/edit/history?start_time=<dateTime>&end_time=<dateTime>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v0",
+                                "agents",
+                                "state",
+                                "edit",
+                                "history"
+                              ],
+                              "query": [
+                                {
+                                  "key": "start_time",
+                                  "value": "<dateTime>"
+                                },
+                                {
+                                  "key": "end_time",
+                                  "value": "<dateTime>"
+                                }
+                              ]
+                            },
+                            "description": "Audit trail of edits made to agent state records."
+                          },
+                          "response": [
+                            {
+                              "id": "41d45a24-8915-4fdf-a297-d924a7a6d933",
+                              "name": "Edit history",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "API-Version",
+                                    "value": "<string>"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: basic",
+                                    "key": "Authorization",
+                                    "value": "Basic <credentials>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v0/agents/state/edit/history?start_time=<dateTime>&end_time=<dateTime>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v0",
+                                    "agents",
+                                    "state",
+                                    "edit",
+                                    "history"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "start_time",
+                                      "value": "<dateTime>"
+                                    },
+                                    {
+                                      "key": "end_time",
+                                      "value": "<dateTime>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-06-05T15:05:34.000Z",
+                              "updatedAt": "2026-06-05T15:05:34.000Z",
+                              "uid": "35240-41d45a24-8915-4fdf-a297-d924a7a6d933"
+                            }
+                          ],
+                          "createdAt": "2026-06-05T15:05:34.000Z",
+                          "updatedAt": "2026-06-05T15:05:34.000Z",
+                          "uid": "35240-ee01b6c9-bd66-4e5a-841d-00bb84ce50cb"
+                        }
+                      ],
+                      "id": "24158a58-323e-47f1-adcb-152972868e87",
+                      "createdAt": "2026-06-05T15:05:34.000Z",
+                      "updatedAt": "2026-06-05T15:05:34.000Z",
+                      "uid": "35240-24158a58-323e-47f1-adcb-152972868e87"
+                    },
+                    {
+                      "name": "Assembled Edit Agent State",
+                      "id": "0dd7d5bd-0195-4125-bcb9-4e5de963ebee",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"inserts\": [\n    {\n      \"agent_id\": \"<string>\",\n      \"state\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"sub_state\": \"<string>\",\n      \"end_time\": \"<dateTime>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"agent_id\": \"<string>\",\n      \"state\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"sub_state\": \"<string>\",\n      \"end_time\": \"<dateTime>\",\n      \"source\": \"<string>\"\n    }\n  ],\n  \"updates\": [\n    {\n      \"agent_id\": \"<string>\",\n      \"state\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"sub_state\": \"<string>\",\n      \"end_time\": \"<dateTime>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"agent_id\": \"<string>\",\n      \"state\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"sub_state\": \"<string>\",\n      \"end_time\": \"<dateTime>\",\n      \"source\": \"<string>\"\n    }\n  ],\n  \"deletes\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v0/agents/state/edit",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v0",
+                            "agents",
+                            "state",
+                            "edit"
+                          ]
+                        },
+                        "description": "Insert, update, or delete agent state records."
+                      },
+                      "response": [
+                        {
+                          "id": "08f963e8-dd46-4476-9b5f-24814406dbe1",
+                          "name": "Edit applied",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"inserts\": [\n    {\n      \"agent_id\": \"<string>\",\n      \"state\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"sub_state\": \"<string>\",\n      \"end_time\": \"<dateTime>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"agent_id\": \"<string>\",\n      \"state\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"sub_state\": \"<string>\",\n      \"end_time\": \"<dateTime>\",\n      \"source\": \"<string>\"\n    }\n  ],\n  \"updates\": [\n    {\n      \"agent_id\": \"<string>\",\n      \"state\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"sub_state\": \"<string>\",\n      \"end_time\": \"<dateTime>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"agent_id\": \"<string>\",\n      \"state\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"sub_state\": \"<string>\",\n      \"end_time\": \"<dateTime>\",\n      \"source\": \"<string>\"\n    }\n  ],\n  \"deletes\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v0/agents/state/edit",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v0",
+                                "agents",
+                                "state",
+                                "edit"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T15:05:34.000Z",
+                          "updatedAt": "2026-06-05T15:05:34.000Z",
+                          "uid": "35240-08f963e8-dd46-4476-9b5f-24814406dbe1"
+                        }
+                      ],
+                      "createdAt": "2026-06-05T15:05:34.000Z",
+                      "updatedAt": "2026-06-05T15:05:34.000Z",
+                      "uid": "35240-0dd7d5bd-0195-4125-bcb9-4e5de963ebee"
+                    }
+                  ],
+                  "id": "f0a218c8-d02f-4cd5-a71e-480e72198eaa",
+                  "createdAt": "2026-06-05T15:05:34.000Z",
+                  "updatedAt": "2026-06-05T15:05:34.000Z",
+                  "uid": "35240-f0a218c8-d02f-4cd5-a71e-480e72198eaa"
+                },
+                {
+                  "name": "Assembled Get Agent States",
+                  "id": "3b3194cd-b93b-42c1-b87d-db587ba8a1f9",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "API-Version",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v0/agents/state?start_time=<dateTime>&end_time=<dateTime>&agent_ids=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v0",
+                        "agents",
+                        "state"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "start_time",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "end_time",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Comma-separated list of Assembled agent IDs.",
+                          "key": "agent_ids",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "Retrieve agent state records for a time range, optionally filtered by agent."
+                  },
+                  "response": [
+                    {
+                      "id": "80275c04-9248-47f9-b4a6-ae6bc9bfe481",
+                      "name": "Agent states",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "API-Version",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v0/agents/state?start_time=<dateTime>&end_time=<dateTime>&agent_ids=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v0",
+                            "agents",
+                            "state"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "start_time",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "end_time",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "Comma-separated list of Assembled agent IDs.",
+                              "key": "agent_ids",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"states\": [\n    {\n      \"id\": \"<string>\",\n      \"agent_id\": \"<string>\",\n      \"state\": \"<string>\",\n      \"sub_state\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"end_time\": \"<dateTime>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"agent_id\": \"<string>\",\n      \"state\": \"<string>\",\n      \"sub_state\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"end_time\": \"<dateTime>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T15:05:34.000Z",
+                      "updatedAt": "2026-06-05T15:05:34.000Z",
+                      "uid": "35240-80275c04-9248-47f9-b4a6-ae6bc9bfe481"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:05:34.000Z",
+                  "updatedAt": "2026-06-05T15:05:34.000Z",
+                  "uid": "35240-3b3194cd-b93b-42c1-b87d-db587ba8a1f9"
+                },
+                {
+                  "name": "Assembled Update Agent State (Deprecated)",
+                  "id": "1d9df95f-a72a-486a-9b9e-be8ef91e6d1c",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"agent_id\": \"<string>\",\n  \"state\": \"<string>\",\n  \"start_time\": \"<dateTime>\",\n  \"sub_state\": \"<string>\",\n  \"end_time\": \"<dateTime>\",\n  \"source\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v0/agents/state",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v0",
+                        "agents",
+                        "state"
+                      ]
+                    },
+                    "description": "Deprecated single-state update endpoint. Use /v0/agents/state/bulk instead."
+                  },
+                  "response": [
+                    {
+                      "id": "5e330ab9-1881-46b9-ae66-c9477b64bc3e",
+                      "name": "Updated",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"agent_id\": \"<string>\",\n  \"state\": \"<string>\",\n  \"start_time\": \"<dateTime>\",\n  \"sub_state\": \"<string>\",\n  \"end_time\": \"<dateTime>\",\n  \"source\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v0/agents/state",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v0",
+                            "agents",
+                            "state"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:05:34.000Z",
+                      "updatedAt": "2026-06-05T15:05:34.000Z",
+                      "uid": "35240-5e330ab9-1881-46b9-ae66-c9477b64bc3e"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:05:34.000Z",
+                  "updatedAt": "2026-06-05T15:05:34.000Z",
+                  "uid": "35240-1d9df95f-a72a-486a-9b9e-be8ef91e6d1c"
+                }
+              ],
+              "id": "c990c87d-0d2b-4e59-a992-98593cc26b3d",
+              "createdAt": "2026-06-05T15:05:34.000Z",
+              "updatedAt": "2026-06-05T15:05:34.000Z",
+              "uid": "35240-c990c87d-0d2b-4e59-a992-98593cc26b3d"
+            },
+            {
+              "name": "associations",
+              "item": [
+                {
+                  "name": "Assembled Create Agent Associations",
+                  "id": "b4034e52-f440-423f-a9d4-72c5bce9662f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"associations\": [\n    {\n      \"agent_id\": \"<string>\",\n      \"platform\": \"<string>\",\n      \"platform_id\": \"<string>\"\n    },\n    {\n      \"agent_id\": \"<string>\",\n      \"platform\": \"<string>\",\n      \"platform_id\": \"<string>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v0/agents/associations",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v0",
+                        "agents",
+                        "associations"
+                      ]
+                    },
+                    "description": "Associate platform identifiers (Zendesk, Salesforce, Five9, Intercom, etc.) to Assembled agent IDs."
+                  },
+                  "response": [
+                    {
+                      "id": "466ac178-ad39-43d8-a7bb-87228ad61b2e",
+                      "name": "Associations created",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"associations\": [\n    {\n      \"agent_id\": \"<string>\",\n      \"platform\": \"<string>\",\n      \"platform_id\": \"<string>\"\n    },\n    {\n      \"agent_id\": \"<string>\",\n      \"platform\": \"<string>\",\n      \"platform_id\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v0/agents/associations",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v0",
+                            "agents",
+                            "associations"
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:05:34.000Z",
+                      "updatedAt": "2026-06-05T15:05:34.000Z",
+                      "uid": "35240-466ac178-ad39-43d8-a7bb-87228ad61b2e"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:05:34.000Z",
+                  "updatedAt": "2026-06-05T15:05:34.000Z",
+                  "uid": "35240-b4034e52-f440-423f-a9d4-72c5bce9662f"
+                }
+              ],
+              "id": "5549e68a-24e0-469c-bc53-ee168254fddd",
+              "createdAt": "2026-06-05T15:05:34.000Z",
+              "updatedAt": "2026-06-05T15:05:34.000Z",
+              "uid": "35240-5549e68a-24e0-469c-bc53-ee168254fddd"
+            }
+          ],
+          "id": "8178596d-0c65-433e-827a-b72f035f2623",
+          "createdAt": "2026-06-05T15:05:34.000Z",
+          "updatedAt": "2026-06-05T15:05:34.000Z",
+          "uid": "35240-8178596d-0c65-433e-827a-b72f035f2623"
+        }
+      ],
+      "id": "4cd81250-a33b-49a9-b32a-d025b7bd3623",
+      "createdAt": "2026-06-05T15:05:34.000Z",
+      "updatedAt": "2026-06-05T15:05:34.000Z",
+      "uid": "35240-4cd81250-a33b-49a9-b32a-d025b7bd3623"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.assembledhq.com"
+    }
+  ]
+}

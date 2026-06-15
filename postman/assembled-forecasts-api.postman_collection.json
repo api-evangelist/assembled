@@ -1,0 +1,1205 @@
+{
+  "info": {
+    "_postman_id": "15fa0b02-3a9c-48bf-aa79-eb0c6509b7c1",
+    "name": "Assembled Forecasts API",
+    "description": "Retrieve Assembled's ML-generated forecasts, forecast totals, manual\nadjustments, and detected outliers, and compare predicted to realised\nvolume.\n\nForecasts drive AI-powered schedule generation and staffing\nrecommendations across human and AI agents. The\nforecasted_vs_actuals endpoint is the canonical place to measure\naccuracy and detect drift.\n\n\nContact Support:\n Name: Assembled Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:05:37.000Z",
+    "updatedAt": "2026-06-05T15:05:37.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-15fa0b02-3a9c-48bf-aa79-eb0c6509b7c1"
+  },
+  "item": [
+    {
+      "name": "v0",
+      "item": [
+        {
+          "name": "forecasts",
+          "item": [
+            {
+              "name": "totals",
+              "item": [
+                {
+                  "name": "{id}",
+                  "item": [
+                    {
+                      "name": "Assembled Get Forecast Total",
+                      "id": "6f5f4a7a-3b08-4564-a76c-0af76fbd32cf",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v0/forecasts/totals/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v0",
+                            "forecasts",
+                            "totals",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "908793d3-2540-4468-97ef-a35a0bd4b43c",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "0cf01c6c-e95f-4fc6-a522-cb3ef293ee12",
+                          "name": "Forecast total",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v0/forecasts/totals/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v0",
+                                "forecasts",
+                                "totals",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"queue_id\": \"<string>\",\n  \"start_time\": \"<dateTime>\",\n  \"end_time\": \"<dateTime>\",\n  \"total_volume\": \"<number>\"\n}",
+                          "createdAt": "2026-06-05T15:05:37.000Z",
+                          "updatedAt": "2026-06-05T15:05:37.000Z",
+                          "uid": "35240-0cf01c6c-e95f-4fc6-a522-cb3ef293ee12"
+                        }
+                      ],
+                      "createdAt": "2026-06-05T15:05:37.000Z",
+                      "updatedAt": "2026-06-05T15:05:37.000Z",
+                      "uid": "35240-6f5f4a7a-3b08-4564-a76c-0af76fbd32cf"
+                    },
+                    {
+                      "name": "Assembled Delete Forecast Total",
+                      "id": "e269000a-1da0-4c4c-8d1d-4cba5439fb11",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v0/forecasts/totals/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v0",
+                            "forecasts",
+                            "totals",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "f1527a2b-4c70-4f19-9118-891e7d6675c9",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "69a1df76-6b52-4fc6-b79a-b7cb3c44ec0d",
+                          "name": "Deleted",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v0/forecasts/totals/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v0",
+                                "forecasts",
+                                "totals",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T15:05:37.000Z",
+                          "updatedAt": "2026-06-05T15:05:37.000Z",
+                          "uid": "35240-69a1df76-6b52-4fc6-b79a-b7cb3c44ec0d"
+                        }
+                      ],
+                      "createdAt": "2026-06-05T15:05:37.000Z",
+                      "updatedAt": "2026-06-05T15:05:37.000Z",
+                      "uid": "35240-e269000a-1da0-4c4c-8d1d-4cba5439fb11"
+                    }
+                  ],
+                  "id": "90e830e6-9aa3-46a2-b0e8-6198aed01905",
+                  "createdAt": "2026-06-05T15:05:37.000Z",
+                  "updatedAt": "2026-06-05T15:05:37.000Z",
+                  "uid": "35240-90e830e6-9aa3-46a2-b0e8-6198aed01905"
+                },
+                {
+                  "name": "Assembled List Forecast Totals",
+                  "id": "fb5bf039-2df7-4a06-844b-a31237184685",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v0/forecasts/totals?start_time=<dateTime>&end_time=<dateTime>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v0",
+                        "forecasts",
+                        "totals"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "start_time",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "end_time",
+                          "value": "<dateTime>"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "a0ebba4f-7cff-4a0c-8437-a56479143bee",
+                      "name": "Forecast totals",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v0/forecasts/totals?start_time=<dateTime>&end_time=<dateTime>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v0",
+                            "forecasts",
+                            "totals"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "start_time",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "end_time",
+                              "value": "<dateTime>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"totals\": [\n    {\n      \"id\": \"<string>\",\n      \"queue_id\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"end_time\": \"<dateTime>\",\n      \"total_volume\": \"<number>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"queue_id\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"end_time\": \"<dateTime>\",\n      \"total_volume\": \"<number>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T15:05:37.000Z",
+                      "updatedAt": "2026-06-05T15:05:37.000Z",
+                      "uid": "35240-a0ebba4f-7cff-4a0c-8437-a56479143bee"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:05:37.000Z",
+                  "updatedAt": "2026-06-05T15:05:37.000Z",
+                  "uid": "35240-fb5bf039-2df7-4a06-844b-a31237184685"
+                },
+                {
+                  "name": "Assembled Create Forecast Totals",
+                  "id": "aa58a574-2744-4e0b-bc51-f49165447f72",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"totals\": [\n    {\n      \"queue_id\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"end_time\": \"<dateTime>\",\n      \"total_volume\": \"<number>\"\n    },\n    {\n      \"queue_id\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"end_time\": \"<dateTime>\",\n      \"total_volume\": \"<number>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v0/forecasts/totals",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v0",
+                        "forecasts",
+                        "totals"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "05ff3b6e-2f0c-47a7-a5d5-a0bc0a8641ca",
+                      "name": "Created",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"totals\": [\n    {\n      \"queue_id\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"end_time\": \"<dateTime>\",\n      \"total_volume\": \"<number>\"\n    },\n    {\n      \"queue_id\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"end_time\": \"<dateTime>\",\n      \"total_volume\": \"<number>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v0/forecasts/totals",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v0",
+                            "forecasts",
+                            "totals"
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:05:37.000Z",
+                      "updatedAt": "2026-06-05T15:05:37.000Z",
+                      "uid": "35240-05ff3b6e-2f0c-47a7-a5d5-a0bc0a8641ca"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:05:37.000Z",
+                  "updatedAt": "2026-06-05T15:05:37.000Z",
+                  "uid": "35240-aa58a574-2744-4e0b-bc51-f49165447f72"
+                }
+              ],
+              "id": "78b97bf6-d02d-43f0-9f6c-eda4d2c06258",
+              "createdAt": "2026-06-05T15:05:37.000Z",
+              "updatedAt": "2026-06-05T15:05:37.000Z",
+              "uid": "35240-78b97bf6-d02d-43f0-9f6c-eda4d2c06258"
+            },
+            {
+              "name": "adjustments",
+              "item": [
+                {
+                  "name": "bulk",
+                  "item": [
+                    {
+                      "name": "Assembled Bulk Create Forecast Adjustments",
+                      "id": "aeb88d55-2767-4166-92da-4d0f8d163d85",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"adjustments\": [\n    {\n      \"id\": \"<string>\",\n      \"queue_id\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"end_time\": \"<dateTime>\",\n      \"adjustment_factor\": \"<number>\",\n      \"reason\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"queue_id\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"end_time\": \"<dateTime>\",\n      \"adjustment_factor\": \"<number>\",\n      \"reason\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v0/forecasts/adjustments/bulk",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v0",
+                            "forecasts",
+                            "adjustments",
+                            "bulk"
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "9e6cd05a-19c3-45d8-ad7d-d3cf2962a19b",
+                          "name": "Created",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"adjustments\": [\n    {\n      \"id\": \"<string>\",\n      \"queue_id\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"end_time\": \"<dateTime>\",\n      \"adjustment_factor\": \"<number>\",\n      \"reason\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"queue_id\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"end_time\": \"<dateTime>\",\n      \"adjustment_factor\": \"<number>\",\n      \"reason\": \"<string>\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v0/forecasts/adjustments/bulk",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v0",
+                                "forecasts",
+                                "adjustments",
+                                "bulk"
+                              ]
+                            }
+                          },
+                          "status": "Created",
+                          "code": 201,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T15:05:37.000Z",
+                          "updatedAt": "2026-06-05T15:05:37.000Z",
+                          "uid": "35240-9e6cd05a-19c3-45d8-ad7d-d3cf2962a19b"
+                        }
+                      ],
+                      "createdAt": "2026-06-05T15:05:37.000Z",
+                      "updatedAt": "2026-06-05T15:05:37.000Z",
+                      "uid": "35240-aeb88d55-2767-4166-92da-4d0f8d163d85"
+                    }
+                  ],
+                  "id": "ffa039fb-28cb-4538-9162-189c80d1274e",
+                  "createdAt": "2026-06-05T15:05:37.000Z",
+                  "updatedAt": "2026-06-05T15:05:37.000Z",
+                  "uid": "35240-ffa039fb-28cb-4538-9162-189c80d1274e"
+                },
+                {
+                  "name": "{id}",
+                  "item": [
+                    {
+                      "name": "Assembled Delete Forecast Adjustment",
+                      "id": "9bcddab0-3467-4eca-8829-38e326e36379",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v0/forecasts/adjustments/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v0",
+                            "forecasts",
+                            "adjustments",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "0402c9e0-e224-4865-b696-093fdc696b8e",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "794ffdda-9cec-4c4a-80d4-53fdb5bf3ccc",
+                          "name": "Deleted",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v0/forecasts/adjustments/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v0",
+                                "forecasts",
+                                "adjustments",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T15:05:37.000Z",
+                          "updatedAt": "2026-06-05T15:05:37.000Z",
+                          "uid": "35240-794ffdda-9cec-4c4a-80d4-53fdb5bf3ccc"
+                        }
+                      ],
+                      "createdAt": "2026-06-05T15:05:37.000Z",
+                      "updatedAt": "2026-06-05T15:05:37.000Z",
+                      "uid": "35240-9bcddab0-3467-4eca-8829-38e326e36379"
+                    }
+                  ],
+                  "id": "326e78b6-3f3e-4535-84d3-db1b5aa11bd3",
+                  "createdAt": "2026-06-05T15:05:37.000Z",
+                  "updatedAt": "2026-06-05T15:05:37.000Z",
+                  "uid": "35240-326e78b6-3f3e-4535-84d3-db1b5aa11bd3"
+                },
+                {
+                  "name": "Assembled List Forecast Adjustments",
+                  "id": "cf99248e-625f-4818-a6bb-84884c06b89e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v0/forecasts/adjustments",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v0",
+                        "forecasts",
+                        "adjustments"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "bd84e296-3db1-426d-aea8-048ef010ac7d",
+                      "name": "Adjustments",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v0/forecasts/adjustments",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v0",
+                            "forecasts",
+                            "adjustments"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"adjustments\": [\n    {\n      \"id\": \"<string>\",\n      \"queue_id\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"end_time\": \"<dateTime>\",\n      \"adjustment_factor\": \"<number>\",\n      \"reason\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"queue_id\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"end_time\": \"<dateTime>\",\n      \"adjustment_factor\": \"<number>\",\n      \"reason\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T15:05:37.000Z",
+                      "updatedAt": "2026-06-05T15:05:37.000Z",
+                      "uid": "35240-bd84e296-3db1-426d-aea8-048ef010ac7d"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:05:37.000Z",
+                  "updatedAt": "2026-06-05T15:05:37.000Z",
+                  "uid": "35240-cf99248e-625f-4818-a6bb-84884c06b89e"
+                }
+              ],
+              "id": "85427049-725d-4f9e-b271-6874a7dba22d",
+              "createdAt": "2026-06-05T15:05:37.000Z",
+              "updatedAt": "2026-06-05T15:05:37.000Z",
+              "uid": "35240-85427049-725d-4f9e-b271-6874a7dba22d"
+            },
+            {
+              "name": "outliers",
+              "item": [
+                {
+                  "name": "bulk",
+                  "item": [
+                    {
+                      "name": "Assembled Bulk Create Forecast Outliers",
+                      "id": "f9eeb7f4-9a21-4b4a-85dc-7187704d5fe1",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"outliers\": [\n    {\n      \"id\": \"<string>\",\n      \"queue_id\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"end_time\": \"<dateTime>\",\n      \"reason\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"queue_id\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"end_time\": \"<dateTime>\",\n      \"reason\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v0/forecasts/outliers/bulk",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v0",
+                            "forecasts",
+                            "outliers",
+                            "bulk"
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "930581b6-72b3-4284-8e7e-3b63436cfb91",
+                          "name": "Created",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"outliers\": [\n    {\n      \"id\": \"<string>\",\n      \"queue_id\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"end_time\": \"<dateTime>\",\n      \"reason\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"queue_id\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"end_time\": \"<dateTime>\",\n      \"reason\": \"<string>\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v0/forecasts/outliers/bulk",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v0",
+                                "forecasts",
+                                "outliers",
+                                "bulk"
+                              ]
+                            }
+                          },
+                          "status": "Created",
+                          "code": 201,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T15:05:37.000Z",
+                          "updatedAt": "2026-06-05T15:05:37.000Z",
+                          "uid": "35240-930581b6-72b3-4284-8e7e-3b63436cfb91"
+                        }
+                      ],
+                      "createdAt": "2026-06-05T15:05:37.000Z",
+                      "updatedAt": "2026-06-05T15:05:37.000Z",
+                      "uid": "35240-f9eeb7f4-9a21-4b4a-85dc-7187704d5fe1"
+                    }
+                  ],
+                  "id": "d559561f-c737-4005-8f04-37874ee4a5cf",
+                  "createdAt": "2026-06-05T15:05:37.000Z",
+                  "updatedAt": "2026-06-05T15:05:37.000Z",
+                  "uid": "35240-d559561f-c737-4005-8f04-37874ee4a5cf"
+                },
+                {
+                  "name": "{id}",
+                  "item": [
+                    {
+                      "name": "Assembled Delete Forecast Outlier",
+                      "id": "4a3a2d8b-f065-4941-b3db-8386420054f7",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v0/forecasts/outliers/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v0",
+                            "forecasts",
+                            "outliers",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "0238942f-9bed-4da1-b9a6-b78e3fec0303",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "7948405c-82ed-416d-9566-273b747db1c0",
+                          "name": "Deleted",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v0/forecasts/outliers/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v0",
+                                "forecasts",
+                                "outliers",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T15:05:37.000Z",
+                          "updatedAt": "2026-06-05T15:05:37.000Z",
+                          "uid": "35240-7948405c-82ed-416d-9566-273b747db1c0"
+                        }
+                      ],
+                      "createdAt": "2026-06-05T15:05:37.000Z",
+                      "updatedAt": "2026-06-05T15:05:37.000Z",
+                      "uid": "35240-4a3a2d8b-f065-4941-b3db-8386420054f7"
+                    }
+                  ],
+                  "id": "812b27e5-3877-407f-9630-efe60a2faafe",
+                  "createdAt": "2026-06-05T15:05:37.000Z",
+                  "updatedAt": "2026-06-05T15:05:37.000Z",
+                  "uid": "35240-812b27e5-3877-407f-9630-efe60a2faafe"
+                },
+                {
+                  "name": "Assembled List Forecast Outliers",
+                  "id": "be38005f-6ea7-48f5-9f20-0c07a7799981",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v0/forecasts/outliers",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v0",
+                        "forecasts",
+                        "outliers"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "62bdb894-d256-4111-91b6-d3a3f9efec44",
+                      "name": "Outliers",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v0/forecasts/outliers",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v0",
+                            "forecasts",
+                            "outliers"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"outliers\": [\n    {\n      \"id\": \"<string>\",\n      \"queue_id\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"end_time\": \"<dateTime>\",\n      \"reason\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"queue_id\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"end_time\": \"<dateTime>\",\n      \"reason\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T15:05:37.000Z",
+                      "updatedAt": "2026-06-05T15:05:37.000Z",
+                      "uid": "35240-62bdb894-d256-4111-91b6-d3a3f9efec44"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:05:37.000Z",
+                  "updatedAt": "2026-06-05T15:05:37.000Z",
+                  "uid": "35240-be38005f-6ea7-48f5-9f20-0c07a7799981"
+                }
+              ],
+              "id": "51e8a745-b0dd-4a7c-beb5-836249113a77",
+              "createdAt": "2026-06-05T15:05:37.000Z",
+              "updatedAt": "2026-06-05T15:05:37.000Z",
+              "uid": "35240-51e8a745-b0dd-4a7c-beb5-836249113a77"
+            },
+            {
+              "name": "Assembled List Forecasts",
+              "id": "53e625ab-1705-4d33-b160-e83f9abb211e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v0/forecasts?start_time=<dateTime>&end_time=<dateTime>&queue_ids=<string>&channel=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v0",
+                    "forecasts"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "start_time",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "end_time",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "queue_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "channel",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "bf7f402a-64e2-4a4c-aec5-f719e67afce1",
+                  "name": "Forecasts",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v0/forecasts?start_time=<dateTime>&end_time=<dateTime>&queue_ids=<string>&channel=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v0",
+                        "forecasts"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "start_time",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "end_time",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "key": "queue_ids",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "channel",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"forecasts\": [\n    {\n      \"id\": \"<string>\",\n      \"queue_id\": \"<string>\",\n      \"channel\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"end_time\": \"<dateTime>\",\n      \"interval_minutes\": \"<integer>\",\n      \"volume\": \"<number>\",\n      \"aht_seconds\": \"<number>\",\n      \"required_agents\": \"<number>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"queue_id\": \"<string>\",\n      \"channel\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"end_time\": \"<dateTime>\",\n      \"interval_minutes\": \"<integer>\",\n      \"volume\": \"<number>\",\n      \"aht_seconds\": \"<number>\",\n      \"required_agents\": \"<number>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-06-05T15:05:37.000Z",
+                  "updatedAt": "2026-06-05T15:05:37.000Z",
+                  "uid": "35240-bf7f402a-64e2-4a4c-aec5-f719e67afce1"
+                }
+              ],
+              "createdAt": "2026-06-05T15:05:37.000Z",
+              "updatedAt": "2026-06-05T15:05:37.000Z",
+              "uid": "35240-53e625ab-1705-4d33-b160-e83f9abb211e"
+            }
+          ],
+          "id": "137455a6-8941-4477-9858-451aca401ec7",
+          "createdAt": "2026-06-05T15:05:37.000Z",
+          "updatedAt": "2026-06-05T15:05:37.000Z",
+          "uid": "35240-137455a6-8941-4477-9858-451aca401ec7"
+        },
+        {
+          "name": "forecasted_vs_actuals",
+          "item": [
+            {
+              "name": "Assembled Get Forecasted Vs Actuals",
+              "id": "62a6cc89-15df-4dd0-acb9-3106f7f722a3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v0/forecasted_vs_actuals?start_time=<dateTime>&end_time=<dateTime>&queue_ids=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v0",
+                    "forecasted_vs_actuals"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "start_time",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "end_time",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "queue_ids",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "72f5a5ef-d333-44fe-9d56-5e6cf1a435e7",
+                  "name": "Forecast accuracy series",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v0/forecasted_vs_actuals?start_time=<dateTime>&end_time=<dateTime>&queue_ids=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v0",
+                        "forecasted_vs_actuals"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "start_time",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "end_time",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "key": "queue_ids",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"intervals\": [\n    {\n      \"start_time\": \"<dateTime>\",\n      \"forecasted\": \"<number>\",\n      \"actual\": \"<number>\",\n      \"delta\": \"<number>\"\n    },\n    {\n      \"start_time\": \"<dateTime>\",\n      \"forecasted\": \"<number>\",\n      \"actual\": \"<number>\",\n      \"delta\": \"<number>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-06-05T15:05:37.000Z",
+                  "updatedAt": "2026-06-05T15:05:37.000Z",
+                  "uid": "35240-72f5a5ef-d333-44fe-9d56-5e6cf1a435e7"
+                }
+              ],
+              "createdAt": "2026-06-05T15:05:37.000Z",
+              "updatedAt": "2026-06-05T15:05:37.000Z",
+              "uid": "35240-62a6cc89-15df-4dd0-acb9-3106f7f722a3"
+            }
+          ],
+          "id": "7251c50b-37f5-4940-bfae-2034ec5f42b4",
+          "createdAt": "2026-06-05T15:05:37.000Z",
+          "updatedAt": "2026-06-05T15:05:37.000Z",
+          "uid": "35240-7251c50b-37f5-4940-bfae-2034ec5f42b4"
+        }
+      ],
+      "id": "a58d4a95-9544-49cd-91df-a63879446b2d",
+      "createdAt": "2026-06-05T15:05:37.000Z",
+      "updatedAt": "2026-06-05T15:05:37.000Z",
+      "uid": "35240-a58d4a95-9544-49cd-91df-a63879446b2d"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.assembledhq.com"
+    }
+  ]
+}

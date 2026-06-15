@@ -1,0 +1,1506 @@
+{
+  "info": {
+    "_postman_id": "2bb11eae-b9ed-43a9-b04c-08a6e52582e4",
+    "name": "Assembled Filters API",
+    "description": "Manage the four organizational filter dimensions used throughout\nAssembled \u2014 Queues, Sites, Teams, and Skills.\n\nEach filter is fully CRUD-capable. Queues map to channels and case\ntypes, Sites represent physical or virtual locations, Teams group\npeople, and Skills describe routing-relevant capabilities. People,\nactivities, forecasts, requirements, and reports all reference these\nfilters.\n\n\nContact Support:\n Name: Assembled Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:05:36.000Z",
+    "updatedAt": "2026-06-05T15:05:36.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-2bb11eae-b9ed-43a9-b04c-08a6e52582e4"
+  },
+  "item": [
+    {
+      "name": "v0",
+      "item": [
+        {
+          "name": "queues",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "Assembled Update Queue",
+                  "id": "958d806c-56c7-47e0-93dd-e6701d550a64",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"external_id\": \"<string>\",\n  \"channel\": \"<string>\",\n  \"timezone\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v0/queues/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v0",
+                        "queues",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "31aabdd1-ab81-4aa2-be31-708d937874bf",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "90aaca49-26e2-44d5-81b8-340c6ec0a091",
+                      "name": "Updated",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"external_id\": \"<string>\",\n  \"channel\": \"<string>\",\n  \"timezone\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v0/queues/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v0",
+                            "queues",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"external_id\": \"<string>\",\n  \"channel\": \"<string>\",\n  \"timezone\": \"<string>\",\n  \"created_at\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-06-05T15:05:36.000Z",
+                      "updatedAt": "2026-06-05T15:05:36.000Z",
+                      "uid": "35240-90aaca49-26e2-44d5-81b8-340c6ec0a091"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:05:36.000Z",
+                  "updatedAt": "2026-06-05T15:05:36.000Z",
+                  "uid": "35240-958d806c-56c7-47e0-93dd-e6701d550a64"
+                }
+              ],
+              "id": "8d6230ac-ef06-46f9-9bc3-99360c764091",
+              "createdAt": "2026-06-05T15:05:36.000Z",
+              "updatedAt": "2026-06-05T15:05:36.000Z",
+              "uid": "35240-8d6230ac-ef06-46f9-9bc3-99360c764091"
+            },
+            {
+              "name": "Assembled List Queues",
+              "id": "8af15cac-6fa6-46f8-a84b-b91d9936b755",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v0/queues",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v0",
+                    "queues"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "cca84060-0beb-45f3-b598-3df781a1c6ad",
+                  "name": "Queues",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v0/queues",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v0",
+                        "queues"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"queues\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"external_id\": \"<string>\",\n      \"channel\": \"<string>\",\n      \"timezone\": \"<string>\",\n      \"created_at\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"external_id\": \"<string>\",\n      \"channel\": \"<string>\",\n      \"timezone\": \"<string>\",\n      \"created_at\": \"<dateTime>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-06-05T15:05:36.000Z",
+                  "updatedAt": "2026-06-05T15:05:36.000Z",
+                  "uid": "35240-cca84060-0beb-45f3-b598-3df781a1c6ad"
+                }
+              ],
+              "createdAt": "2026-06-05T15:05:36.000Z",
+              "updatedAt": "2026-06-05T15:05:36.000Z",
+              "uid": "35240-8af15cac-6fa6-46f8-a84b-b91d9936b755"
+            },
+            {
+              "name": "Assembled Create Queue",
+              "id": "c05eb317-9e37-41b9-ad27-a52a42f20faf",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"external_id\": \"<string>\",\n  \"channel\": \"<string>\",\n  \"timezone\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/v0/queues",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v0",
+                    "queues"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "ae09ab56-0e59-4403-996e-c7c241295f9f",
+                  "name": "Created",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"external_id\": \"<string>\",\n  \"channel\": \"<string>\",\n  \"timezone\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v0/queues",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v0",
+                        "queues"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"external_id\": \"<string>\",\n  \"channel\": \"<string>\",\n  \"timezone\": \"<string>\",\n  \"created_at\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-06-05T15:05:36.000Z",
+                  "updatedAt": "2026-06-05T15:05:36.000Z",
+                  "uid": "35240-ae09ab56-0e59-4403-996e-c7c241295f9f"
+                }
+              ],
+              "createdAt": "2026-06-05T15:05:36.000Z",
+              "updatedAt": "2026-06-05T15:05:36.000Z",
+              "uid": "35240-c05eb317-9e37-41b9-ad27-a52a42f20faf"
+            },
+            {
+              "name": "Assembled Delete Queues",
+              "id": "f5d3d014-8e77-4699-9b11-278657e6a709",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/v0/queues?ids=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v0",
+                    "queues"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "ids",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "c5a6e41d-f86c-46bc-b3ef-2caa8ec986c1",
+                  "name": "Deleted",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v0/queues?ids=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v0",
+                        "queues"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "ids",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:05:36.000Z",
+                  "updatedAt": "2026-06-05T15:05:36.000Z",
+                  "uid": "35240-c5a6e41d-f86c-46bc-b3ef-2caa8ec986c1"
+                }
+              ],
+              "createdAt": "2026-06-05T15:05:36.000Z",
+              "updatedAt": "2026-06-05T15:05:36.000Z",
+              "uid": "35240-f5d3d014-8e77-4699-9b11-278657e6a709"
+            }
+          ],
+          "id": "8a9d0aa3-8196-4b71-8bc9-07c37c5085bc",
+          "createdAt": "2026-06-05T15:05:36.000Z",
+          "updatedAt": "2026-06-05T15:05:36.000Z",
+          "uid": "35240-8a9d0aa3-8196-4b71-8bc9-07c37c5085bc"
+        },
+        {
+          "name": "sites",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "Assembled Update Site",
+                  "id": "134d5fbb-a192-4ded-86b8-e7add2737a9d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"external_id\": \"<string>\",\n  \"channel\": \"<string>\",\n  \"timezone\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v0/sites/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v0",
+                        "sites",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "067174ae-a528-4bc7-b4a9-4d83da675303",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "346c1d82-9df0-44b0-8c28-b1c3d9318d61",
+                      "name": "Updated",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"external_id\": \"<string>\",\n  \"channel\": \"<string>\",\n  \"timezone\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v0/sites/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v0",
+                            "sites",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:05:36.000Z",
+                      "updatedAt": "2026-06-05T15:05:36.000Z",
+                      "uid": "35240-346c1d82-9df0-44b0-8c28-b1c3d9318d61"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:05:36.000Z",
+                  "updatedAt": "2026-06-05T15:05:36.000Z",
+                  "uid": "35240-134d5fbb-a192-4ded-86b8-e7add2737a9d"
+                }
+              ],
+              "id": "d78a60b9-84d6-4369-8838-4720264b1123",
+              "createdAt": "2026-06-05T15:05:36.000Z",
+              "updatedAt": "2026-06-05T15:05:36.000Z",
+              "uid": "35240-d78a60b9-84d6-4369-8838-4720264b1123"
+            },
+            {
+              "name": "Assembled List Sites",
+              "id": "f960a63a-46a5-487a-9ef5-5956ddebce38",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v0/sites",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v0",
+                    "sites"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "f84dc9e8-24fd-4089-9d45-c103a0ff0e0b",
+                  "name": "Sites",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v0/sites",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v0",
+                        "sites"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"sites\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"external_id\": \"<string>\",\n      \"channel\": \"<string>\",\n      \"timezone\": \"<string>\",\n      \"created_at\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"external_id\": \"<string>\",\n      \"channel\": \"<string>\",\n      \"timezone\": \"<string>\",\n      \"created_at\": \"<dateTime>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-06-05T15:05:36.000Z",
+                  "updatedAt": "2026-06-05T15:05:36.000Z",
+                  "uid": "35240-f84dc9e8-24fd-4089-9d45-c103a0ff0e0b"
+                }
+              ],
+              "createdAt": "2026-06-05T15:05:36.000Z",
+              "updatedAt": "2026-06-05T15:05:36.000Z",
+              "uid": "35240-f960a63a-46a5-487a-9ef5-5956ddebce38"
+            },
+            {
+              "name": "Assembled Create Site",
+              "id": "0e3b3865-a025-4a8e-a701-bf92c32e56b5",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"external_id\": \"<string>\",\n  \"channel\": \"<string>\",\n  \"timezone\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/v0/sites",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v0",
+                    "sites"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "f930a5cf-0c59-4cf7-b125-689a5cc241f6",
+                  "name": "Created",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"external_id\": \"<string>\",\n  \"channel\": \"<string>\",\n  \"timezone\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v0/sites",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v0",
+                        "sites"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:05:36.000Z",
+                  "updatedAt": "2026-06-05T15:05:36.000Z",
+                  "uid": "35240-f930a5cf-0c59-4cf7-b125-689a5cc241f6"
+                }
+              ],
+              "createdAt": "2026-06-05T15:05:36.000Z",
+              "updatedAt": "2026-06-05T15:05:36.000Z",
+              "uid": "35240-0e3b3865-a025-4a8e-a701-bf92c32e56b5"
+            },
+            {
+              "name": "Assembled Delete Sites",
+              "id": "a2db2bbe-e67e-4573-ad0f-222911d4bdd4",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/v0/sites?ids=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v0",
+                    "sites"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "ids",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "7f756044-79ad-471b-a113-4f0142a8a7d3",
+                  "name": "Deleted",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v0/sites?ids=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v0",
+                        "sites"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "ids",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:05:36.000Z",
+                  "updatedAt": "2026-06-05T15:05:36.000Z",
+                  "uid": "35240-7f756044-79ad-471b-a113-4f0142a8a7d3"
+                }
+              ],
+              "createdAt": "2026-06-05T15:05:36.000Z",
+              "updatedAt": "2026-06-05T15:05:36.000Z",
+              "uid": "35240-a2db2bbe-e67e-4573-ad0f-222911d4bdd4"
+            }
+          ],
+          "id": "4456c371-3782-42af-8bc5-1ccd76c2450e",
+          "createdAt": "2026-06-05T15:05:36.000Z",
+          "updatedAt": "2026-06-05T15:05:36.000Z",
+          "uid": "35240-4456c371-3782-42af-8bc5-1ccd76c2450e"
+        },
+        {
+          "name": "teams",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "Assembled Update Team",
+                  "id": "842f437a-e28a-46b4-a96a-1a3ea665bbde",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"external_id\": \"<string>\",\n  \"channel\": \"<string>\",\n  \"timezone\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v0/teams/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v0",
+                        "teams",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "4b9b7735-fcec-4463-9170-35c4548a92bf",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "e2ca430a-f28d-4cf3-bb16-a21e2b84edec",
+                      "name": "Updated",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"external_id\": \"<string>\",\n  \"channel\": \"<string>\",\n  \"timezone\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v0/teams/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v0",
+                            "teams",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:05:36.000Z",
+                      "updatedAt": "2026-06-05T15:05:36.000Z",
+                      "uid": "35240-e2ca430a-f28d-4cf3-bb16-a21e2b84edec"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:05:36.000Z",
+                  "updatedAt": "2026-06-05T15:05:36.000Z",
+                  "uid": "35240-842f437a-e28a-46b4-a96a-1a3ea665bbde"
+                }
+              ],
+              "id": "e81aa2ce-7802-4b63-a16b-ebc939cfeefb",
+              "createdAt": "2026-06-05T15:05:36.000Z",
+              "updatedAt": "2026-06-05T15:05:36.000Z",
+              "uid": "35240-e81aa2ce-7802-4b63-a16b-ebc939cfeefb"
+            },
+            {
+              "name": "Assembled List Teams",
+              "id": "ced1dfa6-e488-49bc-aad9-72efad107554",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v0/teams",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v0",
+                    "teams"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "c72f1990-53f1-41d7-b708-efea95c370e8",
+                  "name": "Teams",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v0/teams",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v0",
+                        "teams"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"teams\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"external_id\": \"<string>\",\n      \"channel\": \"<string>\",\n      \"timezone\": \"<string>\",\n      \"created_at\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"external_id\": \"<string>\",\n      \"channel\": \"<string>\",\n      \"timezone\": \"<string>\",\n      \"created_at\": \"<dateTime>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-06-05T15:05:36.000Z",
+                  "updatedAt": "2026-06-05T15:05:36.000Z",
+                  "uid": "35240-c72f1990-53f1-41d7-b708-efea95c370e8"
+                }
+              ],
+              "createdAt": "2026-06-05T15:05:36.000Z",
+              "updatedAt": "2026-06-05T15:05:36.000Z",
+              "uid": "35240-ced1dfa6-e488-49bc-aad9-72efad107554"
+            },
+            {
+              "name": "Assembled Create Team",
+              "id": "b9e9988a-b85e-41f2-ad63-8ebe21e0bc4d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"external_id\": \"<string>\",\n  \"channel\": \"<string>\",\n  \"timezone\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/v0/teams",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v0",
+                    "teams"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "3507b39a-7628-48fd-9776-f5b95a025244",
+                  "name": "Created",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"external_id\": \"<string>\",\n  \"channel\": \"<string>\",\n  \"timezone\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v0/teams",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v0",
+                        "teams"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:05:36.000Z",
+                  "updatedAt": "2026-06-05T15:05:36.000Z",
+                  "uid": "35240-3507b39a-7628-48fd-9776-f5b95a025244"
+                }
+              ],
+              "createdAt": "2026-06-05T15:05:36.000Z",
+              "updatedAt": "2026-06-05T15:05:36.000Z",
+              "uid": "35240-b9e9988a-b85e-41f2-ad63-8ebe21e0bc4d"
+            },
+            {
+              "name": "Assembled Delete Teams",
+              "id": "c727ba3a-6e01-4cbb-b097-02fae3e5479b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/v0/teams?ids=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v0",
+                    "teams"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "ids",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "013bb723-7084-492a-99c9-80beb5e58855",
+                  "name": "Deleted",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v0/teams?ids=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v0",
+                        "teams"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "ids",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:05:36.000Z",
+                  "updatedAt": "2026-06-05T15:05:36.000Z",
+                  "uid": "35240-013bb723-7084-492a-99c9-80beb5e58855"
+                }
+              ],
+              "createdAt": "2026-06-05T15:05:36.000Z",
+              "updatedAt": "2026-06-05T15:05:36.000Z",
+              "uid": "35240-c727ba3a-6e01-4cbb-b097-02fae3e5479b"
+            }
+          ],
+          "id": "41ac5896-7035-4d20-8476-200ae94b6d11",
+          "createdAt": "2026-06-05T15:05:36.000Z",
+          "updatedAt": "2026-06-05T15:05:36.000Z",
+          "uid": "35240-41ac5896-7035-4d20-8476-200ae94b6d11"
+        },
+        {
+          "name": "skills",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "Assembled Update Skill",
+                  "id": "91a3f03e-420a-4ecc-8b9e-567f2f20af90",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"external_id\": \"<string>\",\n  \"channel\": \"<string>\",\n  \"timezone\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v0/skills/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v0",
+                        "skills",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "cd050494-c3a6-4c0d-9bd3-8526fb09a3c4",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "00df9815-d478-428a-8669-0baae7c5bf27",
+                      "name": "Updated",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"external_id\": \"<string>\",\n  \"channel\": \"<string>\",\n  \"timezone\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v0/skills/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v0",
+                            "skills",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:05:36.000Z",
+                      "updatedAt": "2026-06-05T15:05:36.000Z",
+                      "uid": "35240-00df9815-d478-428a-8669-0baae7c5bf27"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:05:36.000Z",
+                  "updatedAt": "2026-06-05T15:05:36.000Z",
+                  "uid": "35240-91a3f03e-420a-4ecc-8b9e-567f2f20af90"
+                }
+              ],
+              "id": "dd8ba41f-941c-460c-a1c5-6473fb38951e",
+              "createdAt": "2026-06-05T15:05:36.000Z",
+              "updatedAt": "2026-06-05T15:05:36.000Z",
+              "uid": "35240-dd8ba41f-941c-460c-a1c5-6473fb38951e"
+            },
+            {
+              "name": "Assembled List Skills",
+              "id": "877f00a8-128a-4d09-ba27-1f38cedecc28",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v0/skills",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v0",
+                    "skills"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "41b7cc29-d111-43b2-aee4-fdd20310bd57",
+                  "name": "Skills",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v0/skills",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v0",
+                        "skills"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"skills\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"external_id\": \"<string>\",\n      \"channel\": \"<string>\",\n      \"timezone\": \"<string>\",\n      \"created_at\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"external_id\": \"<string>\",\n      \"channel\": \"<string>\",\n      \"timezone\": \"<string>\",\n      \"created_at\": \"<dateTime>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-06-05T15:05:36.000Z",
+                  "updatedAt": "2026-06-05T15:05:36.000Z",
+                  "uid": "35240-41b7cc29-d111-43b2-aee4-fdd20310bd57"
+                }
+              ],
+              "createdAt": "2026-06-05T15:05:36.000Z",
+              "updatedAt": "2026-06-05T15:05:36.000Z",
+              "uid": "35240-877f00a8-128a-4d09-ba27-1f38cedecc28"
+            },
+            {
+              "name": "Assembled Create Skill",
+              "id": "cd44118a-0a6d-46bf-a4b5-6cca756f93d7",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"external_id\": \"<string>\",\n  \"channel\": \"<string>\",\n  \"timezone\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/v0/skills",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v0",
+                    "skills"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "f72a465a-e16a-4bd1-acec-1c7bd2c378e3",
+                  "name": "Created",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"external_id\": \"<string>\",\n  \"channel\": \"<string>\",\n  \"timezone\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v0/skills",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v0",
+                        "skills"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:05:36.000Z",
+                  "updatedAt": "2026-06-05T15:05:36.000Z",
+                  "uid": "35240-f72a465a-e16a-4bd1-acec-1c7bd2c378e3"
+                }
+              ],
+              "createdAt": "2026-06-05T15:05:36.000Z",
+              "updatedAt": "2026-06-05T15:05:36.000Z",
+              "uid": "35240-cd44118a-0a6d-46bf-a4b5-6cca756f93d7"
+            },
+            {
+              "name": "Assembled Delete Skills",
+              "id": "ffdd81c1-824a-44ae-8ff4-f538b75d1e86",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/v0/skills?ids=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v0",
+                    "skills"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "ids",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "e8b72dbf-57d1-430b-afa0-79bb64f27117",
+                  "name": "Deleted",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v0/skills?ids=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v0",
+                        "skills"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "ids",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:05:36.000Z",
+                  "updatedAt": "2026-06-05T15:05:36.000Z",
+                  "uid": "35240-e8b72dbf-57d1-430b-afa0-79bb64f27117"
+                }
+              ],
+              "createdAt": "2026-06-05T15:05:36.000Z",
+              "updatedAt": "2026-06-05T15:05:36.000Z",
+              "uid": "35240-ffdd81c1-824a-44ae-8ff4-f538b75d1e86"
+            }
+          ],
+          "id": "0a2da43e-612e-4b51-ad29-bd9570ebb6d6",
+          "createdAt": "2026-06-05T15:05:36.000Z",
+          "updatedAt": "2026-06-05T15:05:36.000Z",
+          "uid": "35240-0a2da43e-612e-4b51-ad29-bd9570ebb6d6"
+        }
+      ],
+      "id": "18c81311-7d51-4ac4-8627-7e5a1139391b",
+      "createdAt": "2026-06-05T15:05:36.000Z",
+      "updatedAt": "2026-06-05T15:05:36.000Z",
+      "uid": "35240-18c81311-7d51-4ac4-8627-7e5a1139391b"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.assembledhq.com"
+    }
+  ]
+}

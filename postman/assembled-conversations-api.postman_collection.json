@@ -1,0 +1,246 @@
+{
+  "info": {
+    "_postman_id": "16bc5104-fde4-49db-87c9-f04ba1f34b48",
+    "name": "Assembled Conversations API",
+    "description": "Bulk-ingest and bulk-update customer conversation records \u2014 phone,\nemail, chat, SMS, social, and back-office \u2014 so they can be associated\nwith agents, queues, and channels for reporting, QA, and analytics.\n\nUsed by customers running on non-Zendesk/Salesforce stacks or merging\nmultiple CRMs into a unified support view.\n\n\nContact Support:\n Name: Assembled Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:05:44.000Z",
+    "updatedAt": "2026-06-05T15:05:44.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-16bc5104-fde4-49db-87c9-f04ba1f34b48"
+  },
+  "item": [
+    {
+      "name": "v0",
+      "item": [
+        {
+          "name": "conversations",
+          "item": [
+            {
+              "name": "bulk",
+              "item": [
+                {
+                  "name": "Assembled Bulk Upsert Conversations",
+                  "id": "31b21748-654d-4938-a29f-9043c7e3f8c6",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"conversations\": [\n    {\n      \"external_id\": \"<string>\",\n      \"channel\": \"back_office\",\n      \"started_at\": \"<dateTime>\",\n      \"platform\": \"<string>\",\n      \"queue_id\": \"<string>\",\n      \"assigned_agent_id\": \"<string>\",\n      \"customer_id\": \"<string>\",\n      \"subject\": \"<string>\",\n      \"status\": \"<string>\",\n      \"ended_at\": \"<dateTime>\",\n      \"handle_time_seconds\": \"<number>\",\n      \"wait_time_seconds\": \"<number>\",\n      \"first_response_time_seconds\": \"<number>\",\n      \"resolved\": \"<boolean>\",\n      \"csat_score\": \"<number>\",\n      \"metadata\": {\n        \"incididuntd9\": 85738934\n      }\n    },\n    {\n      \"external_id\": \"<string>\",\n      \"channel\": \"phone\",\n      \"started_at\": \"<dateTime>\",\n      \"platform\": \"<string>\",\n      \"queue_id\": \"<string>\",\n      \"assigned_agent_id\": \"<string>\",\n      \"customer_id\": \"<string>\",\n      \"subject\": \"<string>\",\n      \"status\": \"<string>\",\n      \"ended_at\": \"<dateTime>\",\n      \"handle_time_seconds\": \"<number>\",\n      \"wait_time_seconds\": \"<number>\",\n      \"first_response_time_seconds\": \"<number>\",\n      \"resolved\": \"<boolean>\",\n      \"csat_score\": \"<number>\",\n      \"metadata\": {\n        \"aliquip9a\": 14389592.172172487\n      }\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v0/conversations/bulk",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v0",
+                        "conversations",
+                        "bulk"
+                      ]
+                    },
+                    "description": "Create or overwrite conversation records in bulk."
+                  },
+                  "response": [
+                    {
+                      "id": "1e463efa-4550-47b7-b0bc-f6dc9118f7db",
+                      "name": "Accepted",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"conversations\": [\n    {\n      \"external_id\": \"<string>\",\n      \"channel\": \"back_office\",\n      \"started_at\": \"<dateTime>\",\n      \"platform\": \"<string>\",\n      \"queue_id\": \"<string>\",\n      \"assigned_agent_id\": \"<string>\",\n      \"customer_id\": \"<string>\",\n      \"subject\": \"<string>\",\n      \"status\": \"<string>\",\n      \"ended_at\": \"<dateTime>\",\n      \"handle_time_seconds\": \"<number>\",\n      \"wait_time_seconds\": \"<number>\",\n      \"first_response_time_seconds\": \"<number>\",\n      \"resolved\": \"<boolean>\",\n      \"csat_score\": \"<number>\",\n      \"metadata\": {\n        \"incididuntd9\": 85738934\n      }\n    },\n    {\n      \"external_id\": \"<string>\",\n      \"channel\": \"phone\",\n      \"started_at\": \"<dateTime>\",\n      \"platform\": \"<string>\",\n      \"queue_id\": \"<string>\",\n      \"assigned_agent_id\": \"<string>\",\n      \"customer_id\": \"<string>\",\n      \"subject\": \"<string>\",\n      \"status\": \"<string>\",\n      \"ended_at\": \"<dateTime>\",\n      \"handle_time_seconds\": \"<number>\",\n      \"wait_time_seconds\": \"<number>\",\n      \"first_response_time_seconds\": \"<number>\",\n      \"resolved\": \"<boolean>\",\n      \"csat_score\": \"<number>\",\n      \"metadata\": {\n        \"aliquip9a\": 14389592.172172487\n      }\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v0/conversations/bulk",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v0",
+                            "conversations",
+                            "bulk"
+                          ]
+                        }
+                      },
+                      "status": "Accepted",
+                      "code": 202,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:05:45.000Z",
+                      "updatedAt": "2026-06-05T15:05:45.000Z",
+                      "uid": "35240-1e463efa-4550-47b7-b0bc-f6dc9118f7db"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:05:45.000Z",
+                  "updatedAt": "2026-06-05T15:05:45.000Z",
+                  "uid": "35240-31b21748-654d-4938-a29f-9043c7e3f8c6"
+                },
+                {
+                  "name": "Assembled Bulk Update Conversations",
+                  "id": "a73684b8-67af-4a39-a26d-99938691a785",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"conversations\": [\n    {\n      \"external_id\": \"<string>\",\n      \"assigned_agent_id\": \"<string>\",\n      \"status\": \"<string>\",\n      \"ended_at\": \"<dateTime>\",\n      \"handle_time_seconds\": \"<number>\",\n      \"resolved\": \"<boolean>\",\n      \"csat_score\": \"<number>\",\n      \"metadata\": {\n        \"nulla_b\": \"mollit irure veniam labore\",\n        \"veniame7\": \"exercitation magna consequat\"\n      }\n    },\n    {\n      \"external_id\": \"<string>\",\n      \"assigned_agent_id\": \"<string>\",\n      \"status\": \"<string>\",\n      \"ended_at\": \"<dateTime>\",\n      \"handle_time_seconds\": \"<number>\",\n      \"resolved\": \"<boolean>\",\n      \"csat_score\": \"<number>\",\n      \"metadata\": {\n        \"ea63\": \"commodo sint occaecat\",\n        \"voluptate0\": false\n      }\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v0/conversations/bulk",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v0",
+                        "conversations",
+                        "bulk"
+                      ]
+                    },
+                    "description": "Update existing conversations with partial fields, identified by external_id."
+                  },
+                  "response": [
+                    {
+                      "id": "3992415c-d80f-4c39-87f6-7f02e959344d",
+                      "name": "Accepted",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"conversations\": [\n    {\n      \"external_id\": \"<string>\",\n      \"assigned_agent_id\": \"<string>\",\n      \"status\": \"<string>\",\n      \"ended_at\": \"<dateTime>\",\n      \"handle_time_seconds\": \"<number>\",\n      \"resolved\": \"<boolean>\",\n      \"csat_score\": \"<number>\",\n      \"metadata\": {\n        \"nulla_b\": \"mollit irure veniam labore\",\n        \"veniame7\": \"exercitation magna consequat\"\n      }\n    },\n    {\n      \"external_id\": \"<string>\",\n      \"assigned_agent_id\": \"<string>\",\n      \"status\": \"<string>\",\n      \"ended_at\": \"<dateTime>\",\n      \"handle_time_seconds\": \"<number>\",\n      \"resolved\": \"<boolean>\",\n      \"csat_score\": \"<number>\",\n      \"metadata\": {\n        \"ea63\": \"commodo sint occaecat\",\n        \"voluptate0\": false\n      }\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v0/conversations/bulk",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v0",
+                            "conversations",
+                            "bulk"
+                          ]
+                        }
+                      },
+                      "status": "Accepted",
+                      "code": 202,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:05:45.000Z",
+                      "updatedAt": "2026-06-05T15:05:45.000Z",
+                      "uid": "35240-3992415c-d80f-4c39-87f6-7f02e959344d"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:05:45.000Z",
+                  "updatedAt": "2026-06-05T15:05:45.000Z",
+                  "uid": "35240-a73684b8-67af-4a39-a26d-99938691a785"
+                }
+              ],
+              "id": "2076fef6-48fc-48fc-bc44-c0fd9d06e263",
+              "createdAt": "2026-06-05T15:05:45.000Z",
+              "updatedAt": "2026-06-05T15:05:45.000Z",
+              "uid": "35240-2076fef6-48fc-48fc-bc44-c0fd9d06e263"
+            }
+          ],
+          "id": "cb4935a4-f9e7-4963-910b-17c9061d82e9",
+          "createdAt": "2026-06-05T15:05:45.000Z",
+          "updatedAt": "2026-06-05T15:05:45.000Z",
+          "uid": "35240-cb4935a4-f9e7-4963-910b-17c9061d82e9"
+        }
+      ],
+      "id": "fb27941c-9940-433c-b1d0-b8b40956eedc",
+      "createdAt": "2026-06-05T15:05:45.000Z",
+      "updatedAt": "2026-06-05T15:05:45.000Z",
+      "uid": "35240-fb27941c-9940-433c-b1d0-b8b40956eedc"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.assembledhq.com"
+    }
+  ]
+}
