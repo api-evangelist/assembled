@@ -255,54 +255,51 @@ apis:
 common:
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/assembled/overview
-  - type: ArazzoWorkflows
-    url: arazzo/
-    workflows:
-      - url: arazzo/assembled-agent-profile-update-workflow.yml
-        name: Assembled Update an Agent Profile
-        summary: Find an agent in the workforce, read their full profile, then patch their attributes.
-      - url: arazzo/assembled-associate-agent-platforms-workflow.yml
-        name: Assembled Associate Platform IDs to an Agent
-        summary: Confirm an agent exists, map upstream platform identifiers to them, then read back the linked record.
-      - url: arazzo/assembled-audit-schedule-changes-workflow.yml
-        name: Assembled Audit Schedule Changes
-        summary: List the activities scheduled in a window, then pull the audit trail of changes to them.
-      - url: arazzo/assembled-cancel-time-off-workflow.yml
-        name: Assembled Review and Cancel a Time Off Request
-        summary: List pending time-off requests and cancel the first one, branching on whether any exist.
-      - url: arazzo/assembled-forecast-to-requirement-workflow.yml
-        name: Assembled Turn a Forecast into a Staffing Requirement
-        summary: Read the volume forecast for a window, resolve a requirement type, then create a staffing requirement.
-      - url: arazzo/assembled-generate-report-workflow.yml
-        name: Assembled Generate and Retrieve a Report
-        summary: Start an async report job, then fetch the result, branching on completion status.
-      - url: arazzo/assembled-ingest-conversations-workflow.yml
-        name: Assembled Ingest and Enrich Conversations
-        summary: Bulk-upsert customer conversation records, then bulk-update them with enriched fields.
-      - url: arazzo/assembled-manage-forecast-total-workflow.yml
-        name: Assembled Create and Read a Forecast Total
-        summary: Create a forecast total for a queue window, list totals to find it, then fetch it in full.
-      - url: arazzo/assembled-provision-agent-workflow.yml
-        name: Assembled Provision a New Agent
-        summary: Resolve an available role, create a new agent, then read back the created record.
-      - url: arazzo/assembled-provision-queue-and-staff-workflow.yml
-        name: Assembled Provision a Queue and Staff It
-        summary: Create a routing queue, pick an active agent, then schedule an activity routed to that queue.
-      - url: arazzo/assembled-request-time-off-workflow.yml
-        name: Assembled Request Time Off for an Agent
-        summary: Confirm the agent exists, create a time-off request, then verify it in the request list.
-      - url: arazzo/assembled-review-working-hours-workflow.yml
-        name: Assembled Review an Agent's Working Hours
-        summary: List the working-hours rules for an agent, then fetch the first rule in full.
-      - url: arazzo/assembled-schedule-agent-shift-workflow.yml
-        name: Assembled Schedule an Agent Shift
-        summary: Resolve an activity type, create a scheduled activity, then list it back on the calendar.
-      - url: arazzo/assembled-staff-agent-shift-workflow.yml
-        name: Assembled Staff a Shift for a Workforce Agent
-        summary: Pick an active agent from the workforce, then schedule a shift activity for them.
-      - url: arazzo/assembled-stream-agent-state-workflow.yml
-        name: Assembled Stream and Verify Agent State
-        summary: Confirm an agent exists, push a batch of state records, then read back the condensed timeline.
+  - type: Arazzo
+    url: arazzo/assembled-agent-profile-update-workflow.yml
+    name: Assembled Update an Agent Profile
+  - type: Arazzo
+    url: arazzo/assembled-associate-agent-platforms-workflow.yml
+    name: Assembled Associate Platform IDs to an Agent
+  - type: Arazzo
+    url: arazzo/assembled-audit-schedule-changes-workflow.yml
+    name: Assembled Audit Schedule Changes
+  - type: Arazzo
+    url: arazzo/assembled-cancel-time-off-workflow.yml
+    name: Assembled Review and Cancel a Time Off Request
+  - type: Arazzo
+    url: arazzo/assembled-forecast-to-requirement-workflow.yml
+    name: Assembled Turn a Forecast into a Staffing Requirement
+  - type: Arazzo
+    url: arazzo/assembled-generate-report-workflow.yml
+    name: Assembled Generate and Retrieve a Report
+  - type: Arazzo
+    url: arazzo/assembled-ingest-conversations-workflow.yml
+    name: Assembled Ingest and Enrich Conversations
+  - type: Arazzo
+    url: arazzo/assembled-manage-forecast-total-workflow.yml
+    name: Assembled Create and Read a Forecast Total
+  - type: Arazzo
+    url: arazzo/assembled-provision-agent-workflow.yml
+    name: Assembled Provision a New Agent
+  - type: Arazzo
+    url: arazzo/assembled-provision-queue-and-staff-workflow.yml
+    name: Assembled Provision a Queue and Staff It
+  - type: Arazzo
+    url: arazzo/assembled-request-time-off-workflow.yml
+    name: Assembled Request Time Off for an Agent
+  - type: Arazzo
+    url: arazzo/assembled-review-working-hours-workflow.yml
+    name: Assembled Review an Agent's Working Hours
+  - type: Arazzo
+    url: arazzo/assembled-schedule-agent-shift-workflow.yml
+    name: Assembled Schedule an Agent Shift
+  - type: Arazzo
+    url: arazzo/assembled-staff-agent-shift-workflow.yml
+    name: Assembled Staff a Shift for a Workforce Agent
+  - type: Arazzo
+    url: arazzo/assembled-stream-agent-state-workflow.yml
+    name: Assembled Stream and Verify Agent State
   - type: Website
     url: https://www.assembled.com
   - type: Portal
@@ -312,7 +309,7 @@ common:
     name: Assembled API Reference
   - type: GettingStarted
     url: https://docs.assembled.com/
-  - type: SignUp
+  - type: Signup
     url: https://app.assembledhq.com/signup
   - type: Login
     url: https://app.assembledhq.com/login
@@ -348,10 +345,10 @@ common:
     url: https://www.assembled.com/security
   - type: GitHubOrganization
     url: https://github.com/assembledhq
-  - type: SDK
+  - type: SDKs
     url: https://github.com/assembledhq/assembled-chat-ios-sdk
     name: Assembled Chat iOS SDK
-  - type: SDK
+  - type: SDKs
     url: https://github.com/assembledhq/assembled-chat-android-sdk
     name: Assembled Chat Android SDK
   - type: LinkedIn
