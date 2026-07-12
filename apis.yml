@@ -253,6 +253,14 @@ apis:
       draw from, retrieve conversation histories and handoff payloads, and (beta) post AI replies. Powers autonomous
       resolution across chat, email, SMS, and voice plus smart handoffs to human agents.
 common:
+  - type: TrustCenter
+    url: security/assembled-trust-center.yml
+  - type: VulnerabilityDisclosure
+    url: security/assembled-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/assembled-domain-security.yml
+  - type: Authentication
+    url: authentication/assembled-authentication.yml
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/assembled/overview
   - type: Arazzo
