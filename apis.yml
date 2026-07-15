@@ -253,6 +253,8 @@ apis:
       draw from, retrieve conversation histories and handoff payloads, and (beta) post AI replies. Powers autonomous
       resolution across chat, email, SMS, and voice plus smart handoffs to human agents.
 common:
+  - type: AgenticAccess
+    url: agentic-access/assembled-agentic-access.yml
   - type: TrustCenter
     url: security/assembled-trust-center.yml
   - type: VulnerabilityDisclosure
