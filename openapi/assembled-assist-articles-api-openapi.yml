@@ -1,0 +1,135 @@
+openapi: 3.1.0
+info:
+  title: Assembled Activities Assist Articles API
+  description: 'Activities are the scheduled shifts, breaks, time-off blocks, training
+
+    sessions, and meetings that make up an agent''s calendar in Assembled.
+
+
+    The Activities API supports single and bulk activity creation, listing
+
+    with rich filters, soft-delete semantics, and CRUD for activity types
+
+    (the colour-coded categories shown on schedules). The event_changes
+
+    endpoint surfaces an audit trail of schedule modifications.
+
+    '
+  version: '2026-05-24'
+  contact:
+    name: Assembled Support
+    url: https://support.assembled.com
+servers:
+- url: https://api.assembledhq.com
+  description: Production Server
+security:
+- BasicAuth: []
+tags:
+- name: Assist Articles
+paths:
+  /v0/assist/articles:
+    post:
+      summary: Assembled Create Assist Article
+      description: Create a knowledge article that AI Agents can reference.
+      operationId: createAssistArticle
+      tags:
+      - Assist Articles
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssistArticleInput'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssistArticle'
+  /v0/assist/articles/{id}:
+    put:
+      summary: Assembled Update Assist Article
+      operationId: updateAssistArticle
+      tags:
+      - Assist Articles
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssistArticleInput'
+      responses:
+        '200':
+          description: Updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssistArticle'
+    delete:
+      summary: Assembled Delete Assist Article
+      operationId: deleteAssistArticle
+      tags:
+      - Assist Articles
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Deleted
+components:
+  schemas:
+    AssistArticleInput:
+      type: object
+      required:
+      - title
+      - body
+      properties:
+        title:
+          type: string
+        body:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+        source_url:
+          type: string
+        published:
+          type: boolean
+    AssistArticle:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        body:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+        source_url:
+          type: string
+        published:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic

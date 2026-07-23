@@ -1,0 +1,133 @@
+openapi: 3.1.0
+info:
+  title: Assembled Activities Teams API
+  description: 'Activities are the scheduled shifts, breaks, time-off blocks, training
+
+    sessions, and meetings that make up an agent''s calendar in Assembled.
+
+
+    The Activities API supports single and bulk activity creation, listing
+
+    with rich filters, soft-delete semantics, and CRUD for activity types
+
+    (the colour-coded categories shown on schedules). The event_changes
+
+    endpoint surfaces an audit trail of schedule modifications.
+
+    '
+  version: '2026-05-24'
+  contact:
+    name: Assembled Support
+    url: https://support.assembled.com
+servers:
+- url: https://api.assembledhq.com
+  description: Production Server
+security:
+- BasicAuth: []
+tags:
+- name: Teams
+paths:
+  /v0/teams:
+    get:
+      summary: Assembled List Teams
+      operationId: listTeams
+      tags:
+      - Teams
+      responses:
+        '200':
+          description: Teams
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  teams:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Filter'
+    post:
+      summary: Assembled Create Team
+      operationId: createTeam
+      tags:
+      - Teams
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FilterInput'
+      responses:
+        '201':
+          description: Created
+    delete:
+      summary: Assembled Delete Teams
+      operationId: deleteTeams
+      tags:
+      - Teams
+      parameters:
+      - in: query
+        name: ids
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Deleted
+  /v0/teams/{id}:
+    put:
+      summary: Assembled Update Team
+      operationId: updateTeam
+      tags:
+      - Teams
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FilterInput'
+      responses:
+        '200':
+          description: Updated
+components:
+  schemas:
+    Filter:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        external_id:
+          type: string
+        channel:
+          type: string
+          description: Queues only — phone, email, chat, sms, social, back_office
+        timezone:
+          type: string
+          description: Sites only
+        created_at:
+          type: string
+          format: date-time
+    FilterInput:
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+        external_id:
+          type: string
+        channel:
+          type: string
+        timezone:
+          type: string
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic

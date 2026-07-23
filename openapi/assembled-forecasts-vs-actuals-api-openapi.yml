@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: Assembled Activities Forecasts API
+  title: Assembled Activities Forecasts Vs Actuals API
   description: 'Activities are the scheduled shifts, breaks, time-off blocks, training
 
     sessions, and meetings that make up an agent''s calendar in Assembled.
@@ -25,14 +25,14 @@ servers:
 security:
 - BasicAuth: []
 tags:
-- name: Forecasts
+- name: Forecasts Vs Actuals
 paths:
-  /v0/forecasts:
+  /v0/forecasted_vs_actuals:
     get:
-      summary: Assembled List Forecasts
-      operationId: listForecasts
+      summary: Assembled Get Forecasted Vs Actuals
+      operationId: getForecastedVsActuals
       tags:
-      - Forecasts
+      - Forecasts Vs Actuals
       parameters:
       - in: query
         name: start_time
@@ -50,48 +50,29 @@ paths:
         name: queue_ids
         schema:
           type: string
-      - in: query
-        name: channel
-        schema:
-          type: string
       responses:
         '200':
-          description: Forecasts
+          description: Forecast accuracy series
           content:
             application/json:
               schema:
                 type: object
                 properties:
-                  forecasts:
+                  intervals:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Forecast'
+                      type: object
+                      properties:
+                        start_time:
+                          type: string
+                          format: date-time
+                        forecasted:
+                          type: number
+                        actual:
+                          type: number
+                        delta:
+                          type: number
 components:
-  schemas:
-    Forecast:
-      type: object
-      properties:
-        id:
-          type: string
-        queue_id:
-          type: string
-        channel:
-          type: string
-        start_time:
-          type: string
-          format: date-time
-        end_time:
-          type: string
-          format: date-time
-        interval_minutes:
-          type: integer
-          example: 30
-        volume:
-          type: number
-        aht_seconds:
-          type: number
-        required_agents:
-          type: number
   securitySchemes:
     BasicAuth:
       type: http

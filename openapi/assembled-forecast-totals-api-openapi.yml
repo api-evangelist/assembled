@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: Assembled Activities Requirements API
+  title: Assembled Activities Forecast Totals API
   description: 'Activities are the scheduled shifts, breaks, time-off blocks, training
 
     sessions, and meetings that make up an agent''s calendar in Assembled.
@@ -25,14 +25,14 @@ servers:
 security:
 - BasicAuth: []
 tags:
-- name: Requirements
+- name: Forecast Totals
 paths:
-  /v0/requirements:
+  /v0/forecasts/totals:
     get:
-      summary: Assembled List Requirements
-      operationId: listRequirements
+      summary: Assembled List Forecast Totals
+      operationId: listForecastTotals
       tags:
-      - Requirements
+      - Forecast Totals
       parameters:
       - in: query
         name: start_time
@@ -46,86 +46,91 @@ paths:
         schema:
           type: string
           format: date-time
-      - in: query
-        name: queue_ids
-        schema:
-          type: string
       responses:
         '200':
-          description: Requirements
+          description: Forecast totals
           content:
             application/json:
               schema:
                 type: object
                 properties:
-                  requirements:
+                  totals:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Requirement'
+                      $ref: '#/components/schemas/ForecastTotal'
     post:
-      summary: Assembled Create Requirement
-      operationId: createRequirement
+      summary: Assembled Create Forecast Totals
+      operationId: createForecastTotals
       tags:
-      - Requirements
+      - Forecast Totals
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/RequirementInput'
+              type: object
+              properties:
+                totals:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/ForecastTotalInput'
       responses:
         '201':
           description: Created
+  /v0/forecasts/totals/{id}:
+    get:
+      summary: Assembled Get Forecast Total
+      operationId: getForecastTotal
+      tags:
+      - Forecast Totals
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Forecast total
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Requirement'
+                $ref: '#/components/schemas/ForecastTotal'
+    delete:
+      summary: Assembled Delete Forecast Total
+      operationId: deleteForecastTotal
+      tags:
+      - Forecast Totals
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Deleted
 components:
   schemas:
-    Requirement:
+    ForecastTotal:
       type: object
       properties:
         id:
           type: string
-        requirement_type_id:
-          type: string
         queue_id:
           type: string
-          nullable: true
-        site_id:
-          type: string
-          nullable: true
-        team_id:
-          type: string
-          nullable: true
-        skill_id:
-          type: string
-          nullable: true
         start_time:
           type: string
           format: date-time
         end_time:
           type: string
           format: date-time
-        required_count:
+        total_volume:
           type: number
-    RequirementInput:
+    ForecastTotalInput:
       type: object
-      required:
-      - requirement_type_id
-      - start_time
-      - end_time
-      - required_count
       properties:
-        requirement_type_id:
-          type: string
         queue_id:
-          type: string
-        site_id:
-          type: string
-        team_id:
-          type: string
-        skill_id:
           type: string
         start_time:
           type: string
@@ -133,7 +138,7 @@ components:
         end_time:
           type: string
           format: date-time
-        required_count:
+        total_volume:
           type: number
   securitySchemes:
     BasicAuth:

@@ -1,0 +1,147 @@
+openapi: 3.1.0
+info:
+  title: Assembled Activities Assist Conversations API
+  description: 'Activities are the scheduled shifts, breaks, time-off blocks, training
+
+    sessions, and meetings that make up an agent''s calendar in Assembled.
+
+
+    The Activities API supports single and bulk activity creation, listing
+
+    with rich filters, soft-delete semantics, and CRUD for activity types
+
+    (the colour-coded categories shown on schedules). The event_changes
+
+    endpoint surfaces an audit trail of schedule modifications.
+
+    '
+  version: '2026-05-24'
+  contact:
+    name: Assembled Support
+    url: https://support.assembled.com
+servers:
+- url: https://api.assembledhq.com
+  description: Production Server
+security:
+- BasicAuth: []
+tags:
+- name: Assist Conversations
+paths:
+  /v0/assist/conversations:
+    get:
+      summary: Assembled List Assist Conversations
+      description: List AI-assisted conversations.
+      operationId: listAssistConversations
+      tags:
+      - Assist Conversations
+      parameters:
+      - in: query
+        name: start_time
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: end_time
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: status
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Conversations
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  conversations:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/AssistConversation'
+  /v0/assist/conversations/{id}/handoff:
+    get:
+      summary: Assembled Get Assist Conversation Handoff
+      description: Retrieve the handoff payload for a single AI-assisted conversation.
+      operationId: getAssistConversationHandoff
+      tags:
+      - Assist Conversations
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Handoff payload
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssistHandoff'
+components:
+  schemas:
+    AssistHandoff:
+      type: object
+      properties:
+        id:
+          type: string
+        conversation_id:
+          type: string
+        handed_off_at:
+          type: string
+          format: date-time
+        reason:
+          type: string
+        summary:
+          type: string
+        transcript:
+          type: array
+          items:
+            type: object
+            properties:
+              role:
+                type: string
+                enum:
+                - customer
+                - ai
+                - human
+              content:
+                type: string
+              timestamp:
+                type: string
+                format: date-time
+    AssistConversation:
+      type: object
+      properties:
+        id:
+          type: string
+        channel:
+          type: string
+        status:
+          type: string
+          example: resolved
+        started_at:
+          type: string
+          format: date-time
+        ended_at:
+          type: string
+          format: date-time
+          nullable: true
+        resolved_by:
+          type: string
+          enum:
+          - ai
+          - human
+          - mixed
+        customer_id:
+          type: string
+        handoff_id:
+          type: string
+          nullable: true
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic

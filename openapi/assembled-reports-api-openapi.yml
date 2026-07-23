@@ -1,38 +1,49 @@
 openapi: 3.1.0
 info:
-  title: Assembled Reports API
-  description: |
-    Asynchronously generate and retrieve structured reports including
-    adherence, ticket statistics, and handle times.
+  title: Assembled Activities Reports API
+  description: 'Activities are the scheduled shifts, breaks, time-off blocks, training
 
-    Reports are kicked off with a POST /v0/reports/:reportType call and
-    polled via GET /v0/reports/:reportID for results, enabling automated
-    weekly and monthly KPI exports into BI tools.
+    sessions, and meetings that make up an agent''s calendar in Assembled.
+
+
+    The Activities API supports single and bulk activity creation, listing
+
+    with rich filters, soft-delete semantics, and CRUD for activity types
+
+    (the colour-coded categories shown on schedules). The event_changes
+
+    endpoint surfaces an audit trail of schedule modifications.
+
+    '
   version: '2026-05-24'
   contact:
     name: Assembled Support
     url: https://support.assembled.com
 servers:
-  - url: https://api.assembledhq.com
-    description: Production Server
+- url: https://api.assembledhq.com
+  description: Production Server
 security:
-  - BasicAuth: []
+- BasicAuth: []
 tags:
-  - name: Reports
+- name: Reports
 paths:
   /v0/reports/{reportType}:
     post:
       summary: Assembled Start Report
       description: Kick off generation of a structured report.
       operationId: startReport
-      tags: [Reports]
+      tags:
+      - Reports
       parameters:
-        - in: path
-          name: reportType
-          required: true
-          schema:
-            type: string
-            enum: [adherence, ticket_stats, handle_time]
+      - in: path
+        name: reportType
+        required: true
+        schema:
+          type: string
+          enum:
+          - adherence
+          - ticket_stats
+          - handle_time
       requestBody:
         required: true
         content:
@@ -40,21 +51,36 @@ paths:
             schema:
               type: object
               properties:
-                start_time: { type: string, format: date-time }
-                end_time: { type: string, format: date-time }
+                start_time:
+                  type: string
+                  format: date-time
+                end_time:
+                  type: string
+                  format: date-time
                 queue_ids:
                   type: array
-                  items: { type: string }
+                  items:
+                    type: string
                 team_ids:
                   type: array
-                  items: { type: string }
+                  items:
+                    type: string
                 site_ids:
                   type: array
-                  items: { type: string }
+                  items:
+                    type: string
                 agent_ids:
                   type: array
-                  items: { type: string }
-                granularity: { type: string, enum: [interval, day, week, month], default: day }
+                  items:
+                    type: string
+                granularity:
+                  type: string
+                  enum:
+                  - interval
+                  - day
+                  - week
+                  - month
+                  default: day
       responses:
         '202':
           description: Report job accepted
@@ -63,19 +89,24 @@ paths:
               schema:
                 type: object
                 properties:
-                  reportID: { type: string }
-                  status: { type: string, example: pending }
+                  reportID:
+                    type: string
+                  status:
+                    type: string
+                    example: pending
   /v0/reports/{reportID}:
     get:
       summary: Assembled Get Report
       description: Retrieve a generated report by ID. Poll until status is `complete`.
       operationId: getReport
-      tags: [Reports]
+      tags:
+      - Reports
       parameters:
-        - in: path
-          name: reportID
-          required: true
-          schema: { type: string }
+      - in: path
+        name: reportID
+        required: true
+        schema:
+          type: string
       responses:
         '200':
           description: Report result
@@ -84,10 +115,21 @@ paths:
               schema:
                 type: object
                 properties:
-                  reportID: { type: string }
-                  status: { type: string, enum: [pending, running, complete, failed] }
-                  reportType: { type: string }
-                  generated_at: { type: string, format: date-time, nullable: true }
+                  reportID:
+                    type: string
+                  status:
+                    type: string
+                    enum:
+                    - pending
+                    - running
+                    - complete
+                    - failed
+                  reportType:
+                    type: string
+                  generated_at:
+                    type: string
+                    format: date-time
+                    nullable: true
                   rows:
                     type: array
                     items:
@@ -95,4 +137,6 @@ paths:
                       additionalProperties: true
 components:
   securitySchemes:
-    BasicAuth: { type: http, scheme: basic }
+    BasicAuth:
+      type: http
+      scheme: basic

@@ -1,0 +1,59 @@
+openapi: 3.1.0
+info:
+  title: Assembled Activities Assist Replies API
+  description: 'Activities are the scheduled shifts, breaks, time-off blocks, training
+
+    sessions, and meetings that make up an agent''s calendar in Assembled.
+
+
+    The Activities API supports single and bulk activity creation, listing
+
+    with rich filters, soft-delete semantics, and CRUD for activity types
+
+    (the colour-coded categories shown on schedules). The event_changes
+
+    endpoint surfaces an audit trail of schedule modifications.
+
+    '
+  version: '2026-05-24'
+  contact:
+    name: Assembled Support
+    url: https://support.assembled.com
+servers:
+- url: https://api.assembledhq.com
+  description: Production Server
+security:
+- BasicAuth: []
+tags:
+- name: Assist Replies
+paths:
+  /v0/assist/replies:
+    post:
+      summary: Assembled Submit Assist Reply (Beta)
+      description: Beta endpoint for posting AI-generated replies directly. Subject to change.
+      operationId: submitAssistReply
+      tags:
+      - Assist Replies
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                conversation_id:
+                  type: string
+                channel:
+                  type: string
+                body:
+                  type: string
+                confidence:
+                  type: number
+      responses:
+        '202':
+          description: Accepted
+components:
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic

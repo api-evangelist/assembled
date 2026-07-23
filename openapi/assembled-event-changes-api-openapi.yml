@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: Assembled Activities Forecasts API
+  title: Assembled Activities Event Changes API
   description: 'Activities are the scheduled shifts, breaks, time-off blocks, training
 
     sessions, and meetings that make up an agent''s calendar in Assembled.
@@ -25,14 +25,16 @@ servers:
 security:
 - BasicAuth: []
 tags:
-- name: Forecasts
+- name: Event Changes
+  description: Audit trail of schedule modifications
 paths:
-  /v0/forecasts:
+  /v0/event_changes:
     get:
-      summary: Assembled List Forecasts
-      operationId: listForecasts
+      summary: Assembled List Event Changes
+      description: Retrieve the audit trail of schedule modifications across activities.
+      operationId: listEventChanges
       tags:
-      - Forecasts
+      - Event Changes
       parameters:
       - in: query
         name: start_time
@@ -46,52 +48,40 @@ paths:
         schema:
           type: string
           format: date-time
-      - in: query
-        name: queue_ids
-        schema:
-          type: string
-      - in: query
-        name: channel
-        schema:
-          type: string
       responses:
         '200':
-          description: Forecasts
+          description: Event changes
           content:
             application/json:
               schema:
                 type: object
                 properties:
-                  forecasts:
+                  event_changes:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Forecast'
+                      $ref: '#/components/schemas/EventChange'
 components:
   schemas:
-    Forecast:
+    EventChange:
       type: object
       properties:
         id:
           type: string
-        queue_id:
+        event_id:
           type: string
-        channel:
+        change_type:
           type: string
-        start_time:
+          enum:
+          - create
+          - update
+          - delete
+        changed_by:
+          type: string
+        changed_at:
           type: string
           format: date-time
-        end_time:
-          type: string
-          format: date-time
-        interval_minutes:
-          type: integer
-          example: 30
-        volume:
-          type: number
-        aht_seconds:
-          type: number
-        required_agents:
-          type: number
+        diff:
+          type: object
   securitySchemes:
     BasicAuth:
       type: http

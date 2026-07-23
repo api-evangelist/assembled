@@ -1,0 +1,106 @@
+openapi: 3.1.0
+info:
+  title: Assembled Activities Forecast Adjustments API
+  description: 'Activities are the scheduled shifts, breaks, time-off blocks, training
+
+    sessions, and meetings that make up an agent''s calendar in Assembled.
+
+
+    The Activities API supports single and bulk activity creation, listing
+
+    with rich filters, soft-delete semantics, and CRUD for activity types
+
+    (the colour-coded categories shown on schedules). The event_changes
+
+    endpoint surfaces an audit trail of schedule modifications.
+
+    '
+  version: '2026-05-24'
+  contact:
+    name: Assembled Support
+    url: https://support.assembled.com
+servers:
+- url: https://api.assembledhq.com
+  description: Production Server
+security:
+- BasicAuth: []
+tags:
+- name: Forecast Adjustments
+paths:
+  /v0/forecasts/adjustments:
+    get:
+      summary: Assembled List Forecast Adjustments
+      operationId: listForecastAdjustments
+      tags:
+      - Forecast Adjustments
+      responses:
+        '200':
+          description: Adjustments
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  adjustments:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ForecastAdjustment'
+  /v0/forecasts/adjustments/bulk:
+    post:
+      summary: Assembled Bulk Create Forecast Adjustments
+      operationId: bulkCreateForecastAdjustments
+      tags:
+      - Forecast Adjustments
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                adjustments:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/ForecastAdjustment'
+      responses:
+        '201':
+          description: Created
+  /v0/forecasts/adjustments/{id}:
+    delete:
+      summary: Assembled Delete Forecast Adjustment
+      operationId: deleteForecastAdjustment
+      tags:
+      - Forecast Adjustments
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Deleted
+components:
+  schemas:
+    ForecastAdjustment:
+      type: object
+      properties:
+        id:
+          type: string
+        queue_id:
+          type: string
+        start_time:
+          type: string
+          format: date-time
+        end_time:
+          type: string
+          format: date-time
+        adjustment_factor:
+          type: number
+          description: Multiplier applied to baseline forecast
+        reason:
+          type: string
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic

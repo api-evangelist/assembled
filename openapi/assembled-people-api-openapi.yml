@@ -1,47 +1,57 @@
 openapi: 3.1.0
 info:
-  title: Assembled People API
-  description: |
-    Manage the people (agents) that make up the Assembled workforce.
+  title: Assembled Activities People API
+  description: 'Activities are the scheduled shifts, breaks, time-off blocks, training
 
-    The People API lets you list, retrieve, create, and update agents along
-    with their roles, channels, skills, and team assignments. The endpoint is
-    the canonical reference for who can be scheduled, routed to, or coached
-    inside Assembled. Use the Roles endpoint to discover available roles.
+    sessions, and meetings that make up an agent''s calendar in Assembled.
+
+
+    The Activities API supports single and bulk activity creation, listing
+
+    with rich filters, soft-delete semantics, and CRUD for activity types
+
+    (the colour-coded categories shown on schedules). The event_changes
+
+    endpoint surfaces an audit trail of schedule modifications.
+
+    '
   version: '2026-05-24'
   contact:
     name: Assembled Support
     url: https://support.assembled.com
-  x-logo:
-    url: https://www.assembled.com/favicon.ico
 servers:
-  - url: https://api.assembledhq.com
-    description: Production Server
+- url: https://api.assembledhq.com
+  description: Production Server
 security:
-  - BasicAuth: []
+- BasicAuth: []
 tags:
-  - name: People
-    description: Agents managed inside Assembled
-  - name: Roles
-    description: Available roles that can be assigned to people
+- name: People
+  description: Agents managed inside Assembled
 paths:
   /v0/people:
     get:
       summary: Assembled List People
       description: List all people (agents) in the Assembled workforce, optionally filtered by team, site, queue, or active status.
       operationId: listPeople
-      tags: [People]
+      tags:
+      - People
       parameters:
-        - $ref: '#/components/parameters/ApiVersionHeader'
-        - in: query
-          name: limit
-          schema: { type: integer, default: 100, maximum: 500 }
-        - in: query
-          name: offset
-          schema: { type: integer, default: 0 }
-        - in: query
-          name: active
-          schema: { type: boolean }
+      - $ref: '#/components/parameters/ApiVersionHeader'
+      - in: query
+        name: limit
+        schema:
+          type: integer
+          default: 100
+          maximum: 500
+      - in: query
+        name: offset
+        schema:
+          type: integer
+          default: 0
+      - in: query
+        name: active
+        schema:
+          type: boolean
       responses:
         '200':
           description: A page of people
@@ -52,17 +62,23 @@ paths:
                 properties:
                   people:
                     type: array
-                    items: { $ref: '#/components/schemas/Person' }
-                  next_offset: { type: integer, nullable: true }
-        '401': { $ref: '#/components/responses/Unauthorized' }
-        '429': { $ref: '#/components/responses/RateLimited' }
+                    items:
+                      $ref: '#/components/schemas/Person'
+                  next_offset:
+                    type: integer
+                    nullable: true
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/RateLimited'
     post:
       summary: Assembled Create People
       description: Create one or more people. Accepts a single person or a bulk array.
       operationId: createPeople
-      tags: [People]
+      tags:
+      - People
       parameters:
-        - $ref: '#/components/parameters/ApiVersionHeader'
+      - $ref: '#/components/parameters/ApiVersionHeader'
       requestBody:
         required: true
         content:
@@ -72,7 +88,8 @@ paths:
               properties:
                 people:
                   type: array
-                  items: { $ref: '#/components/schemas/PersonInput' }
+                  items:
+                    $ref: '#/components/schemas/PersonInput'
       responses:
         '201':
           description: Created
@@ -83,180 +100,219 @@ paths:
                 properties:
                   people:
                     type: array
-                    items: { $ref: '#/components/schemas/Person' }
-        '400': { $ref: '#/components/responses/BadRequest' }
-        '401': { $ref: '#/components/responses/Unauthorized' }
+                    items:
+                      $ref: '#/components/schemas/Person'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
   /v0/people/{id}:
     parameters:
-      - $ref: '#/components/parameters/PersonIdPath'
-      - $ref: '#/components/parameters/ApiVersionHeader'
+    - $ref: '#/components/parameters/PersonIdPath'
+    - $ref: '#/components/parameters/ApiVersionHeader'
     get:
       summary: Assembled Get Person
       description: Retrieve a specific person by Assembled person ID.
       operationId: getPerson
-      tags: [People]
+      tags:
+      - People
       responses:
         '200':
           description: A person
           content:
             application/json:
-              schema: { $ref: '#/components/schemas/Person' }
-        '404': { $ref: '#/components/responses/NotFound' }
+              schema:
+                $ref: '#/components/schemas/Person'
+        '404':
+          $ref: '#/components/responses/NotFound'
     patch:
       summary: Assembled Update Person
       description: Partially update a person's attributes (name, email, role, channels, skills, teams, sites).
       operationId: updatePerson
-      tags: [People]
+      tags:
+      - People
       requestBody:
         required: true
         content:
           application/json:
-            schema: { $ref: '#/components/schemas/PersonUpdate' }
+            schema:
+              $ref: '#/components/schemas/PersonUpdate'
       responses:
         '200':
           description: Updated person
           content:
             application/json:
-              schema: { $ref: '#/components/schemas/Person' }
-        '400': { $ref: '#/components/responses/BadRequest' }
-        '404': { $ref: '#/components/responses/NotFound' }
-  /v0/roles:
-    get:
-      summary: Assembled List Roles
-      description: List all roles available in your Assembled organization.
-      operationId: listRoles
-      tags: [Roles]
-      parameters:
-        - $ref: '#/components/parameters/ApiVersionHeader'
-      responses:
-        '200':
-          description: Roles list
-          content:
-            application/json:
               schema:
-                type: object
-                properties:
-                  roles:
-                    type: array
-                    items: { $ref: '#/components/schemas/Role' }
+                $ref: '#/components/schemas/Person'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
 components:
-  securitySchemes:
-    BasicAuth:
-      type: http
-      scheme: basic
-      description: HTTP Basic Auth — supply the Assembled API key (sk_live_...) as the username; leave the password blank.
   parameters:
+    PersonIdPath:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
+      description: Assembled person ID.
     ApiVersionHeader:
       in: header
       name: API-Version
       description: Date-based API version override (e.g. 2026-05-01). Defaults to your organization's pinned version.
       required: false
-      schema: { type: string }
-    PersonIdPath:
-      in: path
-      name: id
-      required: true
-      schema: { type: string }
-      description: Assembled person ID.
+      schema:
+        type: string
   responses:
-    BadRequest:
-      description: Bad Request
-      content:
-        application/json:
-          schema: { $ref: '#/components/schemas/Error' }
-    Unauthorized:
-      description: Missing or invalid API key
-      content:
-        application/json:
-          schema: { $ref: '#/components/schemas/Error' }
     NotFound:
       description: Resource not found
       content:
         application/json:
-          schema: { $ref: '#/components/schemas/Error' }
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Missing or invalid API key
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
     RateLimited:
       description: Too many requests — 300 req/min default
       content:
         application/json:
-          schema: { $ref: '#/components/schemas/Error' }
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
-    Person:
-      type: object
-      properties:
-        id: { type: string }
-        email: { type: string, format: email }
-        name: { type: string }
-        first_name: { type: string }
-        last_name: { type: string }
-        role_id: { type: string, nullable: true }
-        channels:
-          type: array
-          items: { type: string, enum: [phone, email, chat, sms, social, back_office] }
-        team_ids:
-          type: array
-          items: { type: string }
-        site_id: { type: string, nullable: true }
-        skill_ids:
-          type: array
-          items: { type: string }
-        queue_ids:
-          type: array
-          items: { type: string }
-        active: { type: boolean }
-        platform_ids:
-          type: object
-          additionalProperties: { type: string }
-          description: Associated identifiers from upstream platforms keyed by platform name (zendesk, salesforce, five9, etc.)
-        created_at: { type: string, format: date-time }
-        updated_at: { type: string, format: date-time }
-    PersonInput:
-      type: object
-      required: [email, name]
-      properties:
-        email: { type: string, format: email }
-        name: { type: string }
-        first_name: { type: string }
-        last_name: { type: string }
-        role_id: { type: string }
-        channels:
-          type: array
-          items: { type: string }
-        team_ids:
-          type: array
-          items: { type: string }
-        site_id: { type: string }
-        skill_ids:
-          type: array
-          items: { type: string }
-        active: { type: boolean, default: true }
     PersonUpdate:
       type: object
       properties:
-        name: { type: string }
-        role_id: { type: string }
+        name:
+          type: string
+        role_id:
+          type: string
         channels:
           type: array
-          items: { type: string }
+          items:
+            type: string
         team_ids:
           type: array
-          items: { type: string }
-        site_id: { type: string }
+          items:
+            type: string
+        site_id:
+          type: string
         skill_ids:
           type: array
-          items: { type: string }
-        active: { type: boolean }
-    Role:
+          items:
+            type: string
+        active:
+          type: boolean
+    Person:
       type: object
       properties:
-        id: { type: string }
-        name: { type: string }
-        description: { type: string }
-        permissions:
+        id:
+          type: string
+        email:
+          type: string
+          format: email
+        name:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+        role_id:
+          type: string
+          nullable: true
+        channels:
           type: array
-          items: { type: string }
+          items:
+            type: string
+            enum:
+            - phone
+            - email
+            - chat
+            - sms
+            - social
+            - back_office
+        team_ids:
+          type: array
+          items:
+            type: string
+        site_id:
+          type: string
+          nullable: true
+        skill_ids:
+          type: array
+          items:
+            type: string
+        queue_ids:
+          type: array
+          items:
+            type: string
+        active:
+          type: boolean
+        platform_ids:
+          type: object
+          additionalProperties:
+            type: string
+          description: Associated identifiers from upstream platforms keyed by platform name (zendesk, salesforce, five9, etc.)
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    PersonInput:
+      type: object
+      required:
+      - email
+      - name
+      properties:
+        email:
+          type: string
+          format: email
+        name:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+        role_id:
+          type: string
+        channels:
+          type: array
+          items:
+            type: string
+        team_ids:
+          type: array
+          items:
+            type: string
+        site_id:
+          type: string
+        skill_ids:
+          type: array
+          items:
+            type: string
+        active:
+          type: boolean
+          default: true
     Error:
       type: object
       properties:
-        type: { type: string }
-        message: { type: string }
-        request_id: { type: string }
+        type:
+          type: string
+        message:
+          type: string
+        request_id:
+          type: string
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic

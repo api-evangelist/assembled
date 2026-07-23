@@ -1,0 +1,114 @@
+openapi: 3.1.0
+info:
+  title: Assembled Activities Activity Types API
+  description: 'Activities are the scheduled shifts, breaks, time-off blocks, training
+
+    sessions, and meetings that make up an agent''s calendar in Assembled.
+
+
+    The Activities API supports single and bulk activity creation, listing
+
+    with rich filters, soft-delete semantics, and CRUD for activity types
+
+    (the colour-coded categories shown on schedules). The event_changes
+
+    endpoint surfaces an audit trail of schedule modifications.
+
+    '
+  version: '2026-05-24'
+  contact:
+    name: Assembled Support
+    url: https://support.assembled.com
+servers:
+- url: https://api.assembledhq.com
+  description: Production Server
+security:
+- BasicAuth: []
+tags:
+- name: Activity Types
+  description: Types/categories of activity
+paths:
+  /v0/activity_types:
+    get:
+      summary: Assembled List Activity Types
+      description: List activity types defined in your organization.
+      operationId: listActivityTypes
+      tags:
+      - Activity Types
+      responses:
+        '200':
+          description: Activity types
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  activity_types:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ActivityType'
+    post:
+      summary: Assembled Create Activity Type
+      description: Define a new activity type (name and colour).
+      operationId: createActivityType
+      tags:
+      - Activity Types
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ActivityTypeInput'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActivityType'
+  /v0/activity_types/{id}:
+    delete:
+      summary: Assembled Delete Activity Type
+      description: Delete an activity type.
+      operationId: deleteActivityType
+      tags:
+      - Activity Types
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Deleted
+components:
+  schemas:
+    ActivityTypeInput:
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+        color:
+          type: string
+        category:
+          type: string
+    ActivityType:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        color:
+          type: string
+          example: '#3b82f6'
+        category:
+          type: string
+          example: shift
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
