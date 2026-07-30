@@ -17,7 +17,20 @@ description: >-
   Okta, Workday, HiBob, Google Calendar, Shopify, Notion, Confluence, Guru, SharePoint, Fivetran, and quality tools like
   Klaus, Rippit (MaestroQA), evaluagent, and Observe.AI.
 url: https://raw.githubusercontent.com/api-evangelist/assembled/refs/heads/main/apis.yml
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: paid
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Paid · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/assembled.png
 type: Index
 kind: contract
 position: Provider
@@ -40,218 +53,397 @@ created: '2026-05-24'
 modified: '2026-05-24'
 specificationVersion: '0.20'
 apis:
-  - aid: assembled:assembled-people-api
-    name: Assembled People API
-    tags:
-      - People
-      - Agents
-      - Roles
-      - Workforce Management
-    humanURL: https://docs.assembled.com/
-    properties:
-      - url: https://docs.assembled.com/
-        type: Documentation
-      - url: openapi/assembled-people-api-openapi.yml
-        type: OpenAPI
-      - url: json-schema/assembled-person-schema.json
-        type: JSONSchema
-    description: >-
-      Manage agents (people) in the Assembled workforce. List, retrieve, create, and update agents along with their
-      roles, channels, skills, and team assignments. The People API is the entry point for syncing agents between
-      Assembled and upstream HRIS, identity, and CRM systems and is the canonical reference for who can be scheduled or
-      routed to in Assembled.
-  - aid: assembled:assembled-agent-state-api
-    name: Assembled Agent State API
-    tags:
-      - Agent State
-      - Real-Time
-      - Adherence
-      - Operations
-    humanURL: https://docs.assembled.com/
-    properties:
-      - url: https://docs.assembled.com/
-        type: Documentation
-      - url: openapi/assembled-agent-state-api-openapi.yml
-        type: OpenAPI
-    description: >-
-      Read and write real-time agent state used to drive adherence reporting, live dashboards, and dynamic routing.
-      Supports bulk state ingestion from upstream telephony and CRM platforms, a condensed non-overlapping timeline
-      view, edit history, and platform-ID associations that link Assembled people to identities in Zendesk, Salesforce,
-      Five9, and other integrated systems.
-  - aid: assembled:assembled-activities-api
-    name: Assembled Activities API
-    tags:
-      - Activities
-      - Shifts
-      - Scheduling
-      - Workforce Management
-    humanURL: https://docs.assembled.com/
-    properties:
-      - url: https://docs.assembled.com/
-        type: Documentation
-      - url: openapi/assembled-activities-api-openapi.yml
-        type: OpenAPI
-      - url: json-schema/assembled-activity-schema.json
-        type: JSONSchema
-    description: >-
-      Create, list, and delete activities — the scheduled shifts, breaks, time off, training, and meetings that make up
-      an agent's calendar. Includes bulk creation, soft-delete semantics, and management of activity types with their
-      color coding. Companion event_changes endpoint surfaces the audit trail for schedule modifications.
-  - aid: assembled:assembled-filters-api
-    name: Assembled Filters API
-    tags:
-      - Queues
-      - Sites
-      - Teams
-      - Skills
-      - Organization
-    humanURL: https://docs.assembled.com/
-    properties:
-      - url: https://docs.assembled.com/
-        type: Documentation
-      - url: openapi/assembled-filters-api-openapi.yml
-        type: OpenAPI
-    description: >-
-      Manage the four organizational filter dimensions used throughout Assembled — Queues, Sites, Teams, and Skills.
-      Each filter is fully CRUD-capable and is referenced by people, activities, forecasts, requirements, and reports.
-      Queues map to channels and case types, Sites represent physical or virtual locations, Teams group people, and
-      Skills describe routing-relevant capabilities.
-  - aid: assembled:assembled-forecasts-api
-    name: Assembled Forecasts API
-    tags:
-      - Forecasts
-      - ML
-      - Volume
-      - Workforce Planning
-    humanURL: https://docs.assembled.com/
-    properties:
-      - url: https://docs.assembled.com/
-        type: Documentation
-      - url: openapi/assembled-forecasts-api-openapi.yml
-        type: OpenAPI
-    description: >-
-      Retrieve Assembled's ML-generated forecasts, forecast totals, manual adjustments, and detected outliers. The
-      forecasted-vs-actuals endpoint compares predicted to realised volume so support leaders can tune models, identify
-      drift, and validate >90% forecast accuracy claims. Forecasts drive AI-powered schedule generation and staffing
-      recommendations across human and AI agents.
-  - aid: assembled:assembled-time-off-api
-    name: Assembled Time Off API
-    tags:
-      - Time Off
-      - Leave
-      - Workforce Management
-    humanURL: https://docs.assembled.com/
-    properties:
-      - url: https://docs.assembled.com/
-        type: Documentation
-      - url: openapi/assembled-time-off-api-openapi.yml
-        type: OpenAPI
-    description: >-
-      Programmatically create, list, and cancel time-off requests, and pull a stream of time-off updates for downstream
-      HRIS or payroll synchronisation. The endpoint underpins the automated time-off and shift-swap workflows offered in
-      Assembled's Pro and Enterprise plans.
-  - aid: assembled:assembled-requirements-api
-    name: Assembled Requirements API
-    tags:
-      - Requirements
-      - Coverage
-      - Staffing
-    humanURL: https://docs.assembled.com/
-    properties:
-      - url: https://docs.assembled.com/
-        type: Documentation
-      - url: openapi/assembled-requirements-api-openapi.yml
-        type: OpenAPI
-    description: >-
-      Create and list staffing requirements that express how many agents are needed by queue, site, team, or skill
-      across time intervals. Requirement types describe the family of need (for example, headcount vs. occupancy
-      targets). Requirements feed AI scheduling and real-time staffing recommendations.
-  - aid: assembled:assembled-scheduling-rules-api
-    name: Assembled Scheduling Rules API
-    tags:
-      - Scheduling
-      - Working Hours
-      - Rules
-    humanURL: https://docs.assembled.com/
-    properties:
-      - url: https://docs.assembled.com/
-        type: Documentation
-      - url: openapi/assembled-scheduling-rules-api-openapi.yml
-        type: OpenAPI
-    description: >-
-      Retrieve the working-hours rules that constrain when each agent may be scheduled. Working hours are the structured
-      replacement for the now-deprecated shift_patterns endpoints and are honoured by Assembled's AI-powered schedule
-      generation engine.
-  - aid: assembled:assembled-conversations-api
-    name: Assembled Conversations API
-    tags:
-      - Conversations
-      - Channels
-      - Customer Interactions
-    humanURL: https://docs.assembled.com/
-    properties:
-      - url: https://docs.assembled.com/
-        type: Documentation
-      - url: openapi/assembled-conversations-api-openapi.yml
-        type: OpenAPI
-      - url: json-schema/assembled-conversation-schema.json
-        type: JSONSchema
-    description: >-
-      Bulk-ingest and bulk-update customer conversation records — phone, email, chat, SMS, social, and back-office — so
-      they can be associated with agents, queues, and channels for reporting, QA, and analytics. Used by customers
-      running on non-Zendesk/Salesforce stacks or merging multiple CRMs into a unified support view.
-  - aid: assembled:assembled-reports-api
-    name: Assembled Reports API
-    tags:
-      - Reports
-      - Analytics
-      - Adherence
-      - Handle Time
-    humanURL: https://docs.assembled.com/
-    properties:
-      - url: https://docs.assembled.com/
-        type: Documentation
-      - url: openapi/assembled-reports-api-openapi.yml
-        type: OpenAPI
-    description: >-
-      Asynchronously generate and retrieve structured reports including adherence, ticket statistics, and handle times.
-      Reports are kicked off with a POST /v0/reports/:reportType call and polled via GET /v0/reports/:reportID for
-      results, enabling automated weekly and monthly KPI exports into BI tools.
-  - aid: assembled:assembled-qa-api
-    name: Assembled QA API
-    tags:
-      - Quality Assurance
-      - Scoring
-      - Coaching
-    humanURL: https://docs.assembled.com/
-    properties:
-      - url: https://docs.assembled.com/
-        type: Documentation
-      - url: openapi/assembled-qa-api-openapi.yml
-        type: OpenAPI
-    description: >-
-      Upload QA scores in bulk so external quality-management tools such as Klaus, Rippit (MaestroQA), evaluagent, and
-      Observe.AI can feed conversation scores back into Assembled for adherence-vs-quality analysis and coaching
-      workflows.
-  - aid: assembled:assembled-assist-api
-    name: Assembled Assist API
-    tags:
-      - Assist
-      - AI Copilot
-      - AI Agents
-      - Knowledge
-    humanURL: https://docs.assembled.com/
-    properties:
-      - url: https://docs.assembled.com/
-        type: Documentation
-      - url: openapi/assembled-assist-api-openapi.yml
-        type: OpenAPI
-      - url: json-schema/assembled-assist-response-schema.json
-        type: JSONSchema
-    description: >-
-      The AI surface of Assembled. Submit chat responses generated by AI Agents, manage the knowledge articles AI Agents
-      draw from, retrieve conversation histories and handoff payloads, and (beta) post AI replies. Powers autonomous
-      resolution across chat, email, SMS, and voice plus smart handoffs to human agents.
+- aid: assembled:assembled-people-api
+  name: Assembled People API
+  tags:
+  - People
+  - Agents
+  - Roles
+  - Workforce Management
+  humanURL: https://docs.assembled.com/
+  properties:
+  - url: https://docs.assembled.com/
+    type: Documentation
+  - url: openapi/assembled-people-api-openapi.yml
+    type: OpenAPI
+  - url: json-schema/assembled-person-schema.json
+    type: JSONSchema
+  description: >-
+    Manage agents (people) in the Assembled workforce. List, retrieve, create, and update agents along
+    with their roles, channels, skills, and team assignments. The People API is the entry point for syncing
+    agents between Assembled and upstream HRIS, identity, and CRM systems and is the canonical reference
+    for who can be scheduled or routed to in Assembled.
+- aid: assembled:assembled-agent-state-api
+  name: Assembled Agent State API
+  tags:
+  - Agent State
+  - Real-Time
+  - Adherence
+  - Operations
+  humanURL: https://docs.assembled.com/
+  properties:
+  - url: https://docs.assembled.com/
+    type: Documentation
+  - url: openapi/assembled-agent-state-api-openapi.yml
+    type: OpenAPI
+  description: >-
+    Read and write real-time agent state used to drive adherence reporting, live dashboards, and dynamic
+    routing. Supports bulk state ingestion from upstream telephony and CRM platforms, a condensed non-overlapping
+    timeline view, edit history, and platform-ID associations that link Assembled people to identities
+    in Zendesk, Salesforce, Five9, and other integrated systems.
+- aid: assembled:assembled-activities-api
+  name: Assembled Activities API
+  tags:
+  - Activities
+  - Shifts
+  - Scheduling
+  - Workforce Management
+  humanURL: https://docs.assembled.com/
+  properties:
+  - url: https://docs.assembled.com/
+    type: Documentation
+  - url: openapi/assembled-activities-api-openapi.yml
+    type: OpenAPI
+  - url: json-schema/assembled-activity-schema.json
+    type: JSONSchema
+  description: >-
+    Create, list, and delete activities — the scheduled shifts, breaks, time off, training, and meetings
+    that make up an agent's calendar. Includes bulk creation, soft-delete semantics, and management of
+    activity types with their color coding. Companion event_changes endpoint surfaces the audit trail
+    for schedule modifications.
+- aid: assembled:assembled-forecasts-api
+  name: Assembled Forecasts API
+  tags:
+  - Forecasts
+  - ML
+  - Volume
+  - Workforce Planning
+  humanURL: https://docs.assembled.com/
+  properties:
+  - url: https://docs.assembled.com/
+    type: Documentation
+  - url: openapi/assembled-forecasts-api-openapi.yml
+    type: OpenAPI
+  description: >-
+    Retrieve Assembled's ML-generated forecasts, forecast totals, manual adjustments, and detected outliers.
+    The forecasted-vs-actuals endpoint compares predicted to realised volume so support leaders can tune
+    models, identify drift, and validate >90% forecast accuracy claims. Forecasts drive AI-powered schedule
+    generation and staffing recommendations across human and AI agents.
+- aid: assembled:assembled-time-off-api
+  name: Assembled Time Off API
+  tags:
+  - Time Off
+  - Leave
+  - Workforce Management
+  humanURL: https://docs.assembled.com/
+  properties:
+  - url: https://docs.assembled.com/
+    type: Documentation
+  - url: openapi/assembled-time-off-api-openapi.yml
+    type: OpenAPI
+  description: >-
+    Programmatically create, list, and cancel time-off requests, and pull a stream of time-off updates
+    for downstream HRIS or payroll synchronisation. The endpoint underpins the automated time-off and
+    shift-swap workflows offered in Assembled's Pro and Enterprise plans.
+- aid: assembled:assembled-requirements-api
+  name: Assembled Requirements API
+  tags:
+  - Requirements
+  - Coverage
+  - Staffing
+  humanURL: https://docs.assembled.com/
+  properties:
+  - url: https://docs.assembled.com/
+    type: Documentation
+  - url: openapi/assembled-requirements-api-openapi.yml
+    type: OpenAPI
+  description: >-
+    Create and list staffing requirements that express how many agents are needed by queue, site, team,
+    or skill across time intervals. Requirement types describe the family of need (for example, headcount
+    vs. occupancy targets). Requirements feed AI scheduling and real-time staffing recommendations.
+- aid: assembled:assembled-conversations-api
+  name: Assembled Conversations API
+  tags:
+  - Conversations
+  - Channels
+  - Customer Interactions
+  humanURL: https://docs.assembled.com/
+  properties:
+  - url: https://docs.assembled.com/
+    type: Documentation
+  - url: openapi/assembled-conversations-api-openapi.yml
+    type: OpenAPI
+  - url: json-schema/assembled-conversation-schema.json
+    type: JSONSchema
+  description: >-
+    Bulk-ingest and bulk-update customer conversation records — phone, email, chat, SMS, social, and back-office
+    — so they can be associated with agents, queues, and channels for reporting, QA, and analytics. Used
+    by customers running on non-Zendesk/Salesforce stacks or merging multiple CRMs into a unified support
+    view.
+- aid: assembled:assembled-reports-api
+  name: Assembled Reports API
+  tags:
+  - Reports
+  - Analytics
+  - Adherence
+  - Handle Time
+  humanURL: https://docs.assembled.com/
+  properties:
+  - url: https://docs.assembled.com/
+    type: Documentation
+  - url: openapi/assembled-reports-api-openapi.yml
+    type: OpenAPI
+  description: >-
+    Asynchronously generate and retrieve structured reports including adherence, ticket statistics, and
+    handle times. Reports are kicked off with a POST /v0/reports/:reportType call and polled via GET /v0/reports/:reportID
+    for results, enabling automated weekly and monthly KPI exports into BI tools.
+- aid: assembled:assembled-activity-types-api
+  name: Assembled Activity Types API
+  description: Types/categories of activity
+  humanURL: https://docs.assembled.com/
+  tags:
+  - Activity Types
+  properties:
+  - type: OpenAPI
+    url: openapi/assembled-activity-types-api-openapi.yml
+  - type: Documentation
+    url: https://docs.assembled.com/
+  - type: JSONSchema
+    url: json-schema/assembled-assist-response-schema.json
+- aid: assembled:assembled-agent-associations-api
+  name: Assembled Agent Associations API
+  description: Map platform IDs to Assembled people
+  humanURL: https://docs.assembled.com/
+  tags:
+  - Agent Associations
+  properties:
+  - type: OpenAPI
+    url: openapi/assembled-agent-associations-api-openapi.yml
+  - type: Documentation
+    url: https://docs.assembled.com/
+  - type: JSONSchema
+    url: json-schema/assembled-assist-response-schema.json
+- aid: assembled:assembled-assist-articles-api
+  name: Assembled Assist Articles API
+  description: The Assist Articles API from Assembled — 2 operation(s) for assist articles.
+  humanURL: https://docs.assembled.com/
+  tags:
+  - Assist Articles
+  properties:
+  - type: OpenAPI
+    url: openapi/assembled-assist-articles-api-openapi.yml
+  - type: Documentation
+    url: https://docs.assembled.com/
+  - type: JSONSchema
+    url: json-schema/assembled-assist-response-schema.json
+- aid: assembled:assembled-assist-conversations-api
+  name: Assembled Assist Conversations API
+  description: The Assist Conversations API from Assembled — 2 operation(s) for assist conversations.
+  humanURL: https://docs.assembled.com/
+  tags:
+  - Assist Conversations
+  properties:
+  - type: OpenAPI
+    url: openapi/assembled-assist-conversations-api-openapi.yml
+  - type: Documentation
+    url: https://docs.assembled.com/
+  - type: JSONSchema
+    url: json-schema/assembled-assist-response-schema.json
+- aid: assembled:assembled-assist-replies-api
+  name: Assembled Assist Replies API
+  description: The Assist Replies API from Assembled — 1 operation(s) for assist replies.
+  humanURL: https://docs.assembled.com/
+  tags:
+  - Assist Replies
+  properties:
+  - type: OpenAPI
+    url: openapi/assembled-assist-replies-api-openapi.yml
+  - type: Documentation
+    url: https://docs.assembled.com/
+  - type: JSONSchema
+    url: json-schema/assembled-assist-response-schema.json
+- aid: assembled:assembled-assist-responses-api
+  name: Assembled Assist Responses API
+  description: The Assist Responses API from Assembled — 2 operation(s) for assist responses.
+  humanURL: https://docs.assembled.com/
+  tags:
+  - Assist Responses
+  properties:
+  - type: OpenAPI
+    url: openapi/assembled-assist-responses-api-openapi.yml
+  - type: Documentation
+    url: https://docs.assembled.com/
+  - type: JSONSchema
+    url: json-schema/assembled-assist-response-schema.json
+- aid: assembled:assembled-event-changes-api
+  name: Assembled Event Changes API
+  description: Audit trail of schedule modifications
+  humanURL: https://docs.assembled.com/
+  tags:
+  - Event Changes
+  properties:
+  - type: OpenAPI
+    url: openapi/assembled-event-changes-api-openapi.yml
+  - type: Documentation
+    url: https://docs.assembled.com/
+  - type: JSONSchema
+    url: json-schema/assembled-assist-response-schema.json
+- aid: assembled:assembled-forecast-adjustments-api
+  name: Assembled Forecast Adjustments API
+  description: The Forecast Adjustments API from Assembled — 3 operation(s) for forecast adjustments.
+  humanURL: https://docs.assembled.com/
+  tags:
+  - Forecast Adjustments
+  properties:
+  - type: OpenAPI
+    url: openapi/assembled-forecast-adjustments-api-openapi.yml
+  - type: Documentation
+    url: https://docs.assembled.com/
+  - type: JSONSchema
+    url: json-schema/assembled-assist-response-schema.json
+- aid: assembled:assembled-forecast-outliers-api
+  name: Assembled Forecast Outliers API
+  description: The Forecast Outliers API from Assembled — 3 operation(s) for forecast outliers.
+  humanURL: https://docs.assembled.com/
+  tags:
+  - Forecast Outliers
+  properties:
+  - type: OpenAPI
+    url: openapi/assembled-forecast-outliers-api-openapi.yml
+  - type: Documentation
+    url: https://docs.assembled.com/
+  - type: JSONSchema
+    url: json-schema/assembled-assist-response-schema.json
+- aid: assembled:assembled-forecast-totals-api
+  name: Assembled Forecast Totals API
+  description: The Forecast Totals API from Assembled — 2 operation(s) for forecast totals.
+  humanURL: https://docs.assembled.com/
+  tags:
+  - Forecast Totals
+  properties:
+  - type: OpenAPI
+    url: openapi/assembled-forecast-totals-api-openapi.yml
+  - type: Documentation
+    url: https://docs.assembled.com/
+  - type: JSONSchema
+    url: json-schema/assembled-assist-response-schema.json
+- aid: assembled:assembled-forecasts-vs-actuals-api
+  name: Assembled Forecasts Vs Actuals API
+  description: The Forecasts Vs Actuals API from Assembled — 1 operation(s) for forecasts vs actuals.
+  humanURL: https://docs.assembled.com/
+  tags:
+  - Forecasts Vs Actuals
+  properties:
+  - type: OpenAPI
+    url: openapi/assembled-forecasts-vs-actuals-api-openapi.yml
+  - type: Documentation
+    url: https://docs.assembled.com/
+  - type: JSONSchema
+    url: json-schema/assembled-assist-response-schema.json
+- aid: assembled:assembled-quality-assurance-api
+  name: Assembled Quality Assurance API
+  description: The Quality Assurance API from Assembled — 1 operation(s) for quality assurance.
+  humanURL: https://docs.assembled.com/
+  tags:
+  - Quality Assurance
+  properties:
+  - type: OpenAPI
+    url: openapi/assembled-quality-assurance-api-openapi.yml
+  - type: Documentation
+    url: https://docs.assembled.com/
+  - type: JSONSchema
+    url: json-schema/assembled-assist-response-schema.json
+- aid: assembled:assembled-queues-api
+  name: Assembled Queues API
+  description: The Queues API from Assembled — 2 operation(s) for queues.
+  humanURL: https://docs.assembled.com/
+  tags:
+  - Queues
+  properties:
+  - type: OpenAPI
+    url: openapi/assembled-queues-api-openapi.yml
+  - type: Documentation
+    url: https://docs.assembled.com/
+  - type: JSONSchema
+    url: json-schema/assembled-assist-response-schema.json
+- aid: assembled:assembled-requirement-types-api
+  name: Assembled Requirement Types API
+  description: The Requirement Types API from Assembled — 1 operation(s) for requirement types.
+  humanURL: https://docs.assembled.com/
+  tags:
+  - Requirement Types
+  properties:
+  - type: OpenAPI
+    url: openapi/assembled-requirement-types-api-openapi.yml
+  - type: Documentation
+    url: https://docs.assembled.com/
+  - type: JSONSchema
+    url: json-schema/assembled-assist-response-schema.json
+- aid: assembled:assembled-roles-api
+  name: Assembled Roles API
+  description: Available roles that can be assigned to people
+  humanURL: https://docs.assembled.com/
+  tags:
+  - Roles
+  properties:
+  - type: OpenAPI
+    url: openapi/assembled-roles-api-openapi.yml
+  - type: Documentation
+    url: https://docs.assembled.com/
+  - type: JSONSchema
+    url: json-schema/assembled-assist-response-schema.json
+- aid: assembled:assembled-sites-api
+  name: Assembled Sites API
+  description: The Sites API from Assembled — 2 operation(s) for sites.
+  humanURL: https://docs.assembled.com/
+  tags:
+  - Sites
+  properties:
+  - type: OpenAPI
+    url: openapi/assembled-sites-api-openapi.yml
+  - type: Documentation
+    url: https://docs.assembled.com/
+  - type: JSONSchema
+    url: json-schema/assembled-assist-response-schema.json
+- aid: assembled:assembled-skills-api
+  name: Assembled Skills API
+  description: The Skills API from Assembled — 2 operation(s) for skills.
+  humanURL: https://docs.assembled.com/
+  tags:
+  - Skills
+  properties:
+  - type: OpenAPI
+    url: openapi/assembled-skills-api-openapi.yml
+  - type: Documentation
+    url: https://docs.assembled.com/
+  - type: JSONSchema
+    url: json-schema/assembled-assist-response-schema.json
+- aid: assembled:assembled-teams-api
+  name: Assembled Teams API
+  description: The Teams API from Assembled — 2 operation(s) for teams.
+  humanURL: https://docs.assembled.com/
+  tags:
+  - Teams
+  properties:
+  - type: OpenAPI
+    url: openapi/assembled-teams-api-openapi.yml
+  - type: Documentation
+    url: https://docs.assembled.com/
+  - type: JSONSchema
+    url: json-schema/assembled-assist-response-schema.json
+- aid: assembled:assembled-working-hours-api
+  name: Assembled Working Hours API
+  description: The Working Hours API from Assembled — 2 operation(s) for working hours.
+  humanURL: https://docs.assembled.com/
+  tags:
+  - Working Hours
+  properties:
+  - type: OpenAPI
+    url: openapi/assembled-working-hours-api-openapi.yml
+  - type: Documentation
+    url: https://docs.assembled.com/
+  - type: JSONSchema
+    url: json-schema/assembled-assist-response-schema.json
 common:
   - type: AgenticAccess
     url: agentic-access/assembled-agentic-access.yml
