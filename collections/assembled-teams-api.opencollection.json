@@ -1,0 +1,91 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Assembled Activities Teams API",
+    "version": "2026-05-24"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Teams",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Assembled List Teams",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.assembledhq.com/v0/teams"
+          },
+          "docs": "Assembled List Teams"
+        },
+        {
+          "info": {
+            "name": "Assembled Create Team",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.assembledhq.com/v0/teams",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Assembled Create Team"
+        },
+        {
+          "info": {
+            "name": "Assembled Delete Teams",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.assembledhq.com/v0/teams",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Assembled Delete Teams"
+        },
+        {
+          "info": {
+            "name": "Assembled Update Team",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.assembledhq.com/v0/teams/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Assembled Update Team"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

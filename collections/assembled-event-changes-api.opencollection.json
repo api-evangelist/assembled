@@ -1,7 +1,7 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "Assembled Activities Forecasts API",
+    "name": "Assembled Activities Event Changes API",
     "version": "2026-05-24"
   },
   "request": {
@@ -14,18 +14,18 @@
   "items": [
     {
       "info": {
-        "name": "Forecasts",
+        "name": "Event Changes",
         "type": "folder"
       },
       "items": [
         {
           "info": {
-            "name": "Assembled List Forecasts",
+            "name": "Assembled List Event Changes",
             "type": "http"
           },
           "http": {
             "method": "GET",
-            "url": "https://api.assembledhq.com/v0/forecasts",
+            "url": "https://api.assembledhq.com/v0/event_changes",
             "params": [
               {
                 "name": "start_time",
@@ -36,20 +36,10 @@
                 "name": "end_time",
                 "value": "",
                 "type": "query"
-              },
-              {
-                "name": "queue_ids",
-                "value": "",
-                "type": "query"
-              },
-              {
-                "name": "channel",
-                "value": "",
-                "type": "query"
               }
             ]
           },
-          "docs": "Assembled List Forecasts"
+          "docs": "Retrieve the audit trail of schedule modifications across activities."
         }
       ]
     }

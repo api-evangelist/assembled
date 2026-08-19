@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Assembled Activities Assist Replies API",
+    "version": "2026-05-24"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Assist Replies",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Assembled Submit Assist Reply (Beta)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.assembledhq.com/v0/assist/replies",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Beta endpoint for posting AI-generated replies directly. Subject to change."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

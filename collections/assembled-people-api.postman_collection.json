@@ -1,7 +1,7 @@
 {
   "item": [
     {
-      "id": "281422b4-69f6-4d7a-b9e9-b87a1e36a959",
+      "id": "26400705-f29e-427e-a167-62c14aa09610",
       "name": "People",
       "description": {
         "content": "Agents managed inside Assembled",
@@ -9,7 +9,7 @@
       },
       "item": [
         {
-          "id": "0d2b6107-d786-4ec2-aecf-aa1b41fc5852",
+          "id": "3be5cb4a-cf9c-4a3b-9403-ed1715c8b5e0",
           "name": "Assembled List People",
           "request": {
             "name": "Assembled List People",
@@ -61,7 +61,7 @@
           },
           "response": [
             {
-              "id": "1f3add3f-523f-453a-9255-c29a0f657a84",
+              "id": "89bc070a-cbea-43fb-8252-8cbb80ec60a2",
               "name": "A page of people",
               "originalRequest": {
                 "url": {
@@ -119,12 +119,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"people\": [\n    {\n      \"id\": \"string\",\n      \"email\": \"MCdwnGrhC7EGU@qYtYjtp.zr\",\n      \"name\": \"string\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"role_id\": \"string\",\n      \"channels\": [\n        \"phone\",\n        \"social\"\n      ],\n      \"team_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"site_id\": \"string\",\n      \"skill_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"queue_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"active\": true,\n      \"platform_ids\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"created_at\": \"1997-07-29T01:05:29.175Z\",\n      \"updated_at\": \"1980-07-22T00:26:01.007Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"email\": \"CrIjMqXKpIhz0@DJSWYWgkvawPxKNttycQl.li\",\n      \"name\": \"string\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"role_id\": \"string\",\n      \"channels\": [\n        \"social\",\n        \"social\"\n      ],\n      \"team_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"site_id\": \"string\",\n      \"skill_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"queue_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"active\": false,\n      \"platform_ids\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\",\n        \"key_3\": \"string\",\n        \"key_4\": \"string\"\n      },\n      \"created_at\": \"1998-11-13T13:07:28.370Z\",\n      \"updated_at\": \"1975-01-28T20:25:29.608Z\"\n    }\n  ],\n  \"next_offset\": 9591\n}",
+              "body": "{\n  \"people\": [\n    {\n      \"id\": \"string\",\n      \"email\": \"5IqxgXr80xwM@zh.vsa\",\n      \"name\": \"string\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"role_id\": \"string\",\n      \"channels\": [\n        \"social\",\n        \"social\"\n      ],\n      \"team_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"site_id\": \"string\",\n      \"skill_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"queue_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"active\": true,\n      \"platform_ids\": {\n        \"key_0\": \"string\"\n      },\n      \"created_at\": \"1966-09-15T01:18:28.121Z\",\n      \"updated_at\": \"1997-08-28T22:09:11.935Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"email\": \"BzIhdWaqHSl@nmnrFxJmWNYOTVarQpYoPmtEUzW.you\",\n      \"name\": \"string\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"role_id\": \"string\",\n      \"channels\": [\n        \"phone\",\n        \"chat\"\n      ],\n      \"team_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"site_id\": \"string\",\n      \"skill_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"queue_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"active\": false,\n      \"platform_ids\": {\n        \"key_0\": \"string\"\n      },\n      \"created_at\": \"1965-09-21T00:44:40.870Z\",\n      \"updated_at\": \"1978-04-24T12:36:20.482Z\"\n    }\n  ],\n  \"next_offset\": 4598\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "4282e96b-64d7-4594-a7c8-6ae7a754dad8",
+              "id": "00669982-3102-404a-a84a-b388668ec5b0",
               "name": "Missing or invalid API key",
               "originalRequest": {
                 "url": {
@@ -187,7 +187,7 @@
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "5a83c66b-fd36-46ce-8fac-ddbfccfff7e2",
+              "id": "e9047afd-438e-4745-bc92-20a53466db83",
               "name": "Too many requests — 300 req/min default",
               "originalRequest": {
                 "url": {
@@ -256,7 +256,7 @@
           }
         },
         {
-          "id": "ed84590a-97ed-409d-9308-dd73715fbe67",
+          "id": "89bf8163-3d0b-4b42-bb21-66111c497e03",
           "name": "Assembled Create People",
           "request": {
             "name": "Assembled Create People",
@@ -305,7 +305,7 @@
           },
           "response": [
             {
-              "id": "e6314d97-2529-4e17-8e23-2365508d23e7",
+              "id": "22d89a4a-549f-4068-94f2-b17cde6a9774",
               "name": "Created",
               "originalRequest": {
                 "url": {
@@ -342,7 +342,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"people\": [\n    {\n      \"email\": \"upYVwz3lR@pe.dxo\",\n      \"name\": \"string\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"role_id\": \"string\",\n      \"channels\": [\n        \"string\",\n        \"string\"\n      ],\n      \"team_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"site_id\": \"string\",\n      \"skill_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"active\": true\n    },\n    {\n      \"email\": \"mdTBHjru@UF.vokl\",\n      \"name\": \"string\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"role_id\": \"string\",\n      \"channels\": [\n        \"string\",\n        \"string\"\n      ],\n      \"team_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"site_id\": \"string\",\n      \"skill_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"active\": true\n    }\n  ]\n}",
+                  "raw": "{\n  \"people\": [\n    {\n      \"email\": \"SKpiF@lNJrdPrzKzMPDAGsLO.imp\",\n      \"name\": \"string\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"role_id\": \"string\",\n      \"channels\": [\n        \"string\",\n        \"string\"\n      ],\n      \"team_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"site_id\": \"string\",\n      \"skill_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"active\": true\n    },\n    {\n      \"email\": \"Td8AXX@EiDmiRfKQFuYUghKitOGweoBpHSaGDjqf.ikqb\",\n      \"name\": \"string\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"role_id\": \"string\",\n      \"channels\": [\n        \"string\",\n        \"string\"\n      ],\n      \"team_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"site_id\": \"string\",\n      \"skill_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"active\": true\n    }\n  ]\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -358,12 +358,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"people\": [\n    {\n      \"id\": \"string\",\n      \"email\": \"1SjwYIq-zlWrN@UNdOhdmHgwTjlUQrrhJ.gqd\",\n      \"name\": \"string\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"role_id\": \"string\",\n      \"channels\": [\n        \"sms\",\n        \"social\"\n      ],\n      \"team_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"site_id\": \"string\",\n      \"skill_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"queue_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"active\": false,\n      \"platform_ids\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\",\n        \"key_3\": \"string\"\n      },\n      \"created_at\": \"2015-04-17T06:57:35.832Z\",\n      \"updated_at\": \"2003-08-07T02:03:49.319Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"email\": \"swg-RttkZt@EdznOoXiSVngcsDzpOckuNyPUDya.jzy\",\n      \"name\": \"string\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"role_id\": \"string\",\n      \"channels\": [\n        \"back_office\",\n        \"sms\"\n      ],\n      \"team_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"site_id\": \"string\",\n      \"skill_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"queue_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"active\": false,\n      \"platform_ids\": {\n        \"key_0\": \"string\"\n      },\n      \"created_at\": \"2016-03-31T06:47:48.745Z\",\n      \"updated_at\": \"2019-07-25T02:23:33.447Z\"\n    }\n  ]\n}",
+              "body": "{\n  \"people\": [\n    {\n      \"id\": \"string\",\n      \"email\": \"fAt@utvvkeXFxwyWhRLREA.qyf\",\n      \"name\": \"string\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"role_id\": \"string\",\n      \"channels\": [\n        \"phone\",\n        \"social\"\n      ],\n      \"team_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"site_id\": \"string\",\n      \"skill_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"queue_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"active\": true,\n      \"platform_ids\": {\n        \"key_0\": \"string\"\n      },\n      \"created_at\": \"1990-03-09T07:59:22.270Z\",\n      \"updated_at\": \"1949-05-26T04:06:43.837Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"email\": \"RqI4j6JBqY6ai@JrgrqTwoXPkbJtWG.wz\",\n      \"name\": \"string\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"role_id\": \"string\",\n      \"channels\": [\n        \"email\",\n        \"back_office\"\n      ],\n      \"team_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"site_id\": \"string\",\n      \"skill_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"queue_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"active\": false,\n      \"platform_ids\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"created_at\": \"2025-10-19T12:36:44.476Z\",\n      \"updated_at\": \"1987-02-14T04:39:40.752Z\"\n    }\n  ]\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "872d5339-6bb2-43e6-bca8-a6dd7378e48c",
+              "id": "d71517bb-c28b-453b-acda-97bed3d64881",
               "name": "Bad Request",
               "originalRequest": {
                 "url": {
@@ -400,7 +400,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"people\": [\n    {\n      \"email\": \"upYVwz3lR@pe.dxo\",\n      \"name\": \"string\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"role_id\": \"string\",\n      \"channels\": [\n        \"string\",\n        \"string\"\n      ],\n      \"team_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"site_id\": \"string\",\n      \"skill_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"active\": true\n    },\n    {\n      \"email\": \"mdTBHjru@UF.vokl\",\n      \"name\": \"string\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"role_id\": \"string\",\n      \"channels\": [\n        \"string\",\n        \"string\"\n      ],\n      \"team_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"site_id\": \"string\",\n      \"skill_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"active\": true\n    }\n  ]\n}",
+                  "raw": "{\n  \"people\": [\n    {\n      \"email\": \"SKpiF@lNJrdPrzKzMPDAGsLO.imp\",\n      \"name\": \"string\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"role_id\": \"string\",\n      \"channels\": [\n        \"string\",\n        \"string\"\n      ],\n      \"team_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"site_id\": \"string\",\n      \"skill_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"active\": true\n    },\n    {\n      \"email\": \"Td8AXX@EiDmiRfKQFuYUghKitOGweoBpHSaGDjqf.ikqb\",\n      \"name\": \"string\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"role_id\": \"string\",\n      \"channels\": [\n        \"string\",\n        \"string\"\n      ],\n      \"team_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"site_id\": \"string\",\n      \"skill_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"active\": true\n    }\n  ]\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -421,7 +421,7 @@
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "bee6091f-9ede-4152-8434-a968e7f5c97a",
+              "id": "89977d7d-b2b6-4956-85f9-5a2e9aae7fee",
               "name": "Missing or invalid API key",
               "originalRequest": {
                 "url": {
@@ -458,7 +458,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"people\": [\n    {\n      \"email\": \"upYVwz3lR@pe.dxo\",\n      \"name\": \"string\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"role_id\": \"string\",\n      \"channels\": [\n        \"string\",\n        \"string\"\n      ],\n      \"team_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"site_id\": \"string\",\n      \"skill_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"active\": true\n    },\n    {\n      \"email\": \"mdTBHjru@UF.vokl\",\n      \"name\": \"string\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"role_id\": \"string\",\n      \"channels\": [\n        \"string\",\n        \"string\"\n      ],\n      \"team_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"site_id\": \"string\",\n      \"skill_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"active\": true\n    }\n  ]\n}",
+                  "raw": "{\n  \"people\": [\n    {\n      \"email\": \"SKpiF@lNJrdPrzKzMPDAGsLO.imp\",\n      \"name\": \"string\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"role_id\": \"string\",\n      \"channels\": [\n        \"string\",\n        \"string\"\n      ],\n      \"team_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"site_id\": \"string\",\n      \"skill_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"active\": true\n    },\n    {\n      \"email\": \"Td8AXX@EiDmiRfKQFuYUghKitOGweoBpHSaGDjqf.ikqb\",\n      \"name\": \"string\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"role_id\": \"string\",\n      \"channels\": [\n        \"string\",\n        \"string\"\n      ],\n      \"team_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"site_id\": \"string\",\n      \"skill_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"active\": true\n    }\n  ]\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -485,7 +485,7 @@
           }
         },
         {
-          "id": "7e3f6ff6-8cfa-4489-9a7a-0f8c8888053a",
+          "id": "0e78b9ef-0c0d-424b-bdef-eaeca4ed5d50",
           "name": "Assembled Get Person",
           "request": {
             "name": "Assembled Get Person",
@@ -530,7 +530,7 @@
           },
           "response": [
             {
-              "id": "7e55df1c-510f-4343-be91-463ab7900606",
+              "id": "a2bc8e14-01be-4e8b-9ac7-b7a50f48e62e",
               "name": "A person",
               "originalRequest": {
                 "url": {
@@ -584,12 +584,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"id\": \"string\",\n  \"email\": \"LFBj8e@rWIBsQFeZQX.bp\",\n  \"name\": \"string\",\n  \"first_name\": \"string\",\n  \"last_name\": \"string\",\n  \"role_id\": \"string\",\n  \"channels\": [\n    \"back_office\",\n    \"sms\"\n  ],\n  \"team_ids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"site_id\": \"string\",\n  \"skill_ids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"queue_ids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"active\": true,\n  \"platform_ids\": {\n    \"key_0\": \"string\"\n  },\n  \"created_at\": \"1998-11-02T06:48:33.492Z\",\n  \"updated_at\": \"1993-11-05T01:21:18.905Z\"\n}",
+              "body": "{\n  \"id\": \"string\",\n  \"email\": \"yiN@bhcJrEebhMUcPklMtHSurCGgEubNr.sq\",\n  \"name\": \"string\",\n  \"first_name\": \"string\",\n  \"last_name\": \"string\",\n  \"role_id\": \"string\",\n  \"channels\": [\n    \"sms\",\n    \"chat\"\n  ],\n  \"team_ids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"site_id\": \"string\",\n  \"skill_ids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"queue_ids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"active\": true,\n  \"platform_ids\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"created_at\": \"1962-12-11T07:04:37.355Z\",\n  \"updated_at\": \"1987-06-26T10:38:47.497Z\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "2a95728a-32aa-4881-bc6c-c61d7d231c3b",
+              "id": "f8d94e1e-daac-4471-8bb6-218e141529ab",
               "name": "Resource not found",
               "originalRequest": {
                 "url": {
@@ -654,7 +654,7 @@
           }
         },
         {
-          "id": "096f41ce-52ea-467f-9bf3-829f9c963701",
+          "id": "e80c08cd-1337-4a7d-bb66-3f2e9b98b483",
           "name": "Assembled Update Person",
           "request": {
             "name": "Assembled Update Person",
@@ -712,7 +712,7 @@
           },
           "response": [
             {
-              "id": "fef24885-360f-489d-a34b-8508ec9a4de7",
+              "id": "77b68d18-f7ab-49ca-92f8-8fb505655fa3",
               "name": "Updated person",
               "originalRequest": {
                 "url": {
@@ -774,12 +774,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"id\": \"string\",\n  \"email\": \"LFBj8e@rWIBsQFeZQX.bp\",\n  \"name\": \"string\",\n  \"first_name\": \"string\",\n  \"last_name\": \"string\",\n  \"role_id\": \"string\",\n  \"channels\": [\n    \"back_office\",\n    \"sms\"\n  ],\n  \"team_ids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"site_id\": \"string\",\n  \"skill_ids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"queue_ids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"active\": true,\n  \"platform_ids\": {\n    \"key_0\": \"string\"\n  },\n  \"created_at\": \"1998-11-02T06:48:33.492Z\",\n  \"updated_at\": \"1993-11-05T01:21:18.905Z\"\n}",
+              "body": "{\n  \"id\": \"string\",\n  \"email\": \"yiN@bhcJrEebhMUcPklMtHSurCGgEubNr.sq\",\n  \"name\": \"string\",\n  \"first_name\": \"string\",\n  \"last_name\": \"string\",\n  \"role_id\": \"string\",\n  \"channels\": [\n    \"sms\",\n    \"chat\"\n  ],\n  \"team_ids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"site_id\": \"string\",\n  \"skill_ids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"queue_ids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"active\": true,\n  \"platform_ids\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"created_at\": \"1962-12-11T07:04:37.355Z\",\n  \"updated_at\": \"1987-06-26T10:38:47.497Z\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "e4d93989-e99e-4b55-a14d-09ea25ee5098",
+              "id": "74d6327e-2951-4700-a0aa-47cab320756c",
               "name": "Bad Request",
               "originalRequest": {
                 "url": {
@@ -846,7 +846,7 @@
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "59533744-6ff4-4e6b-97bf-9029c662650e",
+              "id": "4404056d-d3a8-46c2-8409-7bbd3f0beb9c",
               "name": "Resource not found",
               "originalRequest": {
                 "url": {
@@ -920,109 +920,6 @@
         }
       ],
       "event": []
-    },
-    {
-      "id": "3b2dfee0-8db2-4034-9853-9d6a04c3b2e0",
-      "name": "Roles",
-      "description": {
-        "content": "Available roles that can be assigned to people",
-        "type": "text/plain"
-      },
-      "item": [
-        {
-          "id": "b94f80b9-c72f-4e6c-8b75-951f4da5c13c",
-          "name": "Assembled List Roles",
-          "request": {
-            "name": "Assembled List Roles",
-            "description": {
-              "content": "List all roles available in your Assembled organization.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "v0",
-                "roles"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "disabled": false,
-                "description": "Date-based API version override (e.g. 2026-05-01). Defaults to your organization's pinned version.",
-                "key": "API-Version",
-                "value": "<string>"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "b2815743-9537-4a1d-a26c-d1ed780d1e36",
-              "name": "Roles list",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v0",
-                    "roles"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "disabled": false,
-                    "description": "Date-based API version override (e.g. 2026-05-01). Defaults to your organization's pinned version.",
-                    "key": "API-Version",
-                    "value": "<string>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"roles\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"permissions\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"permissions\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        }
-      ],
-      "event": []
     }
   ],
   "event": [],
@@ -1047,11 +944,11 @@
     ]
   },
   "info": {
-    "_postman_id": "d279192c-a4cb-4642-9b6c-7c66df1a8764",
-    "name": "Assembled People API",
+    "_postman_id": "b09cd72a-9f3d-4de2-bbe0-7456a70344e2",
+    "name": "Assembled Activities People API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
-      "content": "Manage the people (agents) that make up the Assembled workforce.\n\nThe People API lets you list, retrieve, create, and update agents along\nwith their roles, channels, skills, and team assignments. The endpoint is\nthe canonical reference for who can be scheduled, routed to, or coached\ninside Assembled. Use the Roles endpoint to discover available roles.\n\n\nContact Support:\n Name: Assembled Support",
+      "content": "Activities are the scheduled shifts, breaks, time-off blocks, training\nsessions, and meetings that make up an agent's calendar in Assembled.\n\nThe Activities API supports single and bulk activity creation, listing\nwith rich filters, soft-delete semantics, and CRUD for activity types\n(the colour-coded categories shown on schedules). The event_changes\nendpoint surfaces an audit trail of schedule modifications.\n\n\nContact Support:\n Name: Assembled Support",
       "type": "text/plain"
     }
   }

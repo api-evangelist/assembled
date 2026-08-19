@@ -1,46 +1,31 @@
 {
   "item": [
     {
-      "id": "e8c5a490-9f05-4e76-b25a-4511520b33b4",
-      "name": "Requirements",
+      "id": "e418fe10-95ac-4bbf-985b-3005760dcf4b",
+      "name": "Activity Types",
       "description": {
-        "content": "",
+        "content": "Types/categories of activity",
         "type": "text/plain"
       },
       "item": [
         {
-          "id": "a15aa29f-5c4a-4c19-9fab-0af3193c051c",
-          "name": "Assembled List Requirements",
+          "id": "fcb528b8-fcfb-41b4-a85f-412b4f0af23d",
+          "name": "Assembled List Activity Types",
           "request": {
-            "name": "Assembled List Requirements",
-            "description": {},
+            "name": "Assembled List Activity Types",
+            "description": {
+              "content": "List activity types defined in your organization.",
+              "type": "text/plain"
+            },
             "url": {
               "path": [
                 "v0",
-                "requirements"
+                "activity_types"
               ],
               "host": [
                 "{{baseUrl}}"
               ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "start_time",
-                  "value": "<dateTime>",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "key": "end_time",
-                  "value": "<dateTime>",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "key": "queue_ids",
-                  "value": "<string>"
-                }
-              ],
+              "query": [],
               "variable": []
             },
             "header": [
@@ -54,31 +39,18 @@
           },
           "response": [
             {
-              "id": "7e2cf332-0a28-436d-b192-6d4481b3981a",
-              "name": "Requirements",
+              "id": "69999eed-39a1-4519-b341-660c1bfe509a",
+              "name": "Activity types",
               "originalRequest": {
                 "url": {
                   "path": [
                     "v0",
-                    "requirements"
+                    "activity_types"
                   ],
                   "host": [
                     "{{baseUrl}}"
                   ],
-                  "query": [
-                    {
-                      "key": "start_time",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "end_time",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "queue_ids",
-                      "value": "<string>"
-                    }
-                  ],
+                  "query": [],
                   "variable": []
                 },
                 "header": [
@@ -106,7 +78,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"requirements\": [\n    {\n      \"id\": \"string\",\n      \"requirement_type_id\": \"string\",\n      \"queue_id\": \"string\",\n      \"site_id\": \"string\",\n      \"team_id\": \"string\",\n      \"skill_id\": \"string\",\n      \"start_time\": \"1963-03-02T09:49:50.411Z\",\n      \"end_time\": \"1961-05-23T11:43:22.472Z\",\n      \"required_count\": 9921.629434480055\n    },\n    {\n      \"id\": \"string\",\n      \"requirement_type_id\": \"string\",\n      \"queue_id\": \"string\",\n      \"site_id\": \"string\",\n      \"team_id\": \"string\",\n      \"skill_id\": \"string\",\n      \"start_time\": \"1979-03-20T05:42:30.173Z\",\n      \"end_time\": \"2023-12-07T06:52:35.611Z\",\n      \"required_count\": 1881.3978980965662\n    }\n  ]\n}",
+              "body": "{\n  \"activity_types\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"color\": \"#3b82f6\",\n      \"category\": \"shift\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"color\": \"#3b82f6\",\n      \"category\": \"shift\"\n    }\n  ]\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -117,15 +89,18 @@
           }
         },
         {
-          "id": "57840f79-2afb-4297-876c-34f3b4b43726",
-          "name": "Assembled Create Requirement",
+          "id": "8896e046-ce97-4411-887f-4a91afe8bb03",
+          "name": "Assembled Create Activity Type",
           "request": {
-            "name": "Assembled Create Requirement",
-            "description": {},
+            "name": "Assembled Create Activity Type",
+            "description": {
+              "content": "Define a new activity type (name and colour).",
+              "type": "text/plain"
+            },
             "url": {
               "path": [
                 "v0",
-                "requirements"
+                "activity_types"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -147,7 +122,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"requirement_type_id\": \"<string>\",\n  \"start_time\": \"<dateTime>\",\n  \"end_time\": \"<dateTime>\",\n  \"required_count\": \"<number>\",\n  \"queue_id\": \"<string>\",\n  \"site_id\": \"<string>\",\n  \"team_id\": \"<string>\",\n  \"skill_id\": \"<string>\"\n}",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"color\": \"<string>\",\n  \"category\": \"<string>\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -157,13 +132,13 @@
           },
           "response": [
             {
-              "id": "4d8500e0-17f6-4d46-8e23-4df40e3cc94c",
+              "id": "110b07fa-20c0-4819-bc45-c5cc16f4b3cf",
               "name": "Created",
               "originalRequest": {
                 "url": {
                   "path": [
                     "v0",
-                    "requirements"
+                    "activity_types"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -188,7 +163,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"requirement_type_id\": \"<string>\",\n  \"start_time\": \"<dateTime>\",\n  \"end_time\": \"<dateTime>\",\n  \"required_count\": \"<number>\",\n  \"queue_id\": \"<string>\",\n  \"site_id\": \"<string>\",\n  \"team_id\": \"<string>\",\n  \"skill_id\": \"<string>\"\n}",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"color\": \"<string>\",\n  \"category\": \"<string>\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -204,9 +179,97 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"id\": \"string\",\n  \"requirement_type_id\": \"string\",\n  \"queue_id\": \"string\",\n  \"site_id\": \"string\",\n  \"team_id\": \"string\",\n  \"skill_id\": \"string\",\n  \"start_time\": \"2002-05-21T11:17:14.642Z\",\n  \"end_time\": \"2004-01-13T13:42:16.406Z\",\n  \"required_count\": 944.0150719801954\n}",
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"color\": \"#3b82f6\",\n  \"category\": \"shift\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ae0ff1af-3efa-4bb7-aef9-a8fe7003ee03",
+          "name": "Assembled Delete Activity Type",
+          "request": {
+            "name": "Assembled Delete Activity Type",
+            "description": {
+              "content": "Delete an activity type.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v0",
+                "activity_types",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "51d0a48b-6122-4337-9aee-aac54b3c1294",
+              "name": "Deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v0",
+                    "activity_types",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
             }
           ],
           "event": [],
@@ -240,8 +303,8 @@
     ]
   },
   "info": {
-    "_postman_id": "10cc0ea6-32dd-49c5-b687-6b4a1e939d2c",
-    "name": "Assembled Activities Requirements API",
+    "_postman_id": "774fab8f-d2d7-4b43-8920-57c52fd7b209",
+    "name": "Assembled Activities Activity Types API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
       "content": "Activities are the scheduled shifts, breaks, time-off blocks, training\nsessions, and meetings that make up an agent's calendar in Assembled.\n\nThe Activities API supports single and bulk activity creation, listing\nwith rich filters, soft-delete semantics, and CRUD for activity types\n(the colour-coded categories shown on schedules). The event_changes\nendpoint surfaces an audit trail of schedule modifications.\n\n\nContact Support:\n Name: Assembled Support",

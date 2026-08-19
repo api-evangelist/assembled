@@ -1,7 +1,7 @@
 {
   "item": [
     {
-      "id": "42ebc7db-67a7-43cf-abad-ac34aafb311a",
+      "id": "7bcc5028-b7e6-4173-be37-c3105cbfb99d",
       "name": "Conversations",
       "description": {
         "content": "",
@@ -9,7 +9,7 @@
       },
       "item": [
         {
-          "id": "392eba94-423a-473c-816d-e3450d7f1335",
+          "id": "58b30078-360d-4509-84fd-cfca8e8060b1",
           "name": "Assembled Bulk Upsert Conversations",
           "request": {
             "name": "Assembled Bulk Upsert Conversations",
@@ -39,7 +39,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"conversations\": [\n    {\n      \"external_id\": \"<string>\",\n      \"channel\": \"<string>\",\n      \"started_at\": \"<dateTime>\",\n      \"platform\": \"<string>\",\n      \"queue_id\": \"<string>\",\n      \"assigned_agent_id\": \"<string>\",\n      \"customer_id\": \"<string>\",\n      \"subject\": \"<string>\",\n      \"status\": \"<string>\",\n      \"ended_at\": \"<dateTime>\",\n      \"handle_time_seconds\": \"<number>\",\n      \"wait_time_seconds\": \"<number>\",\n      \"first_response_time_seconds\": \"<number>\",\n      \"resolved\": \"<boolean>\",\n      \"csat_score\": \"<number>\",\n      \"metadata\": {\n        \"key_0\": 8155\n      }\n    },\n    {\n      \"external_id\": \"<string>\",\n      \"channel\": \"<string>\",\n      \"started_at\": \"<dateTime>\",\n      \"platform\": \"<string>\",\n      \"queue_id\": \"<string>\",\n      \"assigned_agent_id\": \"<string>\",\n      \"customer_id\": \"<string>\",\n      \"subject\": \"<string>\",\n      \"status\": \"<string>\",\n      \"ended_at\": \"<dateTime>\",\n      \"handle_time_seconds\": \"<number>\",\n      \"wait_time_seconds\": \"<number>\",\n      \"first_response_time_seconds\": \"<number>\",\n      \"resolved\": \"<boolean>\",\n      \"csat_score\": \"<number>\",\n      \"metadata\": {\n        \"key_0\": \"string\"\n      }\n    }\n  ]\n}",
+              "raw": "{\n  \"conversations\": [\n    {\n      \"external_id\": \"<string>\",\n      \"channel\": \"<string>\",\n      \"started_at\": \"<dateTime>\",\n      \"platform\": \"<string>\",\n      \"queue_id\": \"<string>\",\n      \"assigned_agent_id\": \"<string>\",\n      \"customer_id\": \"<string>\",\n      \"subject\": \"<string>\",\n      \"status\": \"<string>\",\n      \"ended_at\": \"<dateTime>\",\n      \"handle_time_seconds\": \"<number>\",\n      \"wait_time_seconds\": \"<number>\",\n      \"first_response_time_seconds\": \"<number>\",\n      \"resolved\": \"<boolean>\",\n      \"csat_score\": \"<number>\",\n      \"metadata\": {\n        \"key_0\": 5970.780632909536\n      }\n    },\n    {\n      \"external_id\": \"<string>\",\n      \"channel\": \"<string>\",\n      \"started_at\": \"<dateTime>\",\n      \"platform\": \"<string>\",\n      \"queue_id\": \"<string>\",\n      \"assigned_agent_id\": \"<string>\",\n      \"customer_id\": \"<string>\",\n      \"subject\": \"<string>\",\n      \"status\": \"<string>\",\n      \"ended_at\": \"<dateTime>\",\n      \"handle_time_seconds\": \"<number>\",\n      \"wait_time_seconds\": \"<number>\",\n      \"first_response_time_seconds\": \"<number>\",\n      \"resolved\": \"<boolean>\",\n      \"csat_score\": \"<number>\",\n      \"metadata\": {\n        \"key_0\": 3522.1065763523143,\n        \"key_1\": true\n      }\n    }\n  ]\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -49,7 +49,7 @@
           },
           "response": [
             {
-              "id": "6daf21ad-74b5-4d7b-9468-80acf5eabbc8",
+              "id": "72ec5671-c803-4bb6-99e2-24c9dae11705",
               "name": "Accepted",
               "originalRequest": {
                 "url": {
@@ -77,7 +77,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"conversations\": [\n    {\n      \"external_id\": \"string\",\n      \"channel\": \"sms\",\n      \"started_at\": \"1985-03-20T00:01:46.462Z\",\n      \"platform\": \"zendesk\",\n      \"queue_id\": \"string\",\n      \"assigned_agent_id\": \"string\",\n      \"customer_id\": \"string\",\n      \"subject\": \"string\",\n      \"status\": \"string\",\n      \"ended_at\": \"1993-07-29T18:58:15.080Z\",\n      \"handle_time_seconds\": 5002.378705176083,\n      \"wait_time_seconds\": 369.0073470007793,\n      \"first_response_time_seconds\": 1793.70594117653,\n      \"resolved\": false,\n      \"csat_score\": 2965.6445897571316,\n      \"metadata\": {\n        \"key_0\": 4899\n      }\n    },\n    {\n      \"external_id\": \"string\",\n      \"channel\": \"chat\",\n      \"started_at\": \"2006-04-02T16:01:39.145Z\",\n      \"platform\": \"zendesk\",\n      \"queue_id\": \"string\",\n      \"assigned_agent_id\": \"string\",\n      \"customer_id\": \"string\",\n      \"subject\": \"string\",\n      \"status\": \"string\",\n      \"ended_at\": \"1981-06-28T07:03:09.289Z\",\n      \"handle_time_seconds\": 2733.271094464801,\n      \"wait_time_seconds\": 361.3022952282252,\n      \"first_response_time_seconds\": 749.8826114508994,\n      \"resolved\": true,\n      \"csat_score\": 7060.023847473555,\n      \"metadata\": {\n        \"key_0\": \"string\",\n        \"key_1\": true,\n        \"key_2\": 8182\n      }\n    }\n  ]\n}",
+                  "raw": "{\n  \"conversations\": [\n    {\n      \"external_id\": \"string\",\n      \"channel\": \"chat\",\n      \"started_at\": \"1971-04-29T02:37:50.170Z\",\n      \"platform\": \"zendesk\",\n      \"queue_id\": \"string\",\n      \"assigned_agent_id\": \"string\",\n      \"customer_id\": \"string\",\n      \"subject\": \"string\",\n      \"status\": \"string\",\n      \"ended_at\": \"2014-03-28T23:08:01.716Z\",\n      \"handle_time_seconds\": 5118.587880369701,\n      \"wait_time_seconds\": 4326.531067005644,\n      \"first_response_time_seconds\": 3396.462029243371,\n      \"resolved\": false,\n      \"csat_score\": 2425.4149114360434,\n      \"metadata\": {\n        \"key_0\": \"string\",\n        \"key_1\": true\n      }\n    },\n    {\n      \"external_id\": \"string\",\n      \"channel\": \"back_office\",\n      \"started_at\": \"1995-04-26T04:16:39.804Z\",\n      \"platform\": \"zendesk\",\n      \"queue_id\": \"string\",\n      \"assigned_agent_id\": \"string\",\n      \"customer_id\": \"string\",\n      \"subject\": \"string\",\n      \"status\": \"string\",\n      \"ended_at\": \"1977-07-09T08:52:31.400Z\",\n      \"handle_time_seconds\": 7194.402455690979,\n      \"wait_time_seconds\": 3375.638031420909,\n      \"first_response_time_seconds\": 2862.226032491857,\n      \"resolved\": false,\n      \"csat_score\": 6737.471016594044,\n      \"metadata\": {\n        \"key_0\": 1884.6912535867878\n      }\n    }\n  ]\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -104,7 +104,7 @@
           }
         },
         {
-          "id": "5b791c78-325e-406e-b661-6dd28093e2f2",
+          "id": "14466b5e-5be2-40d1-ab78-02dbc101e3a1",
           "name": "Assembled Bulk Update Conversations",
           "request": {
             "name": "Assembled Bulk Update Conversations",
@@ -134,7 +134,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"conversations\": [\n    {\n      \"external_id\": \"<string>\",\n      \"assigned_agent_id\": \"<string>\",\n      \"status\": \"<string>\",\n      \"ended_at\": \"<dateTime>\",\n      \"handle_time_seconds\": \"<number>\",\n      \"resolved\": \"<boolean>\",\n      \"csat_score\": \"<number>\",\n      \"metadata\": {\n        \"key_0\": false\n      }\n    },\n    {\n      \"external_id\": \"<string>\",\n      \"assigned_agent_id\": \"<string>\",\n      \"status\": \"<string>\",\n      \"ended_at\": \"<dateTime>\",\n      \"handle_time_seconds\": \"<number>\",\n      \"resolved\": \"<boolean>\",\n      \"csat_score\": \"<number>\",\n      \"metadata\": {\n        \"key_0\": true\n      }\n    }\n  ]\n}",
+              "raw": "{\n  \"conversations\": [\n    {\n      \"external_id\": \"<string>\",\n      \"assigned_agent_id\": \"<string>\",\n      \"status\": \"<string>\",\n      \"ended_at\": \"<dateTime>\",\n      \"handle_time_seconds\": \"<number>\",\n      \"resolved\": \"<boolean>\",\n      \"csat_score\": \"<number>\",\n      \"metadata\": {\n        \"key_0\": false,\n        \"key_1\": true\n      }\n    },\n    {\n      \"external_id\": \"<string>\",\n      \"assigned_agent_id\": \"<string>\",\n      \"status\": \"<string>\",\n      \"ended_at\": \"<dateTime>\",\n      \"handle_time_seconds\": \"<number>\",\n      \"resolved\": \"<boolean>\",\n      \"csat_score\": \"<number>\",\n      \"metadata\": {\n        \"key_0\": 9636.127616122203\n      }\n    }\n  ]\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -144,7 +144,7 @@
           },
           "response": [
             {
-              "id": "21980a63-1339-402c-97f2-7199d90d1397",
+              "id": "e7dadd47-621e-42fd-9544-bfa6e3db13d5",
               "name": "Accepted",
               "originalRequest": {
                 "url": {
@@ -172,7 +172,7 @@
                 "method": "PATCH",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"conversations\": [\n    {\n      \"external_id\": \"string\",\n      \"assigned_agent_id\": \"string\",\n      \"status\": \"string\",\n      \"ended_at\": \"2024-10-25T06:59:07.814Z\",\n      \"handle_time_seconds\": 8096.296328724207,\n      \"resolved\": true,\n      \"csat_score\": 7354.626804653979,\n      \"metadata\": {\n        \"key_0\": false,\n        \"key_1\": 9125,\n        \"key_2\": 1967.3062501199988\n      }\n    },\n    {\n      \"external_id\": \"string\",\n      \"assigned_agent_id\": \"string\",\n      \"status\": \"string\",\n      \"ended_at\": \"2007-05-21T13:26:29.532Z\",\n      \"handle_time_seconds\": 56.99008350622093,\n      \"resolved\": true,\n      \"csat_score\": 4648.252804642417,\n      \"metadata\": {\n        \"key_0\": \"string\"\n      }\n    }\n  ]\n}",
+                  "raw": "{\n  \"conversations\": [\n    {\n      \"external_id\": \"string\",\n      \"assigned_agent_id\": \"string\",\n      \"status\": \"string\",\n      \"ended_at\": \"1980-01-31T05:01:22.748Z\",\n      \"handle_time_seconds\": 4035.566142247132,\n      \"resolved\": false,\n      \"csat_score\": 8498.030767158885,\n      \"metadata\": {\n        \"key_0\": true,\n        \"key_1\": \"string\",\n        \"key_2\": true\n      }\n    },\n    {\n      \"external_id\": \"string\",\n      \"assigned_agent_id\": \"string\",\n      \"status\": \"string\",\n      \"ended_at\": \"1986-06-06T17:36:53.431Z\",\n      \"handle_time_seconds\": 246.33233674397292,\n      \"resolved\": false,\n      \"csat_score\": 4909.8173046097445,\n      \"metadata\": {\n        \"key_0\": 2717.2024106962544,\n        \"key_1\": \"string\",\n        \"key_2\": 7015.631503757381\n      }\n    }\n  ]\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -224,11 +224,11 @@
     ]
   },
   "info": {
-    "_postman_id": "86c4765d-20e4-423f-bbf7-24d0978efac6",
-    "name": "Assembled Conversations API",
+    "_postman_id": "1c75f842-0174-4787-b1a9-2801e6acb0e0",
+    "name": "Assembled Activities Conversations API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
-      "content": "Bulk-ingest and bulk-update customer conversation records — phone,\nemail, chat, SMS, social, and back-office — so they can be associated\nwith agents, queues, and channels for reporting, QA, and analytics.\n\nUsed by customers running on non-Zendesk/Salesforce stacks or merging\nmultiple CRMs into a unified support view.\n\n\nContact Support:\n Name: Assembled Support",
+      "content": "Activities are the scheduled shifts, breaks, time-off blocks, training\nsessions, and meetings that make up an agent's calendar in Assembled.\n\nThe Activities API supports single and bulk activity creation, listing\nwith rich filters, soft-delete semantics, and CRUD for activity types\n(the colour-coded categories shown on schedules). The event_changes\nendpoint surfaces an audit trail of schedule modifications.\n\n\nContact Support:\n Name: Assembled Support",
       "type": "text/plain"
     }
   }

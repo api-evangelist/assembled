@@ -1,0 +1,36 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Assembled Activities Requirement Types API",
+    "version": "2026-05-24"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Requirement Types",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Assembled List Requirement Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.assembledhq.com/v0/requirement_types"
+          },
+          "docs": "Assembled List Requirement Types"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

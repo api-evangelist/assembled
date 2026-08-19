@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Assembled Activities Agent Associations API",
+    "version": "2026-05-24"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Agent Associations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Assembled Create Agent Associations",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.assembledhq.com/v0/agents/associations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Associate platform identifiers (Zendesk, Salesforce, Five9, Intercom, etc.) to Assembled agent IDs."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,148 +1,28 @@
 {
   "item": [
     {
-      "id": "5a13f8ed-a3dd-49c8-9cc3-d9c94b3a06d4",
-      "name": "Time Off",
+      "id": "979cb815-7937-4b74-aaae-6b33ebb592c9",
+      "name": "Skills",
       "description": {
         "content": "",
         "type": "text/plain"
       },
       "item": [
         {
-          "id": "49b05a89-0afb-4835-9a05-6aa069d28477",
-          "name": "Assembled Create Time Off",
+          "id": "d3c50d07-1ad3-403a-9db8-9880f2fe72b9",
+          "name": "Assembled List Skills",
           "request": {
-            "name": "Assembled Create Time Off",
+            "name": "Assembled List Skills",
             "description": {},
             "url": {
               "path": [
                 "v0",
-                "time_off"
+                "skills"
               ],
               "host": [
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"agent_id\": \"<string>\",\n  \"start_time\": \"<dateTime>\",\n  \"end_time\": \"<dateTime>\",\n  \"type\": \"<string>\",\n  \"all_day\": \"<boolean>\",\n  \"notes\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "1dc9da84-de73-458c-834b-aa0bdef86bfb",
-              "name": "Created",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v0",
-                    "time_off"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"agent_id\": \"<string>\",\n  \"start_time\": \"<dateTime>\",\n  \"end_time\": \"<dateTime>\",\n  \"type\": \"<string>\",\n  \"all_day\": \"<boolean>\",\n  \"notes\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Created",
-              "code": 201,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"id\": \"string\",\n  \"agent_id\": \"string\",\n  \"type\": \"pto\",\n  \"status\": \"cancelled\",\n  \"start_time\": \"1950-04-01T01:21:51.508Z\",\n  \"end_time\": \"1960-03-24T05:27:13.344Z\",\n  \"all_day\": false,\n  \"notes\": \"string\",\n  \"approver_id\": \"string\",\n  \"created_at\": \"1999-08-12T06:36:58.182Z\",\n  \"updated_at\": \"2018-11-27T04:53:04.059Z\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "b5ed3a4c-eab5-485c-9e07-817b104c6ea4",
-          "name": "Assembled List Time Off Requests",
-          "request": {
-            "name": "Assembled List Time Off Requests",
-            "description": {},
-            "url": {
-              "path": [
-                "v0",
-                "time_off",
-                "requests"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "status",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "agent_id",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "start_time",
-                  "value": "<dateTime>"
-                },
-                {
-                  "disabled": false,
-                  "key": "end_time",
-                  "value": "<dateTime>"
-                }
-              ],
               "variable": []
             },
             "header": [
@@ -156,36 +36,18 @@
           },
           "response": [
             {
-              "id": "196f497d-c361-4aac-8cec-78bb13eba38e",
-              "name": "Time off requests",
+              "id": "5fc3c6ef-f4c3-400b-adcf-de881098e390",
+              "name": "Skills",
               "originalRequest": {
                 "url": {
                   "path": [
                     "v0",
-                    "time_off",
-                    "requests"
+                    "skills"
                   ],
                   "host": [
                     "{{baseUrl}}"
                   ],
-                  "query": [
-                    {
-                      "key": "status",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "agent_id",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "start_time",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "end_time",
-                      "value": "<dateTime>"
-                    }
-                  ],
+                  "query": [],
                   "variable": []
                 },
                 "header": [
@@ -213,7 +75,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"requests\": [\n    {\n      \"id\": \"string\",\n      \"agent_id\": \"string\",\n      \"type\": \"pto\",\n      \"status\": \"pending\",\n      \"start_time\": \"2018-10-22T12:45:55.791Z\",\n      \"end_time\": \"1950-06-24T00:11:04.010Z\",\n      \"all_day\": true,\n      \"notes\": \"string\",\n      \"approver_id\": \"string\",\n      \"created_at\": \"2006-08-05T07:28:34.027Z\",\n      \"updated_at\": \"2025-05-01T10:58:42.308Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"agent_id\": \"string\",\n      \"type\": \"pto\",\n      \"status\": \"pending\",\n      \"start_time\": \"1952-09-22T15:14:22.515Z\",\n      \"end_time\": \"1993-10-06T19:57:49.823Z\",\n      \"all_day\": true,\n      \"notes\": \"string\",\n      \"approver_id\": \"string\",\n      \"created_at\": \"1954-01-24T02:22:08.774Z\",\n      \"updated_at\": \"1986-04-14T00:41:42.727Z\"\n    }\n  ]\n}",
+              "body": "{\n  \"skills\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"external_id\": \"string\",\n      \"channel\": \"string\",\n      \"timezone\": \"string\",\n      \"created_at\": \"2017-09-05T12:56:18.184Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"external_id\": \"string\",\n      \"channel\": \"string\",\n      \"timezone\": \"string\",\n      \"created_at\": \"2020-01-13T13:58:00.951Z\"\n    }\n  ]\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -224,17 +86,185 @@
           }
         },
         {
-          "id": "0658f16b-e7f1-4753-9c8d-553bd309359c",
-          "name": "Assembled Cancel Time Off Request",
+          "id": "8561cde9-63af-4a44-9c42-913137b41951",
+          "name": "Assembled Create Skill",
           "request": {
-            "name": "Assembled Cancel Time Off Request",
+            "name": "Assembled Create Skill",
             "description": {},
             "url": {
               "path": [
                 "v0",
-                "time_off",
-                ":id",
-                "cancel"
+                "skills"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"external_id\": \"<string>\",\n  \"channel\": \"<string>\",\n  \"timezone\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b992fa2c-60b7-4841-94e4-d32a9c01b1c9",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v0",
+                    "skills"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"external_id\": \"<string>\",\n  \"channel\": \"<string>\",\n  \"timezone\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "108a4201-ebbc-46ad-904d-488ac15f38b4",
+          "name": "Assembled Delete Skills",
+          "request": {
+            "name": "Assembled Delete Skills",
+            "description": {},
+            "url": {
+              "path": [
+                "v0",
+                "skills"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0662f593-30b4-4117-a801-75b4cea1563f",
+              "name": "Deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v0",
+                    "skills"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0a2be367-1b2e-4117-9786-4601c7a26b1c",
+          "name": "Assembled Update Skill",
+          "request": {
+            "name": "Assembled Update Skill",
+            "description": {},
+            "url": {
+              "path": [
+                "v0",
+                "skills",
+                ":id"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -250,20 +280,34 @@
                 }
               ]
             },
-            "method": "POST",
-            "auth": null
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"external_id\": \"<string>\",\n  \"channel\": \"<string>\",\n  \"timezone\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
           },
           "response": [
             {
-              "id": "794eccfd-c0f6-40a5-9252-072297ee36c2",
-              "name": "Cancelled",
+              "id": "effc1330-9701-4bb5-bae2-61e800059afe",
+              "name": "Updated",
               "originalRequest": {
                 "url": {
                   "path": [
                     "v0",
-                    "time_off",
-                    ":id",
-                    "cancel"
+                    "skills",
+                    ":id"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -289,8 +333,16 @@
                     "value": "Basic <credentials>"
                   }
                 ],
-                "method": "POST",
-                "body": {}
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"external_id\": \"<string>\",\n  \"channel\": \"<string>\",\n  \"timezone\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
               },
               "status": "OK",
               "code": 200,
@@ -303,97 +355,6 @@
               "body": "",
               "cookie": [],
               "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "fe96f4e5-6b88-447d-a9d1-b2c11a66b525",
-          "name": "Assembled List Time Off Updates",
-          "request": {
-            "name": "Assembled List Time Off Updates",
-            "description": {},
-            "url": {
-              "path": [
-                "v0",
-                "time_off",
-                "updates"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "since",
-                  "value": "<dateTime>",
-                  "description": "(Required) "
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "45beb57a-3162-4d30-9ea8-f6bc365eee1c",
-              "name": "Time off update stream",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v0",
-                    "time_off",
-                    "updates"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "since",
-                      "value": "<dateTime>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"updates\": [\n    {\n      \"request_id\": \"string\",\n      \"change_type\": \"string\",\n      \"updated_at\": \"1960-12-29T10:15:43.922Z\"\n    },\n    {\n      \"request_id\": \"string\",\n      \"change_type\": \"string\",\n      \"updated_at\": \"2010-06-06T23:32:49.633Z\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
             }
           ],
           "event": [],
@@ -427,8 +388,8 @@
     ]
   },
   "info": {
-    "_postman_id": "ba1f482f-2687-49c3-ad3c-5e6127a8befe",
-    "name": "Assembled Activities Time Off API",
+    "_postman_id": "05a8b392-41c3-4491-9aa9-0e05c16ac408",
+    "name": "Assembled Activities Skills API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
       "content": "Activities are the scheduled shifts, breaks, time-off blocks, training\nsessions, and meetings that make up an agent's calendar in Assembled.\n\nThe Activities API supports single and bulk activity creation, listing\nwith rich filters, soft-delete semantics, and CRUD for activity types\n(the colour-coded categories shown on schedules). The event_changes\nendpoint surfaces an audit trail of schedule modifications.\n\n\nContact Support:\n Name: Assembled Support",

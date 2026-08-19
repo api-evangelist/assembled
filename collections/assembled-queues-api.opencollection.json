@@ -1,0 +1,91 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Assembled Activities Queues API",
+    "version": "2026-05-24"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Queues",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Assembled List Queues",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.assembledhq.com/v0/queues"
+          },
+          "docs": "Assembled List Queues"
+        },
+        {
+          "info": {
+            "name": "Assembled Create Queue",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.assembledhq.com/v0/queues",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Assembled Create Queue"
+        },
+        {
+          "info": {
+            "name": "Assembled Delete Queues",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.assembledhq.com/v0/queues",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Assembled Delete Queues"
+        },
+        {
+          "info": {
+            "name": "Assembled Update Queue",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.assembledhq.com/v0/queues/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Assembled Update Queue"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

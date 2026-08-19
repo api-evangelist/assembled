@@ -1,0 +1,140 @@
+{
+  "item": [
+    {
+      "id": "b573c632-0c27-420c-910c-e8e7357fa9c5",
+      "name": "Agent Associations",
+      "description": {
+        "content": "Map platform IDs to Assembled people",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7e301521-933c-4842-89b4-551143539963",
+          "name": "Assembled Create Agent Associations",
+          "request": {
+            "name": "Assembled Create Agent Associations",
+            "description": {
+              "content": "Associate platform identifiers (Zendesk, Salesforce, Five9, Intercom, etc.) to Assembled agent IDs.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v0",
+                "agents",
+                "associations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"associations\": [\n    {\n      \"agent_id\": \"<string>\",\n      \"platform\": \"<string>\",\n      \"platform_id\": \"<string>\"\n    },\n    {\n      \"agent_id\": \"<string>\",\n      \"platform\": \"<string>\",\n      \"platform_id\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5e0401cb-745a-4fd8-916e-52e7bac23cf3",
+              "name": "Associations created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v0",
+                    "agents",
+                    "associations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"associations\": [\n    {\n      \"agent_id\": \"<string>\",\n      \"platform\": \"zendesk\",\n      \"platform_id\": \"<string>\"\n    },\n    {\n      \"agent_id\": \"<string>\",\n      \"platform\": \"zendesk\",\n      \"platform_id\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.assembledhq.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a35b1abb-236f-4a64-b97d-1556ac1e0626",
+    "name": "Assembled Activities Agent Associations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Activities are the scheduled shifts, breaks, time-off blocks, training\nsessions, and meetings that make up an agent's calendar in Assembled.\n\nThe Activities API supports single and bulk activity creation, listing\nwith rich filters, soft-delete semantics, and CRUD for activity types\n(the colour-coded categories shown on schedules). The event_changes\nendpoint surfaces an audit trail of schedule modifications.\n\n\nContact Support:\n Name: Assembled Support",
+      "type": "text/plain"
+    }
+  }
+}

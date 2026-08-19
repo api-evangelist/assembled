@@ -1,0 +1,99 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Assembled Activities Forecast Totals API",
+    "version": "2026-05-24"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Forecast Totals",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Assembled List Forecast Totals",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.assembledhq.com/v0/forecasts/totals",
+            "params": [
+              {
+                "name": "start_time",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_time",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Assembled List Forecast Totals"
+        },
+        {
+          "info": {
+            "name": "Assembled Create Forecast Totals",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.assembledhq.com/v0/forecasts/totals",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Assembled Create Forecast Totals"
+        },
+        {
+          "info": {
+            "name": "Assembled Get Forecast Total",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.assembledhq.com/v0/forecasts/totals/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Assembled Get Forecast Total"
+        },
+        {
+          "info": {
+            "name": "Assembled Delete Forecast Total",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.assembledhq.com/v0/forecasts/totals/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Assembled Delete Forecast Total"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,69 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Assembled Activities Forecast Adjustments API",
+    "version": "2026-05-24"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Forecast Adjustments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Assembled List Forecast Adjustments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.assembledhq.com/v0/forecasts/adjustments"
+          },
+          "docs": "Assembled List Forecast Adjustments"
+        },
+        {
+          "info": {
+            "name": "Assembled Bulk Create Forecast Adjustments",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.assembledhq.com/v0/forecasts/adjustments/bulk",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Assembled Bulk Create Forecast Adjustments"
+        },
+        {
+          "info": {
+            "name": "Assembled Delete Forecast Adjustment",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.assembledhq.com/v0/forecasts/adjustments/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Assembled Delete Forecast Adjustment"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

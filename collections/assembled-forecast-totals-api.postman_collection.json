@@ -1,122 +1,24 @@
 {
   "item": [
     {
-      "id": "5a13f8ed-a3dd-49c8-9cc3-d9c94b3a06d4",
-      "name": "Time Off",
+      "id": "20346e0e-3940-44d6-862e-f23886547198",
+      "name": "Forecast Totals",
       "description": {
         "content": "",
         "type": "text/plain"
       },
       "item": [
         {
-          "id": "49b05a89-0afb-4835-9a05-6aa069d28477",
-          "name": "Assembled Create Time Off",
+          "id": "2535d35b-d62b-4c00-8ec1-e2db0a9004dd",
+          "name": "Assembled List Forecast Totals",
           "request": {
-            "name": "Assembled Create Time Off",
+            "name": "Assembled List Forecast Totals",
             "description": {},
             "url": {
               "path": [
                 "v0",
-                "time_off"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"agent_id\": \"<string>\",\n  \"start_time\": \"<dateTime>\",\n  \"end_time\": \"<dateTime>\",\n  \"type\": \"<string>\",\n  \"all_day\": \"<boolean>\",\n  \"notes\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "1dc9da84-de73-458c-834b-aa0bdef86bfb",
-              "name": "Created",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v0",
-                    "time_off"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"agent_id\": \"<string>\",\n  \"start_time\": \"<dateTime>\",\n  \"end_time\": \"<dateTime>\",\n  \"type\": \"<string>\",\n  \"all_day\": \"<boolean>\",\n  \"notes\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Created",
-              "code": 201,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"id\": \"string\",\n  \"agent_id\": \"string\",\n  \"type\": \"pto\",\n  \"status\": \"cancelled\",\n  \"start_time\": \"1950-04-01T01:21:51.508Z\",\n  \"end_time\": \"1960-03-24T05:27:13.344Z\",\n  \"all_day\": false,\n  \"notes\": \"string\",\n  \"approver_id\": \"string\",\n  \"created_at\": \"1999-08-12T06:36:58.182Z\",\n  \"updated_at\": \"2018-11-27T04:53:04.059Z\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "b5ed3a4c-eab5-485c-9e07-817b104c6ea4",
-          "name": "Assembled List Time Off Requests",
-          "request": {
-            "name": "Assembled List Time Off Requests",
-            "description": {},
-            "url": {
-              "path": [
-                "v0",
-                "time_off",
-                "requests"
+                "forecasts",
+                "totals"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -124,23 +26,15 @@
               "query": [
                 {
                   "disabled": false,
-                  "key": "status",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "agent_id",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
                   "key": "start_time",
-                  "value": "<dateTime>"
+                  "value": "<dateTime>",
+                  "description": "(Required) "
                 },
                 {
                   "disabled": false,
                   "key": "end_time",
-                  "value": "<dateTime>"
+                  "value": "<dateTime>",
+                  "description": "(Required) "
                 }
               ],
               "variable": []
@@ -156,27 +50,19 @@
           },
           "response": [
             {
-              "id": "196f497d-c361-4aac-8cec-78bb13eba38e",
-              "name": "Time off requests",
+              "id": "d6f4e25b-64ea-4274-a38f-de26fffad2b9",
+              "name": "Forecast totals",
               "originalRequest": {
                 "url": {
                   "path": [
                     "v0",
-                    "time_off",
-                    "requests"
+                    "forecasts",
+                    "totals"
                   ],
                   "host": [
                     "{{baseUrl}}"
                   ],
                   "query": [
-                    {
-                      "key": "status",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "agent_id",
-                      "value": "<string>"
-                    },
                     {
                       "key": "start_time",
                       "value": "<dateTime>"
@@ -213,7 +99,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"requests\": [\n    {\n      \"id\": \"string\",\n      \"agent_id\": \"string\",\n      \"type\": \"pto\",\n      \"status\": \"pending\",\n      \"start_time\": \"2018-10-22T12:45:55.791Z\",\n      \"end_time\": \"1950-06-24T00:11:04.010Z\",\n      \"all_day\": true,\n      \"notes\": \"string\",\n      \"approver_id\": \"string\",\n      \"created_at\": \"2006-08-05T07:28:34.027Z\",\n      \"updated_at\": \"2025-05-01T10:58:42.308Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"agent_id\": \"string\",\n      \"type\": \"pto\",\n      \"status\": \"pending\",\n      \"start_time\": \"1952-09-22T15:14:22.515Z\",\n      \"end_time\": \"1993-10-06T19:57:49.823Z\",\n      \"all_day\": true,\n      \"notes\": \"string\",\n      \"approver_id\": \"string\",\n      \"created_at\": \"1954-01-24T02:22:08.774Z\",\n      \"updated_at\": \"1986-04-14T00:41:42.727Z\"\n    }\n  ]\n}",
+              "body": "{\n  \"totals\": [\n    {\n      \"id\": \"string\",\n      \"queue_id\": \"string\",\n      \"start_time\": \"1976-09-17T09:24:41.956Z\",\n      \"end_time\": \"1948-08-09T11:07:50.523Z\",\n      \"total_volume\": 6192.401670334735\n    },\n    {\n      \"id\": \"string\",\n      \"queue_id\": \"string\",\n      \"start_time\": \"1949-04-30T13:42:51.533Z\",\n      \"end_time\": \"2023-03-21T16:37:19.340Z\",\n      \"total_volume\": 5777.357628652519\n    }\n  ]\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -224,60 +110,57 @@
           }
         },
         {
-          "id": "0658f16b-e7f1-4753-9c8d-553bd309359c",
-          "name": "Assembled Cancel Time Off Request",
+          "id": "ea8cb17d-b304-4e3e-8914-57037358c39f",
+          "name": "Assembled Create Forecast Totals",
           "request": {
-            "name": "Assembled Cancel Time Off Request",
+            "name": "Assembled Create Forecast Totals",
             "description": {},
             "url": {
               "path": [
                 "v0",
-                "time_off",
-                ":id",
-                "cancel"
+                "forecasts",
+                "totals"
               ],
               "host": [
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
+              "variable": []
             },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
             "method": "POST",
-            "auth": null
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"totals\": [\n    {\n      \"queue_id\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"end_time\": \"<dateTime>\",\n      \"total_volume\": \"<number>\"\n    },\n    {\n      \"queue_id\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"end_time\": \"<dateTime>\",\n      \"total_volume\": \"<number>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
           },
           "response": [
             {
-              "id": "794eccfd-c0f6-40a5-9252-072297ee36c2",
-              "name": "Cancelled",
+              "id": "278cbb5e-3e2e-4a5d-a191-adb9af559c82",
+              "name": "Created",
               "originalRequest": {
                 "url": {
                   "path": [
                     "v0",
-                    "time_off",
-                    ":id",
-                    "cancel"
+                    "forecasts",
+                    "totals"
                   ],
                   "host": [
                     "{{baseUrl}}"
                   ],
                   "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
+                  "variable": []
                 },
                 "header": [
                   {
@@ -290,10 +173,18 @@
                   }
                 ],
                 "method": "POST",
-                "body": {}
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"totals\": [\n    {\n      \"queue_id\": \"string\",\n      \"start_time\": \"1992-03-16T22:09:52.683Z\",\n      \"end_time\": \"1976-03-08T22:31:21.030Z\",\n      \"total_volume\": 682.9173735026228\n    },\n    {\n      \"queue_id\": \"string\",\n      \"start_time\": \"2005-06-26T07:40:12.066Z\",\n      \"end_time\": \"1994-10-28T23:09:38.206Z\",\n      \"total_volume\": 9471.893076433727\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
               },
-              "status": "OK",
-              "code": 200,
+              "status": "Created",
+              "code": 201,
               "header": [
                 {
                   "key": "Content-Type",
@@ -311,29 +202,31 @@
           }
         },
         {
-          "id": "fe96f4e5-6b88-447d-a9d1-b2c11a66b525",
-          "name": "Assembled List Time Off Updates",
+          "id": "27ca6055-87c0-485a-873c-191fb058598d",
+          "name": "Assembled Get Forecast Total",
           "request": {
-            "name": "Assembled List Time Off Updates",
+            "name": "Assembled Get Forecast Total",
             "description": {},
             "url": {
               "path": [
                 "v0",
-                "time_off",
-                "updates"
+                "forecasts",
+                "totals",
+                ":id"
               ],
               "host": [
                 "{{baseUrl}}"
               ],
-              "query": [
+              "query": [],
+              "variable": [
                 {
                   "disabled": false,
-                  "key": "since",
-                  "value": "<dateTime>",
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
                   "description": "(Required) "
                 }
-              ],
-              "variable": []
+              ]
             },
             "header": [
               {
@@ -346,25 +239,29 @@
           },
           "response": [
             {
-              "id": "45beb57a-3162-4d30-9ea8-f6bc365eee1c",
-              "name": "Time off update stream",
+              "id": "024dddb6-019a-485e-a19b-d40f5d4ed89b",
+              "name": "Forecast total",
               "originalRequest": {
                 "url": {
                   "path": [
                     "v0",
-                    "time_off",
-                    "updates"
+                    "forecasts",
+                    "totals",
+                    ":id"
                   ],
                   "host": [
                     "{{baseUrl}}"
                   ],
-                  "query": [
+                  "query": [],
+                  "variable": [
                     {
-                      "key": "since",
-                      "value": "<dateTime>"
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
                     }
-                  ],
-                  "variable": []
+                  ]
                 },
                 "header": [
                   {
@@ -391,9 +288,96 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"updates\": [\n    {\n      \"request_id\": \"string\",\n      \"change_type\": \"string\",\n      \"updated_at\": \"1960-12-29T10:15:43.922Z\"\n    },\n    {\n      \"request_id\": \"string\",\n      \"change_type\": \"string\",\n      \"updated_at\": \"2010-06-06T23:32:49.633Z\"\n    }\n  ]\n}",
+              "body": "{\n  \"id\": \"string\",\n  \"queue_id\": \"string\",\n  \"start_time\": \"2022-10-18T02:26:56.553Z\",\n  \"end_time\": \"1978-03-18T18:05:49.860Z\",\n  \"total_volume\": 1733.786871642633\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e10e18b8-830d-4f38-82e3-c6f043f033d2",
+          "name": "Assembled Delete Forecast Total",
+          "request": {
+            "name": "Assembled Delete Forecast Total",
+            "description": {},
+            "url": {
+              "path": [
+                "v0",
+                "forecasts",
+                "totals",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "803ceea5-5ee7-40aa-ab8c-88745669a15d",
+              "name": "Deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v0",
+                    "forecasts",
+                    "totals",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
             }
           ],
           "event": [],
@@ -427,8 +411,8 @@
     ]
   },
   "info": {
-    "_postman_id": "ba1f482f-2687-49c3-ad3c-5e6127a8befe",
-    "name": "Assembled Activities Time Off API",
+    "_postman_id": "f8d38434-5d08-428e-892e-0c1b26a2ffb7",
+    "name": "Assembled Activities Forecast Totals API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
       "content": "Activities are the scheduled shifts, breaks, time-off blocks, training\nsessions, and meetings that make up an agent's calendar in Assembled.\n\nThe Activities API supports single and bulk activity creation, listing\nwith rich filters, soft-delete semantics, and CRUD for activity types\n(the colour-coded categories shown on schedules). The event_changes\nendpoint surfaces an audit trail of schedule modifications.\n\n\nContact Support:\n Name: Assembled Support",

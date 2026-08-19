@@ -1,7 +1,7 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "Assembled Activities Requirements API",
+    "name": "Assembled Activities Forecasts Vs Actuals API",
     "version": "2026-05-24"
   },
   "request": {
@@ -14,18 +14,18 @@
   "items": [
     {
       "info": {
-        "name": "Requirements",
+        "name": "Forecasts Vs Actuals",
         "type": "folder"
       },
       "items": [
         {
           "info": {
-            "name": "Assembled List Requirements",
+            "name": "Assembled Get Forecasted Vs Actuals",
             "type": "http"
           },
           "http": {
             "method": "GET",
-            "url": "https://api.assembledhq.com/v0/requirements",
+            "url": "https://api.assembledhq.com/v0/forecasted_vs_actuals",
             "params": [
               {
                 "name": "start_time",
@@ -44,22 +44,7 @@
               }
             ]
           },
-          "docs": "Assembled List Requirements"
-        },
-        {
-          "info": {
-            "name": "Assembled Create Requirement",
-            "type": "http"
-          },
-          "http": {
-            "method": "POST",
-            "url": "https://api.assembledhq.com/v0/requirements",
-            "body": {
-              "type": "json",
-              "data": "{}"
-            }
-          },
-          "docs": "Assembled Create Requirement"
+          "docs": "Assembled Get Forecasted Vs Actuals"
         }
       ]
     }

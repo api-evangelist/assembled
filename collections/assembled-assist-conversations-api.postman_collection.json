@@ -1,23 +1,27 @@
 {
   "item": [
     {
-      "id": "e8c5a490-9f05-4e76-b25a-4511520b33b4",
-      "name": "Requirements",
+      "id": "6c81eaf7-2616-4a86-9a51-b89a3dfd4c70",
+      "name": "Assist Conversations",
       "description": {
         "content": "",
         "type": "text/plain"
       },
       "item": [
         {
-          "id": "a15aa29f-5c4a-4c19-9fab-0af3193c051c",
-          "name": "Assembled List Requirements",
+          "id": "bb3db92d-1b8f-42b8-a1ad-6ba3deffd56e",
+          "name": "Assembled List Assist Conversations",
           "request": {
-            "name": "Assembled List Requirements",
-            "description": {},
+            "name": "Assembled List Assist Conversations",
+            "description": {
+              "content": "List AI-assisted conversations.",
+              "type": "text/plain"
+            },
             "url": {
               "path": [
                 "v0",
-                "requirements"
+                "assist",
+                "conversations"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -26,18 +30,16 @@
                 {
                   "disabled": false,
                   "key": "start_time",
-                  "value": "<dateTime>",
-                  "description": "(Required) "
+                  "value": "<dateTime>"
                 },
                 {
                   "disabled": false,
                   "key": "end_time",
-                  "value": "<dateTime>",
-                  "description": "(Required) "
+                  "value": "<dateTime>"
                 },
                 {
                   "disabled": false,
-                  "key": "queue_ids",
+                  "key": "status",
                   "value": "<string>"
                 }
               ],
@@ -54,13 +56,14 @@
           },
           "response": [
             {
-              "id": "7e2cf332-0a28-436d-b192-6d4481b3981a",
-              "name": "Requirements",
+              "id": "5afa5925-8bc5-4a4b-9285-3145663461d3",
+              "name": "Conversations",
               "originalRequest": {
                 "url": {
                   "path": [
                     "v0",
-                    "requirements"
+                    "assist",
+                    "conversations"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -75,7 +78,7 @@
                       "value": "<dateTime>"
                     },
                     {
-                      "key": "queue_ids",
+                      "key": "status",
                       "value": "<string>"
                     }
                   ],
@@ -106,7 +109,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"requirements\": [\n    {\n      \"id\": \"string\",\n      \"requirement_type_id\": \"string\",\n      \"queue_id\": \"string\",\n      \"site_id\": \"string\",\n      \"team_id\": \"string\",\n      \"skill_id\": \"string\",\n      \"start_time\": \"1963-03-02T09:49:50.411Z\",\n      \"end_time\": \"1961-05-23T11:43:22.472Z\",\n      \"required_count\": 9921.629434480055\n    },\n    {\n      \"id\": \"string\",\n      \"requirement_type_id\": \"string\",\n      \"queue_id\": \"string\",\n      \"site_id\": \"string\",\n      \"team_id\": \"string\",\n      \"skill_id\": \"string\",\n      \"start_time\": \"1979-03-20T05:42:30.173Z\",\n      \"end_time\": \"2023-12-07T06:52:35.611Z\",\n      \"required_count\": 1881.3978980965662\n    }\n  ]\n}",
+              "body": "{\n  \"conversations\": [\n    {\n      \"id\": \"string\",\n      \"channel\": \"string\",\n      \"status\": \"resolved\",\n      \"started_at\": \"2006-10-09T17:30:14.968Z\",\n      \"ended_at\": \"2005-11-07T13:34:27.577Z\",\n      \"resolved_by\": \"human\",\n      \"customer_id\": \"string\",\n      \"handoff_id\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"channel\": \"string\",\n      \"status\": \"resolved\",\n      \"started_at\": \"1997-07-05T08:34:30.824Z\",\n      \"ended_at\": \"1974-11-25T15:49:35.718Z\",\n      \"resolved_by\": \"human\",\n      \"customer_id\": \"string\",\n      \"handoff_id\": \"string\"\n    }\n  ]\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -117,59 +120,71 @@
           }
         },
         {
-          "id": "57840f79-2afb-4297-876c-34f3b4b43726",
-          "name": "Assembled Create Requirement",
+          "id": "e593420c-5696-4848-a110-6a4e9503c5cd",
+          "name": "Assembled Get Assist Conversation Handoff",
           "request": {
-            "name": "Assembled Create Requirement",
-            "description": {},
+            "name": "Assembled Get Assist Conversation Handoff",
+            "description": {
+              "content": "Retrieve the handoff payload for a single AI-assisted conversation.",
+              "type": "text/plain"
+            },
             "url": {
               "path": [
                 "v0",
-                "requirements"
+                "assist",
+                "conversations",
+                ":id",
+                "handoff"
               ],
               "host": [
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": []
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
             },
             "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
               {
                 "key": "Accept",
                 "value": "application/json"
               }
             ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"requirement_type_id\": \"<string>\",\n  \"start_time\": \"<dateTime>\",\n  \"end_time\": \"<dateTime>\",\n  \"required_count\": \"<number>\",\n  \"queue_id\": \"<string>\",\n  \"site_id\": \"<string>\",\n  \"team_id\": \"<string>\",\n  \"skill_id\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
+            "method": "GET",
+            "auth": null
           },
           "response": [
             {
-              "id": "4d8500e0-17f6-4d46-8e23-4df40e3cc94c",
-              "name": "Created",
+              "id": "0af48d39-2b34-40d4-9f75-b7ef9059d2a1",
+              "name": "Handoff payload",
               "originalRequest": {
                 "url": {
                   "path": [
                     "v0",
-                    "requirements"
+                    "assist",
+                    "conversations",
+                    ":id",
+                    "handoff"
                   ],
                   "host": [
                     "{{baseUrl}}"
                   ],
                   "query": [],
-                  "variable": []
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
                 },
                 "header": [
                   {
@@ -185,26 +200,18 @@
                     "value": "application/json"
                   }
                 ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"requirement_type_id\": \"<string>\",\n  \"start_time\": \"<dateTime>\",\n  \"end_time\": \"<dateTime>\",\n  \"required_count\": \"<number>\",\n  \"queue_id\": \"<string>\",\n  \"site_id\": \"<string>\",\n  \"team_id\": \"<string>\",\n  \"skill_id\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
+                "method": "GET",
+                "body": {}
               },
-              "status": "Created",
-              "code": 201,
+              "status": "OK",
+              "code": 200,
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"id\": \"string\",\n  \"requirement_type_id\": \"string\",\n  \"queue_id\": \"string\",\n  \"site_id\": \"string\",\n  \"team_id\": \"string\",\n  \"skill_id\": \"string\",\n  \"start_time\": \"2002-05-21T11:17:14.642Z\",\n  \"end_time\": \"2004-01-13T13:42:16.406Z\",\n  \"required_count\": 944.0150719801954\n}",
+              "body": "{\n  \"id\": \"string\",\n  \"conversation_id\": \"string\",\n  \"handed_off_at\": \"1967-04-14T04:14:37.130Z\",\n  \"reason\": \"string\",\n  \"summary\": \"string\",\n  \"transcript\": [\n    {\n      \"role\": \"ai\",\n      \"content\": \"string\",\n      \"timestamp\": \"2016-07-31T22:17:18.220Z\"\n    },\n    {\n      \"role\": \"ai\",\n      \"content\": \"string\",\n      \"timestamp\": \"1947-07-16T13:07:35.444Z\"\n    }\n  ]\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -240,8 +247,8 @@
     ]
   },
   "info": {
-    "_postman_id": "10cc0ea6-32dd-49c5-b687-6b4a1e939d2c",
-    "name": "Assembled Activities Requirements API",
+    "_postman_id": "4626b455-35c4-4049-8175-9d072735f4c1",
+    "name": "Assembled Activities Assist Conversations API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
       "content": "Activities are the scheduled shifts, breaks, time-off blocks, training\nsessions, and meetings that make up an agent's calendar in Assembled.\n\nThe Activities API supports single and bulk activity creation, listing\nwith rich filters, soft-delete semantics, and CRUD for activity types\n(the colour-coded categories shown on schedules). The event_changes\nendpoint surfaces an audit trail of schedule modifications.\n\n\nContact Support:\n Name: Assembled Support",

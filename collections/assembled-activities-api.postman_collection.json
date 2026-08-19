@@ -1,7 +1,7 @@
 {
   "item": [
     {
-      "id": "669b28aa-6cb0-4c81-ba41-ba4a5508bc1f",
+      "id": "54fa39f1-525b-43d0-a480-88712129432d",
       "name": "Activities",
       "description": {
         "content": "Scheduled activities on an agent's calendar",
@@ -9,7 +9,7 @@
       },
       "item": [
         {
-          "id": "a000643b-5566-4b19-881d-aac6d4815810",
+          "id": "ccc2a9c6-5312-40a8-a744-83216f67e14b",
           "name": "Assembled List Activities",
           "request": {
             "name": "Assembled List Activities",
@@ -73,7 +73,7 @@
           },
           "response": [
             {
-              "id": "7fef5feb-494e-43dc-8221-a9d15b5b109b",
+              "id": "daad4974-08e9-4db2-9d7d-6abf837078b5",
               "name": "Activities list",
               "originalRequest": {
                 "url": {
@@ -139,7 +139,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"activities\": [\n    {\n      \"id\": \"string\",\n      \"agent_id\": \"string\",\n      \"activity_type_id\": \"string\",\n      \"start_time\": \"2019-05-20T07:23:56.862Z\",\n      \"end_time\": \"1982-11-11T22:16:35.308Z\",\n      \"queue_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"site_id\": \"string\",\n      \"notes\": \"string\",\n      \"external_id\": \"string\",\n      \"created_at\": \"1985-04-15T17:32:53.319Z\",\n      \"updated_at\": \"1977-08-16T02:07:24.577Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"agent_id\": \"string\",\n      \"activity_type_id\": \"string\",\n      \"start_time\": \"2012-09-09T21:10:53.111Z\",\n      \"end_time\": \"1948-05-28T23:58:10.032Z\",\n      \"queue_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"site_id\": \"string\",\n      \"notes\": \"string\",\n      \"external_id\": \"string\",\n      \"created_at\": \"1988-07-23T13:35:41.375Z\",\n      \"updated_at\": \"1975-02-09T11:34:12.967Z\"\n    }\n  ]\n}",
+              "body": "{\n  \"activities\": [\n    {\n      \"id\": \"string\",\n      \"agent_id\": \"string\",\n      \"activity_type_id\": \"string\",\n      \"start_time\": \"1989-02-01T07:59:03.606Z\",\n      \"end_time\": \"1946-11-02T17:13:04.222Z\",\n      \"queue_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"site_id\": \"string\",\n      \"notes\": \"string\",\n      \"external_id\": \"string\",\n      \"created_at\": \"2023-02-06T09:54:48.889Z\",\n      \"updated_at\": \"1995-04-19T13:42:46.418Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"agent_id\": \"string\",\n      \"activity_type_id\": \"string\",\n      \"start_time\": \"2010-01-14T21:35:42.415Z\",\n      \"end_time\": \"1971-08-15T03:00:45.333Z\",\n      \"queue_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"site_id\": \"string\",\n      \"notes\": \"string\",\n      \"external_id\": \"string\",\n      \"created_at\": \"2003-02-21T17:34:58.499Z\",\n      \"updated_at\": \"1949-05-10T20:32:41.018Z\"\n    }\n  ]\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -150,7 +150,7 @@
           }
         },
         {
-          "id": "fe3f7673-99e7-4461-b7f4-aafd268b2cd7",
+          "id": "251ad5e1-fc0b-4468-8580-743c17f56a9f",
           "name": "Assembled Create Activity",
           "request": {
             "name": "Assembled Create Activity",
@@ -193,7 +193,7 @@
           },
           "response": [
             {
-              "id": "cccbc9ae-018a-4e8b-afaa-461814189052",
+              "id": "372c9adc-dd24-4128-bb37-dcc4c715e8f3",
               "name": "Created",
               "originalRequest": {
                 "url": {
@@ -240,7 +240,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"id\": \"string\",\n  \"agent_id\": \"string\",\n  \"activity_type_id\": \"string\",\n  \"start_time\": \"2008-04-21T04:31:38.986Z\",\n  \"end_time\": \"1979-06-26T15:55:40.299Z\",\n  \"queue_ids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"site_id\": \"string\",\n  \"notes\": \"string\",\n  \"external_id\": \"string\",\n  \"created_at\": \"2000-06-11T15:34:05.925Z\",\n  \"updated_at\": \"1986-05-11T03:41:19.947Z\"\n}",
+              "body": "{\n  \"id\": \"string\",\n  \"agent_id\": \"string\",\n  \"activity_type_id\": \"string\",\n  \"start_time\": \"1972-09-04T01:49:15.887Z\",\n  \"end_time\": \"1989-05-12T08:15:41.811Z\",\n  \"queue_ids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"site_id\": \"string\",\n  \"notes\": \"string\",\n  \"external_id\": \"string\",\n  \"created_at\": \"1946-11-10T19:27:04.937Z\",\n  \"updated_at\": \"1996-12-30T10:58:34.667Z\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -251,7 +251,7 @@
           }
         },
         {
-          "id": "b5ec688e-b37f-49a5-a936-98e6d19a7a4d",
+          "id": "58f0b0dc-b674-45de-bad2-bd07938b6792",
           "name": "Assembled Delete Activities",
           "request": {
             "name": "Assembled Delete Activities",
@@ -282,7 +282,7 @@
           },
           "response": [
             {
-              "id": "9f7b92b0-14ca-4ffc-92f0-c4f93f66aadc",
+              "id": "e5dfedf6-61ac-43e0-9380-78aa70536864",
               "name": "Deleted",
               "originalRequest": {
                 "url": {
@@ -333,7 +333,7 @@
           }
         },
         {
-          "id": "b8778d72-2ca3-4b60-b03b-de21dfeb445b",
+          "id": "90f944e2-5a3f-4661-b2a8-c754d3365509",
           "name": "Assembled Bulk Create Activities",
           "request": {
             "name": "Assembled Bulk Create Activities",
@@ -373,7 +373,7 @@
           },
           "response": [
             {
-              "id": "cfc521e5-ac76-426c-ba1c-12ceb37ddd59",
+              "id": "9faedb64-dd73-48fa-9a20-4693fde0e04c",
               "name": "Created",
               "originalRequest": {
                 "url": {
@@ -401,7 +401,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"activities\": [\n    {\n      \"agent_id\": \"string\",\n      \"activity_type_id\": \"string\",\n      \"start_time\": \"1997-04-16T09:31:41.902Z\",\n      \"end_time\": \"1971-09-15T00:33:02.740Z\",\n      \"queue_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"site_id\": \"string\",\n      \"notes\": \"string\",\n      \"external_id\": \"string\"\n    },\n    {\n      \"agent_id\": \"string\",\n      \"activity_type_id\": \"string\",\n      \"start_time\": \"1979-12-02T17:08:58.894Z\",\n      \"end_time\": \"2007-08-28T22:25:15.397Z\",\n      \"queue_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"site_id\": \"string\",\n      \"notes\": \"string\",\n      \"external_id\": \"string\"\n    }\n  ]\n}",
+                  "raw": "{\n  \"activities\": [\n    {\n      \"agent_id\": \"string\",\n      \"activity_type_id\": \"string\",\n      \"start_time\": \"1958-10-14T15:21:43.881Z\",\n      \"end_time\": \"1950-01-19T23:25:54.867Z\",\n      \"queue_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"site_id\": \"string\",\n      \"notes\": \"string\",\n      \"external_id\": \"string\"\n    },\n    {\n      \"agent_id\": \"string\",\n      \"activity_type_id\": \"string\",\n      \"start_time\": \"2005-04-06T09:08:01.897Z\",\n      \"end_time\": \"1970-12-18T04:50:32.500Z\",\n      \"queue_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"site_id\": \"string\",\n      \"notes\": \"string\",\n      \"external_id\": \"string\"\n    }\n  ]\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -420,399 +420,6 @@
               "body": "",
               "cookie": [],
               "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        }
-      ],
-      "event": []
-    },
-    {
-      "id": "f5913353-ade7-41a7-b089-09049641a5c0",
-      "name": "Activity Types",
-      "description": {
-        "content": "Types/categories of activity",
-        "type": "text/plain"
-      },
-      "item": [
-        {
-          "id": "d70352d5-0c31-417b-92e0-d9e839a24fcf",
-          "name": "Assembled List Activity Types",
-          "request": {
-            "name": "Assembled List Activity Types",
-            "description": {
-              "content": "List activity types defined in your organization.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "v0",
-                "activity_types"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "0140682a-3c49-45f8-b860-4d3f785cab58",
-              "name": "Activity types",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v0",
-                    "activity_types"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"activity_types\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"color\": \"#3b82f6\",\n      \"category\": \"shift\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"color\": \"#3b82f6\",\n      \"category\": \"shift\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "9a5888fd-b62a-4dc9-bfa3-c4ecba445c6d",
-          "name": "Assembled Create Activity Type",
-          "request": {
-            "name": "Assembled Create Activity Type",
-            "description": {
-              "content": "Define a new activity type (name and colour).",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "v0",
-                "activity_types"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"name\": \"<string>\",\n  \"color\": \"<string>\",\n  \"category\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "df57aca6-d859-4f54-b870-50f42b234c06",
-              "name": "Created",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v0",
-                    "activity_types"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"color\": \"<string>\",\n  \"category\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Created",
-              "code": 201,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"color\": \"#3b82f6\",\n  \"category\": \"shift\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "ffa8a5c4-4550-42a2-967c-6e669dba0c12",
-          "name": "Assembled Delete Activity Type",
-          "request": {
-            "name": "Assembled Delete Activity Type",
-            "description": {
-              "content": "Delete an activity type.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "v0",
-                "activity_types",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "a4b2289f-3578-49f8-ac9a-d471acfd4250",
-              "name": "Deleted",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v0",
-                    "activity_types",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "No Content",
-              "code": 204,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        }
-      ],
-      "event": []
-    },
-    {
-      "id": "c36c654d-cf79-4e26-8fdb-8b58bcbef737",
-      "name": "Event Changes",
-      "description": {
-        "content": "Audit trail of schedule modifications",
-        "type": "text/plain"
-      },
-      "item": [
-        {
-          "id": "c4378afa-01f3-407a-ab72-71073904e97b",
-          "name": "Assembled List Event Changes",
-          "request": {
-            "name": "Assembled List Event Changes",
-            "description": {
-              "content": "Retrieve the audit trail of schedule modifications across activities.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "v0",
-                "event_changes"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "start_time",
-                  "value": "<dateTime>",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "key": "end_time",
-                  "value": "<dateTime>",
-                  "description": "(Required) "
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "2dbab67e-af04-4010-8235-dc71ee5e59a2",
-              "name": "Event changes",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v0",
-                    "event_changes"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "start_time",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "end_time",
-                      "value": "<dateTime>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"event_changes\": [\n    {\n      \"id\": \"string\",\n      \"event_id\": \"string\",\n      \"change_type\": \"create\",\n      \"changed_by\": \"string\",\n      \"changed_at\": \"1991-12-07T04:09:26.686Z\",\n      \"diff\": {}\n    },\n    {\n      \"id\": \"string\",\n      \"event_id\": \"string\",\n      \"change_type\": \"delete\",\n      \"changed_by\": \"string\",\n      \"changed_at\": \"2025-12-11T12:05:14.248Z\",\n      \"diff\": {}\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
             }
           ],
           "event": [],
@@ -846,7 +453,7 @@
     ]
   },
   "info": {
-    "_postman_id": "cbb6864a-f685-42dc-8ae2-83acd9fbae2f",
+    "_postman_id": "7ada6390-8ac7-4d08-b8f3-02118dc09de9",
     "name": "Assembled Activities API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {

@@ -1,7 +1,7 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "Assembled Activities Requirements API",
+    "name": "Assembled Activities Assist Conversations API",
     "version": "2026-05-24"
   },
   "request": {
@@ -14,18 +14,18 @@
   "items": [
     {
       "info": {
-        "name": "Requirements",
+        "name": "Assist Conversations",
         "type": "folder"
       },
       "items": [
         {
           "info": {
-            "name": "Assembled List Requirements",
+            "name": "Assembled List Assist Conversations",
             "type": "http"
           },
           "http": {
             "method": "GET",
-            "url": "https://api.assembledhq.com/v0/requirements",
+            "url": "https://api.assembledhq.com/v0/assist/conversations",
             "params": [
               {
                 "name": "start_time",
@@ -38,28 +38,31 @@
                 "type": "query"
               },
               {
-                "name": "queue_ids",
+                "name": "status",
                 "value": "",
                 "type": "query"
               }
             ]
           },
-          "docs": "Assembled List Requirements"
+          "docs": "List AI-assisted conversations."
         },
         {
           "info": {
-            "name": "Assembled Create Requirement",
+            "name": "Assembled Get Assist Conversation Handoff",
             "type": "http"
           },
           "http": {
-            "method": "POST",
-            "url": "https://api.assembledhq.com/v0/requirements",
-            "body": {
-              "type": "json",
-              "data": "{}"
-            }
+            "method": "GET",
+            "url": "https://api.assembledhq.com/v0/assist/conversations/:id/handoff",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
           },
-          "docs": "Assembled Create Requirement"
+          "docs": "Retrieve the handoff payload for a single AI-assisted conversation."
         }
       ]
     }

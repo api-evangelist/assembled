@@ -1,0 +1,69 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Assembled Activities Forecast Outliers API",
+    "version": "2026-05-24"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Forecast Outliers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Assembled List Forecast Outliers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.assembledhq.com/v0/forecasts/outliers"
+          },
+          "docs": "Assembled List Forecast Outliers"
+        },
+        {
+          "info": {
+            "name": "Assembled Bulk Create Forecast Outliers",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.assembledhq.com/v0/forecasts/outliers/bulk",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Assembled Bulk Create Forecast Outliers"
+        },
+        {
+          "info": {
+            "name": "Assembled Delete Forecast Outlier",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.assembledhq.com/v0/forecasts/outliers/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Assembled Delete Forecast Outlier"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

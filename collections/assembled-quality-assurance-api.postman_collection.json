@@ -1,0 +1,140 @@
+{
+  "item": [
+    {
+      "id": "59a5a1cc-e4dd-4377-9bd2-24d4b9b98e8f",
+      "name": "Quality Assurance",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b25aa681-b605-44c3-8b9a-5c07209a4e0f",
+          "name": "Assembled Bulk Upload QA Scores",
+          "request": {
+            "name": "Assembled Bulk Upload QA Scores",
+            "description": {
+              "content": "Submit a batch of QA scores from an external QM tool.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v0",
+                "qa_scores",
+                "bulk"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"qa_scores\": [\n    {\n      \"agent_id\": \"<string>\",\n      \"score\": \"<number>\",\n      \"source\": \"<string>\",\n      \"scored_at\": \"<dateTime>\",\n      \"conversation_external_id\": \"<string>\",\n      \"max_score\": 100,\n      \"rubric\": \"<string>\",\n      \"notes\": \"<string>\",\n      \"reviewer\": \"<string>\"\n    },\n    {\n      \"agent_id\": \"<string>\",\n      \"score\": \"<number>\",\n      \"source\": \"<string>\",\n      \"scored_at\": \"<dateTime>\",\n      \"conversation_external_id\": \"<string>\",\n      \"max_score\": 100,\n      \"rubric\": \"<string>\",\n      \"notes\": \"<string>\",\n      \"reviewer\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d84ce06e-b721-4805-80b6-e3f206ba1fa7",
+              "name": "Accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v0",
+                    "qa_scores",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"qa_scores\": [\n    {\n      \"agent_id\": \"string\",\n      \"score\": 186.79137811909442,\n      \"source\": \"klaus\",\n      \"scored_at\": \"1997-06-21T16:23:35.254Z\",\n      \"conversation_external_id\": \"string\",\n      \"max_score\": 100,\n      \"rubric\": \"string\",\n      \"notes\": \"string\",\n      \"reviewer\": \"string\"\n    },\n    {\n      \"agent_id\": \"string\",\n      \"score\": 5374.243638245935,\n      \"source\": \"klaus\",\n      \"scored_at\": \"1967-06-22T08:16:25.172Z\",\n      \"conversation_external_id\": \"string\",\n      \"max_score\": 100,\n      \"rubric\": \"string\",\n      \"notes\": \"string\",\n      \"reviewer\": \"string\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.assembledhq.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4ab0eba6-9d8e-4f77-b5fc-37a6b17045d9",
+    "name": "Assembled Activities Quality Assurance API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Activities are the scheduled shifts, breaks, time-off blocks, training\nsessions, and meetings that make up an agent's calendar in Assembled.\n\nThe Activities API supports single and bulk activity creation, listing\nwith rich filters, soft-delete semantics, and CRUD for activity types\n(the colour-coded categories shown on schedules). The event_changes\nendpoint surfaces an audit trail of schedule modifications.\n\n\nContact Support:\n Name: Assembled Support",
+      "type": "text/plain"
+    }
+  }
+}

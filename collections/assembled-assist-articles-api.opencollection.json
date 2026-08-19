@@ -1,0 +1,80 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Assembled Activities Assist Articles API",
+    "version": "2026-05-24"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Assist Articles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Assembled Create Assist Article",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.assembledhq.com/v0/assist/articles",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a knowledge article that AI Agents can reference."
+        },
+        {
+          "info": {
+            "name": "Assembled Update Assist Article",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.assembledhq.com/v0/assist/articles/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Assembled Update Assist Article"
+        },
+        {
+          "info": {
+            "name": "Assembled Delete Assist Article",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.assembledhq.com/v0/assist/articles/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Assembled Delete Assist Article"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

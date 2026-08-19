@@ -1,51 +1,28 @@
 {
   "item": [
     {
-      "id": "5661d323-ede5-4fd2-810d-fbb24fd4a439",
-      "name": "Forecasts",
+      "id": "e6a48654-d281-4a40-8994-a594ac79356f",
+      "name": "Requirement Types",
       "description": {
         "content": "",
         "type": "text/plain"
       },
       "item": [
         {
-          "id": "0f8147c4-264d-4fd4-8807-39ead5d9f6f8",
-          "name": "Assembled List Forecasts",
+          "id": "af1fb527-9abe-4fd4-b23f-e318030730b6",
+          "name": "Assembled List Requirement Types",
           "request": {
-            "name": "Assembled List Forecasts",
+            "name": "Assembled List Requirement Types",
             "description": {},
             "url": {
               "path": [
                 "v0",
-                "forecasts"
+                "requirement_types"
               ],
               "host": [
                 "{{baseUrl}}"
               ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "start_time",
-                  "value": "<dateTime>",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "key": "end_time",
-                  "value": "<dateTime>",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "key": "queue_ids",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "channel",
-                  "value": "<string>"
-                }
-              ],
+              "query": [],
               "variable": []
             },
             "header": [
@@ -59,35 +36,18 @@
           },
           "response": [
             {
-              "id": "3001142a-fb5f-4ea3-ae47-c632184fca61",
-              "name": "Forecasts",
+              "id": "c81f3874-1999-469c-a65a-e2358aea95bb",
+              "name": "Requirement types",
               "originalRequest": {
                 "url": {
                   "path": [
                     "v0",
-                    "forecasts"
+                    "requirement_types"
                   ],
                   "host": [
                     "{{baseUrl}}"
                   ],
-                  "query": [
-                    {
-                      "key": "start_time",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "end_time",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "queue_ids",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "channel",
-                      "value": "<string>"
-                    }
-                  ],
+                  "query": [],
                   "variable": []
                 },
                 "header": [
@@ -115,7 +75,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"forecasts\": [\n    {\n      \"id\": \"string\",\n      \"queue_id\": \"string\",\n      \"channel\": \"string\",\n      \"start_time\": \"1989-11-01T19:32:50.638Z\",\n      \"end_time\": \"1957-04-19T14:02:02.964Z\",\n      \"interval_minutes\": 30,\n      \"volume\": 8726.838478943419,\n      \"aht_seconds\": 8701.469951590745,\n      \"required_agents\": 9071.248902368294\n    },\n    {\n      \"id\": \"string\",\n      \"queue_id\": \"string\",\n      \"channel\": \"string\",\n      \"start_time\": \"2021-07-16T03:34:04.797Z\",\n      \"end_time\": \"1967-10-29T11:21:57.329Z\",\n      \"interval_minutes\": 30,\n      \"volume\": 140.51467142912722,\n      \"aht_seconds\": 5866.447792783783,\n      \"required_agents\": 6231.308829016285\n    }\n  ]\n}",
+              "body": "{\n  \"requirement_types\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\"\n    }\n  ]\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -151,8 +111,8 @@
     ]
   },
   "info": {
-    "_postman_id": "fb9ce49b-0e29-47d3-b160-f257742a1322",
-    "name": "Assembled Activities Forecasts API",
+    "_postman_id": "b44d1741-0419-483d-84cd-de8b27845d25",
+    "name": "Assembled Activities Requirement Types API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
       "content": "Activities are the scheduled shifts, breaks, time-off blocks, training\nsessions, and meetings that make up an agent's calendar in Assembled.\n\nThe Activities API supports single and bulk activity creation, listing\nwith rich filters, soft-delete semantics, and CRUD for activity types\n(the colour-coded categories shown on schedules). The event_changes\nendpoint surfaces an audit trail of schedule modifications.\n\n\nContact Support:\n Name: Assembled Support",

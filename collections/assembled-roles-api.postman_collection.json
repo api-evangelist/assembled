@@ -1,54 +1,40 @@
 {
   "item": [
     {
-      "id": "5661d323-ede5-4fd2-810d-fbb24fd4a439",
-      "name": "Forecasts",
+      "id": "9c5abc76-9d5e-4fe1-8dec-55bddf670f1d",
+      "name": "Roles",
       "description": {
-        "content": "",
+        "content": "Available roles that can be assigned to people",
         "type": "text/plain"
       },
       "item": [
         {
-          "id": "0f8147c4-264d-4fd4-8807-39ead5d9f6f8",
-          "name": "Assembled List Forecasts",
+          "id": "31fa589a-ec01-43d5-beb9-b4c0d7f062bf",
+          "name": "Assembled List Roles",
           "request": {
-            "name": "Assembled List Forecasts",
-            "description": {},
+            "name": "Assembled List Roles",
+            "description": {
+              "content": "List all roles available in your Assembled organization.",
+              "type": "text/plain"
+            },
             "url": {
               "path": [
                 "v0",
-                "forecasts"
+                "roles"
               ],
               "host": [
                 "{{baseUrl}}"
               ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "start_time",
-                  "value": "<dateTime>",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "key": "end_time",
-                  "value": "<dateTime>",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "key": "queue_ids",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "channel",
-                  "value": "<string>"
-                }
-              ],
+              "query": [],
               "variable": []
             },
             "header": [
+              {
+                "disabled": false,
+                "description": "Date-based API version override (e.g. 2026-05-01). Defaults to your organization's pinned version.",
+                "key": "API-Version",
+                "value": "<string>"
+              },
               {
                 "key": "Accept",
                 "value": "application/json"
@@ -59,35 +45,18 @@
           },
           "response": [
             {
-              "id": "3001142a-fb5f-4ea3-ae47-c632184fca61",
-              "name": "Forecasts",
+              "id": "400b7ce9-1d21-410f-84b3-0276dc12f703",
+              "name": "Roles list",
               "originalRequest": {
                 "url": {
                   "path": [
                     "v0",
-                    "forecasts"
+                    "roles"
                   ],
                   "host": [
                     "{{baseUrl}}"
                   ],
-                  "query": [
-                    {
-                      "key": "start_time",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "end_time",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "queue_ids",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "channel",
-                      "value": "<string>"
-                    }
-                  ],
+                  "query": [],
                   "variable": []
                 },
                 "header": [
@@ -98,6 +67,12 @@
                     },
                     "key": "Authorization",
                     "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Date-based API version override (e.g. 2026-05-01). Defaults to your organization's pinned version.",
+                    "key": "API-Version",
+                    "value": "<string>"
                   },
                   {
                     "key": "Accept",
@@ -115,7 +90,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"forecasts\": [\n    {\n      \"id\": \"string\",\n      \"queue_id\": \"string\",\n      \"channel\": \"string\",\n      \"start_time\": \"1989-11-01T19:32:50.638Z\",\n      \"end_time\": \"1957-04-19T14:02:02.964Z\",\n      \"interval_minutes\": 30,\n      \"volume\": 8726.838478943419,\n      \"aht_seconds\": 8701.469951590745,\n      \"required_agents\": 9071.248902368294\n    },\n    {\n      \"id\": \"string\",\n      \"queue_id\": \"string\",\n      \"channel\": \"string\",\n      \"start_time\": \"2021-07-16T03:34:04.797Z\",\n      \"end_time\": \"1967-10-29T11:21:57.329Z\",\n      \"interval_minutes\": 30,\n      \"volume\": 140.51467142912722,\n      \"aht_seconds\": 5866.447792783783,\n      \"required_agents\": 6231.308829016285\n    }\n  ]\n}",
+              "body": "{\n  \"roles\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"permissions\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"permissions\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -151,8 +126,8 @@
     ]
   },
   "info": {
-    "_postman_id": "fb9ce49b-0e29-47d3-b160-f257742a1322",
-    "name": "Assembled Activities Forecasts API",
+    "_postman_id": "29edc095-e3b0-4352-8091-a2506edf5912",
+    "name": "Assembled Activities Roles API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
       "content": "Activities are the scheduled shifts, breaks, time-off blocks, training\nsessions, and meetings that make up an agent's calendar in Assembled.\n\nThe Activities API supports single and bulk activity creation, listing\nwith rich filters, soft-delete semantics, and CRUD for activity types\n(the colour-coded categories shown on schedules). The event_changes\nendpoint surfaces an audit trail of schedule modifications.\n\n\nContact Support:\n Name: Assembled Support",

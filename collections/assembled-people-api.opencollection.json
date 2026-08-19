@@ -1,7 +1,7 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "Assembled People API",
+    "name": "Assembled Activities People API",
     "version": "2026-05-24"
   },
   "request": {
@@ -126,31 +126,6 @@
             }
           },
           "docs": "Partially update a person's attributes (name, email, role, channels, skills, teams, sites)."
-        }
-      ]
-    },
-    {
-      "info": {
-        "name": "Roles",
-        "type": "folder"
-      },
-      "items": [
-        {
-          "info": {
-            "name": "Assembled List Roles",
-            "type": "http"
-          },
-          "http": {
-            "method": "GET",
-            "url": "https://api.assembledhq.com/v0/roles",
-            "headers": [
-              {
-                "name": "API-Version",
-                "value": ""
-              }
-            ]
-          },
-          "docs": "List all roles available in your Assembled organization."
         }
       ]
     }

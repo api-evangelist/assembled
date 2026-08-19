@@ -1,23 +1,23 @@
 {
   "item": [
     {
-      "id": "5661d323-ede5-4fd2-810d-fbb24fd4a439",
-      "name": "Forecasts",
+      "id": "bb116c85-a395-4657-8966-bbf9a6b28157",
+      "name": "Forecasts Vs Actuals",
       "description": {
         "content": "",
         "type": "text/plain"
       },
       "item": [
         {
-          "id": "0f8147c4-264d-4fd4-8807-39ead5d9f6f8",
-          "name": "Assembled List Forecasts",
+          "id": "42074aef-7985-4809-bb3d-955dcb90684f",
+          "name": "Assembled Get Forecasted Vs Actuals",
           "request": {
-            "name": "Assembled List Forecasts",
+            "name": "Assembled Get Forecasted Vs Actuals",
             "description": {},
             "url": {
               "path": [
                 "v0",
-                "forecasts"
+                "forecasted_vs_actuals"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -39,11 +39,6 @@
                   "disabled": false,
                   "key": "queue_ids",
                   "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "channel",
-                  "value": "<string>"
                 }
               ],
               "variable": []
@@ -59,13 +54,13 @@
           },
           "response": [
             {
-              "id": "3001142a-fb5f-4ea3-ae47-c632184fca61",
-              "name": "Forecasts",
+              "id": "1b307977-aadb-45d5-ba62-1ab04d1d7884",
+              "name": "Forecast accuracy series",
               "originalRequest": {
                 "url": {
                   "path": [
                     "v0",
-                    "forecasts"
+                    "forecasted_vs_actuals"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -81,10 +76,6 @@
                     },
                     {
                       "key": "queue_ids",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "channel",
                       "value": "<string>"
                     }
                   ],
@@ -115,7 +106,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"forecasts\": [\n    {\n      \"id\": \"string\",\n      \"queue_id\": \"string\",\n      \"channel\": \"string\",\n      \"start_time\": \"1989-11-01T19:32:50.638Z\",\n      \"end_time\": \"1957-04-19T14:02:02.964Z\",\n      \"interval_minutes\": 30,\n      \"volume\": 8726.838478943419,\n      \"aht_seconds\": 8701.469951590745,\n      \"required_agents\": 9071.248902368294\n    },\n    {\n      \"id\": \"string\",\n      \"queue_id\": \"string\",\n      \"channel\": \"string\",\n      \"start_time\": \"2021-07-16T03:34:04.797Z\",\n      \"end_time\": \"1967-10-29T11:21:57.329Z\",\n      \"interval_minutes\": 30,\n      \"volume\": 140.51467142912722,\n      \"aht_seconds\": 5866.447792783783,\n      \"required_agents\": 6231.308829016285\n    }\n  ]\n}",
+              "body": "{\n  \"intervals\": [\n    {\n      \"start_time\": \"1981-08-01T01:39:59.911Z\",\n      \"forecasted\": 8936.907071483387,\n      \"actual\": 3489.0486998554115,\n      \"delta\": 3777.4847612280437\n    },\n    {\n      \"start_time\": \"1995-10-11T14:38:38.778Z\",\n      \"forecasted\": 5309.257653769049,\n      \"actual\": 3797.0934910360165,\n      \"delta\": 5098.118450385413\n    }\n  ]\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -151,8 +142,8 @@
     ]
   },
   "info": {
-    "_postman_id": "fb9ce49b-0e29-47d3-b160-f257742a1322",
-    "name": "Assembled Activities Forecasts API",
+    "_postman_id": "a97e7541-1c5f-48d0-864f-70e646a8aa89",
+    "name": "Assembled Activities Forecasts Vs Actuals API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
       "content": "Activities are the scheduled shifts, breaks, time-off blocks, training\nsessions, and meetings that make up an agent's calendar in Assembled.\n\nThe Activities API supports single and bulk activity creation, listing\nwith rich filters, soft-delete semantics, and CRUD for activity types\n(the colour-coded categories shown on schedules). The event_changes\nendpoint surfaces an audit trail of schedule modifications.\n\n\nContact Support:\n Name: Assembled Support",

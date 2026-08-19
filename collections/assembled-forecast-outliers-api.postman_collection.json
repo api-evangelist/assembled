@@ -1,0 +1,305 @@
+{
+  "item": [
+    {
+      "id": "39a764a9-9ca9-4bb9-9072-d1dbc2b788aa",
+      "name": "Forecast Outliers",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7c5ad970-cdcb-4501-929a-ba1a3c1e1f8e",
+          "name": "Assembled List Forecast Outliers",
+          "request": {
+            "name": "Assembled List Forecast Outliers",
+            "description": {},
+            "url": {
+              "path": [
+                "v0",
+                "forecasts",
+                "outliers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bf730ef7-bf0d-4df0-b2f1-469bcc0af467",
+              "name": "Outliers",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v0",
+                    "forecasts",
+                    "outliers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"outliers\": [\n    {\n      \"id\": \"string\",\n      \"queue_id\": \"string\",\n      \"start_time\": \"1980-07-28T07:52:49.321Z\",\n      \"end_time\": \"1987-01-19T14:27:34.587Z\",\n      \"reason\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"queue_id\": \"string\",\n      \"start_time\": \"1985-08-13T23:23:22.111Z\",\n      \"end_time\": \"1956-03-02T20:04:31.508Z\",\n      \"reason\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5d872aed-7756-42db-8a7e-462f7aeb65af",
+          "name": "Assembled Bulk Create Forecast Outliers",
+          "request": {
+            "name": "Assembled Bulk Create Forecast Outliers",
+            "description": {},
+            "url": {
+              "path": [
+                "v0",
+                "forecasts",
+                "outliers",
+                "bulk"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"outliers\": [\n    {\n      \"id\": \"<string>\",\n      \"queue_id\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"end_time\": \"<dateTime>\",\n      \"reason\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"queue_id\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"end_time\": \"<dateTime>\",\n      \"reason\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5b3e9990-fb5c-49a9-ba0c-efb86044f287",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v0",
+                    "forecasts",
+                    "outliers",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"outliers\": [\n    {\n      \"id\": \"string\",\n      \"queue_id\": \"string\",\n      \"start_time\": \"2010-03-13T19:02:05.208Z\",\n      \"end_time\": \"2005-04-07T13:12:09.147Z\",\n      \"reason\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"queue_id\": \"string\",\n      \"start_time\": \"2005-02-02T01:08:21.126Z\",\n      \"end_time\": \"1982-05-24T08:21:01.462Z\",\n      \"reason\": \"string\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e7cc10e8-e783-43b5-b6c2-75af9793e1cf",
+          "name": "Assembled Delete Forecast Outlier",
+          "request": {
+            "name": "Assembled Delete Forecast Outlier",
+            "description": {},
+            "url": {
+              "path": [
+                "v0",
+                "forecasts",
+                "outliers",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "15d2ba37-7349-4a14-9fda-5cf090e8e83e",
+              "name": "Deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v0",
+                    "forecasts",
+                    "outliers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.assembledhq.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6108b227-3ad3-4cc1-aa62-76661491998d",
+    "name": "Assembled Activities Forecast Outliers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Activities are the scheduled shifts, breaks, time-off blocks, training\nsessions, and meetings that make up an agent's calendar in Assembled.\n\nThe Activities API supports single and bulk activity creation, listing\nwith rich filters, soft-delete semantics, and CRUD for activity types\n(the colour-coded categories shown on schedules). The event_changes\nendpoint surfaces an audit trail of schedule modifications.\n\n\nContact Support:\n Name: Assembled Support",
+      "type": "text/plain"
+    }
+  }
+}

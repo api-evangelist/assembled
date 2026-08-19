@@ -1,7 +1,7 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "Assembled Activities Reports API",
+    "name": "Assembled Activities Working Hours API",
     "version": "2026-05-24"
   },
   "request": {
@@ -14,49 +14,45 @@
   "items": [
     {
       "info": {
-        "name": "Reports",
+        "name": "Working Hours",
         "type": "folder"
       },
       "items": [
         {
           "info": {
-            "name": "Assembled Start Report",
-            "type": "http"
-          },
-          "http": {
-            "method": "POST",
-            "url": "https://api.assembledhq.com/v0/reports/:reportType",
-            "params": [
-              {
-                "name": "reportType",
-                "value": "",
-                "type": "path"
-              }
-            ],
-            "body": {
-              "type": "json",
-              "data": "{}"
-            }
-          },
-          "docs": "Kick off generation of a structured report."
-        },
-        {
-          "info": {
-            "name": "Assembled Get Report",
+            "name": "Assembled List Working Hours",
             "type": "http"
           },
           "http": {
             "method": "GET",
-            "url": "https://api.assembledhq.com/v0/reports/:reportID",
+            "url": "https://api.assembledhq.com/v0/scheduling_rules/working_hours",
             "params": [
               {
-                "name": "reportID",
+                "name": "agent_id",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Assembled List Working Hours"
+        },
+        {
+          "info": {
+            "name": "Assembled Get Working Hours Rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.assembledhq.com/v0/scheduling_rules/working_hours/:id",
+            "params": [
+              {
+                "name": "id",
                 "value": "",
                 "type": "path"
               }
             ]
           },
-          "docs": "Retrieve a generated report by ID. Poll until status is `complete`."
+          "docs": "Assembled Get Working Hours Rule"
         }
       ]
     }
