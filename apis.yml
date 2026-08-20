@@ -36,6 +36,20 @@ kind: contract
 position: Provider
 access: 3rd-Party
 tags:
+  - Customer-Support
+  - Workforce Management
+  - WFM
+  - AI Agents
+  - AI Copilot
+  - Contact Center
+  - Customer Experience
+  - Support Operations
+  - Scheduling
+  - Forecasting
+  - Quality Assurance
+  - Vendor Management
+  - BPO
+tags_raw:
   - Customer Support
   - Workforce Management
   - WFM
@@ -79,6 +93,10 @@ apis:
   - Agent State
   - Real-Time
   - Adherence
+  tags_raw:
+  - Agent State
+  - Real-Time
+  - Adherence
   - Operations
   humanURL: https://docs.assembled.com/
   properties:
@@ -114,6 +132,11 @@ apis:
 - aid: assembled:assembled-forecasts-api
   name: Assembled Forecasts API
   tags:
+  - Forecast
+  - ML
+  - Volume
+  - Workforce Planning
+  tags_raw:
   - Forecasts
   - ML
   - Volume
@@ -423,6 +446,8 @@ apis:
   description: The Teams API from Assembled — 2 operation(s) for teams.
   humanURL: https://docs.assembled.com/
   tags:
+  - Team
+  tags_raw:
   - Teams
   properties:
   - type: OpenAPI
