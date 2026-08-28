@@ -10,11 +10,14 @@ info:
     be read and executed without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: peopleApi
-  url: ../openapi/assembled-people-api-openapi.yml
-  type: openapi
 - name: activitiesApi
   url: ../openapi/assembled-activities-api-openapi.yml
+  type: openapi
+- name: activityTypesApi
+  url: ../openapi/assembled-activity-types-api-openapi.yml
+  type: openapi
+- name: peopleApi
+  url: ../openapi/assembled-people-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: staff-agent-shift

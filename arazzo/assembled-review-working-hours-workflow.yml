@@ -11,8 +11,8 @@ info:
     read and executed without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: schedulingRulesApi
-  url: ../openapi/assembled-scheduling-rules-api-openapi.yml
+- name: workingHoursApi
+  url: ../openapi/assembled-working-hours-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: review-working-hours

@@ -12,11 +12,11 @@ info:
     without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
+- name: agentAssociationsApi
+  url: ../openapi/assembled-agent-associations-api-openapi.yml
+  type: openapi
 - name: peopleApi
   url: ../openapi/assembled-people-api-openapi.yml
-  type: openapi
-- name: agentStateApi
-  url: ../openapi/assembled-agent-state-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: associate-agent-platforms

@@ -12,11 +12,11 @@ info:
     the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: peopleApi
-  url: ../openapi/assembled-people-api-openapi.yml
-  type: openapi
 - name: agentStateApi
   url: ../openapi/assembled-agent-state-api-openapi.yml
+  type: openapi
+- name: peopleApi
+  url: ../openapi/assembled-people-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: stream-agent-state

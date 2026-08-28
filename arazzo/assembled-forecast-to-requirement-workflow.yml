@@ -15,6 +15,9 @@ sourceDescriptions:
 - name: forecastsApi
   url: ../openapi/assembled-forecasts-api-openapi.yml
   type: openapi
+- name: requirementTypesApi
+  url: ../openapi/assembled-requirement-types-api-openapi.yml
+  type: openapi
 - name: requirementsApi
   url: ../openapi/assembled-requirements-api-openapi.yml
   type: openapi

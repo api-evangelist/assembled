@@ -11,14 +11,17 @@ info:
     without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: filtersApi
-  url: ../openapi/assembled-filters-api-openapi.yml
+- name: activitiesApi
+  url: ../openapi/assembled-activities-api-openapi.yml
+  type: openapi
+- name: activityTypesApi
+  url: ../openapi/assembled-activity-types-api-openapi.yml
   type: openapi
 - name: peopleApi
   url: ../openapi/assembled-people-api-openapi.yml
   type: openapi
-- name: activitiesApi
-  url: ../openapi/assembled-activities-api-openapi.yml
+- name: queuesApi
+  url: ../openapi/assembled-queues-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: provision-queue-and-staff

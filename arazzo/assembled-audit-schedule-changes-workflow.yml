@@ -14,6 +14,9 @@ sourceDescriptions:
 - name: activitiesApi
   url: ../openapi/assembled-activities-api-openapi.yml
   type: openapi
+- name: eventChangesApi
+  url: ../openapi/assembled-event-changes-api-openapi.yml
+  type: openapi
 workflows:
 - workflowId: audit-schedule-changes
   summary: List activities in a window and retrieve the change audit trail.

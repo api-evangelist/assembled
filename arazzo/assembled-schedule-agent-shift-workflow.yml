@@ -15,6 +15,9 @@ sourceDescriptions:
 - name: activitiesApi
   url: ../openapi/assembled-activities-api-openapi.yml
   type: openapi
+- name: activityTypesApi
+  url: ../openapi/assembled-activity-types-api-openapi.yml
+  type: openapi
 workflows:
 - workflowId: schedule-agent-shift
   summary: Create a scheduled activity for an agent and confirm it on the calendar.

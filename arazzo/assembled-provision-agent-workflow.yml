@@ -14,6 +14,9 @@ sourceDescriptions:
 - name: peopleApi
   url: ../openapi/assembled-people-api-openapi.yml
   type: openapi
+- name: rolesApi
+  url: ../openapi/assembled-roles-api-openapi.yml
+  type: openapi
 workflows:
 - workflowId: provision-agent
   summary: Create a new agent with a valid role and verify the created record.
