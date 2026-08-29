@@ -1,0 +1,84 @@
+slug: assembled
+provider: Assembled
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Telecommunications
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 7
+edges:
+- tag: Activities
+  spec_file: assembled-activities-api-openapi.yml
+  capability_id: BC-430.30
+  capability_id_l1: BC-430
+  capability_name: Contact Centre Operations Management
+  confidence: 0.75
+  evidence: '''Activities are the scheduled shifts, breaks, time-off blocks, training sessions, and meetings
+    that make up an agent''s calendar in Assembled'''
+  reason: Creation and listing of support-agent shifts and breaks is contact-centre workforce management/scheduling.
+    Mapped to Contact Centre Operations Management, which explicitly covers workforce management; an HCM
+    workforce-planning reading is possible but the agent-calendar framing favours contact centre.
+- tag: Agent State
+  spec_file: assembled-agent-state-api-openapi.yml
+  capability_id: BC-430.30
+  capability_id_l1: BC-430
+  capability_name: Contact Centre Operations Management
+  confidence: 0.72
+  evidence: GET /v0/agents/state 'Get Agent States'; GET /v0/agents/state/condensed_timeline 'Get Condensed
+    Agent State Timeline'
+  reason: Tracking and editing real-time support-agent states and their timeline is contact-centre real-time
+    adherence / workforce operations. Confidence tempered because the tag could also be read as generic
+    status tracking.
+- tag: Forecast Adjustments
+  spec_file: assembled-forecast-adjustments-api-openapi.yml
+  capability_id: BC-430.30
+  capability_id_l1: BC-430
+  capability_name: Contact Centre Operations Management
+  confidence: 0.7
+  evidence: GET /v0/forecasts/adjustments listForecastAdjustments; POST /v0/forecasts/adjustments/bulk
+    — schema ForecastAdjustment
+  reason: Contact-volume forecast adjustments in a support WFM platform drive staffing plans; BC-430.30
+    covers contact centre running and workforce management.
+- tag: Forecast Outliers
+  spec_file: assembled-forecast-outliers-api-openapi.yml
+  capability_id: BC-430.30
+  capability_id_l1: BC-430
+  capability_name: Contact Centre Operations Management
+  confidence: 0.7
+  evidence: GET /v0/forecasts/outliers listForecastOutliers — schema ForecastOutlier
+  reason: Marking outlier periods in support-volume forecasts is contact-centre workforce forecasting,
+    part of contact centre operations management.
+- tag: Forecast Totals
+  spec_file: assembled-forecast-totals-api-openapi.yml
+  capability_id: BC-430.30
+  capability_id_l1: BC-430
+  capability_name: Contact Centre Operations Management
+  confidence: 0.7
+  evidence: POST /v0/forecasts/totals createForecastTotals; schema ForecastTotal
+  reason: Creating and reading aggregate contact-volume forecasts underpins agent scheduling in this support
+    WFM platform — contact centre operations/workforce management.
+- tag: Forecasts
+  spec_file: assembled-forecasts-api-openapi.yml
+  capability_id: BC-430.30
+  capability_id_l1: BC-430
+  capability_name: Contact Centre Operations Management
+  confidence: 0.7
+  evidence: GET /v0/forecasts listForecasts — schema Forecast
+  reason: Support-demand forecasts used to plan and schedule the agent workforce, which BC-430.30 explicitly
+    includes (workforce management).
+- tag: Time Off
+  spec_file: assembled-time-off-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.7
+  evidence: POST /v0/time_off createTimeOff; GET /v0/time_off/requests listTimeOffRequests; POST /v0/time_off/{id}/cancel
+    cancelTimeOffRequest
+  reason: Absence/leave request creation, listing and cancellation for agents is employee time-off administration,
+    an HR operations function. Could also be read as pure scheduling, hence 0.7.

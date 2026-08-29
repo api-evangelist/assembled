@@ -482,6 +482,9 @@ apis:
   - type: JSONSchema
     url: json-schema/assembled-assist-response-schema.json
 common:
+  - type: CapabilityMap
+    url: capabilities/assembled-capability-edges.yml
+    name: Assembled Business Capability Map
   - type: AgenticAccess
     url: agentic-access/assembled-agentic-access.yml
   - type: TrustCenter
