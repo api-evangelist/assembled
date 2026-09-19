@@ -146,7 +146,7 @@ apis:
   name: Assembled Forecasts API
   tags:
   - Forecast
-  - ML
+  - Machine-Learning
   - Volume
   - Workforce Planning
   tags_raw:
