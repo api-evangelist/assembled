@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Assembled Activities Roles API
   description: 'Activities are the scheduled shifts, breaks, time-off blocks, training
@@ -12,9 +12,7 @@ info:
 
     (the colour-coded categories shown on schedules). The event_changes
 
-    endpoint surfaces an audit trail of schedule modifications.
-
-    '
+    endpoint surfaces an audit trail of schedule modifications.'
   version: '2026-05-24'
   contact:
     name: Assembled Support
@@ -50,6 +48,14 @@ paths:
                     items:
                       $ref: '#/components/schemas/Role'
 components:
+  parameters:
+    ApiVersionHeader:
+      in: header
+      name: API-Version
+      description: Date-based API version override (e.g. 2026-05-01). Defaults to your organization's pinned version.
+      required: false
+      schema:
+        type: string
   schemas:
     Role:
       type: object
@@ -64,14 +70,6 @@ components:
           type: array
           items:
             type: string
-  parameters:
-    ApiVersionHeader:
-      in: header
-      name: API-Version
-      description: Date-based API version override (e.g. 2026-05-01). Defaults to your organization's pinned version.
-      required: false
-      schema:
-        type: string
   securitySchemes:
     BasicAuth:
       type: http

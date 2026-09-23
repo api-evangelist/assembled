@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Assembled Activities People API
   description: 'Activities are the scheduled shifts, breaks, time-off blocks, training
@@ -12,9 +12,7 @@ info:
 
     (the colour-coded categories shown on schedules). The event_changes
 
-    endpoint surfaces an audit trail of schedule modifications.
-
-    '
+    endpoint surfaces an audit trail of schedule modifications.'
   version: '2026-05-24'
   contact:
     name: Assembled Support
@@ -149,51 +147,21 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
-  parameters:
-    PersonIdPath:
-      in: path
-      name: id
-      required: true
-      schema:
-        type: string
-      description: Assembled person ID.
-    ApiVersionHeader:
-      in: header
-      name: API-Version
-      description: Date-based API version override (e.g. 2026-05-01). Defaults to your organization's pinned version.
-      required: false
-      schema:
-        type: string
-  responses:
-    NotFound:
-      description: Resource not found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Missing or invalid API key
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    BadRequest:
-      description: Bad Request
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    RateLimited:
-      description: Too many requests — 300 req/min default
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   schemas:
-    PersonUpdate:
+    PersonInput:
       type: object
+      required:
+      - email
+      - name
       properties:
+        email:
+          type: string
+          format: email
         name:
+          type: string
+        first_name:
+          type: string
+        last_name:
           type: string
         role_id:
           type: string
@@ -213,6 +181,16 @@ components:
             type: string
         active:
           type: boolean
+          default: true
+    Error:
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+        request_id:
+          type: string
     Person:
       type: object
       properties:
@@ -269,20 +247,10 @@ components:
         updated_at:
           type: string
           format: date-time
-    PersonInput:
+    PersonUpdate:
       type: object
-      required:
-      - email
-      - name
       properties:
-        email:
-          type: string
-          format: email
         name:
-          type: string
-        first_name:
-          type: string
-        last_name:
           type: string
         role_id:
           type: string
@@ -302,16 +270,46 @@ components:
             type: string
         active:
           type: boolean
-          default: true
-    Error:
-      type: object
-      properties:
-        type:
-          type: string
-        message:
-          type: string
-        request_id:
-          type: string
+  responses:
+    BadRequest:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    RateLimited:
+      description: Too many requests — 300 req/min default
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Missing or invalid API key
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  parameters:
+    ApiVersionHeader:
+      in: header
+      name: API-Version
+      description: Date-based API version override (e.g. 2026-05-01). Defaults to your organization's pinned version.
+      required: false
+      schema:
+        type: string
+    PersonIdPath:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
+      description: Assembled person ID.
   securitySchemes:
     BasicAuth:
       type: http

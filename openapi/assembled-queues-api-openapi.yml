@@ -1,20 +1,20 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Assembled Activities Queues API
-  description: 'Activities are the scheduled shifts, breaks, time-off blocks, training
+  title: Assembled Filters Queues API
+  description: 'Manage the four organizational filter dimensions used throughout
 
-    sessions, and meetings that make up an agent''s calendar in Assembled.
+    Assembled — Queues, Sites, Teams, and Skills.
 
 
-    The Activities API supports single and bulk activity creation, listing
+    Each filter is fully CRUD-capable. Queues map to channels and case
 
-    with rich filters, soft-delete semantics, and CRUD for activity types
+    types, Sites represent physical or virtual locations, Teams group
 
-    (the colour-coded categories shown on schedules). The event_changes
+    people, and Skills describe routing-relevant capabilities. People,
 
-    endpoint surfaces an audit trail of schedule modifications.
+    activities, forecasts, requirements, and reports all reference these
 
-    '
+    filters.'
   version: '2026-05-24'
   contact:
     name: Assembled Support

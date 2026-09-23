@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Assembled Activities Agent State API
   description: 'Activities are the scheduled shifts, breaks, time-off blocks, training
@@ -12,9 +12,7 @@ info:
 
     (the colour-coded categories shown on schedules). The event_changes
 
-    endpoint surfaces an audit trail of schedule modifications.
-
-    '
+    endpoint surfaces an audit trail of schedule modifications.'
   version: '2026-05-24'
   contact:
     name: Assembled Support
@@ -196,6 +194,27 @@ paths:
           description: Edit history
 components:
   schemas:
+    AgentStateInput:
+      type: object
+      required:
+      - agent_id
+      - state
+      - start_time
+      properties:
+        agent_id:
+          type: string
+        state:
+          type: string
+        sub_state:
+          type: string
+        start_time:
+          type: string
+          format: date-time
+        end_time:
+          type: string
+          format: date-time
+        source:
+          type: string
     AgentState:
       type: object
       properties:
@@ -220,27 +239,6 @@ components:
         source:
           type: string
           example: zendesk
-    AgentStateInput:
-      type: object
-      required:
-      - agent_id
-      - state
-      - start_time
-      properties:
-        agent_id:
-          type: string
-        state:
-          type: string
-        sub_state:
-          type: string
-        start_time:
-          type: string
-          format: date-time
-        end_time:
-          type: string
-          format: date-time
-        source:
-          type: string
   parameters:
     ApiVersionHeader:
       in: header

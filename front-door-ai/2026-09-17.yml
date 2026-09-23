@@ -1,0 +1,32 @@
+# Front Door AI Index — assembled — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: assembled
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.assembled.com
+  final_host: www.assembled.com
+  ownership: own
+  owner: assembled
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 26
+  host_score: 26
+  density: 38.35
+  words: 678
+  tiers:
+    agentic: 7
+    core: 19
+    model: 0
+  ambiguous: 20
+  top_terms:
+    AI: 18
+    agent: 15
+    AI agent: 6
+    automation: 3
+    AI assistant: 1
+    intelligence: 1
+    machine learning: 1
+    smart: 1

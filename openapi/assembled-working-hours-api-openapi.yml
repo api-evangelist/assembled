@@ -1,20 +1,16 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Assembled Activities Working Hours API
-  description: 'Activities are the scheduled shifts, breaks, time-off blocks, training
+  title: Assembled Scheduling Rules Working Hours API
+  description: 'Retrieve the working-hours rules that constrain when each agent may be
 
-    sessions, and meetings that make up an agent''s calendar in Assembled.
+    scheduled.
 
 
-    The Activities API supports single and bulk activity creation, listing
+    Working hours are the structured replacement for the now-deprecated
 
-    with rich filters, soft-delete semantics, and CRUD for activity types
+    shift_patterns endpoints and are honoured by Assembled''s AI-powered
 
-    (the colour-coded categories shown on schedules). The event_changes
-
-    endpoint surfaces an audit trail of schedule modifications.
-
-    '
+    schedule generation engine.'
   version: '2026-05-24'
   contact:
     name: Assembled Support
