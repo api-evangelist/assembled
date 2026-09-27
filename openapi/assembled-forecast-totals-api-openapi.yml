@@ -110,11 +110,9 @@ paths:
           description: Deleted
 components:
   schemas:
-    ForecastTotal:
+    ForecastTotalInput:
       type: object
       properties:
-        id:
-          type: string
         queue_id:
           type: string
         start_time:
@@ -125,9 +123,11 @@ components:
           format: date-time
         total_volume:
           type: number
-    ForecastTotalInput:
+    ForecastTotal:
       type: object
       properties:
+        id:
+          type: string
         queue_id:
           type: string
         start_time:

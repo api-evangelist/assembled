@@ -136,6 +136,34 @@ components:
       schema:
         type: string
   schemas:
+    ActivityInput:
+      type: object
+      required:
+      - agent_id
+      - activity_type_id
+      - start_time
+      - end_time
+      properties:
+        agent_id:
+          type: string
+        activity_type_id:
+          type: string
+        start_time:
+          type: string
+          format: date-time
+        end_time:
+          type: string
+          format: date-time
+        queue_ids:
+          type: array
+          items:
+            type: string
+        site_id:
+          type: string
+        notes:
+          type: string
+        external_id:
+          type: string
     Activity:
       type: object
       properties:
@@ -168,34 +196,6 @@ components:
         updated_at:
           type: string
           format: date-time
-    ActivityInput:
-      type: object
-      required:
-      - agent_id
-      - activity_type_id
-      - start_time
-      - end_time
-      properties:
-        agent_id:
-          type: string
-        activity_type_id:
-          type: string
-        start_time:
-          type: string
-          format: date-time
-        end_time:
-          type: string
-          format: date-time
-        queue_ids:
-          type: array
-          items:
-            type: string
-        site_id:
-          type: string
-        notes:
-          type: string
-        external_id:
-          type: string
   securitySchemes:
     BasicAuth:
       type: http

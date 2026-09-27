@@ -82,6 +82,17 @@ paths:
           description: Deleted
 components:
   schemas:
+    ActivityTypeInput:
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+        color:
+          type: string
+        category:
+          type: string
     ActivityType:
       type: object
       properties:
@@ -95,17 +106,6 @@ components:
         category:
           type: string
           example: shift
-    ActivityTypeInput:
-      type: object
-      required:
-      - name
-      properties:
-        name:
-          type: string
-        color:
-          type: string
-        category:
-          type: string
   securitySchemes:
     BasicAuth:
       type: http

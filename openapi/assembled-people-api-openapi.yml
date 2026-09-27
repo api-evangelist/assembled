@@ -148,20 +148,10 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
-    PersonInput:
+    PersonUpdate:
       type: object
-      required:
-      - email
-      - name
       properties:
-        email:
-          type: string
-          format: email
         name:
-          type: string
-        first_name:
-          type: string
-        last_name:
           type: string
         role_id:
           type: string
@@ -181,16 +171,6 @@ components:
             type: string
         active:
           type: boolean
-          default: true
-    Error:
-      type: object
-      properties:
-        type:
-          type: string
-        message:
-          type: string
-        request_id:
-          type: string
     Person:
       type: object
       properties:
@@ -247,10 +227,29 @@ components:
         updated_at:
           type: string
           format: date-time
-    PersonUpdate:
+    Error:
       type: object
       properties:
+        type:
+          type: string
+        message:
+          type: string
+        request_id:
+          type: string
+    PersonInput:
+      type: object
+      required:
+      - email
+      - name
+      properties:
+        email:
+          type: string
+          format: email
         name:
+          type: string
+        first_name:
+          type: string
+        last_name:
           type: string
         role_id:
           type: string
@@ -270,7 +269,14 @@ components:
             type: string
         active:
           type: boolean
+          default: true
   responses:
+    Unauthorized:
+      description: Missing or invalid API key
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
     BadRequest:
       description: Bad Request
       content:
@@ -289,20 +295,7 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Missing or invalid API key
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   parameters:
-    ApiVersionHeader:
-      in: header
-      name: API-Version
-      description: Date-based API version override (e.g. 2026-05-01). Defaults to your organization's pinned version.
-      required: false
-      schema:
-        type: string
     PersonIdPath:
       in: path
       name: id
@@ -310,6 +303,13 @@ components:
       schema:
         type: string
       description: Assembled person ID.
+    ApiVersionHeader:
+      in: header
+      name: API-Version
+      description: Date-based API version override (e.g. 2026-05-01). Defaults to your organization's pinned version.
+      required: false
+      schema:
+        type: string
   securitySchemes:
     BasicAuth:
       type: http

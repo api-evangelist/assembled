@@ -49,7 +49,7 @@ kind: contract
 position: Producing
 access: 3rd-Party
 tags:
-  - Customer-Support
+  - Customer Support
   - Workforce Management
   - WFM
   - AI Agents
@@ -76,6 +76,7 @@ tags_raw:
   - Quality Assurance
   - Vendor Management
   - BPO
+  - Customer-Support
 created: '2026-05-24'
 modified: '2026-05-24'
 specificationVersion: '0.23'
@@ -146,7 +147,7 @@ apis:
   name: Assembled Forecasts API
   tags:
   - Forecast
-  - Machine-Learning
+  - Machine Learning
   - Volume
   - Workforce Planning
   tags_raw:
@@ -154,6 +155,7 @@ apis:
   - ML
   - Volume
   - Workforce Planning
+  - Machine-Learning
   humanURL: https://docs.assembled.com/
   properties:
   - url: https://docs.assembled.com/
