@@ -76,6 +76,36 @@ paths:
                       $ref: '#/components/schemas/AssistHandoff'
 components:
   schemas:
+    AssistHandoff:
+      type: object
+      properties:
+        id:
+          type: string
+        conversation_id:
+          type: string
+        handed_off_at:
+          type: string
+          format: date-time
+        reason:
+          type: string
+        summary:
+          type: string
+        transcript:
+          type: array
+          items:
+            type: object
+            properties:
+              role:
+                type: string
+                enum:
+                - customer
+                - ai
+                - human
+              content:
+                type: string
+              timestamp:
+                type: string
+                format: date-time
     AssistResponse:
       allOf:
       - $ref: '#/components/schemas/AssistResponseInput'
@@ -114,36 +144,6 @@ components:
         metadata:
           type: object
           additionalProperties: true
-    AssistHandoff:
-      type: object
-      properties:
-        id:
-          type: string
-        conversation_id:
-          type: string
-        handed_off_at:
-          type: string
-          format: date-time
-        reason:
-          type: string
-        summary:
-          type: string
-        transcript:
-          type: array
-          items:
-            type: object
-            properties:
-              role:
-                type: string
-                enum:
-                - customer
-                - ai
-                - human
-              content:
-                type: string
-              timestamp:
-                type: string
-                format: date-time
   securitySchemes:
     BasicAuth:
       type: http
