@@ -76,6 +76,16 @@ paths:
                       $ref: '#/components/schemas/AssistHandoff'
 components:
   schemas:
+    AssistResponse:
+      allOf:
+      - $ref: '#/components/schemas/AssistResponseInput'
+      - type: object
+        properties:
+          id:
+            type: string
+          created_at:
+            type: string
+            format: date-time
     AssistHandoff:
       type: object
       properties:
@@ -106,16 +116,6 @@ components:
               timestamp:
                 type: string
                 format: date-time
-    AssistResponse:
-      allOf:
-      - $ref: '#/components/schemas/AssistResponseInput'
-      - type: object
-        properties:
-          id:
-            type: string
-          created_at:
-            type: string
-            format: date-time
     AssistResponseInput:
       type: object
       required:

@@ -68,29 +68,6 @@ paths:
           description: Accepted
 components:
   schemas:
-    ConversationUpdate:
-      type: object
-      required:
-      - external_id
-      properties:
-        external_id:
-          type: string
-        assigned_agent_id:
-          type: string
-        status:
-          type: string
-        ended_at:
-          type: string
-          format: date-time
-        handle_time_seconds:
-          type: number
-        resolved:
-          type: boolean
-        csat_score:
-          type: number
-        metadata:
-          type: object
-          additionalProperties: true
     ConversationInput:
       type: object
       required:
@@ -140,6 +117,29 @@ components:
         csat_score:
           type: number
           nullable: true
+        metadata:
+          type: object
+          additionalProperties: true
+    ConversationUpdate:
+      type: object
+      required:
+      - external_id
+      properties:
+        external_id:
+          type: string
+        assigned_agent_id:
+          type: string
+        status:
+          type: string
+        ended_at:
+          type: string
+          format: date-time
+        handle_time_seconds:
+          type: number
+        resolved:
+          type: boolean
+        csat_score:
+          type: number
         metadata:
           type: object
           additionalProperties: true

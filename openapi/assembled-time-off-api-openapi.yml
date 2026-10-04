@@ -136,6 +136,27 @@ paths:
                           format: date-time
 components:
   schemas:
+    TimeOffInput:
+      type: object
+      required:
+      - agent_id
+      - start_time
+      - end_time
+      properties:
+        agent_id:
+          type: string
+        type:
+          type: string
+        start_time:
+          type: string
+          format: date-time
+        end_time:
+          type: string
+          format: date-time
+        all_day:
+          type: boolean
+        notes:
+          type: string
     TimeOffRequest:
       type: object
       properties:
@@ -172,27 +193,6 @@ components:
         updated_at:
           type: string
           format: date-time
-    TimeOffInput:
-      type: object
-      required:
-      - agent_id
-      - start_time
-      - end_time
-      properties:
-        agent_id:
-          type: string
-        type:
-          type: string
-        start_time:
-          type: string
-          format: date-time
-        end_time:
-          type: string
-          format: date-time
-        all_day:
-          type: boolean
-        notes:
-          type: string
   securitySchemes:
     BasicAuth:
       type: http

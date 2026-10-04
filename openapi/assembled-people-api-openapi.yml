@@ -148,6 +148,40 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
+    PersonInput:
+      type: object
+      required:
+      - email
+      - name
+      properties:
+        email:
+          type: string
+          format: email
+        name:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+        role_id:
+          type: string
+        channels:
+          type: array
+          items:
+            type: string
+        team_ids:
+          type: array
+          items:
+            type: string
+        site_id:
+          type: string
+        skill_ids:
+          type: array
+          items:
+            type: string
+        active:
+          type: boolean
+          default: true
     PersonUpdate:
       type: object
       properties:
@@ -236,49 +270,30 @@ components:
           type: string
         request_id:
           type: string
-    PersonInput:
-      type: object
-      required:
-      - email
-      - name
-      properties:
-        email:
-          type: string
-          format: email
-        name:
-          type: string
-        first_name:
-          type: string
-        last_name:
-          type: string
-        role_id:
-          type: string
-        channels:
-          type: array
-          items:
-            type: string
-        team_ids:
-          type: array
-          items:
-            type: string
-        site_id:
-          type: string
-        skill_ids:
-          type: array
-          items:
-            type: string
-        active:
-          type: boolean
-          default: true
+  parameters:
+    ApiVersionHeader:
+      in: header
+      name: API-Version
+      description: Date-based API version override (e.g. 2026-05-01). Defaults to your organization's pinned version.
+      required: false
+      schema:
+        type: string
+    PersonIdPath:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
+      description: Assembled person ID.
   responses:
-    BadRequest:
-      description: Bad Request
+    Unauthorized:
+      description: Missing or invalid API key
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    NotFound:
-      description: Resource not found
+    BadRequest:
+      description: Bad Request
       content:
         application/json:
           schema:
@@ -289,27 +304,12 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Missing or invalid API key
+    NotFound:
+      description: Resource not found
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-  parameters:
-    PersonIdPath:
-      in: path
-      name: id
-      required: true
-      schema:
-        type: string
-      description: Assembled person ID.
-    ApiVersionHeader:
-      in: header
-      name: API-Version
-      description: Date-based API version override (e.g. 2026-05-01). Defaults to your organization's pinned version.
-      required: false
-      schema:
-        type: string
   securitySchemes:
     BasicAuth:
       type: http

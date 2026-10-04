@@ -81,6 +81,34 @@ paths:
                 $ref: '#/components/schemas/AssistHandoff'
 components:
   schemas:
+    AssistConversation:
+      type: object
+      properties:
+        id:
+          type: string
+        channel:
+          type: string
+        status:
+          type: string
+          example: resolved
+        started_at:
+          type: string
+          format: date-time
+        ended_at:
+          type: string
+          format: date-time
+          nullable: true
+        resolved_by:
+          type: string
+          enum:
+          - ai
+          - human
+          - mixed
+        customer_id:
+          type: string
+        handoff_id:
+          type: string
+          nullable: true
     AssistHandoff:
       type: object
       properties:
@@ -111,34 +139,6 @@ components:
               timestamp:
                 type: string
                 format: date-time
-    AssistConversation:
-      type: object
-      properties:
-        id:
-          type: string
-        channel:
-          type: string
-        status:
-          type: string
-          example: resolved
-        started_at:
-          type: string
-          format: date-time
-        ended_at:
-          type: string
-          format: date-time
-          nullable: true
-        resolved_by:
-          type: string
-          enum:
-          - ai
-          - human
-          - mixed
-        customer_id:
-          type: string
-        handoff_id:
-          type: string
-          nullable: true
   securitySchemes:
     BasicAuth:
       type: http

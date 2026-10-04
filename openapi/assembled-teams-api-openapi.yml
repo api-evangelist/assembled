@@ -96,19 +96,6 @@ paths:
           description: Updated
 components:
   schemas:
-    FilterInput:
-      type: object
-      required:
-      - name
-      properties:
-        name:
-          type: string
-        external_id:
-          type: string
-        channel:
-          type: string
-        timezone:
-          type: string
     Filter:
       type: object
       properties:
@@ -127,6 +114,19 @@ components:
         created_at:
           type: string
           format: date-time
+    FilterInput:
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+        external_id:
+          type: string
+        channel:
+          type: string
+        timezone:
+          type: string
   securitySchemes:
     BasicAuth:
       type: http
