@@ -193,28 +193,14 @@ paths:
         '200':
           description: Edit history
 components:
+  parameters:
+    ApiVersionHeader:
+      in: header
+      name: API-Version
+      required: false
+      schema:
+        type: string
   schemas:
-    AgentStateInput:
-      type: object
-      required:
-      - agent_id
-      - state
-      - start_time
-      properties:
-        agent_id:
-          type: string
-        state:
-          type: string
-        sub_state:
-          type: string
-        start_time:
-          type: string
-          format: date-time
-        end_time:
-          type: string
-          format: date-time
-        source:
-          type: string
     AgentState:
       type: object
       properties:
@@ -239,13 +225,27 @@ components:
         source:
           type: string
           example: zendesk
-  parameters:
-    ApiVersionHeader:
-      in: header
-      name: API-Version
-      required: false
-      schema:
-        type: string
+    AgentStateInput:
+      type: object
+      required:
+      - agent_id
+      - state
+      - start_time
+      properties:
+        agent_id:
+          type: string
+        state:
+          type: string
+        sub_state:
+          type: string
+        start_time:
+          type: string
+          format: date-time
+        end_time:
+          type: string
+          format: date-time
+        source:
+          type: string
   securitySchemes:
     BasicAuth:
       type: http

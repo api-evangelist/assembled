@@ -76,16 +76,6 @@ paths:
                       $ref: '#/components/schemas/AssistHandoff'
 components:
   schemas:
-    AssistResponse:
-      allOf:
-      - $ref: '#/components/schemas/AssistResponseInput'
-      - type: object
-        properties:
-          id:
-            type: string
-          created_at:
-            type: string
-            format: date-time
     AssistHandoff:
       type: object
       properties:
@@ -144,6 +134,16 @@ components:
         metadata:
           type: object
           additionalProperties: true
+    AssistResponse:
+      allOf:
+      - $ref: '#/components/schemas/AssistResponseInput'
+      - type: object
+        properties:
+          id:
+            type: string
+          created_at:
+            type: string
+            format: date-time
   securitySchemes:
     BasicAuth:
       type: http
