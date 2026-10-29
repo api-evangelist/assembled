@@ -1,4 +1,4 @@
-# Assembled (assembled)
+# Assembled
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,320 +66,235 @@
 
 Assembled is a San Francisco-headquartered support operations platform that unifies workforce management (WFM), AI agents, and AI Copilot for modern customer support teams. Founded in 2020 by former Stripe operations engineers, Assembled lets support leaders plan, schedule, and orchestrate a hybrid workforce of in-house agents, BPO vendors, and AI agents from a single system. The platform delivers ML-based volume forecasting, automated schedule generation, real-time adherence, time-off and shift-swap automation, vendor capacity planning, multichannel routing, and structured reporting across phone, email, chat, SMS, social, and back-office channels. Its AI surface includes autonomous AI Agents that resolve customer conversations end-to-end across chat, email, SMS, and voice, plus AI Copilot, which drafts replies, translates in real time, and surfaces knowledge for human agents. The Assembled REST API (api.assembledhq.com/v0) exposes people, queues, sites, teams, skills, activities, agent states, forecasts, time-off requests, requirements, working hours, QA scores, structured reports, and the Assist endpoints for AI chat responses and knowledge articles. Assembled is used by Stripe, Etsy, Robinhood, Webflow, Canva, Duolingo, Autodesk, HubSpot, Intercom, and Ramp, and integrates with Zendesk, Salesforce Service Cloud, Intercom, Kustomer, Gladly, Gorgias, Dixa, ServiceNow, Five9, Genesys Cloud, Talkdesk, Amazon Connect, NiCE, UJET, Zoom Contact Center, Slack, Okta, Workday, HiBob, Google Calendar, Shopify, Notion, Confluence, Guru, SharePoint, Fivetran, and quality tools like Klaus, Rippit (MaestroQA), evaluagent, and Observe.AI.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/assembled/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/assembled/refs/heads/main/apis.yml)
+**Areas:** Customer Service · Workforce Management · WFM · AI Agents · AI Copilot · Contact Center · Customer Experience · Support Operations · Scheduling · Forecasting · Quality Assurance · Vendor Management
 
-## Scope
+## Assembled on APIs.io
 
-- **Type:** Index
-- **Position:** Provider
-- **Access:** 3rd-Party
+Everything profiled for Assembled is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/assembled/](https://apis.io/providers/assembled/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (27)
 
-- Customer Support
-- Workforce Management
-- WFM
-- AI Agents
-- AI Copilot
-- Contact Center
-- Customer Experience
-- Support Operations
-- Scheduling
-- Forecasting
-- Quality Assurance
-- Vendor Management
-- BPO
+- [Assembled People API](https://apis.io/apis/assembled/assembled-people-api/) — Manage agents (people) in the Assembled workforce. List, retrieve, create, and update agents along with their roles, channels, skills, and team assignments.…
+- [Assembled Agent State API](https://apis.io/apis/assembled/assembled-agent-state-api/) — Read and write real-time agent state used to drive adherence reporting, live dashboards, and dynamic routing. Supports bulk state ingestion from upstream…
+- [Assembled Activities API](https://apis.io/apis/assembled/assembled-activities-api/) — Create, list, and delete activities — the scheduled shifts, breaks, time off, training, and meetings that make up an agent's calendar. Includes bulk…
+- [Assembled Forecasts API](https://apis.io/apis/assembled/assembled-forecasts-api/) — Retrieve Assembled's ML-generated forecasts, forecast totals, manual adjustments, and detected outliers. The forecasted-vs-actuals endpoint compares…
+- [Assembled Time Off API](https://apis.io/apis/assembled/assembled-time-off-api/) — Programmatically create, list, and cancel time-off requests, and pull a stream of time-off updates for downstream HRIS or payroll synchronisation. The…
+- [Assembled Requirements API](https://apis.io/apis/assembled/assembled-requirements-api/) — Create and list staffing requirements that express how many agents are needed by queue, site, team, or skill across time intervals. Requirement types…
+- [Assembled Conversations API](https://apis.io/apis/assembled/assembled-conversations-api/) — Bulk-ingest and bulk-update customer conversation records — phone, email, chat, SMS, social, and back-office — so they can be associated with agents,…
+- [Assembled Reports API](https://apis.io/apis/assembled/assembled-reports-api/) — Asynchronously generate and retrieve structured reports including adherence, ticket statistics, and handle times. Reports are kicked off with a POST…
+- [Assembled Activity Types API](https://apis.io/apis/assembled/assembled-activity-types-api/) — Types/categories of activity
+- [Assembled Agent Associations API](https://apis.io/apis/assembled/assembled-agent-associations-api/) — Map platform IDs to Assembled people
+- [Assembled Assist Articles API](https://apis.io/apis/assembled/assembled-assist-articles-api/) — The Assist Articles API from Assembled — 2 operation(s) for assist articles.
+- [Assembled Assist Conversations API](https://apis.io/apis/assembled/assembled-assist-conversations-api/) — The Assist Conversations API from Assembled — 2 operation(s) for assist conversations.
+- [Assembled Assist Replies API](https://apis.io/apis/assembled/assembled-assist-replies-api/) — The Assist Replies API from Assembled — 1 operation(s) for assist replies.
+- [Assembled Assist Responses API](https://apis.io/apis/assembled/assembled-assist-responses-api/) — The Assist Responses API from Assembled — 2 operation(s) for assist responses.
+- [Assembled Event Changes API](https://apis.io/apis/assembled/assembled-event-changes-api/) — Audit trail of schedule modifications
+- [Assembled Forecast Adjustments API](https://apis.io/apis/assembled/assembled-forecast-adjustments-api/) — The Forecast Adjustments API from Assembled — 3 operation(s) for forecast adjustments.
+- [Assembled Forecast Outliers API](https://apis.io/apis/assembled/assembled-forecast-outliers-api/) — The Forecast Outliers API from Assembled — 3 operation(s) for forecast outliers.
+- [Assembled Forecast Totals API](https://apis.io/apis/assembled/assembled-forecast-totals-api/) — The Forecast Totals API from Assembled — 2 operation(s) for forecast totals.
+- [Assembled Forecasts Vs Actuals API](https://apis.io/apis/assembled/assembled-forecasts-vs-actuals-api/) — The Forecasts Vs Actuals API from Assembled — 1 operation(s) for forecasts vs actuals.
+- [Assembled Quality Assurance API](https://apis.io/apis/assembled/assembled-quality-assurance-api/) — The Quality Assurance API from Assembled — 1 operation(s) for quality assurance.
+- [Assembled Queues API](https://apis.io/apis/assembled/assembled-queues-api/) — The Queues API from Assembled — 2 operation(s) for queues.
+- [Assembled Requirement Types API](https://apis.io/apis/assembled/assembled-requirement-types-api/) — The Requirement Types API from Assembled — 1 operation(s) for requirement types.
+- [Assembled Roles API](https://apis.io/apis/assembled/assembled-roles-api/) — Available roles that can be assigned to people
+- [Assembled Sites API](https://apis.io/apis/assembled/assembled-sites-api/) — The Sites API from Assembled — 2 operation(s) for sites.
+- [Assembled Skills API](https://apis.io/apis/assembled/assembled-skills-api/) — The Skills API from Assembled — 2 operation(s) for skills.
+- [Assembled Teams API](https://apis.io/apis/assembled/assembled-teams-api/) — The Teams API from Assembled — 2 operation(s) for teams.
+- [Assembled Working Hours API](https://apis.io/apis/assembled/assembled-working-hours-api/) — The Working Hours API from Assembled — 2 operation(s) for working hours.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Arazzo workflows (15)
+
+Multi-step workflows that chain operations into a business task.
+
+- [Assembled Update an Agent Profile](https://apis.io/arazzos/assembled/assembled-agent-profile-update-workflow/)
+- [Assembled Associate Platform IDs to an Agent](https://apis.io/arazzos/assembled/assembled-associate-agent-platforms-workflow/)
+- [Assembled Audit Schedule Changes](https://apis.io/arazzos/assembled/assembled-audit-schedule-changes-workflow/)
+- [Assembled Review and Cancel a Time Off Request](https://apis.io/arazzos/assembled/assembled-cancel-time-off-workflow/)
+- [Assembled Turn a Forecast into a Staffing Requirement](https://apis.io/arazzos/assembled/assembled-forecast-to-requirement-workflow/)
+- [Assembled Generate and Retrieve a Report](https://apis.io/arazzos/assembled/assembled-generate-report-workflow/)
+- [Assembled Ingest and Enrich Conversations](https://apis.io/arazzos/assembled/assembled-ingest-conversations-workflow/)
+- [Assembled Create and Read a Forecast Total](https://apis.io/arazzos/assembled/assembled-manage-forecast-total-workflow/)
+- [Assembled Provision a New Agent](https://apis.io/arazzos/assembled/assembled-provision-agent-workflow/)
+- [Assembled Provision a Queue and Staff It](https://apis.io/arazzos/assembled/assembled-provision-queue-and-staff-workflow/)
+- [Assembled Request Time Off for an Agent](https://apis.io/arazzos/assembled/assembled-request-time-off-workflow/)
+- [Assembled Review an Agent's Working Hours](https://apis.io/arazzos/assembled/assembled-review-working-hours-workflow/)
+- [Assembled Schedule an Agent Shift](https://apis.io/arazzos/assembled/assembled-schedule-agent-shift-workflow/)
+- [Assembled Staff a Shift for a Workforce Agent](https://apis.io/arazzos/assembled/assembled-staff-agent-shift-workflow/)
+- [Assembled Stream and Verify Agent State](https://apis.io/arazzos/assembled/assembled-stream-agent-state-workflow/)
 
-## Timestamps
+#### Agentic access (1)
 
-- **Created:** 2026-05-24
-- **Modified:** 2026-05-24
+Which operations an agent can call, which act, and which need a human in the loop.
 
-## APIs
+- [Assembled Agentic Access](https://apis.io/agentic-access/assembled/assembled-agentic-access/)
 
-### Assembled People API
+#### JSON Schema (4)
 
-Manage agents (people) in the Assembled workforce. List, retrieve, create, and update agents along with their roles, channels, skills, and team assignments. The People API is the entry point for syncing agents between Assembled and upstream HRIS, identity, and CRM systems and is the canonical reference for who can be scheduled or routed to in Assembled.
+The data models the API reads and writes.
 
-- **Human URL:** [https://docs.assembled.com/](https://docs.assembled.com/)
+- [AssembledActivity](https://apis.io/schemas/assembled/assembled-activity/)
+- [AssembledAssistResponse](https://apis.io/schemas/assembled/assembled-assist-response/)
+- [AssembledConversation](https://apis.io/schemas/assembled/assembled-conversation/)
+- [AssembledPerson](https://apis.io/schemas/assembled/assembled-person/)
 
-#### Tags
+#### JSON-LD (1)
 
-- People
-- Agents
-- Roles
-- Workforce Management
+Linked-data contexts for the provider's vocabulary.
 
-#### Properties
+- [Assembled Context](https://apis.io/jsonld/assembled/assembled-context/)
 
-- [Documentation](https://docs.assembled.com/)
-- [OpenAPI](openapi/assembled-people-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/assembled-people-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/assembled-people-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/assembled-person-schema.json) — [JSON Schema](https://json-schema.org/specification)
+#### Vocabulary (1)
 
-### Assembled Agent State API
+The provider's domain terms, defined.
 
-Read and write real-time agent state used to drive adherence reporting, live dashboards, and dynamic routing. Supports bulk state ingestion from upstream telephony and CRM platforms, a condensed non-overlapping timeline view, edit history, and platform-ID associations that link Assembled people to identities in Zendesk, Salesforce, Five9, and other integrated systems.
+- [Assembled Vocabulary](https://apis.io/vocabularies/assembled/assembled-vocabulary/)
 
-- **Human URL:** [https://docs.assembled.com/](https://docs.assembled.com/)
+#### Examples (5)
 
-#### Tags
+Example requests and responses.
 
-- Agent State
-- Real-Time
-- Adherence
-- Operations
+- [Assembled Assist Response Example](https://apis.io/examples/assembled/assembled-assist-response-example/)
+- [Assembled Bulk Agent State Example](https://apis.io/examples/assembled/assembled-bulk-agent-state-example/)
+- [Assembled Create Activity Example](https://apis.io/examples/assembled/assembled-create-activity-example/)
+- [Assembled Forecasted Vs Actuals Example](https://apis.io/examples/assembled/assembled-forecasted-vs-actuals-example/)
+- [Assembled List People Example](https://apis.io/examples/assembled/assembled-list-people-example/)
 
-#### Properties
+#### Collections (43)
 
-- [Documentation](https://docs.assembled.com/)
-- [OpenAPI](openapi/assembled-agent-state-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/assembled-agent-state-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/assembled-agent-state-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Postman and Open Collection request collections.
 
-### Assembled Activities API
+- [Assembled Activities API](https://apis.io/collections/assembled/open-assembled-activities-api/)
+- [Assembled Activities Activity Types API](https://apis.io/collections/assembled/open-assembled-activity-types-api/)
+- [Assembled Activities Agent Associations API](https://apis.io/collections/assembled/open-assembled-agent-associations-api/)
+- [Assembled Activities Agent State API](https://apis.io/collections/assembled/open-assembled-agent-state-api/)
+- [Assembled Assist API](https://apis.io/collections/assembled/open-assembled-assist-api/)
+- [Assembled Activities Assist Articles API](https://apis.io/collections/assembled/open-assembled-assist-articles-api/)
+- [Assembled Activities Assist Conversations API](https://apis.io/collections/assembled/open-assembled-assist-conversations-api/)
+- [Assembled Activities Assist Replies API](https://apis.io/collections/assembled/open-assembled-assist-replies-api/)
+- [Assembled Activities Assist Responses API](https://apis.io/collections/assembled/open-assembled-assist-responses-api/)
+- [Assembled Activities Conversations API](https://apis.io/collections/assembled/open-assembled-conversations-api/)
+- [Assembled Activities Event Changes API](https://apis.io/collections/assembled/open-assembled-event-changes-api/)
+- [Assembled Filters API](https://apis.io/collections/assembled/open-assembled-filters-api/)
+- [Assembled Activities Forecast Adjustments API](https://apis.io/collections/assembled/open-assembled-forecast-adjustments-api/)
+- [Assembled Activities Forecast Outliers API](https://apis.io/collections/assembled/open-assembled-forecast-outliers-api/)
+- [Assembled Activities Forecast Totals API](https://apis.io/collections/assembled/open-assembled-forecast-totals-api/)
+- [Assembled Activities Forecasts API](https://apis.io/collections/assembled/open-assembled-forecasts-api/)
+- [Assembled Activities Forecasts Vs Actuals API](https://apis.io/collections/assembled/open-assembled-forecasts-vs-actuals-api/)
+- [Assembled Activities People API](https://apis.io/collections/assembled/open-assembled-people-api/)
+- [Assembled QA API](https://apis.io/collections/assembled/open-assembled-qa-api/)
+- [Assembled Activities Quality Assurance API](https://apis.io/collections/assembled/open-assembled-quality-assurance-api/)
+- [Assembled Activities Queues API](https://apis.io/collections/assembled/open-assembled-queues-api/)
+- [Assembled Activities Reports API](https://apis.io/collections/assembled/open-assembled-reports-api/)
+- [Assembled Activities Requirement Types API](https://apis.io/collections/assembled/open-assembled-requirement-types-api/)
+- [Assembled Activities Requirements API](https://apis.io/collections/assembled/open-assembled-requirements-api/)
+- [Assembled Activities Roles API](https://apis.io/collections/assembled/open-assembled-roles-api/)
+- …and 18 more published on APIs.io
 
-Create, list, and delete activities — the scheduled shifts, breaks, time off, training, and meetings that make up an agent's calendar. Includes bulk creation, soft-delete semantics, and management of activity types with their color coding. Companion event_changes endpoint surfaces the audit trail for schedule modifications.
+#### Governance rules (2)
 
-- **Human URL:** [https://docs.assembled.com/](https://docs.assembled.com/)
+Spectral rulesets for the provider's contracts.
 
-#### Tags
+- [Assembled — jsonschema rules](https://apis.io/rules/assembled/assembled-jsonschema-spectral-rules/)
+- [Assembled API Rules](https://apis.io/rules/assembled/assembled-rules/)
 
-- Activities
-- Shifts
-- Scheduling
-- Workforce Management
+#### Security (4)
 
-#### Properties
+Authentication, trust centre, and vulnerability disclosure.
 
-- [Documentation](https://docs.assembled.com/)
-- [OpenAPI](openapi/assembled-activities-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/assembled-activities-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/assembled-activities-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/assembled-activity-schema.json) — [JSON Schema](https://json-schema.org/specification)
+- [Assembled Authentication](https://apis.io/security/assembled/assembled-authentication/)
+- [Assembled Domain Security](https://apis.io/security/assembled/assembled-domain-security/)
+- [Assembled Trust Center](https://apis.io/security/assembled/assembled-trust-center/)
+- [Assembled Vulnerability Disclosure](https://apis.io/security/assembled/assembled-vulnerability-disclosure/)
 
-### Assembled Filters API
+#### Plans and pricing (1)
 
-Manage the four organizational filter dimensions used throughout Assembled — Queues, Sites, Teams, and Skills. Each filter is fully CRUD-capable and is referenced by people, activities, forecasts, requirements, and reports. Queues map to channels and case types, Sites represent physical or virtual locations, Teams group people, and Skills describe routing-relevant capabilities.
+Published plans, tiers and prices.
 
-- **Human URL:** [https://docs.assembled.com/](https://docs.assembled.com/)
+- [Assembled Plans Pricing](https://apis.io/plans/assembled/assembled-plans-pricing/)
 
-#### Tags
+#### Rate limits (1)
 
-- Queues
-- Sites
-- Teams
-- Skills
-- Organization
+Published request limits.
 
-#### Properties
+- [Assembled Rate Limits](https://apis.io/rate-limits/assembled/assembled-rate-limits/)
 
-- [Documentation](https://docs.assembled.com/)
-- [OpenAPI](openapi/assembled-filters-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/assembled-filters-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/assembled-filters-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### FinOps (1)
 
-### Assembled Forecasts API
+What the API costs to run, by operation.
 
-Retrieve Assembled's ML-generated forecasts, forecast totals, manual adjustments, and detected outliers. The forecasted-vs-actuals endpoint compares predicted to realised volume so support leaders can tune models, identify drift, and validate >90% forecast accuracy claims. Forecasts drive AI-powered schedule generation and staffing recommendations across human and AI agents.
+- [Assembled Finops](https://apis.io/finops/assembled/assembled-finops/)
 
-- **Human URL:** [https://docs.assembled.com/](https://docs.assembled.com/)
+## Where to find this API
 
-#### Tags
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-- Forecasts
-- ML
-- Volume
-- Workforce Planning
-
-#### Properties
-
-- [Documentation](https://docs.assembled.com/)
-- [OpenAPI](openapi/assembled-forecasts-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/assembled-forecasts-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/assembled-forecasts-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Assembled Time Off API
-
-Programmatically create, list, and cancel time-off requests, and pull a stream of time-off updates for downstream HRIS or payroll synchronisation. The endpoint underpins the automated time-off and shift-swap workflows offered in Assembled's Pro and Enterprise plans.
-
-- **Human URL:** [https://docs.assembled.com/](https://docs.assembled.com/)
-
-#### Tags
-
-- Time Off
-- Leave
-- Workforce Management
-
-#### Properties
-
-- [Documentation](https://docs.assembled.com/)
-- [OpenAPI](openapi/assembled-time-off-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/assembled-time-off-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/assembled-time-off-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Assembled Requirements API
-
-Create and list staffing requirements that express how many agents are needed by queue, site, team, or skill across time intervals. Requirement types describe the family of need (for example, headcount vs. occupancy targets). Requirements feed AI scheduling and real-time staffing recommendations.
-
-- **Human URL:** [https://docs.assembled.com/](https://docs.assembled.com/)
-
-#### Tags
-
-- Requirements
-- Coverage
-- Staffing
-
-#### Properties
-
-- [Documentation](https://docs.assembled.com/)
-- [OpenAPI](openapi/assembled-requirements-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/assembled-requirements-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/assembled-requirements-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Assembled Scheduling Rules API
-
-Retrieve the working-hours rules that constrain when each agent may be scheduled. Working hours are the structured replacement for the now-deprecated shift_patterns endpoints and are honoured by Assembled's AI-powered schedule generation engine.
-
-- **Human URL:** [https://docs.assembled.com/](https://docs.assembled.com/)
-
-#### Tags
-
-- Scheduling
-- Working Hours
-- Rules
-
-#### Properties
-
-- [Documentation](https://docs.assembled.com/)
-- [OpenAPI](openapi/assembled-scheduling-rules-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/assembled-scheduling-rules-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/assembled-scheduling-rules-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Assembled Conversations API
-
-Bulk-ingest and bulk-update customer conversation records — phone, email, chat, SMS, social, and back-office — so they can be associated with agents, queues, and channels for reporting, QA, and analytics. Used by customers running on non-Zendesk/Salesforce stacks or merging multiple CRMs into a unified support view.
-
-- **Human URL:** [https://docs.assembled.com/](https://docs.assembled.com/)
-
-#### Tags
-
-- Conversations
-- Channels
-- Customer Interactions
-
-#### Properties
-
-- [Documentation](https://docs.assembled.com/)
-- [OpenAPI](openapi/assembled-conversations-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/assembled-conversations-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/assembled-conversations-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/assembled-conversation-schema.json) — [JSON Schema](https://json-schema.org/specification)
-
-### Assembled Reports API
-
-Asynchronously generate and retrieve structured reports including adherence, ticket statistics, and handle times. Reports are kicked off with a POST /v0/reports/:reportType call and polled via GET /v0/reports/:reportID for results, enabling automated weekly and monthly KPI exports into BI tools.
-
-- **Human URL:** [https://docs.assembled.com/](https://docs.assembled.com/)
-
-#### Tags
-
-- Reports
-- Analytics
-- Adherence
-- Handle Time
-
-#### Properties
-
-- [Documentation](https://docs.assembled.com/)
-- [OpenAPI](openapi/assembled-reports-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/assembled-reports-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/assembled-reports-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Assembled QA API
-
-Upload QA scores in bulk so external quality-management tools such as Klaus, Rippit (MaestroQA), evaluagent, and Observe.AI can feed conversation scores back into Assembled for adherence-vs-quality analysis and coaching workflows.
-
-- **Human URL:** [https://docs.assembled.com/](https://docs.assembled.com/)
-
-#### Tags
-
-- Quality Assurance
-- Scoring
-- Coaching
-
-#### Properties
-
-- [Documentation](https://docs.assembled.com/)
-- [OpenAPI](openapi/assembled-qa-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/assembled-qa-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/assembled-qa-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Assembled Assist API
-
-The AI surface of Assembled. Submit chat responses generated by AI Agents, manage the knowledge articles AI Agents draw from, retrieve conversation histories and handoff payloads, and (beta) post AI replies. Powers autonomous resolution across chat, email, SMS, and voice plus smart handoffs to human agents.
-
-- **Human URL:** [https://docs.assembled.com/](https://docs.assembled.com/)
-
-#### Tags
-
-- Assist
-- AI Copilot
-- AI Agents
-- Knowledge
-
-#### Properties
-
-- [Documentation](https://docs.assembled.com/)
-- [OpenAPI](openapi/assembled-assist-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/assembled-assist-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/assembled-assist-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/assembled-assist-response-schema.json) — [JSON Schema](https://json-schema.org/specification)
-
-## Common Properties
-
-- [Arazzo Workflows](arazzo/) — [Arazzo Specification](https://spec.openapis.org/arazzo/latest.html)
 - [Website](https://www.assembled.com)
-- [Portal](https://docs.assembled.com/)
 - [Documentation](https://docs.assembled.com/)
-- [Getting Started](https://docs.assembled.com/)
-- [Sign Up](https://app.assembledhq.com/signup)
-- [Login](https://app.assembledhq.com/login)
+- [Getting started](https://docs.assembled.com/)
 - [Pricing](https://www.assembled.com/pricing)
-- [Plans](plans/assembled-plans-pricing.yml)
-- [Rate Limits](rate-limits/assembled-rate-limits.yml)
-- [Fin Ops](finops/assembled-finops.yml)
-- [Status Page](https://status.assembled.com)
-- [Blog](https://www.assembled.com/blog)
-- [Customers](https://www.assembled.com/customers)
-- [About](https://www.assembled.com/about)
-- [Careers](https://www.assembled.com/careers)
-- [Contact](https://www.assembled.com/contact)
 - [Support](https://support.assembled.com)
-- [Privacy Policy](https://www.assembled.com/privacy)
-- [Terms of Service](https://www.assembled.com/terms)
-- [Trust Center](https://trust.assembled.com)
-- [Security Policy](https://www.assembled.com/security)
-- [GitHub Organization](https://github.com/assembledhq)
-- [SDK](https://github.com/assembledhq/assembled-chat-ios-sdk)
-- [SDK](https://github.com/assembledhq/assembled-chat-android-sdk)
-- [LinkedIn](https://www.linkedin.com/company/assembledhq)
-- [Twitter](https://twitter.com/assembledhq)
-- [YouTube](https://www.youtube.com/@assembledhq)
-- [App Exchange](https://appexchange.salesforce.com/appxListingDetail?listingId=22604eaa-c6cf-4357-bec0-297e4236345f)
-- [Integrations](https://www.assembled.com/integrations)
-- [Product](https://www.assembled.com/products/workforce-management)
-- [Product](https://www.assembled.com/products/ai-agents)
-- [Product](https://www.assembled.com/products/ai-copilot)
-- [Product](https://www.assembled.com/products/vendor-management)
-- [JSON-LD](json-ld/assembled-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [Vocabulary](vocabulary/assembled-vocabulary.yml)
-- [Spectral Ruleset](rules/assembled-rules.yml)
-- [Features](undefined)
+- [Blog](https://www.assembled.com/blog)
+- [Trust centre](https://trust.assembled.com)
+- [Terms of service](https://www.assembled.com/terms)
+- [Privacy policy](https://www.assembled.com/privacy)
+- [GitHub](https://github.com/assembledhq)
+- [Status](https://status.assembled.com)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** info@apievangelist.com
-**URL:** https://apievangelist.com
+**Kin Score 51.7** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 62.5 |
+| Contract quality | 56.3 |
+| Contract governance | 27.3 |
+| Operational transparency | 34.2 |
+| Developer ergonomics | 58.3 |
+| Access clarity | 32.9 |
+
+**Agent readiness 23.0** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 22.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/assembled/](https://apis.io/providers/assembled/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Assembled: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/assembled/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
